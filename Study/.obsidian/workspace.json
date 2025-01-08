@@ -1,0 +1,222 @@
+{
+  "main": {
+    "id": "8e27f0bb3fb6622e",
+    "type": "split",
+    "children": [
+      {
+        "id": "2229e278d9cf9d61",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e1ab8c5c1dd84c18",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "모든 개발자를 위한 HTTP 웹 기본 지식"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8dec3593600a928e",
+    "type": "split",
+    "children": [
+      {
+        "id": "75872d4fd111e4b5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "27929ebbc290ff8b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "a57a626c39c6b955",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "fc509132cb8ed767",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "a4f474a0514b44f5",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {},
+              "icon": "clock",
+              "title": "Recent Files"
+            }
+          },
+          {
+            "id": "f9dd5e881afcbf61",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "da47ae6dd7fa3df9",
+    "type": "split",
+    "children": [
+      {
+        "id": "c2c40c467e3bea80",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "14cd7654389c60b3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "모든 개발자를 위한 HTTP 웹 기본 지식의 백링크"
+            }
+          },
+          {
+            "id": "165cf0a4bb9e9808",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "모든 개발자를 위한 HTTP 웹 기본 지식의 나가는 링크"
+            }
+          },
+          {
+            "id": "90a64939358d4b62",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9e1df587845f03bd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md"
+              },
+              "icon": "lucide-list",
+              "title": "모든 개발자를 위한 HTTP 웹 기본 지식 개요"
+            }
+          },
+          {
+            "id": "f71f0b5d41d778e3",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "2a4797b1d0b64515",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:퀵 스위처 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 데일리 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "e1ab8c5c1dd84c18",
+  "lastOpenFiles": [
+    "HTTP/HTTP.md",
+    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+    "Dongni.md",
+    "create a link.md",
+    "HTTP/.md",
+    "HTTP/무제 폴더",
+    "HTTP",
+    "Excalidraw/Drawing 2025-01-09 00.16.37.excalidraw.md",
+    "Excalidraw",
+    "Tags"
+  ]
+}

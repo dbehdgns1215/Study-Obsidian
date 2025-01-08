@@ -93,8 +93,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -208,9 +207,9 @@
   },
   "active": "e1ab8c5c1dd84c18",
   "lastOpenFiles": [
-    "HTTP/HTTP.md",
     "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "Dongni.md",
+    "HTTP/HTTP.md",
     "create a link.md",
     "HTTP/.md",
     "HTTP/무제 폴더",

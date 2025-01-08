@@ -5,12 +5,12 @@
       "path": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md"
     },
     {
-      "basename": "HTTP",
-      "path": "HTTP/HTTP.md"
-    },
-    {
       "basename": "Dongni",
       "path": "Dongni.md"
+    },
+    {
+      "basename": "HTTP",
+      "path": "HTTP/HTTP.md"
     }
   ],
   "omittedPaths": [],

@@ -84,7 +84,7 @@
             }
           },
           {
-            "id": "f9dd5e881afcbf61",
+            "id": "828a892de72f6681",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -93,7 +93,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -184,9 +185,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "65f33f3d2eec9656",
+            "type": "leaf",
+            "state": {
+              "type": "git-history-view",
+              "state": {},
+              "icon": "history",
+              "title": "History"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",

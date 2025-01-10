@@ -136,13 +136,16 @@ sticker: emoji//1f4c3
 	- HTTP : 80
 	- HTTPS : 443
 
-
-
-
+ 
 
 ---
 
 ## DNS
+**WHY USING DNS?
+
+**IP는 기억하기 어렵다
+![[Pasted image 20250110235056.png]]
+
 
 
 ---

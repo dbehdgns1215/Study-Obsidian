@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2229e278d9cf9d61",
+        "id": "b74d34f62784f044",
         "type": "tabs",
         "children": [
           {
-            "id": "e1ab8c5c1dd84c18",
+            "id": "eb1ccfcb96d7c0e3",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -93,8 +93,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -216,8 +215,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e1ab8c5c1dd84c18",
+  "active": "eb1ccfcb96d7c0e3",
   "lastOpenFiles": [
+    "Dongni.md",
+    "HTTP/HTTP.md",
+    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "Pasted image 20250110233230.png",
     "Pasted image 20250110232457.png",
     "Pasted image 20250110232308.png",
@@ -226,9 +228,6 @@
     "Pasted image 20250110231804.png",
     "Pasted image 20250110231621.png",
     "Pasted image 20250110230849.png",
-    "HTTP/HTTP.md",
-    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
-    "Dongni.md",
     "create a link.md",
     "HTTP/.md",
     "HTTP/무제 폴더",

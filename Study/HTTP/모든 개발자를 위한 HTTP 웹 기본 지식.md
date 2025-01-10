@@ -1,5 +1,5 @@
 ---
-sticker: emoji//1f4c4
+sticker: emoji//1f4c3
 ---
 # 섹션 2 - 인터넷 네트워크
 
@@ -8,6 +8,8 @@ sticker: emoji//1f4c4
 
 **인터넷 상에서 컴퓨터 둘은 어떻게 통신할까?
 ![[Pasted image 20250110230849.png]]
+
+---
 
 ## IP(인터넷 프로토콜)
 
@@ -34,7 +36,9 @@ sticker: emoji//1f4c4
 	- 같은 IP를 사용하는 서버에서 통신하는 애플리케이션이 둘 이상이면?
 
 ### 해결방법
-TCP/UDP 프로토콜
+-> TCP/UDP 프로토콜
+
+---
 
 ## TCP, UDP
 
@@ -96,12 +100,11 @@ TCP/UDP 프로토콜
 
 웹 브라우저에서 HTTP 통신할 때 사용하는 HTTP 3의 스펙이 공개되었는데, 여기서 TCP/IP handshaking 과 관련해서 SYN 보내고 ACK 보내고 하는 것들까지 줄여서 최적화해보자 하는 움직임으로 UDP 프로토콜을 사용했었기 때문.
 
-
-
-
 ---
 
 ## PORT
+
+
 ## DNS
 
 

@@ -197,9 +197,60 @@ Uniform Resource Identifier
 - *URN 이름만으로 실제 리소스를 찾을 수 있는 방법이 보편화되어 있지 않음.*
 - 따라서 URL이 주로 쓰이게 되며, URI를 URL과 같은 의미로 보아도 큰 문제는 없음(?)
 
+### **URL
+전체 문법
+
+- scheme://\[userinfo@]host\[:port]\[/path]\[?query]\[#fragment]
+- http://www.google.com:443/search?q=hello&hl=ko
+
+- 프로토콜 (https)
+- 호스트명 (www.google.com)
+- 포트 번호 (443)
+- 패스 (\/search)
+- 쿼리 파라미터 (\q=hello&hl=ko)
+
+**scheme (http://)
+스키마는 주로 프로토콜이 사용되고 있음
+- 프로토콜: 어떤 방식으로 자원에 접근할 것인가 하는 약속 규칙
+	- 예) http, https, ftp 등등
+- http는 80포트, https는 443 포트를 주로 사용, =포트는 생략 가능
+- https는 http에 보안 기능이 추가된 것 (HTTP Secure)
+
+ **userinfo ()
+ - URL에 사용자 정보를 포함해서 인증 받음
+ - 다만, 거의 사용하지 않음
+
+**host (www.google.com)
+- 호스트명
+- 도메인명 또는 IP 주소를 직접 사용 가능함
+
+**PORT (:443)
+- 접속 포트
+- 일반적으로는 생략, 생략시에 http는 80, https는 443
+
+**path (\/search)
+- 리소스 경로(path), 계층적 구조
+- 예)
+	- \/home/file1.jpg
+	- \/members
+	- \/memvers/100, \/items/iphone12
+
+**query (?q=hello&hl=ko)
+- key = value 의 형태
+- ?로 시작, &로 추가 가능 ?keyA=valueA&keyB=valueB
+- query parameter, query string 등으로 불림, 웹 서버에 제공하는 파라미터 문자 형태
+
+**fragment ()
+- html 내부 북마크 등에 사용
+- 서버에 전송하는 정보는 아님
 
 ## 웹 브라우저 요청 흐름
 
+http://www.google.com:443/search?q=hello&hl=ko
+만약 위 주소로 요청을 보낸다고 생각해보자.
+
+![[Pasted image 20250111220605.png]]
+1. 첫 번째로
 
 ---
 

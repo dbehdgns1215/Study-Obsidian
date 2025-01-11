@@ -102,7 +102,7 @@ sticker: emoji//1f4c3
 
 ---
 
-## PORT
+## **PORT
 **한번에 둘 이상 연결해야 한다면?
 ![[Pasted image 20250110233656.png]]
 
@@ -171,6 +171,15 @@ sticker: emoji//1f4c3
 
 
 ## URI
+Uniform Resource Identifier
+
+**URI? URL? URN?
+
+- **URI는 로케이터(Locator), 이름(Name) 또는 둘 다 추가로 분류될 수 있다.
+![[Pasted image 20250111214703.png]]
+
+
+
 ## 웹 브라우저 요청 흐름
 
 

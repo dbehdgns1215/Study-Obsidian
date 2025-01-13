@@ -478,7 +478,11 @@ TCP/IP 패킷을 간략하게 다시 설명하면
 - 지금은 HTTP 지속 연결(Persistent Connvections)로 문제 해결
 - HTTP/2, HTTP/3에서 더 많은 최적화가 이루어짐.
 
+![[Pasted image 20250114005434.png]]
 
+**HTTP 지속 연결(Persistent Connections) 
+
+![[Pasted image 20250114005630.png]]
 
 ## HTTP 메시지
 

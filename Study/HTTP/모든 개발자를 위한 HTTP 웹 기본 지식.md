@@ -507,6 +507,8 @@ TCP/IP 패킷을 간략하게 다시 설명하면
 
 ![[Pasted image 20250114010344.png]]
 
+![[Pasted image 20250114010610.png]]
+
 
 ---
 # 섹션 5 - HTTP 메서드

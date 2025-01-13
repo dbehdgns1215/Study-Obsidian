@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "eb1ccfcb96d7c0e3",
+            "id": "aac37b700ad8a4c1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -93,8 +93,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -216,7 +215,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "eb1ccfcb96d7c0e3",
+  "active": "aac37b700ad8a4c1",
   "lastOpenFiles": [
     "Pasted image 20250112010137.png",
     "Pasted image 20250112005701.png",

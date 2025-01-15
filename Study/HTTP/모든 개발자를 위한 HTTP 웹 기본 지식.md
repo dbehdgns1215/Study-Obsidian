@@ -651,7 +651,8 @@ URI(Uniform Resource Identifier)
 	- POST와 차이점
 		- POST는 리소스의 위치를 알지 못하는 반면, PUT은 알고있기 때문에 애초부터 /members/100 과 같이 접근함.
 
-
+- 주의! 리소스를 완전히 대체한다!
+	- ![[Pasted image 20250115145903.png]]
 ## HTTP 메서드의 속성
 
 

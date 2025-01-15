@@ -649,6 +649,7 @@ URI(Uniform Resource Identifier)
 - 중요! 클라이언트가 리소스를 식별
 	- 클라이언트가 리소스 위치를 알고 URI를 지정
 	- POST와 차이점
+		- POST는 리소스의 위치를 알지 못하는 반면, PUT은 알고있기 때문에 애초부터 /members/100 과 같이 접근함.
 
 
 ## HTTP 메서드의 속성

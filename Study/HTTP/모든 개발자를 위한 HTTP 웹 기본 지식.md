@@ -652,8 +652,32 @@ URI(Uniform Resource Identifier)
 		- POST는 리소스의 위치를 알지 못하는 반면, PUT은 알고있기 때문에 애초부터 /members/100 과 같이 접근함.
 
 - 주의! 리소스를 완전히 대체한다!
-	- ![[Pasted image 20250115145903.png]]
+- ![[Pasted image 20250115150015.png]]
+
+
+- ![[Pasted image 20250115150131.png]]
+
+기존걸 완전히 부수고 새롭게
+
+
+#### **PATCH
+> PATCH /members/100 HTTP/1.1
+> Content-Type: application/json
+> {
+> 	"age - 50"
+> }
+
+- 리소스 부분 변경
+
+#### **DELETE
+> DELETE /members/100 HTTP/1.1
+> Host: localhost:8080
+
+- 리소스 제거
+
 ## HTTP 메서드의 속성
+
+
 
 
 

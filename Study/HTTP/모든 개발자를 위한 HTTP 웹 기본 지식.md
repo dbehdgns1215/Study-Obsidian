@@ -639,9 +639,16 @@ URI(Uniform Resource Identifier)
 	- 예) JSON으로 조회 데이터를 넘겨야 하는데, GET 메서드를 사용하기 어려운 경우
 	- 애매하면 POST
 
-
 ## HTTP 메서드 - PUT, PATCH, DELETE
 
+#### **PUT
+- 리소스를 대체
+	- 리소스가 있으면 대체
+	- 리소스가 없으면 생성
+	- 쉽게 이야기해서 덮어버림
+- 중요! 클라이언트가 리소스를 식별
+	- 클라이언트가 리소스 위치를 알고 URI를 지정
+	- POST와 차이점
 
 
 ## HTTP 메서드의 속성

@@ -678,8 +678,10 @@ URI(Uniform Resource Identifier)
 ## HTTP 메서드의 속성
 
 - 안전(Safe Methods)
-- 멱덩(Idempotent Methods)
+- 멱등(Idempotent Methods)
 - 캐시가능(Cacgeable Methods)
+
+![[Pasted image 20250115152040.png]]
 
 #### **안전
 Safe
@@ -689,6 +691,16 @@ Safe
 - A: 안전은 해당 리소스만을 고려한다. 그런 부분까지 고려하지 않는다.
 
 
+#### **멱등
+Idempotent
+
+- f(f(x)) = f(x)
+- 한 번 호출하든 두 번 호출하든 100번 호출하든 결과가 똑같다.
+- 멱등 메서드
+	- **GET:** 한 번 조회하든, 두 번 조회하든 같은 결과가 조회된다.
+	- **PUT:** 결과를 대체한다. 따라서 같은 요청을 여러번 해도 최종 결과는 같다.
+	- **DELETE:** 결과를 삭제한다. 같은 요청을 여러번 해도 삭제된 결과는 같다.
+	- **POST:** 멱등이 아니다! 두 번 호출하면 같은 결제가 중복해서 발생할 수 있다.
 
 
 

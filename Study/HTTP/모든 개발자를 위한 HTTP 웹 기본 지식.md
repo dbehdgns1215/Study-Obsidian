@@ -679,7 +679,15 @@ URI(Uniform Resource Identifier)
 
 - 안전(Safe Methods)
 - 멱덩(Idempotent Methods)
-- 캐시가능(Cacgeable Method)
+- 캐시가능(Cacgeable Methods)
+
+#### **안전
+Safe
+
+- 호출해도 리소스를 변경하지 않는다.
+- 그래도 계속 호출해서, 로그 같은게 쌓여서 장애가 발생하면요?
+- A: 안전은 해당 리소스만을 고려한다. 그런 부분까지 고려하지 않는다.
+
 
 
 

@@ -677,7 +677,9 @@ URI(Uniform Resource Identifier)
 
 ## HTTP 메서드의 속성
 
-
+- 안전(Safe Methods)
+- 멱덩(Idempotent Methods)
+- 캐시가능(Cacgeable Method)
 
 
 

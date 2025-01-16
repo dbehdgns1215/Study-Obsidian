@@ -756,6 +756,9 @@ Chacheable
 	- 회원 가입, 상품 주문, 데이터 변경
 ![[Pasted image 20250116092343.png]]
 
+좋지 않은 예
+![[Pasted image 20250116092616.png]]
+
 
 
 - **HTTP API를 통한 데이터 전송

@@ -815,7 +815,7 @@ API 설계 - POST 기반 등록
 - **회원** 수정 /members/{id} -> **PATCH, PUT, POST
 - **회원** 삭제 /members/{id} -> **DELETE
 
-##### POST - 신규 자원 등록 특징
+##### **POST - 신규 자원 등록 특징
 - 클라이언트는 등록될 리소스의 URI를 모른다. (id 값은 서버 측에서 생성되기 때문)
 	- 회원 등록 /members -> POST
 	- POST / members
@@ -827,6 +827,14 @@ API 설계 - POST 기반 등록
 	- 서버가 리소스의 URI를 생성하고 관리
 	- 여기서 컬렉션은 /members
 
+#### **파일 관리 시스템
+API 설계 - PUT 기반 등록
+
+- **파일** 목록 /files -> **GET
+- **파일** 조회 /files/{filename} -> **GET
+- **파일** 등록 /files/{filename} -> **PUT
+- **파일** 삭제 /files/{filename} -> **DELETE
+- **파일** 대량 등록 /files -> **POST**
 
 ---
 

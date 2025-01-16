@@ -936,7 +936,21 @@ API 설계 - PUT 기반 등록
 
 
 ## 3xx - 리다이렉션 1
-**
+**요청을 완료하기 위해 유저 에이전트(클라이언트의 프로그램, 주로 웹 브라우저)의 추가 조치 필요
+- 300 Multiple Choices
+- 301 Moved Permanently
+- 302 Found
+- 303 See Other
+- 304 Not Modified
+- 307 Temporary Redirect
+- 308 Permanent Redirect
+
+### 리다이렉션의 이해
+- **웹 브라우저는 3xx 응답의 결과에 Location 헤더가 있으면, Location 위치로 자동 이동(리다이렉트)
+
+![[Pasted image 20250116133619.png]]
+
+
 
 ## 3xx - 리다이렉션 2
 

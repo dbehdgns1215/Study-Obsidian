@@ -973,6 +973,8 @@ API 설계 - PUT 기반 등록
 
 ![[Pasted image 20250116135401.png]]
 
+![[Pasted image 20250116135649.png]]
+
 
 ## 3xx - 리다이렉션 2
 

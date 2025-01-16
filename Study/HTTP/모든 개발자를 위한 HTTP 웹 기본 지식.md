@@ -836,6 +836,16 @@ API 설계 - PUT 기반 등록
 - **파일** 삭제 /files/{filename} -> **DELETE
 - **파일** 대량 등록 /files -> **POST**
 
+##### **PUT - 신규 자원 등록 특징
+- 클라이언트가 리소스 URI를 알고 있어야만 한다.
+	- 파일 등록 /files/{filename} -> **PUT
+	- PUT /files/star.jpg
+- 클라이언트가 직접 리소스의 URI를 지정한다.
+- 스토어(Store)
+	- 클라이언트가 관리하는 리소스 저장소
+	- 클라이언트가 리소스의 URI를 알고 관리
+	- 여기서 스토어는 /files
+
 ---
 
 # 섹션 7 - HTTP 상태코드

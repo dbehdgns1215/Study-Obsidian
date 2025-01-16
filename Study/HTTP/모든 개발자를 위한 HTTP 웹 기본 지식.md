@@ -779,6 +779,21 @@ Chacheable
 - **HTTP API를 통한 데이터 전송
 	- 회원 가입, 상품 주문, 데이터 변경
 	- 서버 to 서버, 앱 클라이언트, 웹 클라이언트(Ajax)
+![[Pasted image 20250116093332.png]]
+- 직접 만들어서 넘겨주면 된다
+
+**정리
+- **서버 to 서버**
+	- 백엔드 시스템 통신
+- 앱 클라이언트
+	- 아이폰, 안드로이드
+- 웹 클라이언트
+	- HTML에서 Form 전송 대신 자바 스크립트를 통한 통신에 사용(AJAX)
+	- 예) React, Vue.JS 같은 웹 클라이언트와 API 통신
+- POST, PUT, PATCH: 메시지 바디를 통해 데이터 전송
+- GET: 조회, 쿼리 파라미터로 데이터 전달
+- Content-Type: application/json을 주로 사용 (사실상 표준)
+	- TEXT, XML, JSON 등등
 
 ## HTTP API 설계 예시
 

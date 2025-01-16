@@ -908,12 +908,22 @@ API 설계 - PUT 기반 등록
 	- 451 ??? -> 4xx (Client Error)
 	- 599 ??? -> 5xx (Server Error)
 
-
+##### 1xx (Informational)
+**요청이 수신되어 처리 중
+- 거의 사용하지 않으므로 생략
 ## 2xx - 성공
+**클라이언트의 요청을 성공적으로 처리
+- 200 OK
+- 201 Created
+- 202 Accepted
+- 204 No Content
 
+![[Pasted image 20250116132526.png]]
+
+![[Pasted image 20250116132558.png]]
 
 ## 3xx - 리다이렉션 1
-
+**
 
 ## 3xx - 리다이렉션 2
 

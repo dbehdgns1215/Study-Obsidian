@@ -759,6 +759,8 @@ Chacheable
 좋지 않은 예
 ![[Pasted image 20250116092616.png]]
 
+파일을 전송할 때
+![[Pasted image 20250116092726.png]]
 
 
 - **HTTP API를 통한 데이터 전송

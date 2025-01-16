@@ -860,6 +860,16 @@ API 설계 - PUT 기반 등록
 - **회원** 수정 /members/{id}/edit, /members/{id} -> **POST**
 - **회원** 삭제 /members/{id}/delete -> **POST**
 
+- HTML FORM은 **GET, POST**만 지원
+- **컨트롤 URI
+	- GET, POST만 지원하므로 제약이 있음
+	- 이런 제약을 해결하기 위해 동사로 된 리소스 경로 사용
+	- POST의 **/new, /edit, /delete**가 컨트롤 URI
+	- HTTP 메서드로 해결하기 애매한 경우 사용 (HTTP API 포함)
+
+> 최대한 리소스의 개념을 유지하면서 설계하되, 적용시키기 어려울 때 컨트롤 URI를 사용
+
+
 
 ---
 

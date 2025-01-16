@@ -846,6 +846,21 @@ API 설계 - PUT 기반 등록
 	- 클라이언트가 리소스의 URI를 알고 관리
 	- 여기서 스토어는 /files
 
+##### **HTML FORM 사용
+- HTML FORM은 **GET, POST**만 지원
+- AJAX 같은 기술을 사용해서 해결 가능 -> 회원  API 참고
+- 여기서는 순수 HTML, HTML FORM 이야기
+- GET, POST만 지원하므로 제약이 없음
+
+- **회원** 목록 /members -> **GET** 
+- **회원** 등록 폼 /members/new -> **GET**
+- **회원** 등록 /members/new, /members -> **POST**
+- **회원** 조회 /members/{id} -> **GET**
+- **회원** 수정 폼 /members/{id}/edit -> **GET**
+- **회원** 수정 /members/{id}/edit, /members/{id} -> **POST**
+- **회원** 삭제 /members/{id}/delete -> **POST**
+
+
 ---
 
 # 섹션 7 - HTTP 상태코드

@@ -960,6 +960,8 @@ API 설계 - PUT 기반 등록
 	- PRG: Post/Redirect/Get
 - 특수 리다이렉션
 	- 결과 대신 캐시를 사용
+
+
 ## 3xx - 리다이렉션 2
 
 

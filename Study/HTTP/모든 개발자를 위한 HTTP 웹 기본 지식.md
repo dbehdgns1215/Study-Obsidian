@@ -815,6 +815,18 @@ API 설계 - POST 기반 등록
 - **회원** 수정 /members/{id} -> **PATCH, PUT, POST
 - **회원** 삭제 /members/{id} -> **DELETE
 
+##### POST - 신규 자원 등록 특징
+- 클라이언트는 등록될 리소스의 URI를 모른다.
+	- 회원 등록 /members -> POST
+	- POST / members
+- 서버가 새로 등록된 리소스 URI를 생성해준다.
+	- HTTP/1.1 201 Created
+	  Location: /members/100
+- 컬렉션(Collection)
+	- 서버가 관리하는 리소스 디렉토리
+	- 서버가 리소스의 URI를 생성하고 관리
+	- 여기서 컬렉션은 /members
+
 
 ---
 

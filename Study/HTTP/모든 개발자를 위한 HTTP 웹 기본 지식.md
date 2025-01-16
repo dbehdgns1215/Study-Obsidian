@@ -883,6 +883,8 @@ API 설계 - PUT 기반 등록
 	- 순수 HTML + HTML FORM 사용
 	- GET, POST만 지원
 
+![[Pasted image 20250116112455.png]]
+
 
 ---
 

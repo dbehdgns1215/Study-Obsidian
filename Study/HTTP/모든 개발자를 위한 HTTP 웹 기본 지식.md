@@ -1194,7 +1194,7 @@ message body - RFC7230(최신)
 - 이 상황에서는 지원 목록에 한국어가 없기 때문에 기본 언어인 독일어로 보내주게 됨
 
 
-#### **협상과 우선순위 1
+### **협상과 우선순위 1
 Quality Values(q)
 >GET /event
 >Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
@@ -1210,6 +1210,26 @@ Quality Values(q)
 
 #### **Accept-Language 복잡한 예시 (해결)
 ![[Pasted image 20250117101807.png]]
+### 협상과 우선순위 2
+Quality Values(q)
+> GET /event
+> Accept: **text/\*, text/plain, text/plain;format=flowed, \*/\*
+
+- 구체적인 것이 우선한다
+- Accept: **text/\*, text/plain, text/plain;format=flowed, \*/\*
+	1. text/plain;format=flowed
+	2. text/plain
+	3. text/\*
+	4. \*/\*
+
+
+### **협상과 우선순위 3
+Quality Values(q)
+
+- 구체적인 것을 기준으로 미디어 타입을 맞춘다
+- Accept: **text/\***;q=0.3, **text/html**;q=0.7, **text/html;level=1**, **text/html;level=2**;q=0.4, \*/\*;q=0.5
+![[Pasted image 20250117102537.png]]
+
 
 
 ## 전송 방식

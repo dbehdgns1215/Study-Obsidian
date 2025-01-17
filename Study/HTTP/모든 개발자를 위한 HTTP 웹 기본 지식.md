@@ -1084,6 +1084,7 @@ API 설계 - PUT 기반 등록
 
 #### **과거의 HTTP 헤더 분류
 RFC2616(과거)
+![[Pasted image 20250117093904.png]]
 - 헤더 분류
 	- General 헤더: 메시지 전체에 적용되는 정보
 		- 예) Connection: close
@@ -1094,6 +1095,14 @@ RFC2616(과거)
 	- Entity 헤더: 엔티티 바디 정보
 		- 예) Content-Type: text/html, Content-Length: 3423
 
+#### **HTTP BODY
+message body - RFC2616(과거)
+![[Pasted image 20250117093826.png]]
+
+- 메시지 본문(message body)은 엔티티 본문(entity body)을 전달하는데 사용
+- 엔티티 본문은 요청이나 응답에서 전달할 실제 데이터
+- **엔티티 헤더는 엔티티 본문**의 데이터를 해석할 수 있는 정보 제공
+	- 데이터 유형(html, json), 데이터 길이, 압축 정보 등등
 
 ## 표현
 

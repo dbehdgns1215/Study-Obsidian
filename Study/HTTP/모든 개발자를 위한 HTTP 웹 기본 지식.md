@@ -1179,8 +1179,34 @@ message body - RFC7230(최신)
 - Accept-Encoding: 클라이언트가 선호하는 압축 인코딩
 - Accept-Language: 클라이언트가 선호하는 자연 언어
 
+**클라이언트가 서버에게 *요구*하는 것. 물론 서버는 이를 못지켜줄 수도 있음. 
 - 협상 헤더는 요청시에만 사용
 
+#### **Accept-Language 적용 전
+![[Pasted image 20250117100519.png]]
+- 한국어 브라우저를 사용하고 있음에도 협상 헤더가 존재하지 않기 때문에, 서버는 기본 값인 영어로 데이터를 보냄
+
+#### **Accept-Language 적용 후
+![[Pasted image 20250117100701.png]]
+#### Accept-Language 복잡한 예시
+![[Pasted image 20250117100734.png]]
+- 기본 언어가 독일어로 되어있는데, 만약 한국어가 존재하지 않는다면 그나마 영어로 된 데이터를 주기를 원하는 상황
+- 이 상황에서는 지원 목록에 한국어가 없기 때문에 기본 언어인 독일어로 보내주게 됨
+
+
+#### **협상과 우선순위 1
+Quality Values(q)
+>GET /event
+>Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+
+- Quality Values(q) 값 사용
+- 0~1, **클수록 높은 우선순위
+- 생략하면 1
+- Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+	- 1. ko-KR;q=1(q 생략)
+	- 2. ko;q=0.9
+	- 3. en-US;q=0.8
+	- 4. en;q=0.7
 
 ## 전송 방식
 

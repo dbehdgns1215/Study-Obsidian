@@ -1577,7 +1577,6 @@ Secure, HttpOnly, SameSite
 - **if-modified-since** - 조건부 요청
 
 
-
 ## 검증 헤더와 조건부 요청 2
 
 

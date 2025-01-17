@@ -1098,11 +1098,31 @@ RFC2616(과거)
 #### **HTTP BODY
 message body - RFC2616(과거)
 ![[Pasted image 20250117093826.png]]
-
 - 메시지 본문(message body)은 엔티티 본문(entity body)을 전달하는데 사용
 - 엔티티 본문은 요청이나 응답에서 전달할 실제 데이터
 - **엔티티 헤더는 엔티티 본문**의 데이터를 해석할 수 있는 정보 제공
 	- 데이터 유형(html, json), 데이터 길이, 압축 정보 등등
+
+#### **HTTP 표준
+
+- **1999년 RFC2616 -> X (폐기)
+- **2014년 RFC7230~7235 -> O (신설)
+
+#### **RFC723x 변화
+- 엔티티(Entity) -> 표현(Representation)
+- Representation = representation Metadata + Representation Data
+- 표현 = 표현 메타데이터(표현 헤더) + 표현 데이터
+
+
+#### **HTTP BODY
+message body - RFC7230(최신)
+![[Pasted image 20250117094428.png]]
+- 메시지 본문(message body)을 통해 표현 데이터 전달
+- 메시지 본문 = 페이로드(payload)
+- **표현**은 요청이나 응답에서 전달할 실제 데이터
+- **표현 헤더는 표현 데이터**를 해석할 수 있는 정보 제공
+	- 데이터 유형(html, json), 데이터 길이, 압축 정보 등등
+- 참고: 표현 헤더는 표현 메타데이터와 페이로드 메시지를 구분해야 하지만, 복잡해지니 생략
 
 ## 표현
 

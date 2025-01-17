@@ -1293,7 +1293,16 @@ Quality Values(q)
 - 어떤 종류의 브라우저에서 장애가 발생하는지 파악 가능
 - 요청에서 사용
 
+#### **Server
+요청을 처리하는 ORIGIN 서버의 소프트웨어 정보
+- Server: Apache/2.2.22 (Debian)
+- server: nginx
+- 응답에서 사용
 
+#### **Date
+메시지가 발생한 날짜와 시간
+- Date: Tue, 15 Nov 1994 08:12:31 GMT
+- 응답에서 사용
 ## 특별한 정보
 
 

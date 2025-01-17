@@ -1125,7 +1125,13 @@ message body - RFC7230(최신)
 - 참고: 표현 헤더는 표현 메타데이터와 페이로드 메시지를 구분해야 하지만, 복잡해지니 생략
 
 ## 표현
+![[Pasted image 20250117094645.png]]
+- Content-Type: 표현 데이터의 형식
+- Content-Encoding: 표현 데이터의 압축 방식
+- Content-Language: 표현 데이터의 자연 언어
+- Content-Length: 표현 데이터의 길이
 
+- 표현 헤더는 전송, 응답시에 둘다 사용
 
 ## 콘텐츠 협상
 

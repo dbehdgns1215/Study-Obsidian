@@ -1284,6 +1284,16 @@ Quality Values(q)
 - 요청에서 사용
 - 참고: referer는 단어 referrer의 오타
 
+
+#### **User-Agent
+유저 에이전트 애플리케이션 정보
+- user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36
+- 클라이언트의 애플리케이션 정보(웹 브라우저 정보 등등)
+- 통계 정보
+- 어떤 종류의 브라우저에서 장애가 발생하는지 파악 가능
+- 요청에서 사용
+
+
 ## 특별한 정보
 
 

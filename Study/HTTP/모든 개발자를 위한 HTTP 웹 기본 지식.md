@@ -1609,6 +1609,18 @@ Last-Modified, If-Modified-Since 단점
 - 서버에서 별도의 캐시 로직을 관리하고 싶은 경우
 	- 예) 스페이스나 주석처럼 크게 영향이 없는 변경에서 캐시를 유지하고 싶은 경우
 
+
+### **검증 헤더와 조건부 요청
+ETag, If-None-Match
+
+- ETag(Entity Tag)
+-  캐시용 데이터에 임의의 고유한 버전 이름을 달아둠
+	- 예) ETag: "v1.0", ETag: "a2jiodwjekjl3"
+- 데이터가 변경되면 이 이름을 바꾸어서 변경함 (Hash를 다시 생성)
+	- 예) ETag: "aaaaa" -> ETag: "bbbbb"
+- 진짜 단순하게 ETag만 보내서 같으면 유지, 다르면 다시 받기
+
+
 ## 캐시와 조건부 요청 헤더
 
 

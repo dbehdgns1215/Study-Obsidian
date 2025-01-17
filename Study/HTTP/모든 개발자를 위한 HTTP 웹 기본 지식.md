@@ -1684,7 +1684,35 @@ ETag, If-None-Match 정리
 - HTTP 1.0부터 사용
 - 지금은 더 유연한 Cache-Control: max-age 권장
 - Chche-Control: max-age와 함께 사용하던 Expires는 무시
+
+
+### **검증 헤더와 조건부 요청 헤더
+
+- **검증 헤더 (Validator)
+	- **ETag: "v1.0", ETag: "asid93jkrh2l"
+	- **Last-Modified: Thu, 04 Jun 2020 07:19:24 GMT
+- **조건부 요청 헤더
+	- **If-Match, If-None-Match: ETag 값 사용
+	- If-modified-Since, If-Unmodified-Since: Last-Modified 값 사용
+
 ## 프록시 캐시
+
+### **원 서버 직접 접근
+origin 서버
+![[Pasted image 20250117163624.png]]
+- 현재와 같은 상황이면 한국에 있는 클라이언트들은 모두 0.5초(가정)씩을 기다려야만 한다
+
+![[Pasted image 20250117163713.png]]
+- 프록시 캐시 서버를 도입하게 되면 원서버의 부하를 줄일 수도 있고 전달 속도도 더 빠르게 만들 수 있게 된다
+
+
+
+> 1. **프록시 서버 (Proxy Server)
+>    - 클라이언트와 서버 사이의 중계 서버
+> 2. 프록시 캐시 서버 (Proxy Cache Server)
+>    - 클라이언트와 서버 사이의 중계 서버이나, 캐싱 기능을 메인으로 하는 서버
+> 3. CDN (Contents Delivery Network)
+>    - 웹 컨텐츠 전달을 목적으로 전 세계에 분산된 배포 서버 네트워크
 
 
 ## 캐시 무효화

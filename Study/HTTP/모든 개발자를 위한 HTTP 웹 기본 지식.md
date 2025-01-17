@@ -1525,6 +1525,9 @@ Secure, HttpOnly, SameSite
 
 #### 세 번쨰 요청 - 캐시 시간 초과
 ![[Pasted image 20250117143310.png]]
+![[Pasted image 20250117144603.png]]
+- 응답 헤더에 포함된 시간만큼 지나게 되면 다시금 클라이언트는 캐시를 발급받아야 함
+ 
 
 
 

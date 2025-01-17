@@ -1482,11 +1482,11 @@ Path
 Secure, HttpOnly, SameSite
 
 - Secure
-	- 쿠키는 http, https를 구분하지 않고 전송
+	- 기본적으로 쿠키는 http, https를 구분하지 않고 전송
 	- Secure를 적용하면 https인 경우에만 전송
 - HttpOnly
 	- XSS 공격 방지
-	- 자바스크립트에서 접근 불가(document.cookie)
+	- 원래는자바스크립트에서 접근이 가능한데 이를 접근 불가능(document.cookie)하게 만드는 것
 	- HTTP 전송에만 사용
 - SameSite
 	- XSRF 공격 방지

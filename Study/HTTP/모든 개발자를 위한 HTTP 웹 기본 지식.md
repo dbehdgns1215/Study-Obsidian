@@ -1303,10 +1303,78 @@ Quality Values(q)
 메시지가 발생한 날짜와 시간
 - Date: Tue, 15 Nov 1994 08:12:31 GMT
 - 응답에서 사용
+
+
 ## 특별한 정보
+
+- Host: 요청한 호스트 정보 (도매인)
+- Location: 페이지 리다이렉션
+- Allow: 허용 가능한 HTTP 메서드
+- Retry-After: 유저 에이전트가 다음 요청을 하기까지 기다려야 하는 시간
+
+
+#### **Host
+요청한 호스트 정보 (도메인)
+> GET /search?q=hello&hl=ko HTTP/1.1
+> Host: www.google.com
+
+- **요청에서 사용(필수값)
+- 필수
+- 하나의 서버가 여러 도메인을 처리해야 할 때
+- 하나의 IP 주소에 여러 도메인이 적용되어 있을 때
+
+![[Pasted image 20250117112647.png]]
+
+- 가상 호스트를 통해서 여러 도메인을 한번에 처리할 수 있는 서버가 존재한다고 가정해보자.
+
+![[Pasted image 20250117112740.png]]
+- 그리고 클라이언트가 서버에게 요청을 보낸다면 무슨 일이 생길까?
+
+![[Pasted image 20250117112806.png]]
+- 서버의 입장에서는 /hello라는 요청이 어느 도메인과 관련된 것인지 구별할 방법이 없게된다
+
+**따라서 호스트 스펙이 개정되게 되었고, 다음과 같이 변화하게 되었다.
+![[Pasted image 20250117112951.png]]
+
+
+#### **Location
+페이지 리다이렉션
+- 웹 브라우저는 3xx 응답의 결과에 Location 헤더가 있으면 Location 위치로 자동 이동된다 (리다이렉트)
+- 응답코드 3xx에서 설명
+- 201 (Created): Location  값은 요청에 의해 성성된 리소스 URI
+- 3xx (Redirection): Location 값은 요청을 자동으로 리디렉션하기 위한 대상 리소스를 가리킴
+
+
+#### **Allow
+허용 가능한 HTTP 메서드
+- 405 (Method Not Allowed)에서 응답에 포함해야함
+- Allow: GET, HEAD, PUT
+- 사실상 서버들한테서 많이 구현되어 있지는 않음
+
+
+#### **Retry-After
+유저 에이전트가 다음 요청을 하기까지 기다려야 하는 시간
+
+- 503 (Service Unavailable): 서비스가 언제까지 불능인지 알려줄 수 있음
+- Retry-After: Fri, 31 Dec 1999 23:59:59 GMT (날짜 표기)
+- Retry-After: 120 (초단위 표기)
+- 마찬가지로 이것도 사용하기 쉽지 않음
 
 
 ## 인증
+
+- Authorization: 클라이언트 인증 정보를 서버에 전달
+- WWW-Authenticate: 리소스 접근시 필요한 인증 방법 정의
+
+#### **Authorization
+클라이언트 인증 정보를 서버에 전달
+- Authorization: Basic xxxxxxxxxxxxxxx
+
+
+#### **WWW-Authenticate
+리소스 접근시 필요한 인증 방법 정의
+
+
 
 
 ## 쿠키

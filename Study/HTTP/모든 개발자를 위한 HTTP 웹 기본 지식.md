@@ -1731,8 +1731,37 @@ origin 서버
 	- 프록시 캐시에만 적용되는 max-age
 - **Age: 60** (HTTP 헤더)
 	- 오리진 서버에서 응답 후 프록시 캐시 내에 머문 시간 (초)
+	- 프록시 캐시 서버 내에서 체류한 시간을 의미
 
 
 ## 캐시 무효화
+
+### **Cache-Control
+확실한 캐시 무효화 응답
+
+- **Cache-Control: no-cache, no-store, must-revalidate
+- **Pragma: no-cache
+	- HTTP 1.0 하위 호환
+
+**확실하게 캐시를 무효화하기 위해서 위와 같은 헤더들을 모두 포함시켜주면 됨
+- 왜 무효화하나?
+	- 캐싱되면 안되는 페이지 (개인정보와 관련된?)
+
+### **Cache-Control
+캐시 지시어(directives) - 확실한 캐시 무효화 설명
+
+- **Cache-Control: no-cache
+	- 데이터는 캐시해도 되지만, 항상 **원 서버에 검증**받고 사용(이름에 주의)
+- **Cache-Control: no-store
+	- 데이터에 민감한 정보가 있으므로 저장하면 안됨
+	  (메모리에서 사용하고 최대한 빨리 삭제해야함)
+- **Cache-Control: must-revalidate
+	- 캐시 만료 후 최초 조회시 **원 서버에 검증**해야함
+	- 원 서버 접근 실패시 반드시 오류가 발생해야함 - **504(Gateway Timeout)
+	- must-revalidate는 캐시 유효 시간이라면 캐시를 사용함
+- **Pragma: no-cache
+	- HTTP 1.0 하위 호환을 위해서
+	- 혹시나 옛날 브라우저에서 요청이 올 수도 있으니 방지 차원에서
+
 
 ---

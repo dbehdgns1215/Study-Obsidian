@@ -1450,7 +1450,21 @@ Expires, max-age
 - 세션 쿠키: 만료 날짜를 생략하면 브라우저 종료시 까지만 유지
 - 영속 쿠키: 만료 날짜를 입력하면 해당 날짜까지 유지
 
+### **쿠키 - 도메인
+Domain
 
+- 예) domain=example.org
+- **명시: 명시한 문서 기준 도메인 + 서브 도메인 포함
+	- domain=example.org를 지정해서 쿠키 생성
+		- example.org는 물론이고
+		- dev.example.org도 쿠키 접근
+- **생략: 현재 문서 기준 도메인만 적용
+	- example.org에서 쿠키를 생성하고 domain 지정을 생략
+		- example.org에서만 쿠키 접근
+		- dev.example.org는 쿠키 미접근
+
+
+### **쿠키 - 경로
 
 
 

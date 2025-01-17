@@ -1465,7 +1465,18 @@ Domain
 
 
 ### **쿠키 - 경로
- 
+Path
+
+- 예) path=/home
+- **이 경로를 포함한 하위 경로 페이지만 쿠키 접근
+- **일반적으로 path=/ 루트로 지정
+- 예)
+	- **path=/home 지정
+	- /home -> 가능
+	- /home/level1 -> 가능
+	- /home/level1/level2 -> 가능
+	- /hello -> 불가능
+
 
 
 

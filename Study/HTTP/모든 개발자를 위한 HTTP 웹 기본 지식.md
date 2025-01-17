@@ -1230,9 +1230,39 @@ Quality Values(q)
 - Accept: **text/\***;q=0.3, **text/html**;q=0.7, **text/html;level=1**, **text/html;level=2**;q=0.4, \*/\*;q=0.5
 ![[Pasted image 20250117102537.png]]
 
-
-
 ## 전송 방식
+- Transfer-Encoding
+- Range, Content-Range
+
+#### **전송 방식 설명
+- 단순 전송
+- 압축 전송
+- 분할 전송
+- 범위 전송
+
+#### **단순 전송
+![[Pasted image 20250117102902.png]]
+- 단순 전송은 쉽게 말해서 요청을하면 응답을 주는 것
+- 단, Content-Length를 지정해주어야 하기 때문에 Content의 길이를 알고 있을 때 사용
+
+
+#### 압축 전송
+![[Pasted image 20250117103131.png]]
+- Content-Encoding 헤더를 꼭 넣어주어야 함
+- 단순 전송에 비해서 헤더가 가벼워짐
+
+
+#### **분할 전송
+![[Pasted image 20250117103257.png]]
+
+- Content-Length가 예상되지 않기 때문에 넣으면 안됨.
+- 대신 각 청크마다 바이트 크기는 나와있음
+
+
+#### **범위 전송
+![[Pasted image 20250117103505.png]]
+- Content-Range: bytes 1001-2000 (범위) / 2000 (끝 값)
+
 
 
 ## 일반 정보

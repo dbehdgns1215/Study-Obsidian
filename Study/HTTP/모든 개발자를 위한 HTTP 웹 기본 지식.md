@@ -1714,6 +1714,24 @@ origin 서버
 > 3. CDN (Contents Delivery Network)
 >    - 웹 컨텐츠 전달을 목적으로 전 세계에 분산된 배포 서버 네트워크
 
+![[Pasted image 20250117164419.png]]
+- 사실상 최초의 요청에서는 프록시 캐시 서버에 데이터가 없기 때문에 최초의 클라이언트는 비교적 느리게 데이터를 받게 됨
+- 다만 한 번 다운로드 받아놓으면 두 번째 클라이언트부터는 빠르게 중개 가능
+- private 캐시: 내 웹 브라우저, 내 로컬에 저장되어 있는 캐시
+- public 캐시: 모두가 사용할 수 있는 공공재 캐시
+
+### **Cache-Control
+캐시 지시어(directives) - 기타
+
+- **Cache-Control: public
+	- 응답이 public 캐시에 저장되어도 됨
+- **Cache-Control: private
+	- 응답이 해당 사용자만을 위한 것임, private 캐시에 저장해야 함 (기본 값)
+- **Cache-Control: s-maxage
+	- 프록시 캐시에만 적용되는 max-age
+- **Age: 60** (HTTP 헤더)
+	- 오리진 서버에서 응답 후 프록시 캐시 내에 머문 시간 (초)
+
 
 ## 캐시 무효화
 

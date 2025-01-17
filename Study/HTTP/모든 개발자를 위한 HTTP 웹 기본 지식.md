@@ -1208,6 +1208,10 @@ Quality Values(q)
 	- 3. en-US;q=0.8
 	- 4. en;q=0.7
 
+#### **Accept-Language 복잡한 예시 (해결)
+![[Pasted image 20250117101807.png]]
+
+
 ## 전송 방식
 
 

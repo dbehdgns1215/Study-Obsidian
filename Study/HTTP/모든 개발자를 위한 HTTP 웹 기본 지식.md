@@ -1499,6 +1499,9 @@ Secure, HttpOnly, SameSite
 
 ## 캐시 기본 동작
 
+#### **캐시가 없을 때
+![[Pasted image 20250117142436.png]]
+
 
 ## 검증 헤더와 조건부 요청 1
 

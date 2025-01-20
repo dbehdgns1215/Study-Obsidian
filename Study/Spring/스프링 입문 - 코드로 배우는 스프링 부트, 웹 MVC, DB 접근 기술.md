@@ -112,7 +112,7 @@ C:\study\hello-spring\hello-spring\build\libs>java -jar hello-spring-0.0.1-SNAPS
 
 
 ## **MVC와 템플릿 엔진
-
+- html 파일을 템플릿 엔진
 
 ## **API
 

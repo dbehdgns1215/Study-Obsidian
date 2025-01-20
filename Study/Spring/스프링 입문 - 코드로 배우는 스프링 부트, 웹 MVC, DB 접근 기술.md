@@ -106,6 +106,9 @@ C:\study\hello-spring\hello-spring\build\libs>java -jar hello-spring-0.0.1-SNAPS
 # **섹션 3 - 스프링 웹 개발 기초
 
 ## **정적 컨텐츠
+- 스프링 부트 정적 컨텐츠 기능
+- 파일을 그대로 웹 브라우저에 전달해주는 방식
+
 
 
 ## **MVC와 템플릿 엔진

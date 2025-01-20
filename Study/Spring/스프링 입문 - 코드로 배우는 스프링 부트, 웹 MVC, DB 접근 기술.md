@@ -141,9 +141,13 @@ C:\study\hello-spring\hello-spring\build\libs>java -jar hello-spring-0.0.1-SNAPS
 
 - 해당 기능은 페이지를 띄우거나 문자를 띄우거나 하는 것에는 비효율적이지만, 데이터를 넘겨줄 때는 효율적이기 때문에 API 방식이 주로 사용된다
 
+![[Pasted image 20250120161801.png]]
+- Getter, Setter가 있는 클래스의 인스턴스를 반환해주게 되면 무슨 일이 생길까?
 
+![[Pasted image 20250120161845.png]]
 
-
+- JSON 방식으로 데이터를 내려주는 것을 확인할 수 있다
+- 
 ---
 
 # 섹션 4 - 회원 관리 예제 - 백엔드 개발

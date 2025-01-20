@@ -121,11 +121,24 @@ C:\study\hello-spring\hello-spring\build\libs>java -jar hello-spring-0.0.1-SNAPS
 ![[Pasted image 20250120155515.png]]
 - @Controller - 컨트롤러 어노테이션
 - @GetMapping - GET 메서드 어노테이션
-- @RequestParam - 매개변수를 파라미터로 넘겨받을 수 있게 해주는 어노테이션
+- @RequestParam - HTTP 요청의 파라미터를 컨트롤러 메서드의 파라미터로 바인딩해주는 어노테이션
+
 
 ## **API
+- ㄴ
 
 
+![[Pasted image 20250120160313.png]]
+- @ResponseBody - HTML 메시지의 body 부분에 **직접** 데이터를 반환하겠다는 어노테이션
+- MVC나 템플릿 엔진과는 다르게 문자 그대로가 반환된다
+	- @ResponseBody
+	- public String helloString(@RequestParan("name") String name)
+		- return "hello " + name;
+- 실제로 실행시켜보면 매개변수로 입력한 문자 그 자체만 출력되는 것을 알 수 있음
+	- html 태그같은 것도 없고 그냥 단순히 매개변수로 입력한 문자 그대로
+- ![[Pasted image 20250120161010.png]]
+- ![[Pasted image 20250120161029.png]]
+- 
 ---
 
 # 섹션 4 - 회원 관리 예제 - 백엔드 개발

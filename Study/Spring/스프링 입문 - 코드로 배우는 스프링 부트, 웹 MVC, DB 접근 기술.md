@@ -162,9 +162,15 @@ Java Bean 규약 - 프로퍼티 접근 방식, Getter & Setter, JavaBean 표준 
 HttpMessageConverter에 의해서 JSON 또는 String으로 변환되어서 HTTP 응답의 Body에 포함되게 되는 것
 
 
+#### **API 정리
+- `@ResponseBody`를 사용
+- HTTP의 BODY에 문자 내용을 직접 반환
+- `viewResolver` 대신에 `HttpMessageConverter`
+- 기본 문자처리: StringHttpMessageConverter
+- 기본 객체처리: MappingJackson2HttpMessageConverter
+-  스프링에는 byte 처리 등등 기타 여러 HttpMessageConverter가 기본으로 등록되어 있음
 
-
-
+> 참고: 클라이언트의 HTTP Accept 헤더와 서버의 컨트롤러 반환 타입 정보, 이 둘을 조합해서 `HttpMessageConverter`가 선택된다.
 
 ---
 

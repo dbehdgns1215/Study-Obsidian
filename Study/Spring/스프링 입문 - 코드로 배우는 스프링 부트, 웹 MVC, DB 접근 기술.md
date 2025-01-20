@@ -35,6 +35,37 @@
 
 
 ## **빌드하고 실행하기
+IDE에서 실행하는 것이 아닌 직접 빌드 후 실행
+
+윈도우 기준
+1. `cd C:\study\hello-spring\hello-spring`
+
+`C:\study\hello-spring\hello-spring>`
+
+`2025-01-20  오전 11:48             2,966 gradlew.bat`
+
+> 빌드 명령어
+
+2. `C:\study\hello-spring\hello-spring>gradlew.bat build`
+
+`Welcome to Gradle 8.11.1!
+
+Here are the highlights of this release:
+ - Parallel load and store for Configuration Cache
+ - Java compilation errors at the end of the build output
+ - Consolidated report for warnings and deprecations
+
+For more details see https://docs.gradle.org/8.11.1/release-notes.html
+
+Starting a Gradle Daemon, 1 incompatible Daemon could not be reused, use --status for details
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+BUILD SUCCESSFUL in 23s
+7 actionable tasks: 6 executed, 1 up-to-date
+C:\study\hello-spring\hello-spring>`
+
+3. `cd build/libs`
+
 
 ---
 

@@ -109,12 +109,19 @@ C:\study\hello-spring\hello-spring\build\libs>java -jar hello-spring-0.0.1-SNAPS
 - 스프링 부트 정적 컨텐츠 기능
 - 파일을 그대로 웹 브라우저에 전달해주는 방식
 
+![[Pasted image 20250120155453.png]]
+- 기본적으로 스프링 컨테이너는 컨트롤러에서 해당 요청이 정의되어 있는지를 확인함
+- 만약 정의되어 있지 않다면, static 디렉토리 하위에서 요청과 매칭되는 이름을 가진 html 파일을 찾아서 반환해줌
+
 
 
 ## **MVC와 템플릿 엔진
 - 템플릿 엔진이 렌더링을해서 변환된 html을 웹 브라우저로 전달해주는 방식
 
-
+![[Pasted image 20250120155515.png]]
+- @Controller - 컨트롤러 어노테이션
+- @GetMapping - GET 메서드 어노테이션
+- @RequestParam - 매개변수를 파라미터로 넘겨받을 수 있게 해주는 어노테이션
 
 ## **API
 

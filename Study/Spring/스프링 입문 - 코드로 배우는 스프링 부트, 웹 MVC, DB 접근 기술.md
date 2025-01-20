@@ -125,8 +125,6 @@ C:\study\hello-spring\hello-spring\build\libs>java -jar hello-spring-0.0.1-SNAPS
 
 
 ## **API
-- ㄴ
-
 
 ![[Pasted image 20250120160313.png]]
 - @ResponseBody - HTML 응답 메시지의 body 부분에 **직접** 데이터를 반환하겠다는 어노테이션
@@ -155,6 +153,17 @@ C:\study\hello-spring\hello-spring\build\libs>java -jar hello-spring-0.0.1-SNAPS
 Java Bean 규약 - 프로퍼티 접근 방식, Getter & Setter, JavaBean 표준 방식
 
 필드는 private 지시자를 통해서 접근할 수 없게 만들고, public 지시자를 사용하는 Getter와 Setter 메서드를 추가로 정의해서 외부에서도 접근할 수 있게끔 만듦
+
+또한, 스프링의 기본 정책 중 하나.
+@ResponseBody 어노테이션이 붙어있고, 반환하는 데이터가 **객체**인 경우에는 JSON 형식으로 HTTP 응답에 넘겨주는 것이 기본 정책이다.
+
+![[Pasted image 20250120162717.png]]
+
+HttpMessageConverter에 의해서 JSON 또는 String으로 변환되어서 HTTP 응답의 Body에 포함되게 되는 것
+
+
+
+
 
 
 ---

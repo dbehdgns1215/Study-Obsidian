@@ -201,7 +201,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -218,6 +219,9 @@
   },
   "active": "403adb2d3b0e98c5",
   "lastOpenFiles": [
+    "Pasted image 20250120091413.png",
+    "Pasted image 20250120091332.png",
+    "Pasted image 20250120091244.png",
     "Pasted image 20250117164419.png",
     "Pasted image 20250117163713.png",
     "Pasted image 20250117163624.png",
@@ -226,9 +230,6 @@
     "Pasted image 20250117155544.png",
     "Pasted image 20250117155507.png",
     "Pasted image 20250117155337.png",
-    "Pasted image 20250117155322.png",
-    "Pasted image 20250117155257.png",
-    "Pasted image 20250117155242.png",
     "섹션 3 - URI와 웹 브라우저 요청 흐름.md",
     "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "Dongni.md",

@@ -147,7 +147,16 @@ C:\study\hello-spring\hello-spring\build\libs>java -jar hello-spring-0.0.1-SNAPS
 ![[Pasted image 20250120161845.png]]
 
 - JSON 방식으로 데이터를 내려주는 것을 확인할 수 있다
-- 
+
+
+
+> **짤막 상식
+
+Java Bean 규약 - 프로퍼티 접근 방식, Getter & Setter, JavaBean 표준 방식
+
+필드는 private 지시자를 통해서 접근할 수 없게 만들고, public 지시자를 사용하는 Getter와 Setter 메서드를 추가로 정의해서 외부에서도 접근할 수 있게끔 만듦
+
+
 ---
 
 # 섹션 4 - 회원 관리 예제 - 백엔드 개발

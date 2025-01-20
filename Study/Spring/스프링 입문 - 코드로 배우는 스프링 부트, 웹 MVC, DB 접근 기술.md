@@ -112,7 +112,9 @@ C:\study\hello-spring\hello-spring\build\libs>java -jar hello-spring-0.0.1-SNAPS
 
 
 ## **MVC와 템플릿 엔진
-- html 파일을 템플릿 엔진
+- 템플릿 엔진이 렌더링을해서 변환된 html을 웹 브라우저로 전달해주는 방식
+
+
 
 ## **API
 

@@ -275,8 +275,26 @@ assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 
 `향후 자세히 설명 예정`
 
+## 의존성 주입의 방향성
 
+1. **MemberService 클래스**:
+   - MemberService는 생성자를 통해 MemberRepository를 주입받습니다.
+   ```java
+   public MemberService(MemberRepository memberRepository) {
+       this.memberRepository = memberRepository;
+   }
+   ```
+   이는 의존성 주입의 좋은 예시입니다. MemberService는 구체적인 구현체가 아닌 인터페이스(MemberRepository)에 의존합니다.
 
+2. **MemberServiceTest 클래스**:
+   - 테스트 클래스에서 MemberService와 MemoryMemberRepository의 인스턴스를 생성하고 연결합니다.
+   ```java
+   @BeforeEach
+   public void beforeEach() {
+       memoryMemberRepository = new MemoryMemberRepository();
+       memberService = new MemberService(memoryMemberRepository);
+   }
+   ```
 
 
 ---

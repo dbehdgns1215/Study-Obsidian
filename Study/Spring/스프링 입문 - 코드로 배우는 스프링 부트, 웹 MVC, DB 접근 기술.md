@@ -199,6 +199,7 @@ HttpMessageConverter에 의해서 JSON 또는 String으로 변환되어서 HTTP 
 
 
 ## **회원 리포지토리 테스트 케이스 작성
+
 - 주로 assertj 에 들어있는 Assertions를 import해서 테스트 코드를 작성
 
 >@AfterEach
@@ -207,11 +208,47 @@ Junit 5 에서 사용되는 어노테이션으로, 각각의 테스트 코드가
 
 > Assertions.assertThat()
 
-AssertJ 라이브러리에서 제공하는 테스트 검증 메서드이며, 예상 결과(Ex)
+AssertJ 라이브러리에서 제공하는 테스트 검증 메서드이며, 예상 결과와 실행 결과를 비교해서 테스트의 성공 여부를 판별함
+
+- .isEqualTo(), .contains(), .isGreaterThan() 등의 검증 메서드들을 제공하기도 함
+
+```
+Assertions.assertThat(member).isEqualTo(result);
+```
+
 ## **회원 서비스 개발
 
+- 주로 비즈니스 로직을 처리하는 역할을 함
 
+>테스트 코드를 자동으로 빠르게 만드는 방법
+>Ctrl + Shift + T
+
+>각종 추출 관련 명령어
+>Ctrl + T
+
+>**변수 자동 추출
+>**Ctrl + Alt + V
+
+- Optional로 감싸는 이유는 Null을 방지하는 것 외에도 유용한 메서드들을 제공해주기 때문
 ## **회원 서비스 테스트
+
+> @BeforeEach
+
+Junit 5 에서 사용되는 어노테이션으로 각각의 테스트 코드가 실행되기 전 먼저 실행되어야 하는 메서드들을 정의하는데 유용한 기능
+
+- 테스트 코드에서 객체 생성과 같은 작업들
+
+> @Test
+
+테스트 어노테이션이며, 각 테스트 명은 한글로 작성해도 됨.
+
+> Given / When / Then
+
+테스트 코드에서 가독성을 끌어올려주는 작성 방법 중 하나
+어떤 것들이 주어지고, 주어진 것들이 특정 행위를 했을 때, 그때 발생하는 일
+이렇게 크게 세가지의 부분으로 나누어짐
+
+
 
 
 ---

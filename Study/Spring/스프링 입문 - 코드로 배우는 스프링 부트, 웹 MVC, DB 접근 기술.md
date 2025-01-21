@@ -199,8 +199,15 @@ HttpMessageConverter에 의해서 JSON 또는 String으로 변환되어서 HTTP 
 
 
 ## **회원 리포지토리 테스트 케이스 작성
+- 주로 assertj 에 들어있는 Assertions를 import해서 테스트 코드를 작성
 
+>@AfterEach
 
+Junit 5 에서 사용되는 어노테이션으로, 각각의 테스트 코드가 실행된 이후 실행되어야 하는 메서드들을 정의하는데 유용한 기능
+
+> Assertions.assertThat()
+
+AssertJ 라이브러리에서 제공하는 테스트 검증 메서드이며, 예상 결과(Ex)
 ## **회원 서비스 개발
 
 

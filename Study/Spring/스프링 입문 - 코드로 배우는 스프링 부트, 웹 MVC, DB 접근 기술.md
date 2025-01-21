@@ -212,7 +212,7 @@ AssertJ 라이브러리에서 제공하는 테스트 검증 메서드이며, 예
 
 - .isEqualTo(), .contains(), .isGreaterThan() 등의 검증 메서드들을 제공하기도 함
 
-```
+```java
 Assertions.assertThat(member).isEqualTo(result);
 ```
 
@@ -247,6 +247,34 @@ Junit 5 에서 사용되는 어노테이션으로 각각의 테스트 코드가 
 테스트 코드에서 가독성을 끌어올려주는 작성 방법 중 하나
 어떤 것들이 주어지고, 주어진 것들이 특정 행위를 했을 때, 그때 발생하는 일
 이렇게 크게 세가지의 부분으로 나누어짐
+
+>Assertions.assertThrows()
+
+JUnit 5 에서 제공하는 메서드로, 특정 코드 블럭이 예상된 예외를 잘 발생시키는지 테스트하는 데 사용됨
+
+- 예외 타입 명시적으로 지정 가능
+- 람다식 사용 가능
+- 예외 객체를 반환하기 때문에 추가적인 검증 가능
+```java
+memberService.join(member1);  
+IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> memberService.join(member2));  
+  
+assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
+```
+- 위 코드에서 확인할 수 있듯, `IllegalArgumentException e` 에 예외 객체를 저장한 뒤에 추가적으로 getMessage()를 사용해서 예외 메시지도 검증할 수 있음
+
+> 의존성 주입 (Dependency Injection) / DI
+
+테스트 코드와 서비스 코드에서 모두 각각 new를 통해서 레파지토리 객체를 생성한 뒤 사용했었는데, 이렇게 비효율적으로 할 필요가 있을까?
+
+- 테스트 코드에서 객체를 생성한 뒤, 실제 서비스 코드에 객체를 주입하는 방식으로 변경
+- 근데 이렇게 해도 되는건가?
+
+- 서비스 코드에서는 생성자를 통해서 레파지토리 변수를 초기화할 수 있게끔 함
+- 테스트 코드에서는 우선 레파지토리 객체를 생성하고 서비스 객체의 생성자의 매개변수로 레파지토리 객체를 넘겨줌
+
+`향후 자세히 설명 예정`
+
 
 
 

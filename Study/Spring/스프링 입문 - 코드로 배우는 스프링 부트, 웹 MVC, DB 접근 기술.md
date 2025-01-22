@@ -498,8 +498,8 @@ public String create(MemberForm form) {
     return "redirect:/";  
 }
 ```
-- `@GetMapping`을 통해서는 리다이렉션을 해주고
-- `@PostMapping`을 통해서는 특정 기능의 수행을 해주면 됨
+- `@GetMapping`은 회원가입 폼을 보여주고 
+- `@PostMapping`은 폼 제출시 회원 정보를 처리하여 가입을 수행함
 - 
 
 ## 회원 웹 기능 - 조회

@@ -500,7 +500,52 @@ public String create(MemberForm form) {
 ```
 - `@GetMapping`은 회원가입 폼을 보여주고 
 - `@PostMapping`은 폼 제출시 회원 정보를 처리하여 가입을 수행함
-- 
+- `redirect:` 가 생략되면 단순히 뷰를 렌더링하기 때문에 주소창 URL이 변경되지 않음
+	- 또한 PRG(POST - Redirect - GET) 패턴의 경우에는 리다이렉션이 필수적임
+	- 그렇지 않으면 꼬여서 WhiteLabel Error 발생
+- 따라서 Spring MVC에서 리다이렉션과 뷰 렌더링을 구분하려면 명시적으로 `redirect:`를 적어주어야 함
+
+
 
 ## 회원 웹 기능 - 조회
 
+```java
+@GetMapping("/members")  
+public String list(Model model) {  
+    List<Member> members = memberService.findMembers();  
+    model.addAttribute("members", members);  
+  
+    return "members/memberList";  
+}
+```
+- GET 요청 (/members)
+- model에 유저의 정보를 넘겨준 뒤 `members/memberList` 를 렌더링 하게끔 명령
+
+```html
+<!DOCTYPE HTML>  
+<html xmlns:th="http://www.thymeleaf.org">  
+<body>  
+<div class="container">  
+    <div>
+	    <table>
+			<thead>            
+			<tr>                
+				<th>#</th>  
+                <th>이름</th>  
+            </tr>'            
+            </thead>            
+            <tbody>            
+	            <tr th:each="member : ${members}"> 
+                <td th:text="${member.id}"></td>  
+                <td th:text="${member.name}"></td>  
+            </tr>            
+            </tbody>        
+		</table>    
+	</div>
+</div> <!-- /container -->  
+</body>  
+</html>
+```
+
+- html 에서는 `Thymeleaf` 템플릿 엔진을 사용
+- 

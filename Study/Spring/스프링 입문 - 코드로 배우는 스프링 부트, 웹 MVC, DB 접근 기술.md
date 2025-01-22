@@ -548,4 +548,5 @@ public String list(Model model) {
 ```
 
 - html 에서는 `Thymeleaf` 템플릿 엔진을 사용
+- $ 표시가 의미하는 것은, model 안에서 해당 변수와 똑같은 이름의 값을 꺼내온다는 의미
 - 

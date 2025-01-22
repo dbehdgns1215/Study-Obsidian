@@ -327,5 +327,29 @@ public class MemberController {
 	- 단, 여기에는 하나의 문제가 있다
 	- 여러 컨트롤러에서 해당 `MemberService`를 사용할 수 있는데, `MemberService`는 개별적으로 동작할 필요가 없고 하나만 생성해서 공용으로 사용하면 되기 때문이다
 - 따라서 스프링을 사용할 때는 스프링 컨테이너에 등록을 하고 스프링이 관리하고, 우리는 그걸 받아서 사용하는 방식으로 코드를 구현해야 한다
--  
+
+```java
+package hello.hello_spring.Controller;  
+  
+import hello.hello_spring.Service.MemberService;  
+import org.springframework.beans.factory.annotation.Autowired;  
+import org.springframework.stereotype.Controller;  
+  
+@Controller  
+public class MemberController {  
+  
+    private final MemberService memberService;  
+  
+    @Autowired  
+    public MemberController(MemberService memberService) {  
+        this.memberService = memberService;  
+    }  
+}
+```
+- 이처럼 생성자를 통해서 외부로부터 의존성을 주입받음과 동시에 `@Autowired` 키워드를 이용해서 코드 상에 보이는 `MemberService`를 스프링 컨테이너에서 꺼내와서 자동으로 연결시켜주는 기능을 제공해준다 
+
+- 추가로, 
+
+
+
 ## 자바 코드로 직접 스프링 빈 등록하기

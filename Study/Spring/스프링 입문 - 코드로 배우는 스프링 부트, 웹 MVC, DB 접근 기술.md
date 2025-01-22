@@ -592,7 +592,8 @@ runtimeOnly 'com.h2database:h2'
 2. application.properties 설정
 ``` application.properties
 spring.datasource.url=jdbc:h2:tcp://localhost/~/test  
-spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.driver-class-name=org.h2.Driver  
+spring.datasource.username=sa
 ```
 
 3. 중략..
@@ -630,7 +631,8 @@ public class SpringConfig {
     }  
 }
 ```
-
+- `@Autowired` 어노테이션을 같이 사용해서 스프링 빈을 통해서 dataSource(DB 커넥션 획득을 위한 객체)를 주입하면 된다
+- 스프링 부트는 DB 커넥션 정보를 바탕으로 DataSource를 생성하고 스프링 빈으로 만들어두기 때문에 DI 받을 수 있음
 
 
 ### 왜 스프링을 사용하는가?
@@ -669,16 +671,12 @@ public class SpringConfig {
 
 > 참고: SOLID 원칙
 
-
-
-
-
-
-
-
-
-
 ## 스프링 통합 테스트
+
+현재 H2 Database와 연결해놓은 상태이기 때문에 순수 Java 코드만으로는 통합 테스트를 실행할 수 없다.
+
+따라서 **스프링**으로 테스트를 진행해야만 한다
+
 
 
 ## 스프링 Jdbc Template

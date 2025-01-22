@@ -348,8 +348,15 @@ public class MemberController {
 ```
 - 이처럼 생성자를 통해서 외부로부터 의존성을 주입받음과 동시에 `@Autowired` 키워드를 이용해서 코드 상에 보이는 `MemberService`를 스프링 컨테이너에서 꺼내와서 자동으로 연결시켜주는 기능을 제공해준다 
 
-- 추가로, 
+추가로, 서비스 코드를 스프링 컨테이너에 등록하는 방법은 다음과 같다
 
+```java
+@Service  
+public class MemberService {
+```
+- `@Service` 어노테이션을 통해서 등록해주면 된다
+
+마찬가지로, 리파지토리
 
 
 ## 자바 코드로 직접 스프링 빈 등록하기

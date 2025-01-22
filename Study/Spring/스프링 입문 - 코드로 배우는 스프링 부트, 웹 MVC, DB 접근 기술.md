@@ -422,7 +422,7 @@ public class SpringConfig {
     }  
 }
 ```
-- 이처럼 `@Configuration` 어노테이션을 사용해서 설정 파일임을 명시하고, `@Bean` 어노이션을 사용해서 빈에 등록될 수 있도록 명시하면 된다
+- 이처럼 `@Configuration` 어노테이션을 사용해서 설정 파일임을 명시하고, `@Bean` 어노테이션을 사용해서 빈에 등록될 수 있도록 명시하면 된다
 - `MemberService`의 객체를 생성하는 경우, `MemberRepository` 에 대한 의존성이 주입되어야 하는데 위와 같은 구조로 구현하면 된다
 
 

@@ -474,7 +474,9 @@ public void setMemberService(MemberService memberService) {
 # 섹션 6 - 회원 관리 예제 - 웹 MVC 개발
 
 ## 회원 웹 기능 - 회원가입
-
+- 웰컴 페이지 우선순위
+	- @GetMapping("/") > static/index.html
+	- 그 이유는 요청이 들어오면 컨트롤러부터 찾은 뒤, 찾지 못했을 때 정적 컨텐츠를 찾아서 띄워주는 것
 
 
 ## 회원 웹 기능 - 등록

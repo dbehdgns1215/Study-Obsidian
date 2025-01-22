@@ -396,6 +396,34 @@ public class MemoryMemberRepository implements MemberRepository {
 
 > 자바 코드로 직접 스프링 빈 등록하기
 
+- 설정 파일을 생성해서 직접 관계를 정의해주면 된다
+
+```java
+package hello.hello_spring;  
+  
+import hello.hello_spring.Repository.MemberRepository;  
+import hello.hello_spring.Repository.MemoryMemberRepository;  
+import hello.hello_spring.Service.MemberService;  
+import org.springframework.context.annotation.Bean;  
+import org.springframework.context.annotation.Configuration;  
+  
+@Configuration  
+public class SpringConfig {  
+  
+    @Bean  
+    public MemberService memberService() {  
+        return new MemberService(memberRepository());  
+    }  
+  
+    @Bean  
+    public MemberRepository memberRepository() {  
+        return new MemoryMemberRepository();  
+    }  
+}
+```
+- 이처럼 `@Configuration` 어노테이션을 사용해서 설정 파일임을 명시하고, `@Bean` 어노이션을 사용해서 빈에 등록될 수 있도록 명시하면 된다
+- `MemberService`의 객체를 생성하는 경우, `MemberRepository` 에 대한 의존성이 주입됐어야 하는데 위와 같은 구조로 구현하면 된다
+
 
 
 

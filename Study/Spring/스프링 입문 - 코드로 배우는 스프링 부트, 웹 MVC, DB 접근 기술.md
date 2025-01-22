@@ -316,5 +316,16 @@ public class MemberController {
 - 이런 일련의 과정을 `스프링 컨테이너에서 스프링 빈이 관리된다`고 표현함
 
 
-
+```java
+@Controller  
+public class MemberController {  
+      
+    private final MemberService memberService = new MemberService();  
+}
+```
+- 또한 컨트롤러에서 서비스를 가져와서 사용해야하는데, 이때 `new` 키워드를 사용해서 직접 객체를 생성한 뒤 사용할 수도 있다
+	- 단, 여기에는 하나의 문제가 있다
+	- 여러 컨트롤러에서 해당 `MemberService`를 사용할 수 있는데, `MemberService`는 개별적으로 동작할 필요가 없고 하나만 생성해서 공용으로 사용하면 되기 때문이다
+- 따라서 스프링을 사용할 때는 스프링 컨테이너에 등록을 하고 스프링이 관리하고, 우리는 그걸 받아서 사용하는 방식으로 코드를 구현해야 한다
+-  
 ## 자바 코드로 직접 스프링 빈 등록하기

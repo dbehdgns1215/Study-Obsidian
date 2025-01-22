@@ -746,6 +746,11 @@ class MemberServiceIntegrationTest {
 ```
 
 
+
+- 주로 순수한 자바 코드로 이루어진 최소한의 단위 테스트와 스프링 컨테이너, DB 등을 연동해서 실행하는 통합 테스트 중에서는 **순수한 단위 테스트**가 더 좋은 테스트일 확률이 높음 
+
+
+
 ## 스프링 Jdbc Template
 
 

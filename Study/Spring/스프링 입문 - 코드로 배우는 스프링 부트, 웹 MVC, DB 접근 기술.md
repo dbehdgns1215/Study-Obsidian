@@ -368,7 +368,7 @@ public class MemoryMemberRepository implements MemberRepository {
 
 
 
-![![Spring/#*Table]]
+	![![Spring/#*Table]]
 
 
 ## 자바 코드로 직접 스프링 빈 등록하기

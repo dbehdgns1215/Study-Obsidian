@@ -595,27 +595,29 @@ spring.datasource.url=jdbc:h2:tcp://localhost/~/test
 spring.datasource.driver-class-name=org.h2.Driver
 ```
 
-1. 이하 생략...
-
-
-### 왜 스프링을 사용하는가?
-- 다형성을 활용하기 위해서
-
-기존에 메모리 기반의 리포지토리에서 JDBC 기반의 리포지토리 구현체를 새롭게 작성한 뒤에 SpringConfig 파일만 수정했을 뿐인데 기능들이 문제없이 잘 동작하는 것을 확인할 수 있다.
-
-기존에 생각했던 시나리오(DB를 어떤 것을 사용할건지 결정하지 못한 상태)에도 부합하는 것을 알 수 있다
-
+3. 중략..
 ```java
 package hello.hello_spring;  
   
+import hello.hello_spring.Repository.JdbcMemberRepository;  
 import hello.hello_spring.Repository.MemberRepository;  
 import hello.hello_spring.Repository.MemoryMemberRepository;  
 import hello.hello_spring.Service.MemberService;  
+import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.context.annotation.Bean;  
 import org.springframework.context.annotation.Configuration;  
   
+import javax.sql.DataSource;  
+  
 @Configuration  
 public class SpringConfig {  
+  
+    private DataSource dataSource;  
+  
+    @Autowired  
+    public SpringConfig(DataSource dataSource) {  
+        this.dataSource = dataSource;  
+    }  
   
     @Bean  
     public MemberService memberService() {  
@@ -624,11 +626,20 @@ public class SpringConfig {
   
     @Bean  
     public MemberRepository memberRepository() {  
-        // return new MemoryMemberRepository();  
-        return new JdbcMemberRepository(); 
+        return new JdbcMemberRepository(dataSource);  
     }  
 }
 ```
+
+
+
+### 왜 스프링을 사용하는가?
+
+- 다형성을 활용하기 위해서
+
+기존에 메모리 기반의 리포지토리에서 JDBC 기반의 리포지토리 구현체를 새롭게 작성한 뒤에 SpringConfig 파일만 수정했을 뿐인데 기능들이 문제없이 잘 동작하는 것을 확인할 수 있다.
+
+기존에 생각했던 시나리오(DB를 어떤 것을 사용할건지 결정하지 못한 상태)에도 부합하는 것을 알 수 있다
 
 
 즉, 인터페이스를 두고 구현체를 바꿔낄 수 있게끔 만든 것.

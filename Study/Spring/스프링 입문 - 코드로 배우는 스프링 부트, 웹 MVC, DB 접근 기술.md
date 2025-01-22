@@ -595,6 +595,77 @@ spring.datasource.url=jdbc:h2:tcp://localhost/~/test
 spring.datasource.driver-class-name=org.h2.Driver
 ```
 
+1. 이하 생략...
+
+
+### 왜 스프링을 사용하는가?
+- 다형성을 활용하기 위해서
+
+기존에 메모리 기반의 리포지토리에서 JDBC 기반의 리포지토리 구현체를 새롭게 작성한 뒤에 SpringConfig 파일만 수정했을 뿐인데 기능들이 문제없이 잘 동작하는 것을 확인할 수 있다.
+
+기존에 생각했던 시나리오(DB를 어떤 것을 사용할건지 결정하지 못한 상태)에도 부합하는 것을 알 수 있다
+
+```java
+package hello.hello_spring;  
+  
+import hello.hello_spring.Repository.MemberRepository;  
+import hello.hello_spring.Repository.MemoryMemberRepository;  
+import hello.hello_spring.Service.MemberService;  
+import org.springframework.context.annotation.Bean;  
+import org.springframework.context.annotation.Configuration;  
+  
+@Configuration  
+public class SpringConfig {  
+  
+    @Bean  
+    public MemberService memberService() {  
+        return new MemberService(memberRepository());  
+    }  
+  
+    @Bean  
+    public MemberRepository memberRepository() {  
+        // return new MemoryMemberRepository();  
+        return new JdbcMemberRepository(); 
+    }  
+}
+```
+
+
+즉, 인터페이스를 두고 구현체를 바꿔낄 수 있게끔 만든 것.
+
+여기서 스프링은 구현체를 편리하게 바꿔끼울 수 있도록 스프링 컨테이너가 지원해준다는 것
+- 스프링의 Dependency Injection을 활용
+- 서비스 코드에서 기존에 의존하고 있었던 메모리 기반 리포지토리를 수정할 필요도 없음
+	- 왜냐하면 애초에 구현체를 주입받은 것이 아니라 인터페이스를 주입받았기 때문
+
+결국 정리하자면, DB를 바꾸는 작업을 했음에도 약간의 수정만으로 기능은 유지한채 DB를 변경할 수 있었음.
+
+![[Pasted image 20250122232310.png]]
+- MemberService는 MemberRepository를 의존하고 있음
+- MemberRepository는 구현체로 MemoryMemberRepo와 JdbcMemberRepo가 존재함
+
+![[Pasted image 20250122232250.png]]
+- 스프링 설정 변경 이후에, jdbc 기반의 Repo를 스프링 빈으로 등록됨
+
+구현체만 변경했을 뿐인데 아무런 충돌없이 잘 작동함
+
+- 개방-폐쇄 원칙 (OCP, Open-Closed Principle)
+	- 확장에는 열려있고, 수정에는 닫혀있다
+		- 수정을 해야 확장을 하지!
+			- 본질을 관통하는 말이다.
+			- 스프링의 놀라운 점이 바로 수정 없이 확장이 가능하다는 것. (다형성 개념 활용)
+- 스프링의 DI (Dependency Injection)을 사용하면 **기존 코드를 전혀 손대지 않고, 설정만으로 구현 클래스를 변경**할 수 있다
+
+> 참고: SOLID 원칙
+
+
+
+
+
+
+
+
+
 
 ## 스프링 통합 테스트
 

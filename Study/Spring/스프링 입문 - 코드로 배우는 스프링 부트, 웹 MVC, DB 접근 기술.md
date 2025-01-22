@@ -303,5 +303,18 @@ assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 
 ## 컴포넌트 스캔과 자동 의존관계 설정
 
+```java
+package hello.hello_spring.Controller;  
+  
+import org.springframework.stereotype.Controller;  
+  
+@Controller  
+public class MemberController {  
+}
+```
+- 스프링이 실행될 때 `스프링 컨테이너`가 생성되는데, 거기에 `@Controller` 어노테이션이 있으면 해당 컨트롤러 객체를 생성해서 스프링 컨테이너에 넣어두고 관리하게 된다
+- 이런 일련의 과정을 `스프링 컨테이너에서 스프링 빈이 관리된다`고 표현함
+
+
 
 ## 자바 코드로 직접 스프링 빈 등록하기

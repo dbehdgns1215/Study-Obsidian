@@ -436,10 +436,24 @@ public class SpringConfig {
 > **불변성 강조**
 
 > 필드 주입
-> `@Autowired private final MemberService memberService;`
+```
+ @Autowired private final MemberService memberService;
+```
+- 단점으로는 한 번 생성되고 나면 아예 변경될 수 없다는 것
+- 즉, 무슨 수를 써도 이걸 변경할 수 있는 방법이 존재하지 않는다
+
 > Setter 주입
-> 
+```
+private MemberService memberService;  
+  
+@Autowired  
+public void setMemberService(MemberService memberService) {  
+    this.memberService = memberService;  
+}
+```
+- 단점으로는  public으로 설정해주어야 하기 때문에, 임의로 누군가가 호출하게 됐을 때 객체가 변하게 됨
 
 > 참고: 실무에서는 주로 정형화된 컨트롤러, 서비스, 리포지토리 같은 코드는 컴포넌트 스캔 방식을 이용한다. 그리고 정형화되지 않거나, 상황에 따라 구현 클래스를 변경해야 하면 설정 파일을 통해 스프링 빈을 등록한다
+
 
 

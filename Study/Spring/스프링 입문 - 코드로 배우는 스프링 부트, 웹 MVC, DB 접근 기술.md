@@ -583,6 +583,18 @@ boolean     | BIT
 
 ## 순수 JDBC
 
+1. build.gradle에 관련 패키지 Import
+```build.gradle
+implementation 'org.springframework.boot:spring-boot-starter-jdbc'  
+runtimeOnly 'com.h2database:h2'
+```
+
+2. application.properties 설정
+``` application.properties
+spring.datasource.url=jdbc:h2:tcp://localhost/~/test  
+spring.datasource.driver-class-name=org.h2.Driver
+```
+
 
 ## 스프링 통합 테스트
 

@@ -677,6 +677,73 @@ public class SpringConfig {
 
 따라서 **스프링**으로 테스트를 진행해야만 한다
 
+```java
+package hello.hello_spring.Service;  
+  
+import hello.hello_spring.Domain.Member;  
+import hello.hello_spring.Repository.MemberRepository;  
+import hello.hello_spring.Repository.MemoryMemberRepository;  
+import org.junit.jupiter.api.AfterEach;  
+import org.junit.jupiter.api.BeforeEach;  
+import org.junit.jupiter.api.Test;  
+import org.springframework.beans.factory.annotation.Autowired;  
+import org.springframework.boot.test.context.SpringBootTest;  
+import org.springframework.transaction.annotation.Transactional;  
+  
+import static org.assertj.core.api.Assertions.assertThat;  
+import static org.junit.jupiter.api.Assertions.assertThrows;  
+  
+// 테스트는 반복해서 시도할 수 있어야 하기 때문에 DB에 데이터를 인서트 쿼리하고 '롤백' 해주는 것 (정확히는 DB에 반영(커밋)을 안하는 것)  
+// 이를 위해서 @Transactional 사용  
+@SpringBootTest  
+@Transactional  
+class MemberServiceIntegrationTest {  
+  
+    // 테스트는 특수한 용도이기 때문에 일회성(?)으로 필드 주입을 해도 무관  
+    @Autowired MemberService memberService;  
+    @Autowired MemberRepository memberRepository;  
+  
+    @Test  
+    void 회원가입() {  
+        // given  
+        Member member = new Member();  
+        member.setName("spring");  
+  
+        // when  
+        Long saveId = memberService.join(member);  
+  
+        // then  
+        Member one = memberService.findOne(saveId).get();  
+        assertThat(member.getName()).isEqualTo(one.getName());  
+    }  
+  
+    @Test  
+    public void 중복_회원_예외() {  
+        // given  
+        Member member1 = new Member();  
+        member1.setName("spring");  
+  
+        Member member2 = new Member();  
+        member2.setName("spring");  
+  
+        // when  
+        memberService.join(member1);  
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> memberService.join(member2));  
+  
+        assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");  
+    }  
+}
+```
+- `@SpringBootTest`: 스프링 컨테이너와 테스트를 함께 실행한다
+- `@Transactional`: 테스트 케이스에 이 어노테이션이 있으면, 테스트 시작 전에 트랜잭션을 시작하고, 테스트 완료 후에 항상 롤백한다. 이렇게 하면 DB에 데이터가 남지 않아서 다음 테스트에 영향을 주지 않음
+
+-   테스트는 반복해서 시도할 수 있어야 하기 때문에 DB에 데이터를 인서트 쿼리하고 '롤백' 해주는 것 (정확히는 DB에 반영(커밋)을 안하는 것)  
+
+- 테스트는 특수한 용도이기 때문에 일회성(?)으로 필드 주입을 해도 무관  
+```java
+@Autowired MemberService memberService;  
+@Autowired MemberRepository memberRepository;
+```
 
 
 ## 스프링 Jdbc Template

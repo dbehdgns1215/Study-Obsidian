@@ -481,7 +481,26 @@ public void setMemberService(MemberService memberService) {
 
 ## 회원 웹 기능 - 등록
 
-
+**\<MemberController>
+```java
+@GetMapping("/members/new")  
+public String createForm() {  
+    return "members/createMemberForm";  
+}  
+  
+@PostMapping("members/new")  
+public String create(MemberForm form) {  
+    Member member = new Member();  
+    member.setName(form.getName());  
+  
+    memberService.join(member);  
+  
+    return "redirect:/";  
+}
+```
+- `@GetMapping`을 통해서는 리다이렉션을 해주고
+- `@PostMapping`을 통해서는 특정 기능의 수행을 해주면 됨
+- 
 
 ## 회원 웹 기능 - 조회
 

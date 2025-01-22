@@ -356,7 +356,19 @@ public class MemberService {
 ```
 - `@Service` 어노테이션을 통해서 등록해주면 된다
 
-마찬가지로, 리파지토리
+
+마찬가지로, 리포지토리 코드를 스프링 컨테이너에 등록하는 방법은 다음과 같다
+
+```java
+@Repository  
+public class MemoryMemberRepository implements MemberRepository {
+```
+- `@Repository` 어노테이션을 통해서 등록해주면 된다
+- 단 이번 경우에서도 알 수 있다싶이 실제 구현체에 어노테이션을 붙여주어야 함
+
+
+
+![![Spring/#*Table]]
 
 
 ## 자바 코드로 직접 스프링 빈 등록하기

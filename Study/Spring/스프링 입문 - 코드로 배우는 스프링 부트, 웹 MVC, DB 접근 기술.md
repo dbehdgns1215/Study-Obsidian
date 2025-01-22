@@ -469,3 +469,17 @@ public void setMemberService(MemberService memberService) {
 
 > 주의: `@Autowired`를 통한 DI는 `MemberController`, `MemberService`등과 같이 스프링이 관리하는 객체에서만 동작한다. 스프링 빈으로 등록하지 않고 내가 직접 생성한 객체에서는 동작하지 않는다
 
+---
+
+# 섹션 6 - 회원 관리 예제 - 웹 MVC 개발
+
+## 회원 웹 기능 - 회원가입
+
+
+
+## 회원 웹 기능 - 등록
+
+
+
+## 회원 웹 기능 - 조회
+

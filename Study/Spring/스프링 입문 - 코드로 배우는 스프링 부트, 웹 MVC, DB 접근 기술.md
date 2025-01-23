@@ -847,7 +847,8 @@ public class JdbcTemolateMemberRepository implements MemberRepository{
 - JPA = 객체 + ORM(Object Relation Mapping)
 - 따라서 `Entity`로 매핑해주어야 함
 
-
+- `@Entity` 어노테이션을 붙이게 되면 **JPA**가 관리하는 엔티티임을 명시하는 것과 동일
+- 
 
 ## 스프링 데이터 JPA
 

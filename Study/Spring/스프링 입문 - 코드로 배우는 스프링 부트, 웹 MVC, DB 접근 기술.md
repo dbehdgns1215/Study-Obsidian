@@ -932,3 +932,7 @@ public class JpaMemberRepository implements MemberRepository {
 - CRUD 기능도 스프링 데이터 JPA가 모두 제공해줌
 
 > 주의: **스프링 데이터 JPA는 JPA를 편리하게 사용할 수 있도록 도와주는 기술
+
+
+- `extends JpaRepository<...>`: 인터페이스인 스프링 데이터 JPA가 JPA 리포지토리를 상속받고 있으면, 구현체를 스프링 빈에 자동으로 등록해줌
+- 

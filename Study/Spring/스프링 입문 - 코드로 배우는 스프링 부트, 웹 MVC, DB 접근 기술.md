@@ -753,9 +753,96 @@ class MemberServiceIntegrationTest {
 
 ## 스프링 Jdbc Template
 
+- 순수 Jdbc에서 존재했던 반복적인 코드를 줄여줌
+- 디자인 패턴 중, 템플릿 메서드 패턴을 많이 사용했기 때문에 Jdbc Template라고 불러짐
+```java
+package hello.hello_spring.Repository;  
+  
+import hello.hello_spring.Domain.Member;  
+import org.springframework.beans.factory.annotation.Autowired;  
+import org.springframework.jdbc.core.JdbcTemplate;  
+import org.springframework.jdbc.core.RowMapper;  
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;  
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;  
+import org.springframework.stereotype.Repository;  
+  
+import javax.sql.DataSource;  
+import java.sql.ResultSet;  
+import java.sql.SQLException;  
+import java.util.*;  
+  
+@Repository  
+public class JdbcTemolateMemberRepository implements MemberRepository{  
+  
+    private final JdbcTemplate jdbcTemplate;  
+  
+    @Autowired // 생성자가 1개면 생략해도 됨  
+    public JdbcTemolateMemberRepository(DataSource dataSource) {  
+        this.jdbcTemplate = new JdbcTemplate(dataSource);  
+    }  
+  
+    @Override  
+    public Member save(Member member) {  
+        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(this.jdbcTemplate);  
+        jdbcInsert.withTableName("member").usingGeneratedKeyColumns("id");  
+  
+        Map<String, Object> parameters = new HashMap<>();  
+        parameters.put("name", member.getName());  
+  
+        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));  
+        member.setId(key.longValue());  
+        return member;  
+    }  
+  
+    @Override  
+    public Optional<Member> findById(Long id) {  
+        List<Member> result = jdbcTemplate.query("select * from member where id = ?", memberRowMapper(), id);  
+        return result.stream().findAny();  
+    }  
+  
+    @Override  
+    public Optional<Member> findByName(String name) {  
+        List<Member> result = jdbcTemplate.query("select * from member where name = ?", memberRowMapper(), name);  
+        return result.stream().findAny();  
+    }  
+  
+    @Override  
+    public List<Member> findAll() {  
+        return jdbcTemplate.query("select * from member", memberRowMapper());  
+    }  
+  
+    // 람다식 버전  
+    private RowMapper<Member> memberRowMapper () {  
+        return (rs, rowNum) -> {  
+            Member member = new Member();  
+            member.setId(rs.getLong("id"));  
+            member.setName(rs.getString("name"));  
+            return member;  
+        };  
+    }  
+  
+    // 일반 버전  
+//    private RowMapper<Member> memberRowMapper () {  
+//        return new RowMapper<Member>() {  
+//            @Override  
+//            public Member mapRow(ResultSet rs, int rowNum) throws SQLException {  
+//  
+//                Member member = new Member();  
+//                member.setId(rs.getLong("id"));  
+//                member.setName(rs.getString("name"));  
+//                return member;  
+//            }  
+//        };  
+//    }  
+}
+```
 
 ## JPA
-
+- Jdbc -> Jdbc Templates ->  **JPA**
+- Jdbc Templates도 결국엔 쿼리문을 사람이 작성해야하는데, JPA는 그것마저도 획기적으로 줄임
+- 기존의 반복 코드도 줄이고, 기본적인 SQL도 JPA가 직접 만들어서 실행해줌
+- SQL과 데이터 중심의 설계에서 **객체 중심의 설계**로 패러다임을 전환할 수 있음
+- 
 
 ## 스프링 데이터 JPA
 

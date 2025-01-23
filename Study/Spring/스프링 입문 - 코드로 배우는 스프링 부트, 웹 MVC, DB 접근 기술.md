@@ -842,7 +842,12 @@ public class JdbcTemolateMemberRepository implements MemberRepository{
 - Jdbc Templates도 결국엔 쿼리문을 사람이 작성해야하는데, JPA는 그것마저도 획기적으로 줄임
 - 기존의 반복 코드도 줄이고, 기본적인 SQL도 JPA가 직접 만들어서 실행해줌
 - SQL과 데이터 중심의 설계에서 **객체 중심의 설계**로 패러다임을 전환할 수 있음
-- 
+
+
+- JPA = 객체 + ORM(Object Relation Mapping)
+- 따라서 `Entity`로 매핑해주어야 함
+
+
 
 ## 스프링 데이터 JPA
 

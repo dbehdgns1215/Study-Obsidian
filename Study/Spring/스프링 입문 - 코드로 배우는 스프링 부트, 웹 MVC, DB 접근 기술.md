@@ -848,7 +848,59 @@ public class JdbcTemolateMemberRepository implements MemberRepository{
 - 따라서 `Entity`로 매핑해주어야 함
 
 - `@Entity` 어노테이션을 붙이게 되면 **JPA**가 관리하는 엔티티임을 명시하는 것과 동일
-- 
+
+```java
+package hello.hello_spring.Repository;  
+  
+import hello.hello_spring.Domain.Member;  
+import jakarta.persistence.EntityManager;  
+  
+import java.util.List;  
+import java.util.Optional;  
+  
+public class JpaMemberRepository implements MemberRepository {  
+  
+    //JPA를 사용하려면 EntityManager가 필요하고, 이는 스프링 부트가 자동으로 생성해주기 때문에 단순히 주입받아서 사용하기만 하면 됨  
+    private final EntityManager em;  
+  
+    public JpaMemberRepository(EntityManager em) {  
+        this.em = em;  
+    }  
+  
+  
+    @Override  
+    public Member save(Member member) {  
+        em.persist(member);  
+        return member;  
+    }  
+  
+    @Override  
+    public Optional<Member> findById(Long id) {  
+        Member member = em.find(Member.class, id);  
+        return Optional.ofNullable(member);  
+    }  
+  
+    @Override  
+    public Optional<Member> findByName(String name) {  
+        // PK가 아닌 값을 조회하려고 할 때는 JPA Query Language 라는 객체지향 언어를 써야 함  
+        // 원래는 테이블을 대상으로 쿼리를 날리는데, JPQL은 '객체'를 대상으로 쿼리를 날리는 것  
+        List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)  
+                .setParameter("name", name)  
+                .getResultList();  
+        return result.stream().findAny();  
+    }  
+  
+    @Override  
+    public List<Member> findAll() {  
+        return em.createQuery("select m from Member m", Member.class)  
+                .getResultList();  
+    }  
+}
+```
+- JPA를 사용할 때 주의할 점은, 바로 **항상 트랜잭션이 있어야 한다는 점**이다 (데이터를 저장/변경할 때 필수적)
+- 따라서 서비스 계층에 `@Transactional`을 붙여주면 된다
+
+
 
 ## 스프링 데이터 JPA
 

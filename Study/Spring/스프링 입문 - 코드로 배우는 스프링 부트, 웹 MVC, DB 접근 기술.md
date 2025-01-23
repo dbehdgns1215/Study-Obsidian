@@ -900,6 +900,7 @@ public class JpaMemberRepository implements MemberRepository {
 - JPA를 사용할 때 주의할 점은, 바로 **항상 트랜잭션이 있어야 한다는 점**이다 (데이터를 저장/변경할 때 필수적)
 - 따라서 서비스 계층에 `@Transactional`을 붙여주면 된다
 
+- JPA는 인터페이스이고, Hibernate라는 오픈소스 구현체가 사용됨 (SQL문으로 자동 번역)
 
 
 ## 스프링 데이터 JPA

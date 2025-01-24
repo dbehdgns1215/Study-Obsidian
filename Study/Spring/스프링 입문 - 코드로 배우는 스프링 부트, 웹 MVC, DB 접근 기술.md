@@ -975,7 +975,8 @@ public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Lon
 - 시간 측정 로직을 적용 시킨 예시
 ```java
 public Long join(Member member) {  
-    // 같은 이름이 있는 중복 회원은 X    long start = System.currentTimeMillis();  
+    // 같은 이름이 있는 중복 회원은 X
+    long start = System.currentTimeMillis();  
   
     try {  
         validateDuplicateMember(member); // 중복 회원 검증  
@@ -1042,8 +1043,56 @@ public class TimeTraceAop {
 - `@Around`: AOP에서 특정 메서드 호출 전후에 Advice를 실행하도록 정의
 	- Advice란 특정 시점에서 실행되는 부가 로직
 	- `@Around`는 메서드 호출 **전과 후** 모두에서 로직을 실행할 수 있는 가장 강력한 타입의 Advice임 
-- @Around("execution(\* hello.hello_spring..\*(..))")  // 포인트컷 표현식
-- 
+	- @Around("execution(\* hello.hello_spring..\*(..))")  // 포인트컷 표현식
+		1. \*
+			- 모든 반환 타입 의미
+		2. hello.hello_spring
+			- 패키지 이름을 지정
+		3. ..
+			- hello.hello_spring 패키지의 하위 패키지 및 모든 클래스를 매칭 대상으로 포함
+		4. \*
+			- 메서드 명, 여기서는 모든 메서드를 위해 와일드 카드 사용
+		5. (..)
+			- 파라미터 명
+
+
+### 컴포넌트 스캔 vs 스프링 빈 수동 드록
+
+```java
+//    @Bean  
+//    public TimeTraceAop timeTraceAop() {  
+//        return new TimeTraceAop();  
+//    }
+```
+ - 스프링 빈에 수동 등록하기 위해서 `@Bean`어노테이션을 이용해서 직접 등록해주었는데, 이렇게 하니 순환 참조의 문제가 생겼었다.
+
+```text
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description: The dependencies of some of the beans in the application context form a cycle: 
+
+memberController defined in file [C:\study\hello-spring\hellospring\build\classes\java\main\hello\hello_spring\Controller\MemberController.class]
+↓ memberService defined in class path resource [hello/hello_spring/SpringConfig.class]
+┌─────┐
+| timeTraceAop defined in class path resource 
+[Hello/hello_spring/SpringConfig.class]
+└─────┘
+```
+
+- 문제 원인
+	- TimeTraceAop의 AOP 대상을 지정하는 @Around 코드를 보시면, SpringConfig의 timeTraceAop() 메서드도 AOP로 처리하게 됨.
+	- 그런데 이게 바로 자기 자신인 TimeTraceAop를 생성하는 코드인 것.
+	- 그래서 순환참조 문제가 발생함
+- 해결
+```java
+TimeTraceAop의 AOP 대상을 지정하는 @Around 코드를 보시면,
+SpringConfig의 timeTraceAop() 메서드도 AOP로 처리하게 됩니다m
+그런데 이게 바로 자기 자신인 TimeTraceAop를 생성하는 코드인 것이지요.
+그래서 순환참조 문제가 발생합니다.
+```
+
 
 
 ### 스프링의 AOP 동작 방식 설명

@@ -995,6 +995,10 @@ public Long join(Member member) {
 - 시간을 측정하는 로직을 별도의 공통 로직으로 만들기 매우 어렵다
 - 시간을 측정하는 로직을 변경할 때 모든 로직을 찾아가면서 변경해야 한다
 
-
-
 ## AOP 적용
+- AOP: Aspect Oriented Programming
+- 관점 지향 프로그래밍
+- 공통 관심 사항(cross-cutting concern) vs 핵심 관심 사항(core concern) 분리
+
+![[Pasted image 20250124100508.png]]
+

@@ -1056,7 +1056,7 @@ public class TimeTraceAop {
 			- 파라미터 명
 
 
-### 컴포넌트 스캔 vs 스프링 빈 수동 드록
+### 컴포넌트 스캔 vs 스프링 빈 수동 등록
 
 ```java
 //    @Bean  
@@ -1085,14 +1085,35 @@ memberController defined in file [C:\study\hello-spring\hellospring\build\classe
 	- TimeTraceAop의 AOP 대상을 지정하는 @Around 코드를 보시면, SpringConfig의 timeTraceAop() 메서드도 AOP로 처리하게 됨.
 	- 그런데 이게 바로 자기 자신인 TimeTraceAop를 생성하는 코드인 것.
 	- 그래서 순환참조 문제가 발생함
-- 해결
 ```java
-TimeTraceAop의 AOP 대상을 지정하는 @Around 코드를 보시면,
-SpringConfig의 timeTraceAop() 메서드도 AOP로 처리하게 됩니다m
-그런데 이게 바로 자기 자신인 TimeTraceAop를 생성하는 코드인 것이지요.
-그래서 순환참조 문제가 발생합니다.
+@Configuration
+
+public class SpringConfig {
+	@Bean
+	public TimeTraceAop timeTraceAop() {
+	return new TimeTraceAop();
+	}
+}
+
+@Aspect
+public class TimeTraceAop { 
+	@Around("execution(* hello.hellospring..*(..))")
+	public Object execute(ProceedingJoinPoint joinPoint) throws Throwable { }
+}
 ```
 
+- 해결
+```java
+@Aspect
+public class TimeTraceAop { 
+@Around("execution(* hello.hellospring..*(..)) && !target(hello.hellospring.SpringConfig)")
+
+//@Around("execution(* hello.hellospring..*(..))")
+
+public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {...}
+}
+```
+- AOP 대상에서 SpringConfig를 빼주면 해결
 
 
 ### 스프링의 AOP 동작 방식 설명

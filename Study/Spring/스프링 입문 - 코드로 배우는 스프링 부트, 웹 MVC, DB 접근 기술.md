@@ -1113,7 +1113,7 @@ public class TimeTraceAop {
 public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {...}
 }
 ```
-- AOP 대상에서 SpringConfig를 빼주면 해결
+- AOP 대상에서 `SpringConfig`를 빼주면 해결
 
 
 ### 스프링의 AOP 동작 방식 설명

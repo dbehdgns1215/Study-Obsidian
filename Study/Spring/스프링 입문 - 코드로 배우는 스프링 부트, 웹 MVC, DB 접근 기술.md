@@ -1002,3 +1002,17 @@ public Long join(Member member) {
 
 ![[Pasted image 20250124100508.png]]
 
+
+
+
+
+### 스프링의 AOP 동작 방식 섬령
+
+**AOP 적용 전 의존 관계
+![[Pasted image 20250124102144.png]]
+
+![[Pasted image 20250124102238.png]]
+- 가짜 memberService(프록시)를 만듬
+- 스프링 컨테이너는 프록시를 앞장세움
+- 따라서 현재 helloController가 호출하고 있는 것은 memberService(프록시)
+- 

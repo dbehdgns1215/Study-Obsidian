@@ -972,6 +972,22 @@ public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Lon
 
 ![[Pasted image 20250123143553.png]]
 
+- 시간 측정 로직을 적용 시킨 예시
+```java
+public Long join(Member member) {  
+    // 같은 이름이 있는 중복 회원은 X    long start = System.currentTimeMillis();  
+  
+    try {  
+        validateDuplicateMember(member); // 중복 회원 검증  
+        memberRepository.save(member);  
+        return member.getId();  
+    } finally {  
+        long finish = System.currentTimeMillis();  
+        long duration = finish - start;  
+        System.out.println("duration: " + duration +"ms");  
+    }
+```
+
 
 
 ## AOP 적용

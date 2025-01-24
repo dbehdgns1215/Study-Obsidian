@@ -1002,11 +1002,51 @@ public Long join(Member member) {
 
 ![[Pasted image 20250124100508.png]]
 
+**실제 적용
+```java
+package hello.hello_spring.AOP;  
+  
+import org.aspectj.lang.ProceedingJoinPoint;  
+import org.aspectj.lang.annotation.Around;  
+import org.aspectj.lang.annotation.Aspect;  
+import org.springframework.stereotype.Component;  
+  
+// @Component를 이용해서 컴포넌트 스캔으로 자동 등록해주어도 되지만, 직접 스프링 빈에 등록하는 것도 가능  
+@Aspect     // 그런데 빈에 직접 등록하면 순환참조 오류 발생..  
+@Component  
+public class TimeTraceAop {  
+  
+    @Around("execution(* hello.hello_spring..*(..))")  
+    public Object excute(ProceedingJoinPoint joinPoint) throws Throwable {  
+        long start = System.currentTimeMillis();  
+        System.out.println("START: " + joinPoint.toString());  
+        try {  
+            return joinPoint.proceed();  
+        } finally {  
+            long finish = System.currentTimeMillis();  
+            long timeMs = finish - start;  
+            System.out.println("END: " + joinPoint.toString() + timeMs + "ms");  
+  
+        }  
+    }  
+}
+```
+- AOP를 스프링 빈에 등록하기 위한 방법이 2가지 이상 있음
+- 하나는 `@Component` 어노테이션을 통해서 스프링 빈에 자동 등록시키기
+- 또 하나는 스프링 설정 파일에 직접 빈으로(`@Bean`) 등록하기
+
+- `@Aspect`: 클래스가 AOP에서 사용할 Aspect임을 암시
+	- 여러 클래스에 공통으로 적용할 로직(로깅, 트랜잭션...)
+	- 핵심 비즈니스 로직과 공통 관심사를 분리하기 위해 사용
+
+- `@Around`: AOP에서 특정 메서드 호출 전후에 Advice를 실행하도록 정의
+	- Advice란 특정 시점에서 실행되는 부가 로직
+	- `@Around`는 메서드 호출 **전과 후** 모두에서 로직을 실행할 수 있는 가장 강력한 타입의 Advice임 
+- @Around("execution(\* hello.hello_spring..\*(..))")  // 포인트컷 표현식
+- 
 
 
-
-
-### 스프링의 AOP 동작 방식 섬령
+### 스프링의 AOP 동작 방식 설명
 
 **AOP 적용 전 의존 관계
 ![[Pasted image 20250124102144.png]]

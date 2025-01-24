@@ -1015,4 +1015,7 @@ public Long join(Member member) {
 - 가짜 memberService(프록시)를 만듬
 - 스프링 컨테이너는 프록시를 앞장세움
 - 따라서 현재 helloController가 호출하고 있는 것은 memberService(프록시)
-- 
+
+**AOP 적용 후
+![[Pasted image 20250124102543.png]]
+

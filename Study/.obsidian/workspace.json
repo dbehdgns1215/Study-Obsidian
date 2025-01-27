@@ -160,10 +160,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md"
+                "file": "Spring/스프링 핵심 원리 - 기본편.md"
               },
               "icon": "lucide-list",
-              "title": "모든 개발자를 위한 HTTP 웹 기본 지식 개요"
+              "title": "스프링 핵심 원리 - 기본편 개요"
             }
           },
           {
@@ -197,7 +197,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",

@@ -34,9 +34,18 @@
               "icon": "lucide-file",
               "title": "스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술"
             }
+          },
+          {
+            "id": "03bdbd895f7ba0f8",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "새 탭"
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -232,8 +241,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "20480522d7d1b6e2",
+  "active": "b47e29f0a94f4e16",
   "lastOpenFiles": [
+    "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
+    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+    "HTTP/HTTP.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "Pasted image 20250127214435.png",
     "Pasted image 20250127214400.png",
@@ -243,12 +255,9 @@
     "Pasted image 20250127121354.png",
     "Pasted image 20250127120854.png",
     "Spring/Spring.md",
-    "HTTP/HTTP.md",
-    "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Pasted image 20250124102543.png",
     "Pasted image 20250124102238.png",
     "Pasted image 20250124102144.png",
-    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "Dongni.md",
     "Spring",
     "섹션 3 - URI와 웹 브라우저 요청 흐름.md",

@@ -40,7 +40,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "파일 탐색기"
@@ -97,8 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -217,7 +217,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e8168be9e8febcbf",
+  "active": "27929ebbc290ff8b",
   "lastOpenFiles": [
     "Pasted image 20250304001811.png",
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",

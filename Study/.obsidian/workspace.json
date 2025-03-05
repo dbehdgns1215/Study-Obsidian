@@ -98,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -217,7 +218,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "27929ebbc290ff8b",
+  "active": "e8168be9e8febcbf",
   "lastOpenFiles": [
     "Pasted image 20250304001811.png",
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",

@@ -49,7 +49,8 @@
               "title": "스프링 핵심 원리 - 기본편"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -231,7 +232,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -246,8 +248,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e8168be9e8febcbf",
+  "active": "429175f88f1ecd4e",
   "lastOpenFiles": [
+    "PS/C++.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Pasted image 20250306233120.png",
@@ -256,7 +259,6 @@
     "Pasted image 20250306232525.png",
     "Spring/Spring.md",
     "😀 Dongni 😀.md",
-    "PS/C++.md",
     "PS/BOJ.md",
     "PS/PS.md",
     "알고리즘교안.pdf",

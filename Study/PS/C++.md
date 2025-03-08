@@ -41,4 +41,10 @@
 	```
 - data를 감싸는 Node라는 클래스
 - 그리고 Node는 다음 노드의 주소값을 가리키는 next라는 포인터를 가지고 있음
+- **\*** : 에스터리스크(Asterisk Operator)
+- **&**: 앰퍼샌드(Ampersand)
+
+
+
+
 

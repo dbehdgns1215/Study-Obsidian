@@ -49,8 +49,7 @@
               "title": "스프링 핵심 원리 - 기본편"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -248,10 +247,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "429175f88f1ecd4e",
+  "active": "e8168be9e8febcbf",
   "lastOpenFiles": [
-    "PS/C++.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
+    "PS/C++.md",
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Pasted image 20250306233120.png",
     "Pasted image 20250306232857.png",

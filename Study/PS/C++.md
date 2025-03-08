@@ -44,6 +44,26 @@
 - **\*** : 에스터리스크(Asterisk Operator)
 - **&**: 앰퍼샌드(Ampersand)
 
+```C++
+double a = 4.4;
+int c = 10;
+int main() {
+	double *b = &a;
+	int *d = &c;
+
+	cout << sizeof(b) << '\n';
+	cout << sizeof(d) << '\n';
+```
+
+```Output
+8
+8
+```
+
+- int는 4바이트, double은 8바이트니까 포인터도 4, 8바이트가 되어야 하는 게 아닌가?
+	- 포인터의 크기는 실행 OS 체제의 비트마다 달라짐
+	- Window OS 64비트를 사용하는 경우의 포인터 사이즈 = 8 Byte
+	- Window OS 32비트를 사용하는 경우의 포인터 사이즈 = 4 Byte
 
 
 

@@ -107,5 +107,29 @@ Dongni
 				- 참고: a + 1에 대한 값을 찍어보면 첫 번째 주소의 다음 주소에 대한 값이 나오게 됨
 
 
+# 중복된 요소 제거 로직
 
+- 1, 1, 2, 2, 3, 3 이러한 숫자들이 있다고 했을 때, 중복을 제거해서 1, 2, 3을 뽑아내는 방법
 
+1. Map 사용
+	1. {1, 1}, {2, 1}, {3, 1}
+	2. 이미 값이 있는 키 값들은 스킵해서 하나씩만 저장되게끔
+```C++
+map<int, int> mp;
+
+int main() {
+	vector<int> v{1, 1, 2, 2, 3, 3};
+	for (int i : v) {
+		if(mp[i]) {
+		continue;
+		} else {
+			mp[i] = 1;
+		}
+	}
+	vector<int> ret;
+	for (auto it : mp) {
+		ret.push_back(it.first);
+	}
+	for (int i : ret) cout << i << '\n';
+}
+```

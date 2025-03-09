@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PS/C++.md",
-                "mode": "source",
+                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++"
+              "title": "모든 개발자를 위한 HTTP 웹 기본 지식"
             }
           },
           {
@@ -248,9 +248,9 @@
   },
   "active": "e8168be9e8febcbf",
   "lastOpenFiles": [
+    "PS/C++.md",
     "Pasted image 20250309004538.png",
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
-    "PS/C++.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "Pasted image 20250306233120.png",
     "Pasted image 20250306232857.png",
@@ -271,7 +271,6 @@
     "Pasted image 20250304001811.png",
     "Pasted image 20250302220514.png",
     "Pasted image 20250302220433.png",
-    "Pasted image 20250209181737.png",
     "HTTP/HTTP.md",
     "Spring",
     "섹션 3 - URI와 웹 브라우저 요청 흐름.md",

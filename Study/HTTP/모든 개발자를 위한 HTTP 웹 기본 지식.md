@@ -1017,6 +1017,7 @@ API 설계 - PUT 기반 등록
 #### **PRG 사용 후
 ![[Pasted image 20250116141219.png]]
 
+
 #### **정리
 ![[Pasted image 20250116141502.png]]
 

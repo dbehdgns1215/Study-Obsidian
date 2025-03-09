@@ -333,6 +333,32 @@ int main() {
 ```
 - 답은 나왔지만, $N$과 $M$의 범위를 생각하지 못했음.
 
+```C++
+#include <bits/stdc++.h>
+using namespace std;
 
+int N, M;
+int arr[100001];
+int psum[100001];
+int A, B;
+
+int main(){
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+
+	cin >> N >> M;
+
+	for (int i = 1; i <= N; i++) {
+		cin >> arr[i];
+		psum[i] = psum[i - 1] + arr[i];
+	}
+
+	for (int i = 0; i < M; i++) {
+		cin >> A >> B;
+		cout << psum[B] - psum[A - 1] << "\n";
+	}
+	return 0;
+}
+```
 
 ## 구현

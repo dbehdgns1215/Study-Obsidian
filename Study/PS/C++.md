@@ -378,3 +378,42 @@ int main(){
 - Q2. 해당 문자열을 거꾸로 해서 출력하라
 - Q3. 거꾸로된 해당 문자열 끝에 "umzunsik"이란 문자열을 추가하라
 
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+string dopa = "umzunsik";
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+
+	// Q1.앞에서부터 3개의 문자열을 출력하라
+	string q1 = dopa.substr(0, 3); // start, cnt -> 0번부터 3개 출력, start end가 아님을 유의
+	cout << q1 << "\n";
+
+	// Q2.해당 문자열을 거꾸로 해서 출력하라
+	reverse(q1.begin(), q1.end());
+	cout << q1 << "\n";
+
+	// Q3.거꾸로된 해당 문자열 끝에 "umzunsik"이란 문자열을 추가하라
+	q1 += "umzunsik";
+	cout << q1 << "\n";
+
+	return 0;
+}
+```
+
+
+문제2. 오름차순과 평균값
+
+숫자로 이루어진 배열이 주어졌을 때, 배열의 요소들을 오름차순으로 정렬하고, 배열의 평균값을 계산하는 프로그램을 작성하시오
+
+**입력**
+첫 번째 줄에 배열의 크기 N(1 <= N <= 100)이 주어진다. 두 번째 줄에 N개의 정수가 주어진다
+각 정수는 -1,000 이상 1,000 이하이다.
+
+**출력**
+첫 번째 줄에 정렬된 배열을 출력하고, 두 번째 줄에 배열의 평균값을 출력하라. 평균값은 소수점 두 번째 자리까지 출력하라
+
+**예시 입력**

@@ -297,4 +297,39 @@ $1 <= A <= B <= N$
 15
 12
 ```
+
+**내 코드**
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int N, M;
+int arr[100001];
+int A, B;
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+
+	cin >> N >> M;
+
+	for (int i = 1; i <= N; i++) {
+		cin >> arr[i];
+	}
+
+	while (M--) {
+		cin >> A >> B;
+
+		int psum = 0;
+
+		for (int i = A; i <= B; i++) {
+			psum += arr[i];
+		}
+
+		cout << psum << "\n";
+	}
+}
+```
+
+
 ## 구현

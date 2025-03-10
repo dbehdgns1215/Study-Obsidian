@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
-                "mode": "preview",
+                "file": "PS/C++.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "모든 개발자를 위한 HTTP 웹 기본 지식"
+              "title": "C++"
             }
           },
           {
@@ -248,10 +248,11 @@
   },
   "active": "e8168be9e8febcbf",
   "lastOpenFiles": [
-    "PS/C++.md",
-    "Pasted image 20250309004538.png",
+    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
+    "PS/C++.md",
+    "Pasted image 20250309004538.png",
     "Pasted image 20250306233120.png",
     "Pasted image 20250306232857.png",
     "Pasted image 20250306232528.png",
@@ -263,7 +264,6 @@
     "알고리즘교안.pdf",
     "알고리즘 문제해설.pdf",
     "알고리즘_개념교안.pdf",
-    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "2025-03-05.md",
     "PS",
     "Pasted image 20250305230227.png",

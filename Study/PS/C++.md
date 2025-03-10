@@ -252,6 +252,10 @@ void combi(int start, vector<int> b) {
 }
 ```
 
+**중첩 for문**
+```C++
+
+```
 
 # 1주차
 **목차**

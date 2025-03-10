@@ -254,7 +254,13 @@ void combi(int start, vector<int> b) {
 
 **중첩 for문**
 ```C++
-
+for (int i = 0; i < n; i++) {
+	for (int j = 0; j < i; j++) {
+		for (int k = 0; k < j; k++) {
+			cout << i << " : " << j << " : " << k << "\n";
+		}
+	}
+}
 ```
 
 # 1주차

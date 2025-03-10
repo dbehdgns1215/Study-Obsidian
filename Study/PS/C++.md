@@ -234,7 +234,23 @@ int main() {
 > 
 > ex) 3개 중에서 순서 없이 1개를 뽑는다 =  $_3$$C$$_1$ 
 
+- 4개 이상을 뽑는 경우에는 재귀 함수로 구현하는 것이 편함
+- 3개 이하를 뽑는 경우에는 중첩 for문으로 구현하는 것이 편함
 
+**재귀 함수 구현**
+```C++
+void combi(int start, vector<int> b) {
+	if (b.size() == k) {
+		print(b);
+		return;
+	}
+	for (int i = start + 1; i < n; i++) {
+		b.push_back(i);
+		combi(i, b);
+		b.pop_back();
+	}
+}
+```
 
 
 # 1주차

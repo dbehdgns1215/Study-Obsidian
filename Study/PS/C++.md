@@ -838,3 +838,17 @@ for (int j = 0; j < adj[i].size(); j++) {
 
 ![[Pasted image 20250315235709.png]]위 그림에서 연결된 컴포넌트의 수는 총 3개이고, 각각의 컴포넌트는 2개, 3개, 2개라는 정점을 가진다.
 
+
+## 깊이우선탐색(DFS, Depth First Search)
+DFS는 그래프를 탐색할 때 쓰는 알고리즘이며 어떤 노드부터 시작해 인접한 노드들을 재귀적으로 방문하여 이미 방문한 정점은 다시 방문하지 않으며 각 분기마다 가능한 가장 멀리 있는 노드까지 탐색하는 알고리즘
+
+### 수도코드
+- 수도코드(pseudocode)는 프로그램의 로직을 표현하기 위해 쓰이는 코드. 알고리즘이 어떤 로직을 갖고 있는지 나타내기 위해 사용
+
+```pseudocode
+DFS(u, adj)
+	u.visited = true
+	for each v ∈ adj[u]
+		if v.visited == false
+			DFS(v, adj)
+```

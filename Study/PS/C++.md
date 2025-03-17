@@ -1057,3 +1057,17 @@ preorder( node )
 		preorder( node -> left )
 		preorder( node -> right )
 ```
+
+
+### 중위순회
+중위순회(inorder traversal)는 왼쪽 노드를 먼저 방문하고 그 다음은 자신의 노드를 방문하고 그 다음 오른쪽 노드를 방문하는 것을 말한다
+"안에 넣다", "끼워져있다"
+
+``` C++
+preorder( node )
+	if (node.visited == false)
+		preorder( node -> left )
+		node.visited = true
+		preorder( node -> right )
+```
+

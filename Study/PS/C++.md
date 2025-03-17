@@ -1209,3 +1209,40 @@ int main() {
 - 완전탐색 & 가지치기
 - 최대한 불필요한 탐색을 피하는 것
 
+완전탐색 마지막 파트에 했던 문제를 살펴보자
+`합을 mod 11을 했을 때 나오는 가장 큰 수를 구하여라`
+
+- mod 11을 했을 때 나올 수 있는 가장 큰 수는 `10`이다.
+
+따라서
+``` C++
+void go(int idx, int sum) {
+    if (idx == n) {
+        ret = max(ret, sum % 11);
+        return;
+    }
+    go(idx + 1, sum + v[idx]);
+    go(idx + 1, sum);
+}
+```
+해당 재귀함수 코드에
+
+```C++
+void go(int idx, int sum) {
+	if (sum == 10) return;
+    if (idx == n) {
+	    // 또는 if (sum == 10) return;
+        ret = max(ret, sum % 11);
+        return;
+    }
+    go(idx + 1, sum + v[idx]);
+    go(idx + 1, sum);
+}
+```
+- `if (sum == 10) return;` 를 추가해서 최대값이 나왔으면 다른 경우의 수는 보지 않아도 된다는 말
+
+
+
+## 완전탐색과 원상복구
+- 어떠한 상태 값이 그 다음 경우의 수에 반영이 되지 않게하기 위해서 '원복'이 필요한 것
+

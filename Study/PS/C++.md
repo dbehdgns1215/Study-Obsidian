@@ -1036,4 +1036,5 @@ int main(void) {
 보통 설명할 때는 이진트리를 기반으로 설명하지만 다른 모든 트리에서 일반화 시킬 수 있다
 
 ### 후위순회
-후위순회(postorder traversal)는
+후위순회(postorder traversal)는 자식들 노드를 방문하고 자신의 노드를 방문하는 것을 말한다
+

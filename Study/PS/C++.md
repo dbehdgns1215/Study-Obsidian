@@ -1123,8 +1123,8 @@ bool check(int n) {
 	if (n == 2) return 1; // 2이면 당연히 소수임
 	if (n % 2 == 0) return 0; // 2의 배수면 당연히 소수가 아님
 	for (int i = 2; i * i <= n; i++) {
-		if (n % i == 0) return 0; // ㅁㄴㅇ 소수가 아님
+		if (n % i == 0) return 0; // 나눠지는 수가 있으면 당연히 소수가 아님
 	}
-	return 1; // ㅁㄴㅇ 소수임
+	return 1; // 모두 통과했으면 당연히 소수임
 }
 ```

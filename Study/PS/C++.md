@@ -1038,3 +1038,14 @@ int main(void) {
 ### 후위순회
 후위순회(postorder traversal)는 자식들 노드를 방문하고 자신의 노드를 방문하는 것을 말한다
 
+``` C++
+postorder( node )
+	if (node.visited == false)
+		postorder( node -> left )
+		postorder( node -> right )
+		node.visited = true
+```
+
+
+### 전위순회
+전위순회 

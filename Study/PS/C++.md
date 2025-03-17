@@ -1049,3 +1049,11 @@ postorder( node )
 
 ### 전위순회
 전위순회(preorder traversal)는 먼저 자신의 노드를 방문하고 그 다음 노드들을 방문하는 것을 말한다
+
+``` C++
+preorder( node )
+	if (node.visited == false)
+		node.visited = true
+		preorder( node -> left )
+		preorder( node -> right )
+```

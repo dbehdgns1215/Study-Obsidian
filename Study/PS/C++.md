@@ -902,3 +902,110 @@ int main() {
 }
 
 ```
+
+**깊이가 깊다면 `stack`을 쓰는 것도 고려해보자**
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+#define X first
+#define Y second
+
+int board[502][502] = {
+    {1,1,1,0,1,0,0,0,0,0},
+    {1,0,0,0,1,0,0,0,0,0},
+    {1,1,1,0,1,0,0,0,0,0},
+    {1,1,0,0,1,0,0,0,0,0},
+    {0,1,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0}
+};
+
+bool vis[502][502];
+int n = 7, m = 10;
+int dx[4] = {1, 0, -1, 0};
+int dy[4] = {0, 1, 0, -1};
+
+int main(void) {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    stack<pair<int, int>> S;
+    S.push({0, 0});
+    vis[0][0] = true;
+
+    while (!S.empty()) {
+        pair<int, int> cur = S.top(); S.pop();
+        
+        for (int dir = 0; dir < 4; dir++) {
+            int nx = cur.X + dx[dir];
+            int ny = cur.Y + dy[dir];
+            if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+            if (vis[nx][ny] || board[nx][ny] != 1) continue;
+            
+            vis[nx][ny] = true;
+            S.push({nx, ny});
+        }
+    }
+}
+
+```
+
+
+## 너비우선탐색(BFS, Breadth-First Search)
+BFS는 그래프를 탐색하는 알고리즘이며 어떤 정점에서 시작해 다음 깊이의 정점으로 이동하기 전 현재 깊이의 모든 정점을 탐색하여 방문한 정점은 다시 방문하지 않는 알고리즘이다
+
+같은 가중치를 가진 그래프에서 최단거리 알고리즘으로 쓰인다
+
+
+
+
+### BFS 코드
+``` C++
+#include <bits/stdc++.h>
+using namespace std;
+
+#define X first
+#define Y second
+
+int board[502][502] = {
+    {1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
+    {1, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+    {1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
+    {1, 1, 0, 0, 1, 0, 0, 0, 0, 0},
+    {0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+};
+
+bool vis[502][502];
+int n = 7, m = 10;
+int dx[4] = { 1, 0, -1, 0 };
+int dy[4] = { 0, 1, 0, -1 };
+
+int main(void) {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    queue<pair<int, int>> Q;
+    vis[0][0] = 1;
+    Q.push({ 0, 0 });
+
+    while (!Q.empty()) {
+        pair<int, int> cur = Q.front();
+        Q.pop();
+
+        for (int dir = 0; dir < 4; dir++) {
+            int nx = cur.X + dx[dir];
+            int ny = cur.Y + dy[dir];
+
+            if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+            if (vis[nx][ny] || board[nx][ny] != 1) continue;
+
+            vis[nx][ny] = 1;
+            Q.push({ nx, ny });
+        }
+    }
+
+    return 0;
+}
+```

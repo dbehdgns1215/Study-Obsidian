@@ -1086,3 +1086,22 @@ inorder( node )
 - 모든 경우의 수?
 - 순열 or 조합   + 로직
 - (보통 1억 미만까지)
+
+**반복문을 활용한 완전탐색
+- for or while
+	- ex) 단순히 선형적으로 숫자 찾는 것도 완전탐색에 해당함
+
+``` C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	vector<int> v = {1, 2, 3, 4, 5};
+	// vector에 5가 포함되어있나? -> 완전탐색
+	for (int i = 0; i < v.size(); i++) {
+		if (v[i] == 5) {
+			cout << "야호\n";
+		}
+	}
+}
+```

@@ -1246,3 +1246,10 @@ void go(int idx, int sum) {
 ## 완전탐색과 원상복구
 - 어떠한 상태 값이 그 다음 경우의 수에 반영이 되지 않게하기 위해서 '원복'이 필요한 것
 
+``` C++
+go(int here) {
+	visited[there] = 1;
+	go(there);
+	visited[there] = 0;
+}
+```

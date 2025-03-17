@@ -35,8 +35,7 @@
   "showRibbon": true,
   "deleteFileOption": "trash",
   "expandedSpaces": [
-    "/",
-    "//HTTP"
+    "/"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",

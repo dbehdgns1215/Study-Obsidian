@@ -1064,10 +1064,15 @@ preorder( node )
 "안에 넣다", "끼워져있다"
 
 ``` C++
-preorder( node )
+inorder( node )
 	if (node.visited == false)
-		preorder( node -> left )
+		inorder( node -> left )
 		node.visited = true
-		preorder( node -> right )
+		inorder( node -> right )
 ```
+
+
+### 레벨순회
+= BFS를 사용하면 됨.
+
 

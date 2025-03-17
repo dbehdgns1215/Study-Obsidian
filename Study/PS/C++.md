@@ -1121,8 +1121,8 @@ int main() {
 bool check(int n) {
 	if (n <= 1) return 0; // 1이하면 당연히 소수가 아님
 	if (n == 2) return 1; // 2이면 당연히 소수임
-	if (n % 2 == 0) return 0; // 2의 배수면 당연히 소수가 아님
-	for (int i = 2; i * i <= n; i++) {
+	if (n % 2 == 0) return 0; // 짝수면 당연히 소수가 아님
+	for (int i = 3; i * i <= n; i += 2) {
 		if (n % i == 0) return 0; // 나눠지는 수가 있으면 당연히 소수가 아님
 	}
 	return 1; // 모두 통과했으면 당연히 소수임

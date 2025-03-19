@@ -1371,3 +1371,37 @@ for (int i = 0; i < k; i++) {
 - 따라서, 구간과 관련된 문제에서 `최대 구간`, `최대 횟수` 등을 찾는데 많이 쓰이는 알고리즘
 - 정렬시켜놓고 왼쪽에서 오른쪽으로 탐색, 오른쪽에서 왼쪽으로 탐색 등 빗자루 쓸 듯이!
 
+> 구간을 "재정의" 한다?
+
+
+도화지의 특정 위치에서 다른 위치까지 여러번 선을 그릴 수 있음
+선을 그을 때마다 이미 그어진 선 위에 다시 그을 수 있으며 여러 번 그어진 부분은 한 번만 계산됨
+그린 모든 선들의 총 길이는?
+
+선을 그은 횟수 N, 선택한 두 점의 위치 a, b (-1,000,000,000 <= a <= b <= 1,000,000,000)
+
+```C++
+int n, from, to, l, r, ret;
+pair<int, int> L[1000004];
+
+int main() {
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> from >> to;
+		L[i] = pair<int, int>(from, to);
+	}
+	sort(L, L + n);
+
+	l = L[0].first; r = L[0].second;
+
+	for (int i = 1; i < n; i++) {
+		if (r < L[i].first) {
+			ret += (r - l);
+			l = L[i].first;
+			r = L[i].second;
+			} else if (L[i].first <= r && L[i].second >= r) {
+				r = L[i].second;
+			}
+	}
+}
+```

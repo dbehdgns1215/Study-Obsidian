@@ -1348,8 +1348,10 @@ ex) 동전 거슬러주기 문제
 - 무게 10인 가방에 들어갈 수 있는 골동품 중에서 가장 가치가 높은 것을 고르고 싶다면?
 	- `priority_queue<자료형> pq` 선언
 	- pq에 해당 가방에 들어갈 수 있는 골동품인지 확인 후 push 해주면 자동으로 정렬된다. 
-```
-// 가방(v) 무게 오름차순 정렬 + 골동품(vv) 무게 오름차순 정렬 코드 생략
+``` C++
+vector<pair<ll,ll>> v(n); // 골동품의 수 n
+vector<ll> vv(k) // 가방의 수 k
+// 가방(vv) 무게 오름차순 정렬 + 골동품(v) 무게 오름차순 정렬 코드 생략
 for (int i = 0; i < k; i++) {
 	while (j < n && v[j].first <= vv[i]) pq.push(v[j++].second);
 	if (pq.size()) {

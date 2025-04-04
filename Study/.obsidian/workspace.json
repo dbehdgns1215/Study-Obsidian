@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PS/C++.md",
+                "file": "Spring/스프링 핵심 원리 - 기본편.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++"
+              "title": "스프링 핵심 원리 - 기본편"
             }
           }
         ]
@@ -221,9 +221,9 @@
   },
   "active": "de4e523793a9e569",
   "lastOpenFiles": [
+    "PS/C++.md",
     "Pasted image 20250403011458.png",
     "#1주차.md",
-    "PS/C++.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "Pasted image 20250324003955.png",
     "Pasted image 20250324003925.png",
@@ -237,7 +237,6 @@
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Pasted image 20250315235709.png",
     "Pasted image 20250315003714.png",
-    "Pasted image 20250315001246.png",
     "Spring/Spring.md",
     "😀 Dongni 😀.md",
     "PS/BOJ.md",

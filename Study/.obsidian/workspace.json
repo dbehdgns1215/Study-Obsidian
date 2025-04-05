@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Spring/스프링 핵심 원리 - 기본편.md",
+                "file": "Java/Java.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "스프링 핵심 원리 - 기본편"
+              "title": "Java"
+            }
+          },
+          {
+            "id": "d2c18da0d1984fc3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spring/Spring.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Spring"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,13 +109,11 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 296.500732421875
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -219,17 +232,26 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "de4e523793a9e569",
+  "active": "d2c18da0d1984fc3",
   "lastOpenFiles": [
+    "Java/Java.md",
+    "HTTP/HTTP.md",
+    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+    "PS/BOJ.md",
+    "PS/PS.md",
     "PS/C++.md",
+    "Spring/Spring.md",
+    "😀 Dongni 😀.md",
+    "Java/무제.md",
+    "Java",
+    "Spring/DI와 테스트의 용이함.md",
+    "Spring/스프링 핵심 원리 - 기본편.md",
     "Pasted image 20250403011458.png",
     "#1주차.md",
-    "Spring/스프링 핵심 원리 - 기본편.md",
     "Pasted image 20250324003955.png",
     "Pasted image 20250324003925.png",
     "Pasted image 20250324003908.png",
     "Pasted image 20250324003850.png",
-    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "Pasted image 20250320014205.png",
     "Pasted image 20250320013331.png",
     "Pasted image 20250320013311.png",
@@ -237,16 +259,11 @@
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Pasted image 20250315235709.png",
     "Pasted image 20250315003714.png",
-    "Spring/Spring.md",
-    "😀 Dongni 😀.md",
-    "PS/BOJ.md",
-    "PS/PS.md",
     "알고리즘교안.pdf",
     "알고리즘 문제해설.pdf",
     "알고리즘_개념교안.pdf",
     "2025-03-05.md",
     "PS",
-    "HTTP/HTTP.md",
     "Spring",
     "섹션 3 - URI와 웹 브라우저 요청 흐름.md",
     "create a link.md",

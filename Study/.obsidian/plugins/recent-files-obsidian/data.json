@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "Spring",
-      "path": "Spring/Spring.md"
-    },
-    {
       "basename": "Java",
       "path": "Java/Java.md"
+    },
+    {
+      "basename": "DI와 테스트의 용이함",
+      "path": "Java/DI와 테스트의 용이함.md"
+    },
+    {
+      "basename": "Spring",
+      "path": "Spring/Spring.md"
     },
     {
       "basename": "HTTP",
@@ -31,10 +35,6 @@
     {
       "basename": "😀 Dongni 😀",
       "path": "😀 Dongni 😀.md"
-    },
-    {
-      "basename": "DI와 테스트의 용이함",
-      "path": "Spring/DI와 테스트의 용이함.md"
     },
     {
       "basename": "스프링 핵심 원리 - 기본편",

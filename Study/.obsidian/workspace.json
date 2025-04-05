@@ -25,14 +25,10 @@
             "id": "d2c18da0d1984fc3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Spring/Spring.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Spring"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "그래프 뷰"
             }
           }
         ],
@@ -235,16 +231,16 @@
   "active": "d2c18da0d1984fc3",
   "lastOpenFiles": [
     "Java/Java.md",
+    "Java/DI와 테스트의 용이함.md",
+    "Spring/Spring.md",
     "HTTP/HTTP.md",
     "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "PS/BOJ.md",
     "PS/PS.md",
     "PS/C++.md",
-    "Spring/Spring.md",
     "😀 Dongni 😀.md",
     "Java/무제.md",
     "Java",
-    "Spring/DI와 테스트의 용이함.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "Pasted image 20250403011458.png",
     "#1주차.md",

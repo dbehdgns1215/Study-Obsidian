@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "스프링 핵심 원리 - 기본편",
+      "path": "Spring/스프링 핵심 원리 - 기본편.md"
+    },
+    {
+      "basename": "Spring",
+      "path": "Spring/Spring.md"
+    },
+    {
       "basename": "Java",
       "path": "Java/Java.md"
     },
     {
       "basename": "DI와 테스트의 용이함",
       "path": "Java/DI와 테스트의 용이함.md"
-    },
-    {
-      "basename": "Spring",
-      "path": "Spring/Spring.md"
     },
     {
       "basename": "HTTP",
@@ -35,10 +39,6 @@
     {
       "basename": "😀 Dongni 😀",
       "path": "😀 Dongni 😀.md"
-    },
-    {
-      "basename": "스프링 핵심 원리 - 기본편",
-      "path": "Spring/스프링 핵심 원리 - 기본편.md"
     },
     {
       "basename": "스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술",

@@ -211,9 +211,19 @@
               "icon": "history",
               "title": "History"
             }
+          },
+          {
+            "id": "b2e3566c7b885805",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",

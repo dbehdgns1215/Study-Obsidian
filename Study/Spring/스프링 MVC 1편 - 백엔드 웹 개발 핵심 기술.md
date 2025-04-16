@@ -103,6 +103,16 @@
 
 ![[Pasted image 20250417001157.png]]
 
+#### 서블릿
+**특징**
+
+![[Pasted image 20250417001442.png]]
+- urlPatterns(/hello)의 URL이 호출되면 서블릿 코드가 살행됨
+- HTTP 요청 정보를 편리하게 사용할 수 있는 HttpServletRequest
+- HTTP 응답 정보를 편리하게 제공할 수 있는 HttpServletResponse
+- 개발자는 HTTP 스택을 매우 편리하게 사용함
+
+
 ## 동시 요청 - 멀티 쓰레드
 
 

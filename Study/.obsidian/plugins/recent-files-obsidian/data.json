@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술",
+      "path": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md"
+    },
+    {
+      "basename": "Spring",
+      "path": "Spring/Spring.md"
+    },
+    {
       "basename": "스프링 핵심 원리 - 기본편",
       "path": "Spring/스프링 핵심 원리 - 기본편.md"
     },
     {
       "basename": "Java",
       "path": "Java/Java.md"
-    },
-    {
-      "basename": "Spring",
-      "path": "Spring/Spring.md"
     },
     {
       "basename": "DI와 테스트의 용이함",

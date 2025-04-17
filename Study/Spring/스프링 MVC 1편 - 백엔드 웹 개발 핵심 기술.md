@@ -122,6 +122,22 @@
 - 개발자는 HTTP 스택을 매우 편리하게 사용함
 
 
+![[Pasted image 20250418003128.png]]
+- 웹 브라우저에서 먼저 `localhost:8080/hello`로 요청을 보냄
+- WAS 에서는 요청 메시지를 기반으로 방금 본 `request`, `response` 객체를 만들어냄
+- 이후 서블릿 컨테이너를 통해서 만들어낸 `request`, `response` 객체를 파라미터로 넘기면서 `helloServlet` 을 실행함
+- `helloServlet`의 실행이 끝나고 리턴값 `response` 이 있을텐데, 이것을 바탕으로 HTTP 응답 메시지를 만들어냄
+- 웹 브라우저에게 응답 메시지를 전달함.
+
+#### HTTP 요청, 응답 흐름
+- HTTP 요청시
+	- WAS는 Request, Response 객체를 새로 만들어서 서블릿 객체를 호출함
+	- 개발자는 Request 객체에서 HTTP 요청 정보를 편리하게 꺼내서 사용
+	- 개발자는 Response 객체에 HTTP 응답 정보를 편리하게 입력
+	- WAS는 Response 객체에 담겨있는 내용으로 HTTP 응답 정보를 생성
+
+
+
 
 ## 동시 요청 - 멀티 쓰레드
 

@@ -443,6 +443,10 @@
 `start.spring.io`
 ![[Pasted image 20250419184508.png]]
 
+![[Pasted image 20250420001131.png]]
+- 이렇게 해야 실행 속도가 빨라진다고 함
+
+
 
 
 ## Hello 서블릿

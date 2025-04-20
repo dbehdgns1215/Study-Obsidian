@@ -457,6 +457,58 @@
 > 하지만 이 과정은 매우 번거롭다.
 > 스프링 부트는 톰캣 서버를 내장하고 있으므로 톰캣 서버 설치 없이 편리하게 서블릿 코드를 실행할 수 있다.
 
+```java
+package hello.servlet;  
+  
+import org.springframework.boot.SpringApplication;  
+import org.springframework.boot.autoconfigure.SpringBootApplication;  
+import org.springframework.boot.web.servlet.ServletComponentScan;  
+  
+@ServletComponentScan // 자동으로 패키지 내의 서블릿을 찾은 뒤 실행할 수 있게끔 만들어줌  
+@SpringBootApplication  
+public class ServletApplication {  
+  
+    public static void main(String[] args) {  
+       SpringApplication.run(ServletApplication.class, args);  
+    }  
+
+}
+```
+
+
+```java
+package hello.servlet.basic;  
+  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+  
+import java.io.IOException;  
+  
+@WebServlet(name = "helloServlet", urlPatterns = "/hello")  
+public class HelloServlet extends HttpServlet {  
+  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+        System.out.println("HelloServlet.service");  
+        System.out.println("request = " + request);  
+        System.out.println("response = " + response);  
+    }  
+}
+```
+
+```output
+HelloServlet.service
+request = org.apache.catalina.connector.RequestFacade@36b2c8c0
+response = org.apache.catalina.connector.ResponseFacade@44ce524c
+```
+- 서버 실행시에 이전에 학습한 로직처럼 동작하는 것을 확인할 수 있음
+- `이후 서블릿 컨테이너를 통해서 만들어낸 request, response 객체를 파라미터로 넘기면서 helloServlet 을 실행함`
+
+
 ## HttpServletRequest - 개요
 
 

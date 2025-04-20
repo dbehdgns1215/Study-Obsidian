@@ -509,6 +509,35 @@ response = org.apache.catalina.connector.ResponseFacade@44ce524c
 - `이후 서블릿 컨테이너를 통해서 만들어낸 request, response 객체를 파라미터로 넘기면서 helloServlet 을 실행함`
 
 
+`http://localhost:8080/hello?username=ryu`
+- 쿼리 파라미터를 수정해보자!
+- 이걸 꺼내서 사용하려면 어떻게 해야할까?
+
+```java
+@WebServlet(name = "helloServlet", urlPatterns = "/hello")  
+public class HelloServlet extends HttpServlet {  
+  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+        System.out.println("HelloServlet.service");  
+        System.out.println("request = " + request);  
+        System.out.println("response = " + response);  
+  
+        String username = request.getParameter("username");  
+        System.out.println("username = " + username);  
+    }  
+}
+```
+
+```output
+HelloServlet.service
+request = org.apache.catalina.connector.RequestFacade@181bfa51
+response = org.apache.catalina.connector.ResponseFacade@16dc1722
+username = ryu
+```
+- `request.getParameter("변수명")` 으로 쉽게 꺼낼 수 있다.
+
 ## HttpServletRequest - 개요
 
 

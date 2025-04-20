@@ -582,6 +582,13 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 HTTP 요청을 통해 매핑된 URL이 호출되면 서블릿 컨테이너는 다음 메서드를 실행한다.
 `protected void service(HttpServletRequest request, HttpServletResponse response)`
 
+>**표준 동작**: 서블릿 컨테이너는 반드시 service() 메서드를 호출해서 요청을 처리해야 함.
+>이 메서드는 HTTP 요청의 메서드(GET, POST 등)에 따라 내부적으로 doGet(), doPost() 등으로 분기함.
+>즉, 서블릿 개발자가 doGet(), doPost() 등을 오버라이드하면 해당 HTTP 메서드에 맞게 자동으로 호출됨
+>
+>**예외 없음**: 특별한 예외 없이, 모든 HTTP 요청은 이 메서드를 통해 처리됨.
+>만약 doGet()이나 doPost()를 오버라이드하지 않으면, 기본 구현(예: 405 Method Not Allowed 에러)이 반환될 뿐, service() 호출 자체가 생략되지는 않음
+
 - 웹 브라우저 실행
 	- `http://localhost:8080/hello?username=HelloWorld`
 	- 결과: HelloWorld

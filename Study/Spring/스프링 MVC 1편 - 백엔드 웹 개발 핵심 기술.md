@@ -565,9 +565,36 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 
 - 요청
 ![[Pasted image 20250421003839.png]]
+![[Pasted image 20250421004141.png]]
 
 - 응답
 ![[Pasted image 20250421003859.png]]
+
+**최초의 서블릿 요청 및 응답을 실습해봤다.**
+사실 우리가 HTTP 스펙을 직접 다 맞춰서 요청/응답을 만들려면 굉장히 어려울 것임.
+따라서 서블릿을 통한다면, 우리가 자주 쓰는 기능들을 굉장히 편리하게 이용할 수 있다는 걸 알 수 있음.
+
+**정리**
+- `@WebServlet`: 서블릿 애노테이션
+	- name: 서블릿 이름
+	- urlPatterns: URL 매핑
+
+HTTP 요청을 통해 매핑된 URL이 호출되면 서블릿 컨테이너는 다음 메서드를 실행한다.
+`protected void service(HttpServletRequest request, HttpServletResponse response)`
+
+- 웹 브라우저 실행
+	- `http://localhost:8080/hello?username=HelloWorld`
+	- 결과: HelloWorld
+- 콘솔 실행 결과
+```output
+HelloServlet.service
+request = org.apache.catalina.connector.RequestFacade@181bfa51
+response = org.apache.catalina.connector.ResponseFacade@16dc1722
+username = HelloWorld
+```
+
+
+
 
 
 ## HttpServletRequest - 개요

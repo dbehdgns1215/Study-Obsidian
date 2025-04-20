@@ -538,6 +538,10 @@ username = ryu
 ```
 - `request.getParameter("변수명")` 으로 쉽게 꺼낼 수 있다.
 
+**이번에는 응답 메시지를 보내보자!**
+- `HttpServletResponse response` 에다가 넣어줘야 한다.
+-  해당 변수에 값을 넣으면, 웹 브라우저에 응답하는 response HTTP 응답 메시지에 데이터가 담겨서 나가게 된다.
+
 ## HttpServletRequest - 개요
 
 

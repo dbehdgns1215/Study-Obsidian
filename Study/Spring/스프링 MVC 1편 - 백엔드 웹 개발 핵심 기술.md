@@ -542,6 +542,34 @@ username = ryu
 - `HttpServletResponse response` 에다가 넣어줘야 한다.
 -  해당 변수에 값을 넣으면, 웹 브라우저에 응답하는 response HTTP 응답 메시지에 데이터가 담겨서 나가게 된다.
 
+```java
+@Override  
+protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+    System.out.println("HelloServlet.service");  
+    System.out.println("request = " + request);  
+    System.out.println("response = " + response);  
+  
+    String username = request.getParameter("username");  
+    System.out.println("username = " + username);  
+  
+    // 아래 두 줄은 ContentType, 즉 Header 정보로 들어감  
+    response.setContentType("text/plain"); // 단순 문자  
+    response.setCharacterEncoding("UTF-8");  
+  
+    response.getWriter().write("Hello " + username); // .write()를 사용하면 HTTP 메시지 Body에 데이터가 들어감  
+}
+```
+
+![[Pasted image 20250421003806.png]]
+
+- 요청
+![[Pasted image 20250421003839.png]]
+
+- 응답
+![[Pasted image 20250421003859.png]]
+
+
 ## HttpServletRequest - 개요
 
 

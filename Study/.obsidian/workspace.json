@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
+                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
+              "title": "모든 개발자를 위한 HTTP 웹 기본 지식"
             }
           },
           {
@@ -127,8 +127,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.500732421875,
-    "collapsed": true
+    "width": 296.500732421875
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -262,6 +261,7 @@
   },
   "active": "de4e523793a9e569",
   "lastOpenFiles": [
+    "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Pasted image 20250422001053.png",
     "Pasted image 20250422001014.png",
     "Pasted image 20250422000947.png",
@@ -276,9 +276,7 @@
     "PS/PS.md",
     "PS/C++.md",
     "PS/BOJ.md",
-    "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Pasted image 20250420001328.png",
-    "Pasted image 20250420001131.png",
     "Spring/Spring.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "Java/DI와 테스트의 용이함.md",

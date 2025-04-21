@@ -639,6 +639,20 @@ username = ryuyu
 >: 톰캣 내부의 디버깅 로깅 기능, Apache Coyote HTTP/1.1 프로토콜 구현체(`Http11InputBuffer`)
 
 
+#### 서블릿 컨테이너 동작 방식 설명
+**내장 톰캣 서버 생성**
+![[Pasted image 20250422000947.png]]
+
+**HTTP 요청, HTTP 응답 메시지**
+![[Pasted image 20250422001014.png]]
+
+**웹 애플리케이션 서버의 요청 / 응답 구조**
+![[Pasted image 20250422001053.png]]
+
+> 참고
+> HTTP 응답에서 Content-Length는 웹 애플리케이션 서버가 자동으로 생성해줌
+
+
 
 ## HttpServletRequest - 개요
 

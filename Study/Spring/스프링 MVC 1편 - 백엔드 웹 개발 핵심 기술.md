@@ -633,6 +633,11 @@ username = ryuyu
 
 ```
 
+>**참고**
+>운영 서버에 이렇게 모든 요청 정보를 다 남기면 성능 저하가 발생할 수 있음.
+>개발 단계에서만 적용하자
+>: 톰캣 내부의 디버깅 로깅 기능, Apache Coyote HTTP/1.1 프로토콜 구현체(`Http11InputBuffer`)
+
 
 
 ## HttpServletRequest - 개요

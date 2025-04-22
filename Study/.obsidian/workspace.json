@@ -113,7 +113,7 @@
             }
           },
           {
-            "id": "dd07542df0d4c5ff",
+            "id": "a3d75795cf984734",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -243,8 +243,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {

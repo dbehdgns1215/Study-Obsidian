@@ -701,6 +701,9 @@ HttpServletRequest 객체는 추가로 여러가지 부가 기능도 함께 제�
 
 
 
+![[Pasted image 20250424010141.png]]
+
+
 ## HTTP 요청 데이터 - 개요
 
 

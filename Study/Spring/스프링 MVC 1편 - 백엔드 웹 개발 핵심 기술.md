@@ -795,6 +795,8 @@ public class RequestHeaderServlet extends HttpServlet {
 - 기존에는 null 이었음 (아무 것도 담겨있지 않았기 때문)
 
 
+	지금까지 `HttpServletRequest`를 통해서 HTTP 메시지의 `start-line`, `header` 정보 조회 방법을 이해했다. 이제 본격적으로 HTTP 요청 데이터를 어떻게 조회하는지 알아보자
+
 ## HTTP 요청 데이터 - 개요
 
 

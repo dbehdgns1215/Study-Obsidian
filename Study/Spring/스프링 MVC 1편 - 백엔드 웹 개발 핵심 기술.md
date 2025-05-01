@@ -823,7 +823,31 @@ HTTP 요청 메시지를 통해 클라이언트에서 서버로 데이터를 전
 
 ## HTTP 요청 데이터 - GET 쿼리 파라미터
 다음 데이터를 클라이언트에서 서버로 전송해보자.
+- username=hello
+- age=20
 
+메시지 바디 없이, URL의 **쿼리 파라미터**를 사용해서 데이터를 전달해보자.
+예) 검색, 필터, 페이징 등에서 많이 사용하는 방식
+
+쿼리 파라미터는 URL에 다음과 같이 `?` 를 시작으로 보낼 수 있다. 추가 파라미터는 `&`로 구분하면 된다.
+- `http://localhost:8080/request-param?username=hello&age=20`
+
+서버에서는 `HttpServletRequest`가 제공하는 다음 메서드를 통해서 쿼리 파라미터를 편리하게 조회할 수 있다.
+
+**쿼리 파라미터 조회 메서드**
+```java
+ // 단일 파라미터 조회
+String username = request.getParameter("username");
+
+// 파라미터 이름을 모두 조회
+Enumeration<String> parameterNames = request.getParameterNames(); 
+
+// 파라미터를 Map 으로 조회
+Map<String, String[]> parameterMap = request.getParameterMap(); 
+
+// 복수 파라미터 조회
+String[] usernames = request.getParameterValues("username"); 
+```
 
 ## HTTP 요청 데이터 - POST HTML Form
 

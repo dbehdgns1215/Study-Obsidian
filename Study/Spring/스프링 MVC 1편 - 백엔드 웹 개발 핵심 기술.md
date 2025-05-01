@@ -817,6 +817,9 @@ HTTP 요청 메시지를 통해 클라이언트에서 서버로 데이터를 전
 	- 데이터 형식은 주로 JSON
 	- POST, PUT, PATCH
 
+**POST - HTML Form 예시**
+![[Pasted image 20250501191335.png]]
+
 
 
 ## HTTP 요청 데이터 - GET 쿼리 파라미터

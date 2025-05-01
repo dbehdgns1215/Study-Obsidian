@@ -935,6 +935,16 @@ username = ryu2
 ```
 
 
+**복수 파라미터에서 단일 파라미터 조회**
+`username=hello&username=kim` 과 같이 `파라미터 이름`은 `하나`인데, `값`이 `중복`이면 어떻게 될까?
+`request.getparameter()`는 하나의 파라미터 이름에 대해서 단 하나의 값만 있을 때 사용해야 한다. 지금처럼 중복일 때는 `request.getparameterValues()`를 사용해야 한다.
+
+참고로 이렇게 중복일 때 `request.getParameter()`를 사용하면 `request.getParameterValues()`의 첫 번째 값을 반환하게 된다.
+
+대부분의 상황에서 단일 파라미터로 전송하기 때문에, 복수 파라미터로 보내는 경우가 특수한 경우이고, 이 특수한 경우에 대해서 잘 기억해서 `request.getParameterValues`를 사용해주면 됨. (의도한대로 동작할 수 있도록)
+
+
+
 ## HTTP 요청 데이터 - POST HTML Form
 
 

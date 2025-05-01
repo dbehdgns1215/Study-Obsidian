@@ -810,6 +810,7 @@ HTTP 요청 메시지를 통해 클라이언트에서 서버로 데이터를 전
 - **POST - HTML Form**
 	- content-type: application/x-www-form-urlencoded
 	- 메시지 바디에 쿼리 파라미터 형식으로 전달 username=hello&age=20
+	- 보면 알겠지만, GET 방식에서 쿼리 파라미터를 사용하는 것과 동일함
 	- 예) 회원가입, 상품 주문, HTML Form 사용
 
 - **HTTP message body**에 데이터를 직접 담아서 요청

@@ -914,6 +914,25 @@ age = 10
 
 따라서 이름이 같은 복수 파라미터를 조회하는 방법은 다음과 같다.
 
+```java
+System.out.println("[이름이 같은 복수 파라미터 조회] - start");  
+  
+String[] usernames = request.getParameterValues("username");  
+for (String name : usernames) {  
+    System.out.println("username = " + name);  
+}  
+  
+System.out.println("[이름이 같은 복수 파라미터 조회] - end");
+```
+
+- `http://localhost:8080/request-param?username=ryu&age=10&username=ryu2`
+
+```java
+[이름이 같은 복수 파라미터 조회] - start
+username = ryu
+username = ryu2
+[이름이 같은 복수 파라미터 조회] - end
+```
 
 
 ## HTTP 요청 데이터 - POST HTML Form

@@ -821,10 +821,8 @@ HTTP 요청 메시지를 통해 클라이언트에서 서버로 데이터를 전
 **POST - HTML Form 예시**
 ![[Pasted image 20250501191335.png]]
 
-
-
 ## HTTP 요청 데이터 - GET 쿼리 파라미터
-
+다음 데이터를 클라이언트에서 서버로 전송해보자.
 
 
 ## HTTP 요청 데이터 - POST HTML Form

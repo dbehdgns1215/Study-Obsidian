@@ -849,6 +849,73 @@ Map<String, String[]> parameterMap = request.getParameterMap();
 String[] usernames = request.getParameterValues("username"); 
 ```
 
+```java
+package hello.servlet.basic.request;  
+  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+  
+import java.io.IOException;  
+import java.util.Enumeration;  
+  
+  
+/**  
+ * 1. 파라미터 전송 기능  
+ * http://localhost:8080/request-param?username=hello&age=20  
+ * */@WebServlet(name = "requestParamServlet", urlPatterns = "/request-param")  
+public class RequestParamServlet extends HttpServlet {  
+  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+        System.out.println("[전체 파라미터 조회] - start");  
+  
+        request.getParameterNames().asIterator()  
+                .forEachRemaining(paramName -> System.out.println(paramName + " = " + request.getParameter(paramName)));  
+  
+        System.out.println("[전체 파라미터 조회] - end");  
+  
+        System.out.println();  
+  
+        System.out.println("[단일 파라미터 조회] - start");  
+  
+        String username = request.getParameter("username");  
+        String age = request.getParameter("age");  
+  
+        System.out.println("username = " + username);  
+        System.out.println("age = " + age);  
+  
+        System.out.println("[단일 파라미터 조회] - end");  
+  
+    }  
+}
+```
+
+```output
+[전체 파라미터 조회] - start
+username = ryu
+age = 10
+oh = real
+[전체 파라미터 조회] - end
+
+[단일 파라미터 조회] - start
+username = ryu
+age = 10
+[단일 파라미터 조회] - end
+```
+
+그런데, username에 2가지 값을 파라미터로 넘겨줄 수도 있다.
+- `http://localhost:8080/request-param?username=ryu&age=10&username=ryu2`
+
+이럴 때는 내부 우선 순위에서 먼저 잡히는 값이 출력될 것이다.
+
+따라서 이름이 같은 복수 파라미터를 조회하는 방법은 다음과 같다.
+
+
+
 ## HTTP 요청 데이터 - POST HTML Form
 
 

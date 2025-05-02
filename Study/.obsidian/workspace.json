@@ -20,34 +20,6 @@
               "icon": "lucide-file",
               "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
             }
-          },
-          {
-            "id": "d2c18da0d1984fc3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "PS/C++.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "C++"
-            }
-          },
-          {
-            "id": "b7246ecf4006ce02",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "PS/C++ TIP.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "C++ TIP"
-            }
           }
         ]
       }
@@ -262,6 +234,12 @@
   },
   "active": "de4e523793a9e569",
   "lastOpenFiles": [
+    "Pasted image 20250503012003.png",
+    "Pasted image 20250503011948.png",
+    "PS/C++ TIP.md",
+    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+    "PS/C++.md",
+    "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Pasted image 20250503004503.png",
     "Pasted image 20250503004436.png",
     "Pasted image 20250503003452.png",
@@ -270,15 +248,9 @@
     "Pasted image 20250501191335.png",
     "Pasted image 20250424010254.png",
     "Pasted image 20250424010141.png",
-    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
-    "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Pasted image 20250422001053.png",
-    "Pasted image 20250422001014.png",
-    "Pasted image 20250422000947.png",
     "Java/Java.md",
-    "PS/C++ TIP.md",
     "PS/PS.md",
-    "PS/C++.md",
     "PS/BOJ.md",
     "Spring/Spring.md",
     "Spring/스프링 핵심 원리 - 기본편.md",

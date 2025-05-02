@@ -999,6 +999,14 @@ POST의 HTML Form을 전송하면 웹 브라우저는 다음 형식으로 HTTP �
 > 
 > 이렇게 폼으로 데이터를 전송하는 형식을 `application/x-www-form-urlencoded` 라고 한다.
 
+#### Postman을 사용한 테스트
+이런 간단한 테스트에 HTML Form을 만들 필요는 없다. 이때 필요한 것이 Postman
+![[Pasted image 20250503004436.png]]
+
+![[Pasted image 20250503004503.png]]
+
+
+
 ## HTTP 요청 데이터 API 메시지 바디 - 단순 텍스트
 
 

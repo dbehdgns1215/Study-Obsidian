@@ -972,6 +972,14 @@ username = ryu2
 `http://localhost:8080/basic/hello-form.html` 경로로 접근
 ![[Pasted image 20250503003234.png]]
 
+![[Pasted image 20250503003426.png]]
+
+![[Pasted image 20250503003452.png]]
+
+이전에 작성한 양식대로 잘 출력되는 것을 확인 가능
+
+단순히 이 주소로 보냈을 뿐임
+`<form action="/request-param" method="post">` 
 
 
 

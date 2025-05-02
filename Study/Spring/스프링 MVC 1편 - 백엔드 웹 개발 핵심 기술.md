@@ -953,8 +953,26 @@ username = ryu2
 
 `src/main/webapp/basic/hello-form.html` 생성
 ```html
-
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Title</title>  
+</head>  
+<body>  
+<form action="/request-param" method="post">  
+    username: <input type="text" name="username" />  
+    age:      <input type="text" name="age" />  
+    <button type="submit">전송</button>  
+</form>  
+</body>  
+</html>
 ```
+
+`http://localhost:8080/basic/hello-form.html` 경로로 접근
+![[Pasted image 20250503003234.png]]
+
+
 
 
 ## HTTP 요청 데이터 API 메시지 바디 - 단순 텍스트

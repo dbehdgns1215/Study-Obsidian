@@ -943,10 +943,18 @@ username = ryu2
 
 대부분의 상황에서 단일 파라미터로 전송하기 때문에, 복수 파라미터로 보내는 경우가 특수한 경우이고, 이 특수한 경우에 대해서 잘 기억해서 `request.getParameterValues`를 사용해주면 됨. (의도한대로 동작할 수 있도록)
 
-
-
 ## HTTP 요청 데이터 - POST HTML Form
+이번에는 HTML의 Form을 사용해서 클라이언트에서 서버로 데이터를 전송해보자.
+주로 회원 가입, 상품 주문 등에서 사용하는 방식이다.
 
+**특징**
+- content-type: `application/x-www-form-urlencoded`
+- 메시지 바디에 쿼리 파라미터 형식으로 데이터를 전달한다. `username=hello&age=20`
+
+`src/main/webapp/basic/hello-form.html` 생성
+```html
+
+```
 
 
 ## HTTP 요청 데이터 API 메시지 바디 - 단순 텍스트

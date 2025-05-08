@@ -1378,6 +1378,9 @@ public class ResponseHeaderServlet extends HttpServlet {
 ![[Pasted image 20250508230715.png]]
 - `redirect`도 가능함
 
+![[Pasted image 20250508230854.png]]
+- 첫 요청에서 302를 반환해주며 리다이렉트, 리다이렉트 된 페이지에서는 200이 반환됨
+
 ![[Pasted image 20250508230734.png]]
 
 

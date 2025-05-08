@@ -1463,11 +1463,13 @@ public class ResponseHtmlServlet extends HttpServlet {
 ![[Pasted image 20250508232305.png]]
 
 ## HTTP 응답 데이터 - API JSON
+응답 데이터를 JSON 형식으로 보내는 방법
 
 **hello.servlet.web.response.ResponseJsonServlet**
 
 
 
 ## 정리
+
 
 # 섹션 4. 서블릿, JSP, MVC 패턴

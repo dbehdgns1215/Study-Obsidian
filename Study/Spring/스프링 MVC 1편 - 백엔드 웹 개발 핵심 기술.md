@@ -1124,6 +1124,9 @@ public class RequestBodyJsonServlet extends HttpServlet {
 
 정상 작동 하는 것을 알 수 있다.
 
+이번에는 HelloData 클래스를 변환해서 사용해보자.
+- JSON 라이브러리가 필요하다 (스프링부트 기본 내장 라이브러리 `jackson`)
+- 
 
 
 

@@ -1248,11 +1248,17 @@ helloData.age = 20
 즉, **웹 요청 -> 응답** 전체 과정을 담당하는 애라고 보면 됨
 
 
-
-
-
-
 ## HttpServletResponse - 기본 사용법
+
+#### HttpServletResponse 역할
+
+**HTTP 응답 메시지 생성**
+- HTTP 응답 코드 지정 (200, 400, 500, 401, 404 ...)
+- Content-Header 생성
+- Content-Body 생성
+
+**편의 기능 제공**
+- Content-Type, 쿠키, Redirect
 
 
 

@@ -1383,9 +1383,50 @@ public class ResponseHeaderServlet extends HttpServlet {
 
 ![[Pasted image 20250508230734.png]]
 
+**메시지 바디 편의 메서드**
+
+```java
+@WebServlet(name = "responseHeaderServlet", urlPatterns = "/response-header")  
+public class ResponseHeaderServlet extends HttpServlet {  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+        // [status-line] | 응답 코드 세팅  
+        response.setStatus(HttpServletResponse.SC_OK); // 응답 코드를 숫자 대신 상수를 넣어주는 것이 좋음 (매직 넘버 방지)  
+  
+        // [response-header] | 컨텐츠 헤더 세팅  
+        // response.setHeader("Content-Type", "text/plain;charset=utf-8");  
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // 캐시 완전 무효화  
+        response.setHeader("Pragma", "no-cache"); // 과거 버전 전용 캐시 무효화 (HTTP 강의 참고)  
+        response.setHeader("my-header", "hello"); // 커스텀 헤더도 만들 수 있음  
+  
+        // [Header 편의 메서드]  
+        content(response);  
+        cookie(response);  
+        redirect(response);  
+  
+        PrintWriter writer = response.getWriter();  
+        writer.println("ok");  
+          
+        // [message body]  
+        PrintWriter writer1 = response.getWriter();  
+        writer1.println("ok");  
+    }
+```
+- \[message body] 부분을 참고해보면, `response.getWriter()` 또는 `response.getInputStream()` 을 통해서 원하는 내용을 메시지 바디에 넣을 수 있게됨
 
 
 ## HTTP 응답 데이터 - 단순 텍스트, HTML
+**HTTP 응답 메시지는 주로 다음 내용을 담아서 전달한다.**
+
+- 단순 텍스트 응답
+	- 앞에서 이미 살펴봄 (`writer.println("ok");`)
+- HTML 응답
+- HTTP API - MessageBody JSON 응답 
+
+#### HttpServletResponse - HTML 응답
+
+**hello.servlet.web.response.ResponseHtmlServlet**
 
 
 

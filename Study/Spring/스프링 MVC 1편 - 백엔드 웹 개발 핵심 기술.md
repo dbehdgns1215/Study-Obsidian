@@ -1337,6 +1337,7 @@ public class ResponseHeaderServlet extends HttpServlet {
         // [Header 편의 메서드]  
         content(response);  
         cookie(response);  
+        redirect(response);  
   
         PrintWriter writer = response.getWriter();  
         writer.println("ok");  
@@ -1353,6 +1354,12 @@ public class ResponseHeaderServlet extends HttpServlet {
         cookie.setMaxAge(600);  
         response.addCookie(cookie); // response 에 쿠키 삽입 가능  
     }  
+  
+    private void redirect(HttpServletResponse response) throws IOException {  
+        // Status Code  302  
+        // Location: /basic/hello-form.html  
+        // response.setStatus(HttpServletResponse.SC_FOUND); // 302        // response.setHeader("Location", "/basic/hello-form.html");        response.sendRedirect("/basic/hello-form.html");  
+    }  
 }
 ```
 - `ContentType`, `Cookie`를 직접 지정하는 방법 말고 메서드를 이용해서도 가능함
@@ -1367,7 +1374,8 @@ public class ResponseHeaderServlet extends HttpServlet {
 >서버 -(Set-Cookie를 헤더에 담아서 응답)-> 클라이언트
 >클라이언트 -(쿠키 담아서 재요청)-> 서버
 
-
+- `redirect`도 가능함
+- 
 
 ## HTTP 응답 데이터 - 단순 텍스트, HTML
 

@@ -1306,6 +1306,63 @@ response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 ![[Pasted image 20250508185642.png]]
 - 잘 반영되는 것을 알 수 있음
 
+**편의 메서드 추가**
+```java
+package hello.servlet.basic.response;  
+  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.Cookie;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+  
+import java.io.IOException;  
+import java.io.PrintWriter;  
+  
+@WebServlet(name = "responseHeaderServlet", urlPatterns = "/response-header")  
+public class ResponseHeaderServlet extends HttpServlet {  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+        // [status-line] | 응답 코드 세팅  
+        response.setStatus(HttpServletResponse.SC_OK); // 응답 코드를 숫자 대신 상수를 넣어주는 것이 좋음 (매직 넘버 방지)  
+  
+        // [response-header] | 컨텐츠 헤더 세팅  
+        // response.setHeader("Content-Type", "text/plain;charset=utf-8");  
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // 캐시 완전 무효화  
+        response.setHeader("Pragma", "no-cache"); // 과거 버전 전용 캐시 무효화 (HTTP 강의 참고)  
+        response.setHeader("my-header", "hello"); // 커스텀 헤더도 만들 수 있음  
+  
+        // [Header 편의 메서드]  
+        content(response);  
+        cookie(response);  
+  
+        PrintWriter writer = response.getWriter();  
+        writer.println("ok");  
+    }  
+  
+    private void content(HttpServletResponse response) {  
+        // Content-Type: text/plain;charset=utf-8  
+        // Content-Length: 2        // response.setHeader("Content-Type", "text/plain;charset=utf-8");        response.setContentType("text/plain"); // 기존 코드 대체 가능 (response.setHeader("..."))        response.setCharacterEncoding("utf-8"); // 기존 코드 대체 가능 (response.setHeader("..."))        // response.setContentLength(2); // 생략시에는 자동 생성됨  
+    }  
+  
+    private void cookie(HttpServletResponse response) {  
+        // Set-Cookie: myCookie=good; Max-Age=600;  
+        // response.setHeader("Set-Cookie", "myCookie=good; Max-Age=600");        Cookie cookie = new Cookie("myCookie", "good");  
+        cookie.setMaxAge(600);  
+        response.addCookie(cookie); // response 에 쿠키 삽입 가능  
+    }  
+}
+```
+- `ContentType`, `Cookie`를 직접 지정하는 방법 말고 메서드를 이용해서도 가능함
+
+![[Pasted image 20250508225947.png]]
+- `Set-Cookie` 가 설정되었으니 다시 요청해보면
+
+![[Pasted image 20250508225913.png]]
+- 쿠키가 잘 저장된 것을 확인할 수 있음
+
 ## HTTP 응답 데이터 - 단순 텍스트, HTML
 
 

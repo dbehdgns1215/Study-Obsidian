@@ -1183,6 +1183,15 @@ helloData.age = 20
 >**참고**
 >HTML form 데이터도 메시지 바디를 통해 전송되므로 직접 읽을 수 있다. 하지만 편리한 파라미터 조회 기능 (`request.getParameter(...)`)을 이미 제공하기 때문에 파라미터 조회 기능을 사용하면 된다.
 
+>GET 쿼리 파라미터, HTML Form 데이터 (조회)
+>`request.getParameter()`
+>
+>POST HTTP API 메시지 바디 - JSON (조회)
+>`request.getInputStream()
+>`
+>POST HTTP API 메시지 바디 - JSON (객체 변환 시)
+>`objectMapper.readValue()`
+
 
 
 ## HttpServletResponse - 기본 사용법

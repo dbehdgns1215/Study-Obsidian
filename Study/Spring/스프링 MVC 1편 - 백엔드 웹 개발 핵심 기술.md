@@ -1260,6 +1260,52 @@ helloData.age = 20
 **편의 기능 제공**
 - Content-Type, 쿠키, Redirect
 
+`hello.servlet.basic.response.ResponseHeaderServlet`
+```java
+package hello.servlet.basic.response;  
+  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+  
+import java.io.IOException;  
+import java.io.PrintWriter;  
+  
+@WebServlet(name = "responseHeaderServlet", urlPatterns = "/response-header")  
+public class ResponseHeaderServlet extends HttpServlet {  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+        // [status-line] | 응답 코드 세팅  
+        response.setStatus(HttpServletResponse.SC_OK); // 응답 코드를 숫자 대신 상수를 넣어주는 것이 좋음 (매직 넘버 방지)  
+  
+        // [response-header] | 컨텐츠 헤더 세팅  
+        response.setHeader("Content-Type", "text/plain;charset=utf-8");  
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // 캐시 완전 무효화  
+        response.setHeader("Pragma", "no-cache"); // 과거 버전 전용 캐시 무효화 (HTTP 강의 참고)  
+        response.setHeader("my-header", "hello"); // 커스텀 헤더도 만들 수 있음  
+  
+        PrintWriter writer = response.getWriter();  
+        writer.println("ok");  
+    }  
+}
+```
+
+![[Pasted image 20250508185446.png]]
+- `Response Header` 부분을 참고해보면 설정한대로 잘 반영된 걸 알 수 있음
+
+**만약 응답 코드를 다르게 설정한다면?**
+```java
+// [status-line] | 응답 코드 세팅  
+response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+// 응답 코드를 숫자 대신 상수를 넣어주는 것이 좋음 (매직 넘버 방지)
+```
+
+![[Pasted image 20250508185642.png]]
+- 잘 반영되는 것을 알 수 있음
+
 
 
 ## HTTP 응답 데이터 - 단순 텍스트, HTML

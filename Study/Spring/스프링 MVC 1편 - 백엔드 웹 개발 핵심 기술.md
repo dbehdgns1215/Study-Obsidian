@@ -1364,6 +1364,7 @@ public class ResponseHeaderServlet extends HttpServlet {
 ```
 - `ContentType`, `Cookie`를 직접 지정하는 방법 말고 메서드를 이용해서도 가능함
 
+
 ![[Pasted image 20250508225947.png]]
 - `Set-Cookie` 가 설정되었으니 다시 요청해보면
 
@@ -1374,8 +1375,12 @@ public class ResponseHeaderServlet extends HttpServlet {
 >서버 -(Set-Cookie를 헤더에 담아서 응답)-> 클라이언트
 >클라이언트 -(쿠키 담아서 재요청)-> 서버
 
+![[Pasted image 20250508230715.png]]
 - `redirect`도 가능함
-- 
+
+![[Pasted image 20250508230734.png]]
+
+
 
 ## HTTP 응답 데이터 - 단순 텍스트, HTML
 

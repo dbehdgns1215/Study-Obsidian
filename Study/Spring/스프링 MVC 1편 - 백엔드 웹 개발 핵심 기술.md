@@ -1073,8 +1073,58 @@ JSON 형식으로 파싱할 수 있게 객체를 하나 생성하자
 
 `hello.servlet.basic.HelloData`
 ```java
-
+package hello.servlet.basic;  
+  
+import lombok.Getter;  
+import lombok.Setter;  
+  
+  
+@Getter @Setter  
+public class HelloData {  
+  
+    private String username;  
+    private int age;  
+  
+}
 ```
+
+`hello.servlet.basic.request.RequestBodyJsonServlet`
+```java
+package hello.servlet.basic.request;  
+  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.ServletInputStream;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import org.springframework.util.StreamUtils;  
+  
+import java.io.IOException;  
+import java.nio.charset.StandardCharsets;  
+  
+@WebServlet(name = "requestBodyJsonServlet", urlPatterns = "/request-body-json")  
+public class RequestBodyJsonServlet extends HttpServlet {  
+  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+        ServletInputStream inputStream = request.getInputStream();  
+        String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);  
+  
+        System.out.println("messageBody = " + messageBody);  
+    }  
+}
+```
+
+**Postman**
+![[Pasted image 20250508163643.png]]
+
+**결과**
+`messageBody = {"username":"hello}", "age":20}`
+
+정상 작동 하는 것을 알 수 있다.
+
+
 
 
 ## HttpServletResponse - 기본 사용법

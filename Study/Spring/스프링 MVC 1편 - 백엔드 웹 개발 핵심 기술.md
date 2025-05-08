@@ -1070,6 +1070,7 @@ public class RequestBodyStringServlet extends HttpServlet {
 
 **JSON 형식 파싱 추가**
 JSON 형식으로 파싱할 수 있게 객체를 하나 생성하자
+- JSON 형식으로 오는 데이터를 객체 형식으로 변환해서 사용하기 때문
 
 `hello.servlet.basic.HelloData`
 ```java

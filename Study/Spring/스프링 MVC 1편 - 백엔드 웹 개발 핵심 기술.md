@@ -1363,6 +1363,12 @@ public class ResponseHeaderServlet extends HttpServlet {
 ![[Pasted image 20250508225913.png]]
 - 쿠키가 잘 저장된 것을 확인할 수 있음
 
+>클라이언트 -(쿠키 없이 요청)-> 서버
+>서버 -(Set-Cookie를 헤더에 담아서 응답)-> 클라이언트
+>클라이언트 -(쿠키 담아서 재요청)-> 서버
+
+
+
 ## HTTP 응답 데이터 - 단순 텍스트, HTML
 
 

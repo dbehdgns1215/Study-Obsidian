@@ -1168,6 +1168,15 @@ public class RequestBodyJsonServlet extends HttpServlet {
 ```
 - `objectMapper.readValue(...)` 를 사용해주면 된다.
 
+```output
+messageBody = {"username":"hello}", "age":20}
+helloData.username = hello}
+helloData.age = 20
+```
+
+출력문을 참고해보면, `helloData.getUsername()`이 정상 동작을 하는 것을 알 수 있다.
+비로소 JSON 형식의 데이터를 객체로 변환한 것!
+
 
 
 ## HttpServletResponse - 기본 사용법

@@ -1236,6 +1236,22 @@ helloData.age = 20
 - **인코딩**:  
     InputStream을 문자열로 바꿀 때는 인코딩(UTF-8 등)을 꼭 지정해야 함.
 
+>**참고**
+>서블릿이 하는 일?
+
+- HTTP 요청을 받아서:
+    - 요청 데이터 읽고 (`HttpServletRequest`)
+    - 원하는 로직 실행하고 (DB 조회, 계산 등)
+    - 응답 만들어서 (`HttpServletResponse`)
+    - 다시 클라이언트로 돌려보내는 것
+
+즉, **웹 요청 -> 응답** 전체 과정을 담당하는 애라고 보면 됨
+
+
+
+
+
+
 ## HttpServletResponse - 기본 사용법
 
 

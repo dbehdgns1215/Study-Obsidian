@@ -1169,7 +1169,7 @@ public class RequestBodyJsonServlet extends HttpServlet {
 - `objectMapper.readValue(...)` 를 사용해주면 된다.
 
 ```output
-messageBody = {"username":"hello}", "age":20}
+messageBody = {"username":"hello", "age":20}
 helloData.username = hello}
 helloData.age = 20
 ```
@@ -1193,6 +1193,48 @@ helloData.age = 20
 >`objectMapper.readValue()`
 
 
+#### 🔑 **HTTP 요청 데이터 전송 방식 요약**
+
+1️⃣ **GET (쿼리 파라미터 방식)**
+
+- 데이터는 URL에 `?`로 시작해 `&`로 구분해서 전달.
+- ex) `/request-param?username=hello&age=20`
+- 메시지 바디 없음, content-type 없음.
+- 조회 메서드:  
+    `request.getParameter()`
+    request.getParameterValues()`
+    `request.getParameterNames()`
+
+2️⃣ **POST (HTML Form 방식)**
+
+- content-type: `application/x-www-form-urlencoded`
+- 메시지 바디: `username=hello&age=20`
+- GET과 동일하게 `request.getParameter()`로 조회 가능.
+- 폼 전송 시 주로 사용 (회원가입 등).
+    
+
+3️⃣ **POST (HTTP 메시지 바디 직접 전달)**
+
+- API에서 주로 사용.
+- content-type: JSON (`application/json`), TEXT 등.
+- 메시지 바디 직접 읽기:  
+    `request.getInputStream()`
+- JSON을 객체로 변환:  
+    `ObjectMapper.readValue()` (Jackson)
+
+---
+
+### ⚠️ **주의할 점**
+
+- **중복 파라미터**:  
+    `username=hello&username=kim` 처럼 중복되면 `request.getParameter()`는 첫 번째 값만 반환. → **반드시** `request.getParameterValues()` 사용.
+
+- **폼 데이터 vs JSON 데이터**:  
+    HTML Form은 쿼리 파라미터 방식과 메시지 형식이 같아서 `getParameter()`로 편하게 조회.  
+    JSON은 `getParameter()`로 조회 불가 → 반드시 InputStream으로 읽어야 함.
+
+- **인코딩**:  
+    InputStream을 문자열로 바꿀 때는 인코딩(UTF-8 등)을 꼭 지정해야 함.
 
 ## HttpServletResponse - 기본 사용법
 

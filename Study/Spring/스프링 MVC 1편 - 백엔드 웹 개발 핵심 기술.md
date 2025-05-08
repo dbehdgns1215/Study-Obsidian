@@ -1306,8 +1306,6 @@ response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 ![[Pasted image 20250508185642.png]]
 - 잘 반영되는 것을 알 수 있음
 
-
-
 ## HTTP 응답 데이터 - 단순 텍스트, HTML
 
 

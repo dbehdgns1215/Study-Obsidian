@@ -1060,7 +1060,21 @@ public class RequestBodyStringServlet extends HttpServlet {
 
 
 ## HTTP 요청 데이터 - API 메시지 바디 - JSON
+이번에는 HTTP API에서 주로 사용하는 JSON 형식으로 데이터를 전달해보자.
 
+**JSON 형식 전송**
+- POST http://localhost:8080/request-body-json
+- content-type: "application/json"
+- message body: `{"username": "hello", "age: 20}`
+- 결과: `messageBody = {"username": "hello", "age": 20}`
+
+**JSON 형식 파싱 추가**
+JSON 형식으로 파싱할 수 있게 객체를 하나 생성하자
+
+`hello.servlet.basic.HelloData`
+```java
+
+```
 
 
 ## HttpServletResponse - 기본 사용법

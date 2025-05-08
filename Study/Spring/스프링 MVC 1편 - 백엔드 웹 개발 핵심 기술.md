@@ -1059,9 +1059,6 @@ public class RequestBodyStringServlet extends HttpServlet {
 - 결과: `message body = hello`
 
 
-
-
-
 ## HTTP 요청 데이터 - API 메시지 바디 - JSON
 
 

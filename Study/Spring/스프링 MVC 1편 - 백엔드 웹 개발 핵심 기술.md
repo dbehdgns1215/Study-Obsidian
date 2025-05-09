@@ -1737,6 +1737,50 @@ class MemberRepositoryTest {
 
 가장 먼저 서블릿으로 회원 등록 HTML 폼을 제공해보자.
 
+`hello.servlet.web.servlet.MemberFormServlet`
+```java
+package hello.servlet.web.servlet;  
+  
+import hello.servlet.domain.member.MemberRepository;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+  
+import java.io.IOException;  
+import java.io.PrintWriter;  
+  
+@WebServlet(name = "memberFormServlet", urlPatterns = "/servlet/members/new-form")  
+public class MemberFormServlet extends HttpServlet {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+        response.setContentType("text/html");  
+        response.setCharacterEncoding("UTF-8");  
+  
+        PrintWriter w = response.getWriter();  
+        w.write("<!DOCTYPE html>\n" +  
+                "<html>\n" +  
+                "<head>\n" +  
+                "    <meta charset=\"UTF-8\">\n" +  
+                "    <title>Title</title>\n" +  
+                "</head>\n" +  
+                "<body>\n" +  
+                "<form action=\"/servlet/members/save\" method=\"post\">\n" +  
+                "    username: <input type=\"text\" name=\"username\" />\n" +  
+                "    age:      <input type=\"text\" name=\"age\" />\n" +  
+                "    <button type=\"submit\">전송</button>\n" +  
+                "</form>\n" +  
+                "</body>\n" +  
+                "</html>\n");  
+    } // 서블릿으로 작성하니까 html 코드를 넣기가 너무 힘들다.  
+}
+```
+- 자바 언어로 html을 작성하기에는 좀 무리가 있긴 하지만 완성
 
 ## JSP로 회원 관리 웹 애플리케이션 만들기
 

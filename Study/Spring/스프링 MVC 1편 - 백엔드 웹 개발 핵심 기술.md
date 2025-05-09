@@ -1832,6 +1832,15 @@ public class MemberSaveServlet extends HttpServlet {
     }  
 }
 ```
+
+1. 파라미터를 조회해서 Member 객체를 만든다.
+2. Member 객체를 MemberRepository를 통해서 저장한다.
+3. Member 객체를 사용해서 결과 화면에 HTML을 동적으로 만들어서 응답한다.
+
+
+
+
+
 ## JSP로 회원 관리 웹 애플리케이션 만들기
 
 

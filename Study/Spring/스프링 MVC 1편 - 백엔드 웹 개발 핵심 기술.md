@@ -1604,6 +1604,131 @@ public class ResponseHtmlServlet extends HttpServlet {
 
 **회원 도메인 모델**
 
+`hello.servlet.domain.member.Member`
+```java
+package hello.servlet.domain.member;  
+  
+import lombok.Getter;  
+import lombok.Setter;  
+  
+@Getter @Setter  
+public class Member {  
+  
+    private Long id;  
+    private String username;  
+    private int age;  
+  
+    public Member() { }  
+  
+    public Member(String username, int age) {  
+        this.username = username;  
+        this.age = age;  
+    }  
+  
+  
+}
+```
+
+`hello.servlet.domain.member.MemberRepository`
+```java
+package hello.servlet.domain.member;  
+  
+import java.util.ArrayList;  
+import java.util.HashMap;  
+import java.util.List;  
+import java.util.Map;  
+  
+/**  
+ * 동시성 문제가 고려되어 있지 않음.  
+ * 실무에서는 ConcurrentHashMap, AtomicLong의 사용을 고려해야 함.  
+ */public class MemberRepository {  
+  
+    private static Map<Long, Member> store = new HashMap<>();  
+    private static long sequence = 0L;  
+  
+    private static final MemberRepository instance = new MemberRepository();  
+  
+    public static MemberRepository getInstance() {  
+        return instance;  
+    }  
+  
+    private MemberRepository() {  
+  
+    }  
+  
+    public Member save(Member member) {  
+        member.setId(++sequence);  
+        store.put(member.getId(), member);  
+        return member;  
+    }  
+  
+    public Member findById(long id) {  
+        return store.get(id);  
+    }  
+  
+    public List<Member> findAll() {  
+        return new ArrayList<>(store.values()); // 얕은 복사  
+    }  
+  
+    public void clearStore() {  
+        store.clear();  
+    }  
+}
+```
+
+
+`test.java.hello.servlet.domain.member.MemberRepositoryTest`
+```java
+package hello.servlet.domain.member;  
+  
+import org.assertj.core.api.Assertions;  
+import org.junit.jupiter.api.AfterEach;  
+import org.junit.jupiter.api.Test;  
+  
+import java.util.List;  
+  
+class MemberRepositoryTest {  
+  
+    MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @AfterEach  
+    void afterEach() {  
+        memberRepository.clearStore();  
+    }  
+  
+    @Test  
+    void save() {  
+        // given  
+        Member member = new Member("hello", 20);  
+  
+        // when  
+        Member savedMember = memberRepository.save(member);  
+  
+        // then  
+        Member findMember = memberRepository.findById(savedMember.getId());  
+        Assertions.assertThat(findMember).isEqualTo(savedMember);  
+    }  
+  
+    @Test  
+    void findAll() {  
+        // given  
+        Member member1 = new Member("member1", 20);  
+        Member member2 = new Member("member2", 30);  
+  
+        memberRepository.save(member1);  
+        memberRepository.save(member2);  
+  
+        // when  
+        List<Member> result = memberRepository.findAll();  
+  
+        // then  
+        Assertions.assertThat(result).hasSize(2);  
+        Assertions.assertThat(result.size()).isEqualTo(2);  
+        Assertions.assertThat(result).contains(member1, member2);  
+    }  
+}
+```
+
 
 
 ## 서블릿으로 회원 관리 웹 애플리케이션 만들기

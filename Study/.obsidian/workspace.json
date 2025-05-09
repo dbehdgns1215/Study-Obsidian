@@ -149,12 +149,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "모든 개발자를 위한 HTTP 웹 기본 지식의 나가는 링크"
+              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 나가는 링크"
             }
           },
           {
@@ -226,7 +226,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -245,7 +245,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "de4e523793a9e569",
+  "active": "165cf0a4bb9e9808",
   "lastOpenFiles": [
     "Pasted image 20250509002557.png",
     "Pasted image 20250509002545.png",

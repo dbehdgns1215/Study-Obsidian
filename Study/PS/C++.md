@@ -1647,3 +1647,68 @@ C++에서 제공하는 자료구조
 		- `fixed << setprecision(3)` -> `1.235` (반올림)
 		- `fixed << `setprecision(8)` -> 1.23456789
 
+
+# 1.4 타입과 타입 변환
+C++은 엄격한 타입 시스템 언어이기 때문에 매번 타입을 지정해줘야 함.
+`func(int a, int b)`와 `func(int a, string b)`는 엄연히 다른 함수 (함수의 오버로딩)
+
+**자료형**
+- `void`
+- `char` -> 작은 따옴표, 1 byte
+- `string` -> ch\[n] (char 배열)과 동일함, 배열 접근 가능
+- `bool`
+- `int`
+- `long long`
+- `double`
+- `unsigned long long`
+
+## string
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string a = "love is"; // 문자열 "love is"로 초기화
+    a += " pain!"; // 문자열 " pain!"을 뒤에 추가 (결과: "love is pain!")
+    a.pop_back(); // 마지막 문자 '!'를 제거 (결과: "love is pain")
+
+    cout << a << " : " << a.size() << "\n"; // 출력: "love is pain : 14"
+    cout << char(*a.begin()) << '\n'; // a의 첫 번째 문자 출력 ('l')
+    cout << char(*(a.end() - 1)) << '\n'; // a의 마지막 문자 출력 ('n')
+
+    // string& insert (size_t pos, const string& str);
+    a.insert(0, "test "); // 0번 위치에 "test "를 삽입 (결과: "test love is pain")
+    cout << a << " : " << a.size() << "\n"; // 출력: "test love is pain : 18"
+
+    // string& erase (size_t pos = 0, size_t len = npos);
+    a.erase(0, 5); // 0번 위치부터 5개의 문자("test ")를 제거 (결과: "love is pain")
+    cout << a << " : " << a.size() << "\n"; // 출력: "love is pain : 14"
+
+    // size_t find (const string& str, size_t pos = 0);
+    auto it = a.find("love"); // "love"라는 문자열을 찾음. 위치를 반환 (결과: 0)
+    if (it != string::npos) { // "love"가 문자열에 포함되어 있으면
+        cout << "포함되어 있다." << '\n'; // 출력: "포함되어 있다."
+    }
+    cout << it << '\n'; // 위치 출력 (결과: 0)
+    cout << string::npos << '\n'; // string::npos는 유효하지 않은 위치를 나타냄, 보통 -1 (결과: 18446744073709551615)
+
+    // string substr (size_t pos = 0, size_t len = npos) const;
+    cout << a.substr(5, 2) << '\n'; // 5번 위치부터 2개의 문자("is")를 추출하여 출력 (결과: "is")
+
+    return 0;
+}
+
+```
+
+```output
+love is pain : 12
+l
+n
+test love is pain : 17
+love is pain : 12
+포함되어 있다.
+0
+18446744073709551615
+is
+```

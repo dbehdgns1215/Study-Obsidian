@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "8b8a6ff92e845978",
+        "id": "df7f69e7983c0c95",
         "type": "tabs",
         "children": [
           {
-            "id": "81959f99bc2da202",
+            "id": "0b090617305daaa0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "모든 개발자를 위한 HTTP 웹 기본 지식"
+              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
             }
           }
         ]
@@ -232,8 +232,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "81959f99bc2da202",
+  "active": "0b090617305daaa0",
   "lastOpenFiles": [
+    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Pasted image 20250509141902.png",
     "Pasted image 20250509002557.png",
@@ -245,7 +246,6 @@
     "Pasted image 20250508230715.png",
     "Pasted image 20250508225947.png",
     "Pasted image 20250508225943.png",
-    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "PS/C++ TIP.md",
     "PS/C++.md",
     "Java/Java.md",

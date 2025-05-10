@@ -2218,6 +2218,81 @@ public class MvcMemberSaveServlet extends HttpServlet {
 - `<%= request.getAttribute("member")%>`로 모델에 저장한 member 객체를 꺼낼 수 있지만, 너무 복잡해진다.
 - JSP는 `${}` 문법을 제공하는데, 이 문법을 사용하면 request의 attribute에 담긴 데이터를 편리하게 조회할 수 있다.
 
+
+#### 회원 목록 조회
+
+**회원 목록 조회 - 컨트롤러**
+`MvcMemberListServlet`
+```java
+package hello.servlet.web.servletmvc;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import jakarta.servlet.RequestDispatcher;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+  
+import java.io.IOException;  
+import java.util.List;  
+  
+@WebServlet(name = "mvcMemberListServlet", urlPatterns = "/servlet-mvc/members")  
+public class MvcMemberListServlet extends HttpServlet {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+        List<Member> members = memberRepository.findAll();  
+  
+        request.setAttribute("members", members);  
+  
+        String viewPath = "/WEB-INF/views/members.jsp";  
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);  
+        dispatcher.forward(request, response);  
+    }  
+}
+```
+- `setAttribute()`가 핵심 (모델에 저장 후 Dispatcher를 통해서 뷰에게 전달)
+
+**회원 목록 조회 - 뷰**
+`main/webapp/WEB-INF/views/members.jsp`
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+  
+<html>  
+<head>  
+  <meta charset="UTF-8">  
+  <title>Title</title>  
+</head>  
+<body>  
+<a href="/index.html">메인</a>  
+<table>  
+  <thead> <th>id</th>  
+  <th>username</th>  
+  <th>age</th>  
+  </thead>  <tbody>  <c:forEach var="item" items="${members}"> <!-- members는 model에 담겨있는 그 members -->    <tr>  
+      <td>${item.id}</td>  
+      <td>${item.username}</td>  
+      <td>${item.age}</td>  
+    </tr>  </c:forEach>  
+  </tbody>  
+</table>  
+</body>  
+</html>
+```
+
+> JSP를 학습하는 것이 주 목적이 아님.
+> 궁금하면 반나절이면 대부분의 기능 학습 가능
+
+
+
+
+
 ## MVC 패턴 - 한계
 
 

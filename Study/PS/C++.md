@@ -1716,4 +1716,25 @@ is
 - `size()` : O(1)
 - `insert(위치, 문자열)` : O(n)
 - `erase(위치, 지울 크기)` : O(n)
-- `find(문자열)` : 
+- `find(문자열)` : O(n) ... 최악 O(N\*M) (문자열 길이 N, 찾고자 하는 문자열 길이 M)
+- `substr(위치, 추출할 크기)` : O(n) (지울 크기 미지정시 해당 위치부터 끝까지 전부 추출)
+
+## string 문자열 뒤집기 - reverse()
+STL에서 지원하는 `reverse()`를 사용하면 된다. 단, 원본 문자열 자체를 변경하기 때문에 참고
+- `reverse(뒤집을 시작 위치, 뒤집을 종료 위치)`
+- `a = apple` -> `reverse(a.begin(), a.end())`
+	- -> `elppa`
+- `a` -> `reverse(a.begin() + 1, a.end)`
+	- -> `elppa` -> `eappl`
+
+
+## 아스키코드
+- 65 : A
+	- 90 : Z
+- 97 : a
+	- 122 : z
+
+소문자 a를 0으로 두고싶다 -> `number - 'a'` 또는 `number - 97`
+대문자 A를 0으로 두고싶다 -> `number - 'A'` 또는 `number - 65`
+
+

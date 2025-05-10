@@ -21,7 +21,8 @@
               "title": "C++"
             }
           }
-        ]
+        ],
+        "stacked": true
       }
     ],
     "direction": "vertical"
@@ -71,7 +72,7 @@
               "type": "bookmarks",
               "state": {},
               "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "title": "북마크"
             }
           },
           {
@@ -94,8 +95,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -111,74 +111,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "14cd7654389c60b3",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "모든 개발자를 위한 HTTP 웹 기본 지식의 백링크"
-            }
-          },
-          {
-            "id": "165cf0a4bb9e9808",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "모든 개발자를 위한 HTTP 웹 기본 지식 의 나가는 링크"
-            }
-          },
-          {
-            "id": "90a64939358d4b62",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
-            }
-          },
-          {
             "id": "9e1df587845f03bd",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Spring/스프링 핵심 원리 - 기본편.md",
+                "file": "PS/C++.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "스프링 핵심 원리 - 기본편 의 개요"
-            }
-          },
-          {
-            "id": "f71f0b5d41d778e3",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "title": "C++ 의 개요"
             }
           },
           {
@@ -192,16 +136,6 @@
             }
           },
           {
-            "id": "65f33f3d2eec9656",
-            "type": "leaf",
-            "state": {
-              "type": "git-history-view",
-              "state": {},
-              "icon": "history",
-              "title": "History"
-            }
-          },
-          {
             "id": "b2e3566c7b885805",
             "type": "leaf",
             "state": {
@@ -211,8 +145,7 @@
               "title": "Advanced Tables"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",

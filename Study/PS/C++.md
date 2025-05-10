@@ -1717,6 +1717,7 @@ is
 - `insert(위치, 문자열)` : O(n)
 - `erase(위치, 지울 크기)` : O(n)
 - `find(문자열)` : O(n) ... 최악 O(N\*M) (문자열 길이 N, 찾고자 하는 문자열 길이 M)
+	- `find(문자열, 찾기 시작할 위치)`
 - `substr(위치, 추출할 크기)` : O(n) (지울 크기 미지정시 해당 위치부터 끝까지 전부 추출)
 
 ## string 문자열 뒤집기 - reverse()
@@ -1739,3 +1740,19 @@ STL에서 지원하는 `reverse()`를 사용하면 된다. 단, 원본 문자열
 
 
 ## split() 함수
+```C++
+vector<string> split(string& s, string& sep) {
+	vector<string> ret;
+	int pos = 0;
+	
+	while (pos < s.size()) {
+		int nxt_pos = s.find(sep, pos);
+		if (nxt_pos == string::npos) nxt_pos = s.size();
+		if (nxt_pos - pos > 0) {
+			ret.push_back(s.substr(pos, nxt_pos - pos));
+		}
+		pos = nxt_pos + sep.size();
+	}
+	return ret;
+}
+```

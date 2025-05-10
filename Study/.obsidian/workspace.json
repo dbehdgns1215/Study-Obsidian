@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "df7f69e7983c0c95",
+        "id": "34a0ccbc23b2fbb2",
         "type": "tabs",
         "children": [
           {
-            "id": "0b090617305daaa0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
-            }
-          },
-          {
-            "id": "3d6c49ac40bb9e5e",
+            "id": "b2aa91ff7fcd77f6",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -35,8 +21,7 @@
               "title": "C++"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -114,7 +99,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.500732421875
+    "width": 296.500732421875,
+    "collapsed": true
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -246,12 +232,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3d6c49ac40bb9e5e",
+  "active": "b2aa91ff7fcd77f6",
   "lastOpenFiles": [
+    "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "PS/C++ TIP.md",
+    "설정.md",
+    "PS/C++.md",
     "HTTP/HTTP.md",
     "2025-05-10.md",
-    "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Pasted image 20250510162502.png",
     "Pasted image 20250510162331.png",
     "Pasted image 20250510162322.png",
@@ -263,7 +251,6 @@
     "Pasted image 20250508232237.png",
     "Pasted image 20250508230854.png",
     "Pasted image 20250508230734.png",
-    "PS/C++.md",
     "Java/Java.md",
     "PS/PS.md",
     "PS/BOJ.md",

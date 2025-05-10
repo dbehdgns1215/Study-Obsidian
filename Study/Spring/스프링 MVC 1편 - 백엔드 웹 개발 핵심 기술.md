@@ -2144,8 +2144,79 @@ public class MvcMemberFormServlet extends HttpServlet {
 	- 현재 계층 경로: `servlet-mvc/members`
 	- 결과: `/servlet-mvc/members.save`
 
-**주의
 
+#### 회원 저장
+
+**회원 저장 - 컨트롤러**
+`MvcMemberSaveServlet`
+```java
+package hello.servlet.web.servletmvc;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import jakarta.servlet.RequestDispatcher;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+  
+import java.io.IOException;  
+  
+@WebServlet(name ="nvcMemberSaveServlet", urlPatterns = "/servlet-mvc/members/save")  
+public class MvcMemberSaveServlet extends HttpServlet {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+        // 쿼리 파라미터 파싱  
+        String username = request.getParameter("username");  
+        int age = Integer.parseInt(request.getParameter("age"));  
+  
+        // 비즈니스 로직 실행  
+        Member member = new Member(username, age);  
+        memberRepository.save(member);  
+  
+        // Model에 데이터를 보관한다.  
+        request.setAttribute("member", member);  
+  
+        String viewPath = "/WEB-INF/views/save-result.jsp";  
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);  
+        dispatcher.forward(request, response);  
+    }  
+}
+```
+- `HttpServletRequest`를 Model로 사용한다.
+- request가 제공하는 `setAttribute()`를 사용하면 request 객체에 데이터를 보관해서 뷰에 전달할 수 있다.
+- 뷰는 `requset.getAttribute()`를 사용해서 데이터를 꺼내면 된다.
+
+
+
+**회원 저장 - 뷰**
+`main/webapp/WEB-INF/views/save-result.jsp`
+```jsp
+<%@ page import="hello.servlet.domain.member.Member" %><%--  
+  Created by IntelliJ IDEA.  User: Dongni  Date: 2025-05-10  Time: 오후 7:05  To change this template use File | Settings | File Templates.--%>  
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>  
+<html>  
+<head>  
+    <title>Title</title>  
+</head>  
+<body>  
+성공  
+<ul>  
+    <%--<li>id=<%=((Member)request.getAttribute("member")).getId()%></li>  
+    <li>username=<%=((Member)request.getAttribute("member")).getUsername()%></li>    <li>age=<%=((Member)request.getAttribute("member")).getAge()%></li>--%>    <li>id=${member.id}</li>  
+    <li>username=${member.username}</li>  
+    <li>age=${member.age}</li>  
+</ul>  
+<a href="/index.html">메인</a>  
+</body>  
+</html>
+```
+- `<%= request.getAttribute("member")%>`로 모델에 저장한 member 객체를 꺼낼 수 있지만, 너무 복잡해진다.
+- JSP는 `${}` 문법을 제공하는데, 이 문법을 사용하면 request의 attribute에 담긴 데이터를 편리하게 조회할 수 있다.
 
 ## MVC 패턴 - 한계
 

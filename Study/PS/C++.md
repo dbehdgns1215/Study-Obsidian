@@ -1746,8 +1746,8 @@ vector<string> split(string& s, string& sep) {
 	int pos = 0;
 	
 	while (pos < s.size()) {
-		int nxt_pos = s.find(sep, pos);
-		if (nxt_pos == string::npos) nxt_pos = s.size();
+		int nxt_pos = s.find(sep, pos); // pos 위치부터 sep(구분자)를 찾음
+		if (nxt_pos == string::npos) nxt_pos = s.size(); // -1 이랑 동일
 		if (nxt_pos - pos > 0) {
 			ret.push_back(s.substr(pos, nxt_pos - pos));
 		}

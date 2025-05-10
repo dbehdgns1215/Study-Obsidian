@@ -2289,10 +2289,6 @@ public class MvcMemberListServlet extends HttpServlet {
 > JSP를 학습하는 것이 주 목적이 아님.
 > 궁금하면 반나절이면 대부분의 기능 학습 가능
 
-
-
-
-
 ## MVC 패턴 - 한계
 
 

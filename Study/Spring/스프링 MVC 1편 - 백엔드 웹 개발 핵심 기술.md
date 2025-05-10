@@ -2083,6 +2083,9 @@ MVC 패턴은 지금까지 학습한 것 처럼 하나의 서블릿이나 JSP로
 ![[Pasted image 20250510162331.png]]
 
 ## MVC 패턴 - 적용
+서블릿을 컨트롤러로 사용하고 JSP를 뷰로 사용해서 MVC 패턴을 적용해보자.
+Model은 HttpServletRequest 객체를 사용한다. request는 내부에 데이터 저장소를 가지고 있는데, `request.setAttribute()`, `request.getAttribute()`를 사용하면 데이터를 보관하고 조회할 수 있다.
+
 
 
 

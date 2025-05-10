@@ -1801,11 +1801,67 @@ ll INF = 1e18;
 `pair`와 `tuple`은 자료구조나 타입은 아님.
 C++에서 제공하는 utility 라이브러리 헤더의 템플릿 클래스인데, 자주 사용되는 편.
 
+우선 `tie()` 함수부터 알아야 함.
+**tie**
+- 다중 대입
+	- `tie(a, b) = make_pair(1, 2)`
+- 구조 분해
+	- `tie(x, y, z) = t // 튜플 t로부터 x, y, z 각각 추출`
+
+
 **pair**
 - 멤버 변수
 	- `first`
 	- `second`
 	- `pair<자료형, 자료형> 변수명` 
 	- `{a, b}` 또는 `make_pair(a, b)`로 생성
+	- `p.first`, `p.second`로 접근도 당연히 가능
 
 **tuple**
+- `pair`와 달리 변수가 3개
+	- `tie()`를 사용하지 않으면
+		- `get<0>(t)`
+		- 비효율적..
+	- 그냥 이렇게
+		- `tie(x, y, z) = t;`
+
+## 타입 변환
+같은 타입끼리 연산하는 것이 중요함.
+
+**암시적 형변환 우선순위**
+- long double (highest)
+- double
+- float
+- unsigned long long
+- long long
+- unsigned long
+- long
+- unsigned int
+- int (lowest)
+
+- ex
+	- double과 long long 연산 시에는 dobule형 결과가 나옴 
+
+>참고
+
+1️⃣ **정수 승격 (Integer promotion)**  
+작은 타입들(`char`, `short`)은 먼저 `int`나 `unsigned int`로 승격
+
+2️⃣ **정수끼리 연산 (Same rank)**  
+같은 계열이면 더 큰 타입으로 맞춤 (예: `int` + `long` → `long`)
+
+3️⃣ **정수 vs 부동소수점 (int vs float 계열)**  
+이 경우에는 항상 **부동소수점 계열이 우선**
+- 예: `int + float` → float
+- 예: `long long + double` → double
+
+>참고
+>`vector`의 `size()` 함수는 `unsigned int`를 반환함.
+>따라서, `v.size() - 10` 은 `unsigned int - int` 이기 때문에 계산 값이 틀려질 수 있음.
+>음수를 기대했으나 아주 큰 양수가 나온다거나..
+>
+>해결 방법
+>`(int)v.size() - 10
+
+
+

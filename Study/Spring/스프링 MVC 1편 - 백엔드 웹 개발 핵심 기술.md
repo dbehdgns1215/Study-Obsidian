@@ -2113,7 +2113,7 @@ public class MvcMemberFormServlet extends HttpServlet {
 - `dispatcher.forward()`: 다른 서블릿이나 JSP로 이동할 수 있는 기능이다. *서버 내부에서 다시 호출이 발생한다.* ()
 
 >`/WEB-INF`
->이 경로 안에 JSP가 있으면 외부에서 직접 JSP를 호출할 수 없다.
+>이 경로 안에 JSP가 있으면 외부에서 직접 JSP를 호출할 수 없다. (경로를 url로 쳐서 호출하는 것)
 >우리가 기대하는 것은 항상 컨트롤러를 통해서 JSP를 호출하는 것이다.
 
 >**redirect vs forward**

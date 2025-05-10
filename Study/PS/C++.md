@@ -1571,3 +1571,79 @@ int main() {
 
 
 
+---
+
+# 1.2 기본
+## STL
+
+### 알고리즘
+정렬, 탐색 등에 관한 함수
+- `sort()`가 대표적
+
+### 컨테이너
+C++에서 제공하는 자료구조
+
+시퀀스 컨테이너 (sequence container)
+- 데이터를 단순히 저장해 놓는 자료구조
+	- `array`
+	- `vector`
+	- `deque`
+	- `list`
+	- `forward_list`
+연관 컨테이너 (associative container)
+- 자료가 저장됨에 따라 자동 정렬되는 자료구조
+- 중복 키가 가능한 것은 이름에 multi가 붙음
+	- `set`
+	- `map`
+	- `multiset`
+	- `multimap`
+정렬되지 않은 연관 컨테이너 (unordered associative container)
+- 자료가 저장됨에 따라 자동 정렬이 되지 않는 자료구조
+	- `unordered_set`
+	- `unordered_map`
+	- `unordered_multiset`
+	- `unordered_multimap`
+컨테이너 어댑터 (container adapter)
+- 시퀀스 컨테이너를 이용해 만든 자료구조
+	- `stack (by deque)`
+	- `queue (by deque)`
+	- `priority_queue (by vector)`
+
+
+### 펑터
+함수 호출 연산자를 오버로드하는 클래스의 인스턴스
+
+
+### scanf
+- `%d` = `int`
+- `%c` = `char`
+- `%s` = `string`
+- `%lf` = `double`
+- `%ld` = `long long`
+
+> `scnaf("%d.%d:", &a, &b);` (`.` 으로 입력을 구분하는 것을 확인)
+> `3.22` 입력시에 `a = 3`, `b = 22`
+> `printf("%d %d", a, b);`
+
+
+### getline (한 줄 입력 받기)
+`getline()`은 기본적으로 개행 문자('`\n`')를 줄의 끝으로 인식하고 그 개행 문자 직전까지 입력 받음.
+
+커스텀 종결 문자를 지정하고 싶다면 세 번째 인자로
+- `getline(cin, line, '@');`
+
+>참고
+>![[Pasted image 20250510234839.png]]
+- 버퍼에 개행 문자('`\n`')가 남아있으니 `getline(cin, buerflush)`등의 방법으로 버퍼 비워줘야 다음 입력을 온전하게 받을 수 있음.
+
+
+### cout의 실수 타입 출력 (자릿수 지정)
+`cout << fixed << setprecision(n) << {변수} << "\n";`
+- **소수점 이하 n번째 자리에서 반올림해서 출력**
+- `cout` 과 `{변수}` 사이에 `fixed << setprecision(n)` 를 삽입하면 됨
+	- ex
+		- 1.23456789
+		- `double` -> `1.23457` (반올림) // `double`은 5번째 자리에서 반올림
+		- `fixed << setprecision(3)` -> `1.235` (반올림)
+		- `fixed << `setprecision(8)` -> 1.23456789
+

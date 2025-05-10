@@ -1775,3 +1775,14 @@ vector<string> split(const string& input, string delimiter) {
 	return result;
 }
 ```
+
+
+## sizeof() - 배열의 요소 개수 구하기
+- `sizeof(arr) / sizeof(arr[0])` : `전체 배열 사이즈 / 개당 배열 사이즈`
+
+## atoi() - 문자인지 숫자인지 확인하는 로직
+- `atoi()` : 문자열 s를 정수 int로 변환하는 방법 중 하나.
+- `atoi(s.c_str())`
+	- s가 만약 `123` 이라면 -> `123(true)` 반환 (숫자로 변환된 상태로 반환)
+	- s가 만약 `abc` 이라면 -> `0(false)` 반환
+

@@ -2086,6 +2086,7 @@ MVC 패턴은 지금까지 학습한 것 처럼 하나의 서블릿이나 JSP로
 서블릿을 컨트롤러로 사용하고 JSP를 뷰로 사용해서 MVC 패턴을 적용해보자.
 Model은 HttpServletRequest 객체를 사용한다. request는 내부에 데이터 저장소를 가지고 있는데, `request.setAttribute()`, `request.getAttribute()`를 사용하면 데이터를 보관하고 조회할 수 있다.
 
+`hello.servlet.web.servletmvc.MvcMemberFormServlet`
 ```java
 package hello.servlet.web.servletmvc;  
   
@@ -2120,6 +2121,30 @@ public class MvcMemberFormServlet extends HttpServlet {
 >리다이렉트는 실제 클라이언트(웹 브라우저)에 응답이 나갔다가, 클라이언트가 redirect 경로로 다시 요청한다.
 >따라서 클라이언트가 인지할 수 있고 URL 경로도 실제로 변경된다. 반면에 포워드는 서버 내부에서 일어나는 호출이기 때문에 클라이언트가 전혀 인지하지 못한다.
 
+
+`main/webapp/WEB-INF/views/new-form.jsp`'
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>  
+<html>  
+<head>  
+  <meta charset="UTF-8">  
+  <title>Title</title>  
+</head>  
+<body>  
+<!-- 상대경로 사용, [현재 URL이 속한 계층 경로 + /save] --><form action="save" method="post">  
+  username: <input type="text" name="username" />  
+  age: <input type="text" name="age" />  
+  <button type="submit">전송</button>  
+</form>  
+</body>  
+</html>
+```
+- 여기서 form의 action을 보면 절대 경로가 아니라 상대 경로로 되어있는 것을 확인할 수 있다.
+- 이렇게 상대 경로를 사용하면 폼 전송시 현재 URL이 속한 계층 경로 + save가 호출된다.
+	- 현재 계층 경로: `servlet-mvc/members`
+	- 결과: `/servlet-mvc/members.save`
+
+**주의
 
 
 ## MVC 패턴 - 한계

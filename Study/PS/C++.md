@@ -1673,20 +1673,20 @@ int main() {
     a += " pain!"; // 문자열 " pain!"을 뒤에 추가 (결과: "love is pain!")
     a.pop_back(); // 마지막 문자 '!'를 제거 (결과: "love is pain")
 
-    cout << a << " : " << a.size() << "\n"; // 출력: "love is pain : 14"
+    cout << a << " : " << a.size() << "\n"; // 출력: "love is pain : 12"
     cout << char(*a.begin()) << '\n'; // a의 첫 번째 문자 출력 ('l')
     cout << char(*(a.end() - 1)) << '\n'; // a의 마지막 문자 출력 ('n')
 
     // string& insert (size_t pos, const string& str);
     a.insert(0, "test "); // 0번 위치에 "test "를 삽입 (결과: "test love is pain")
-    cout << a << " : " << a.size() << "\n"; // 출력: "test love is pain : 18"
+    cout << a << " : " << a.size() << "\n"; // 출력: "test love is pain : 17"
 
     // string& erase (size_t pos = 0, size_t len = npos);
     a.erase(0, 5); // 0번 위치부터 5개의 문자("test ")를 제거 (결과: "love is pain")
-    cout << a << " : " << a.size() << "\n"; // 출력: "love is pain : 14"
+    cout << a << " : " << a.size() << "\n"; // 출력: "love is pain : 12"
 
     // size_t find (const string& str, size_t pos = 0);
-    auto it = a.find("love"); // "love"라는 문자열을 찾음. 위치를 반환 (결과: 0)
+    auto it = a.find("love"); // "love"라는 문자열을 찾음. 위치를 반환
     if (it != string::npos) { // "love"가 문자열에 포함되어 있으면
         cout << "포함되어 있다." << '\n'; // 출력: "포함되어 있다."
     }

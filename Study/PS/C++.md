@@ -2047,8 +2047,15 @@ bool cmp(a, b)
 
 ### 👉 역할:
 
-> `a`를 **b보다 앞에 둘 거면 true**,  
-> `a`를 **b보다 뒤에 둘 거면 false**를 반환해야 해요.
+> `a`를 **`b`보다 앞에 둘 거면 `true`** -> **내림차순** `(a.first > b.first)` 또는 `(a > b)`
+> `a`를 **`b`보다 뒤에 둘 거면 `false` -> 오름차순** `(a.first < b.first)` 또는 `(a < b)`
+> 를 반환해야 해요.
+
+| 정렬 기준                    | cmp 함수 요약                                             |
+| ------------------------ | ----------------------------------------------------- |
+| `first` 오름차순             | `a.first < b.first`                                   |
+| `first` 내림차순             | `a.first > b.first`                                   |
+| `first 같을 때 second 오름차순` | `if (a.first == b.first) return a.second < b.second;` |
 
 ---
 
@@ -2060,7 +2067,6 @@ return a.first > b.first;
 
 - **큰 숫자가 앞에 오게 만든다**  
     → 즉, `first` 기준으로 **내림차순 정렬**
-    
 
 ---
 
@@ -2077,9 +2083,79 @@ bool cmp(pair<int,int> a, pair<int,int> b){
 이러면 작은 게 앞에 오겠죠!
 
 ---
+## ✅ sort vs stable_sort 차이
 
-## ✅ 핵심 요약
+|함수|정렬 안정성|속도|
+|---|---|---|
+|`sort()`|❌ 불안정 정렬|**빠름** (QuickSort/IntroSort)|
+|`stable_sort()`|✅ **안정 정렬**|**조금 느림** (MergeSort)|
 
-- `cmp(a, b)`는 → "a를 b보다 앞에 둘래?" 라는 질문임
-- `a.first > b.first`면 → 큰 게 앞에 오게 됨 (내림차순)
-- `a.first < b.first`면 → 작은 게 앞에 오게 됨 (오름차순)
+---
+
+## ✅ "안정 정렬"이란?
+
+> 정렬할 때 **값이 같은 요소들의 원래 순서를 유지**해주는 정렬이에요.
+
+### 예제:
+
+```cpp
+vector<pair<int, string>> v = {
+    {1, "apple"},
+    {2, "banana"},
+    {1, "cherry"}
+};
+```
+
+여기서 `first` 기준으로 정렬하면?
+
+---
+
+### 🚫 `sort(v.begin(), v.end(), cmp);`
+
+```cpp
+bool cmp(pair<int, string> a, pair<int, string> b) {
+    return a.first < b.first;
+}
+```
+
+> 결과 (불안정, 순서 뒤바뀔 수 있음):
+
+```
+1 : cherry
+1 : apple
+2 : banana
+```
+
+---
+
+### ✅ `stable_sort(v.begin(), v.end(), cmp);`
+
+> 결과 (안정 정렬: 같은 값이면 **원래 순서 유지**):
+
+```
+1 : apple
+1 : cherry
+2 : banana
+```
+
+---
+
+## ✅ 정리
+
+- `sort()`는 빠르지만, **같은 값일 때 순서를 지켜주지 않음**
+- `stable_sort()`는 **순서를 지켜줌**, 그래서 **정렬 기준이 중복될 수 있는 경우**에 좋음
+- 단점은 **좀 더 느림** (O(n log² n) vs O(n log n))
+---
+
+## ✅ 예시 문제: 나이순 정렬 (BOJ 10814)
+
+> **문제 요약**  
+> 회원들의 나이와 이름이 주어졌을 때,  
+> **나이 순으로 정렬**하되,  
+> **같은 나이면 먼저 가입한 사람이 먼저 출력**되어야 함.
+
+### 🎯 핵심 조건
+
+- **나이 오름차순**
+- **같은 나이면 입력 순서 유지** ← 이게 바로 **안정 정렬이 필요한 이유!**
+

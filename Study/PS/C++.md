@@ -2164,3 +2164,8 @@ bool cmp(pair<int, string> a, pair<int, string> b) {
 
 ## 중복 제거 정렬
 `변수.erase(unique(변수.begin(), 변수.end()), 변수.end());`
+
+
+## lower_bound()와 upper_bound()
+![[Pasted image 20250512000608.png]]
+- `upper_bound()`는 해당 값 이상인 위치 중 마짐가 위치를 초과하는 지점의 이터레이터를 반환.

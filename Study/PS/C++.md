@@ -1959,3 +1959,7 @@ int main(){
 	- cout << * b << "\n"; 역참조 연산을 통해서 값을 참조할 수 있음.
 
 ![[Pasted image 20250511230219.png]]
+
+## Array to Pointer Decay
+- 배열이 포인터로 부식(decay)되는 현상
+- 

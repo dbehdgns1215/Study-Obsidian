@@ -2183,3 +2183,38 @@ int main() {
 	return 0;
 }
 ```
+
+## accumulate() 배열의 합 쉽고 빠르게 구하기
+`int sum = accumulate(v.begin(), v.end(), 0);`
+
+## max_element() 배열에서 가장 큰 요소 추출
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	vector v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	int a = *max_element(v.begin(), v.end());
+	auto b = max_element(v.begin(), v.end());
+	cout << a << '\n'; // 10 -> 가장 큰 요소의 값은?
+	cout << (int)(b - v.begin()) << '\n'; // 9 -> 몇 번째 값?
+```
+- 자매품 min_element()도 있음.
+
+
+## 메모리 주소끼리의 뺄셈
+예를 들어 `&*lower_bound(a.begin(), a.end(), 3)와 &*a.begin()`를 뺀다고 가정해봅시다.
+
+```c++
+auto it = lower_bound(a.begin(), a.end(), 3);
+cout << it - a.begin() << "\n"; // 인덱스 차이를 출력
+```
+
+이 코드는 it와 a.begin() 사이의 인덱스 차이를 출력합니다.
+
+이 이유는 C++에서 포인터나 이터레이터의 뺄셈 연산은 메모리 주소의 차이를 바이트 단위로 반환하는 것이 아니라, 요소의 인덱스 차이를 반환하기 때문입니다.
+
+참고로 이는 포인터 산술의 특징으로, 두 포인터의 차이는 요소 간의 거리를 요소의 크기(이 경우 int의 크기인 4바이트)로 나누어 반환합니다.
+
+따라서 `&*lower_bound(a.begin(), a.end(), 3)와 &*a.begin()`의 차이는 바이트 단위로 8이 아닌, 요소의 인덱스 차이인 2가 됩니다.
+
+

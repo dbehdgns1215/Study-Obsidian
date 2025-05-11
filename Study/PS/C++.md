@@ -2159,3 +2159,8 @@ bool cmp(pair<int, string> a, pair<int, string> b) {
 - **나이 오름차순**
 - **같은 나이면 입력 순서 유지** ← 이게 바로 **안정 정렬이 필요한 이유!**
 
+
+
+
+## 중복 제거 정렬
+`변수.erase(unique(변수.begin(), 변수.end()), 변수.end());`

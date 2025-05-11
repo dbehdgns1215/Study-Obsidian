@@ -2169,3 +2169,17 @@ bool cmp(pair<int, string> a, pair<int, string> b) {
 ## lower_bound()와 upper_bound()
 ![[Pasted image 20250512000608.png]]
 - `upper_bound()`는 해당 값 이상인 위치 중 마짐가 위치를 초과하는 지점의 이터레이터를 반환.
+- 단, 이터레이터를 반환하기 때문에 실제로 몇 번째 값인지 알고싶으면 .begin()을 빼주어야 함.
+
+```c++
+#include<bits/stdc++.h> 
+using namespace std;
+typedef long long ll;
+
+int main() {
+	vector a {1, 2, 3, 3, 3, 4};
+	cout << lower_bound(a.begin(), a.end(), 3) - a.begin() << "\n"; // 2
+	cout << upper_bound(a.begin(), a.end(), 3) - a.begin() << "\n"; // 5
+	return 0;
+}
+```

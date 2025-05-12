@@ -2294,3 +2294,11 @@ cout << it - a.begin() << "\n"; // 인덱스 차이를 출력
 
 ## STL vector
 `vector<자료형> 변수명`
+
+>range-based for loop (since C++ 11)
+>- for (auto a : ans)
+>- for (auto& a : ans)
+>둘의 차이는, 원본에 영향을 미치냐 그렇지 않느냐
+
+
+

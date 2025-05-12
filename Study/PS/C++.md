@@ -2218,3 +2218,14 @@ cout << it - a.begin() << "\n"; // 인덱스 차이를 출력
 따라서 `&*lower_bound(a.begin(), a.end(), 3)와 &*a.begin()`의 차이는 바이트 단위로 8이 아닌, 요소의 인덱스 차이인 2가 됩니다.
 
 
+# vector
+
+## push_back()
+## pop_back()
+## erase()
+- `erase(위치)` or `erase(from, to)` (`[from, to)`)
+## find(from, to, value)
+- `[from, to)` 에서 `value` 찾음
+## clear()
+## fill(from, to, value)
+- `[from, to)`를 `value`로 채우기

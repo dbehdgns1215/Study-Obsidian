@@ -159,8 +159,19 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
+          },
+          {
+            "id": "8fc80d28bdfc1218",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -181,6 +192,7 @@
   },
   "active": "39f689e21972b819",
   "lastOpenFiles": [
+    "Pasted image 20250512232456.png",
     "PS/C++.md",
     "PS/C++ TIP.md",
     "Pasted image 20250512221245.png",

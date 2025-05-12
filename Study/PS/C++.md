@@ -2248,3 +2248,24 @@ cout << it - a.begin() << "\n"; // 인덱스 차이를 출력
 - 정렬이 되지 않은 map
 - 해시테이블 기반
 - 삽입 삭제 탐색
+
+# stack - LIFO
+## push(value) - O(1)
+## pop() - O(1)
+## top()
+## size()
+
+# queue - FIFO
+## push(value) - O(1)
+## pop() - O(1)
+## front()
+## size()
+
+# deque
+## push_front(value) - O(1)
+## push_back(value) - O(1)
+## pop_front() - O(1)
+## pop_back() - O(1)
+## front()
+## back()
+## size()

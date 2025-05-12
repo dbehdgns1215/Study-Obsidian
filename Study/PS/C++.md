@@ -2229,3 +2229,5 @@ cout << it - a.begin() << "\n"; // 인덱스 차이를 출력
 ## clear()
 ## fill(from, to, value)
 - `[from, to)`를 `value`로 채우기
+## size()
+- `unsigned`를 반환하기 때문에 `int`로 명시적 형변화 필요함.

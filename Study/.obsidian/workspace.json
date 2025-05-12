@@ -136,49 +136,6 @@
             }
           },
           {
-            "id": "b2e3566c7b885805",
-            "type": "leaf",
-            "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
-            }
-          },
-          {
-            "id": "c6e0c75bec8b7291",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "PS/C++.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "C++ 의 백링크"
-            }
-          },
-          {
-            "id": "1bc8cec9da061c59",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "PS/C++.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "C++ 의 나가는 링크"
-            }
-          },
-          {
             "id": "e66976ffd6788f01",
             "type": "leaf",
             "state": {
@@ -222,7 +179,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b2aa91ff7fcd77f6",
+  "active": "9e1df587845f03bd",
   "lastOpenFiles": [
     "Pasted image 20250512000608.png",
     "Pasted image 20250511233852.png",

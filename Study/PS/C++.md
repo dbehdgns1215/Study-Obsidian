@@ -2319,3 +2319,4 @@ cout << it - a.begin() << "\n"; // 인덱스 차이를 출력
 
 ![[Pasted image 20250512232456.png]]
 
+ 

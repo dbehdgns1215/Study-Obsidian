@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PS/C++.md",
+                "file": "PS/C++ TIP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++"
+              "title": "C++ TIP"
             }
           }
         ],
@@ -116,13 +116,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PS/C++.md",
+                "file": "PS/C++ TIP.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "C++ 의 개요"
+              "title": "C++ TIP 의 개요"
             }
           },
           {
@@ -179,8 +179,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9e1df587845f03bd",
+  "active": "b2aa91ff7fcd77f6",
   "lastOpenFiles": [
+    "Pasted image 20250512221245.png",
+    "PS/C++.md",
     "Pasted image 20250512000608.png",
     "Pasted image 20250511233852.png",
     "Pasted image 20250511232602.png",
@@ -191,11 +193,9 @@
     "Pasted image 20250511225008.png",
     "Pasted image 20250511010152.png",
     "Pasted image 20250510234839.png",
-    "Pasted image 20250510233447.png",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "PS/C++ TIP.md",
     "설정.md",
-    "PS/C++.md",
     "HTTP/HTTP.md",
     "2025-05-10.md",
     "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",

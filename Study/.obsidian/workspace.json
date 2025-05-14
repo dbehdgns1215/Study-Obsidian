@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PS/C++.md",
+                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++"
+              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
             }
           }
         ],
@@ -99,7 +99,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.500732421875
+    "width": 296.500732421875,
+    "collapsed": true
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -175,7 +176,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PS/C++.md",
+                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,7 +186,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "C++ 의 백링크"
+              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 백링크"
             }
           },
           {
@@ -194,12 +195,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PS/C++.md",
+                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "C++ 의 나가는 링크"
+              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 나가는 링크"
             }
           }
         ],
@@ -207,7 +208,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -225,6 +227,7 @@
   "active": "39f689e21972b819",
   "lastOpenFiles": [
     "Pasted image 20250512232456.png",
+    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "PS/C++.md",
     "PS/C++ TIP.md",
     "Pasted image 20250512221245.png",
@@ -236,12 +239,10 @@
     "Pasted image 20250511231351.png",
     "Pasted image 20250511230219.png",
     "Pasted image 20250511225008.png",
-    "Pasted image 20250511010152.png",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "설정.md",
     "HTTP/HTTP.md",
     "2025-05-10.md",
-    "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "Java/Java.md",
     "PS/PS.md",
     "PS/BOJ.md",

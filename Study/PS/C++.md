@@ -2295,10 +2295,11 @@ int lcm(int a, int b) {
 ```
 
 # 모듈러 연산
-1. `a ≡ b mod n`과 `b ≡ c mod n` 은 `a ≡ c mod n` 을 의미
-2. `[(a mod n) + (b mod n)] mod n` = `(a + b) mod n`
-3. `[(a mod n) - (b mod n)] mod n` = `(a - b) mod n`
-4. `[(a mod n) * (b mod n)] mod n` = `(a * b) mod n`
+1. `a ≡ b mod n`과 `b ≡ c mod n` 이면, `a ≡ c mod n` 을 의미 // 추이성 (동치의 의미)
+	1. `17 ≡ 2 mod 5`, `2 ≡ 7 mod 5` 이니까 `17 ≡ 7 mod 5`
+2. `[(a mod n) + (b mod n)] mod n` = `(a + b) mod n` // 덧셈 보존성
+3. `[(a mod n) - (b mod n)] mod n` = `(a - b) mod n` // 뺄셈 보존성
+4. `[(a mod n) * (b mod n)] mod n` = `(a * b) mod n` // 곱셈 보존성
 
 
 

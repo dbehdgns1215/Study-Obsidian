@@ -2389,3 +2389,5 @@ HttpServletRequest request, HttpServletResponse response
 
 
 컴퓨터 노트북 연동 테스트
+
+자 자동 연동 테스트

@@ -99,8 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.500732421875,
-    "collapsed": true
+    "width": 296.500732421875
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -168,6 +167,39 @@
               "state": {},
               "icon": "spreadsheet",
               "title": "Advanced Tables"
+            }
+          },
+          {
+            "id": "c5b4bad4c7dcd29b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "PS/C++.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "C++ 의 백링크"
+            }
+          },
+          {
+            "id": "b78f65b6ee5111de",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "PS/C++.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "C++ 의 나가는 링크"
             }
           }
         ],

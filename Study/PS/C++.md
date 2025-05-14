@@ -2302,6 +2302,18 @@ int lcm(int a, int b) {
 4. `[(a mod n) * (b mod n)] mod n` = `(a * b) mod n` // 곱셈 보존성
 
 
+# 소수 판별
+```C++
+bool check(int n) {
+	if (n <= 1) return 0;
+	if (n == 2) return 1; // 소수
+	if (n % 2 == 0) return 0;
+	for (int i = 3; i * i <= n; i++) {
+		if (n % i == 0) return 0;
+	}
+	return 1; // 소수
+}
+```
 
 
 ---

@@ -2272,7 +2272,33 @@ cout << it - a.begin() << "\n"; // 인덱스 차이를 출력
 
 
 
+# 최대공약수와 최소공배수
 
+최대공약수
+```C++
+int gcd(int a, int b) {
+	if (a==0) return b;
+	return gcd(b % a, a);
+}
+```
+
+최소공배수
+```C++
+int gcd(int a, int b) {
+	if (a==0) return b;
+	return gcd(b % a, a);
+}
+
+int lcm(int a, int b) {
+	return (a * b) / gcd(a, b);
+}
+```
+
+# 모듈러 연산
+1. `a ≡ b mod n`과 `b ≡ c mod n` 은 `a ≡ c mod n` 을 의미
+2. `[(a mod n) + (b mod n)] mod n` = `(a + b) mod n`
+3. `[(a mod n) - (b mod n)] mod n` = `(a - b) mod n`
+4. `[(a mod n) * (b mod n)] mod n` = `(a * b) mod n`
 
 
 

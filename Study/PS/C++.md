@@ -2317,11 +2317,22 @@ bool check(int n) {
 
 
 # 배열 회전
+
+**반시계 방향**
 `rotate(v.begin(), v.begin() + 2, v.end());`
 - `1, 2, 3, 4, 5, 6` -> `3, 4, 5, 6, 1, 2`
 
 `rotate(v.begin() + 1, v.begin() + 2, v.begin() + 5)`
-- 
+- `1, 2, 3, 4, 5, 6` -> `1, 3, 4, 5, 2, 6`
+- 반개 구간: `[begin, end); begin부터 end 직전까지의 요소
+
+**시계 방향**
+`rotate(v.rbegin(), v.rbegin() + 2, v.rend());`
+- `1, 2, 3, 4, 5, 6` -> `3, 4, 5, 6, 1, 2`
+
+`rotate(v.rbegin() + 1, v.rbegin() + 2, v.rbegin() + 5)`
+- `1, 2, 3, 4, 5, 6` -> `1, 3, 4, 5, 2, 6`
+- 반개 구간: `[begin, end); begin부터 end 직전까지의 요소
 
 ---
 

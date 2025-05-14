@@ -2316,6 +2316,13 @@ bool check(int n) {
 ```
 
 
+# 배열 회전
+`rotate(v.begin(), v.begin() + 2, v.end());`
+- `1, 2, 3, 4, 5, 6` -> `3, 4, 5, 6, 1, 2`
+
+`rotate(v.begin() + 1, v.begin() + 2, v.begin() + 5)`
+- 
+
 ---
 
 # 배열

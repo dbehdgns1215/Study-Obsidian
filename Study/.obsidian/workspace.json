@@ -204,12 +204,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -224,7 +223,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "39f689e21972b819",
+  "active": "2a4797b1d0b64515",
   "lastOpenFiles": [
     "Pasted image 20250512232456.png",
     "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",

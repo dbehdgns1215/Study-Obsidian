@@ -2383,9 +2383,7 @@ HttpServletRequest request, HttpServletResponse response
 2. Observer 패턴
 3. Factory Method 패턴
 4. Front Controller 패턴
-
-해설
-4. 기본 MVC에서는 반복되는 로직이나 공통 처리가 여러 Controller에 흩어지는 문제가 있었어요. Front Controller는 요청을 한 곳에서 받아 공통 처리를 위임해서 이 문제를 개선해요.
+5. 기본 MVC에서는 반복되는 로직이나 공통 처리가 여러 Controller에 흩어지는 문제가 있었어요. Front Controller는 요청을 한 곳에서 받아 공통 처리를 위임해서 이 문제를 개선해요.
 
 
 컴퓨터 노트북 연동 테스트

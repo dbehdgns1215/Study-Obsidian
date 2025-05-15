@@ -2424,9 +2424,9 @@ bool check(int n) {
 #define X first
 #define Y second
 int n = 행(세로 길이), m = 열(가로 길이);
-int dx[4] = {1, 0, -1, 0}; // 행
-int dy[4] = {0, 1, 0, -1}; // 열
-// arr[dx][dy]
+int dx[4] = {1, 0, -1, 0}; // 행, y축 느낌
+int dy[4] = {0, 1, 0, -1}; // 열, x축 느낌
+// {dy, dx} 좌표계로 쓸 때는 이렇게 해야함.
 int main(void) {
 	queue<pair<int,int>> Q;
 	vis[0][0] = 1;

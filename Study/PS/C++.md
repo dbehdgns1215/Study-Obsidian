@@ -2422,11 +2422,11 @@ bool check(int n) {
 
 ```C++
 #define X first
-#define Y first
-int n = 가로, m = 세로;
-int dx[4] = {1, 0, -1, 0};
-int dy[4] = {0, 1, 0, -1};
-
+#define Y second
+int n = 행(세로 길이), m = 열(가로 길이);
+int dx[4] = {1, 0, -1, 0}; // 행
+int dy[4] = {0, 1, 0, -1}; // 열
+// arr[dx][dy]
 int main(void) {
 	queue<pair<int,int>> Q;
 	vis[0][0] = 1;

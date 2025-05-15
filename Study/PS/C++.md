@@ -2407,3 +2407,4 @@ bool check(int n) {
 	1. STL deque에서는 인덱스로 원소 접근 가능
 
 
+# BFS

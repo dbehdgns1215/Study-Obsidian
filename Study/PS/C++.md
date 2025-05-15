@@ -2417,3 +2417,5 @@ bool check(int n) {
 
 모든 칸이 큐에 한 번씩 들어가므로 시간 복잡도는 칸이 N개일 때 $O(N)$
 
+`pair<int, int> t1 = make_pair(10, 13);`
+`pair<int, int> t2 = {4, 6};`

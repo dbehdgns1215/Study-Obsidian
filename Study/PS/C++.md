@@ -2468,3 +2468,72 @@ int main(void) {
 
 
 ## 거듭제곱
+
+
+# 마름모꼴 접근
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+string line[51];
+int ans;
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int test_case;
+	int T;
+	int N;
+
+	cin >> T;
+
+	for (test_case = 1; test_case <= T; ++test_case)
+	{
+		ans = 0;
+
+		cin >> N;
+		string x;
+		getline(cin, x);
+
+		for (int i = 0; i < N; i++) {
+			getline(cin, line[i]);
+		}
+
+		int center = N / 2;
+
+		for (int i = 0; i < N; i++) {
+			int start = abs(center - i);
+			int end = N - abs(center - i) - 1;
+
+			for (int k = start; k <= end; k++) {
+				ans += (line[i][k] - '0');
+			}
+		}
+
+		cout << "#" << test_case << " " << ans << "\n";
+	}
+	return 0;
+}
+```
+
+![[Pasted image 20250520232101.png]]
+- 이런 홀수의 가로 세로 크기를 가진 배열에서 마름모꼴로 접근하는 방법
+
+- `int center = N / 2;`
+	- 우선 중앙값을 구하고
+
+```C++
+	for (int i = 0; i < N; i++) {
+		int start = abs(center - i);
+		int end = N - abs(center - i) - 1;
+
+		for (int k = start; k <= end; k++) {
+			ans += (line[i][k] - '0');
+		}
+	}
+```
+- `int start = abs(center - i);`
+- `int end = N - abs(center - i) - 1;` // N은 배열의 크기
+
+왜 이렇게 해야할까?

@@ -2585,4 +2585,14 @@ bool isprime(int n) {
 
 $O(\sqrt{N})$
 - 합성수 N에서 1을 제외하고 가장 작은 약수는 $\sqrt{N}$ 이하이다.
-- 즉, $N-1$이 아닌  $\sqrt{N}$ 
+- 즉, $N-1$이 아닌  $\sqrt{N}$ 까지의 수로 나누어지지 않으면 소수이다.
+```C++
+bool isprime(int n) {
+	if (n == 1) return 0;
+	for (int i = 2; i * i <= n; i++) {
+		if (n % 1 == 0) return 0;
+	}
+	return 1;
+}
+```
+

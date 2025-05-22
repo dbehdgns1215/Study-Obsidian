@@ -2666,4 +2666,11 @@ int gcd(int a, int b) {
 
 # 최소공배수 - LCM
 
-- 
+- $A * B$ $=$ $GCD(A, B)$ $*$ $LCM(A, B)$
+```C++
+int lcm(int a, int b) {
+	return a / gcd(a, b) * b;
+	// int overflow 발생하는 코드
+	// return a * b / gcd(a, b);
+}
+```

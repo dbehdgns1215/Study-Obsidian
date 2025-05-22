@@ -2649,3 +2649,21 @@ vector<int> divisor(int n) {
 	return div;
 }
 ```
+
+# 최대공약수 - GCD \<유클리드 호제법>
+
+## 유클리드 호제법
+- 두 수 A, B에 대해서 A를 B로 나눈 나머지를 r이라고 하면 $GCD(A, B)$ = $GCD(B, r)$ 이다.
+- $GCD(20, 12)$ $=$ $GCD(12, 8)$ $=$ $GCD(8, 4)$ $=$ $GCD(4, 0)$ $=$ $4$
+`0은 모든 수의 배수이기 때문에 결과 값이 4임을 알 수 있음.`
+
+```C++
+int gcd(int a, int b) {
+	if (a == 0) return b;
+	return gcd(b % a, a);
+}
+```
+
+# 최소공배수 - LCM
+
+- 

@@ -2425,6 +2425,8 @@ HttpServletRequest request, HttpServletResponse response
 먼저 구조를 맞추어두고 점진적으로 리펙터링 해보자.
 
 **V1 구조**
+![[Pasted image 20250528001108.png]]
+
 
 
 

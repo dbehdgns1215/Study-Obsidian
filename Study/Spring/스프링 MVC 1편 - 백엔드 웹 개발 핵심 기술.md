@@ -2447,6 +2447,51 @@ public interface ControllerV1 {
 
 이제 이 인터페이스를 구현한 컨트롤러를 만들어보자. 지금 단계에서는 기존 로직을 최대한 유지하는 것이 핵심.
 
+`FrontControllerServletV1`
+```java
+package hello.servlet.web.frontcontroller.v1;  
+  
+import hello.servlet.web.frontcontroller.v1.controller.MemberFormControllerV1;  
+import hello.servlet.web.frontcontroller.v1.controller.MemberListControllerV1;  
+import hello.servlet.web.frontcontroller.v1.controller.MemberSaveControllerV1;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+import java.util.HashMap;  
+import java.util.Map;  
+  
+@WebServlet(name = "frontControllerServletV1", urlPatterns = "/front-controller/v1/*")  
+public class FrontControllerServletV1 extends HttpServlet {  
+  
+    private Map<String, ControllerV1> controllerMap = new HashMap<>(); // 컨트롤러 매핑 정보  
+  
+    public FrontControllerServletV1() {  
+        controllerMap.put("/front-controller/v1/members/new-form", new MemberFormControllerV1());  
+        controllerMap.put("/front-controller/v1/members/save", new MemberSaveControllerV1());  
+        controllerMap.put("/front-controller/v1/members", new MemberListControllerV1());  
+    }  
+  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response)  
+            throws ServletException, IOException {  
+        System.out.println("FrontControllerServletV1.service");  
+  
+        String requestURI = request.getRequestURI(); // http://localhost:8080/front-controller/v1/dhy -> 'front-controller/v1/dhy' 이 부분만 추출 가능  
+  
+        ControllerV1 controller = controllerMap.get(requestURI);  
+        if (controller == null) {  
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND); // 404 Error  
+            return;  
+        }  
+  
+        controller.process(request, response);  
+    }  
+}
+```
+
 `MemberFormControllerV1`
 ```java
 package hello.servlet.web.frontcontroller.v1.controller;  
@@ -2505,12 +2550,36 @@ public class MemberSaveControllerV1 implements ControllerV1 {
 }
 ```
 
-``
+`MemberListControllerV1`
 ```java
-
+package hello.servlet.web.frontcontroller.v1.controller;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import hello.servlet.web.frontcontroller.v1.ControllerV1;  
+import jakarta.servlet.RequestDispatcher;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+import java.util.List;  
+  
+public class MemberListControllerV1 implements ControllerV1 {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @Override  
+    public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+        List<Member> members = memberRepository.findAll();  
+  
+        request.setAttribute("members", members);  
+  
+        String viewPath = "/WEB-INF/views/members.jsp";  
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);  
+        dispatcher.forward(request, response);  
+    }  
+}
 ```
-
-
 
 
 **뭐가 불편?

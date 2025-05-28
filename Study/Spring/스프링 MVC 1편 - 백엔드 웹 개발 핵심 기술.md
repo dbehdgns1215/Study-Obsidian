@@ -2768,7 +2768,11 @@ return new MyView("/WEB-INF/views/members.jsp");
 
 
 **뭐가 불편?
-- 
+- V2의 코드를 자세히 봐보자.
+- `public MyView process(HttpServletRequest request, HttpServletResponse response)`
+- 사용하지도 않는 `request`와 `response`가 파라미터로 넘어오고 있다.
+- 필요 없는데, 스펙상 넘겨 받아야 하기 때문에 존재하는 것.
+- 또한 `request` 속 `model`의 개념을 적용하지도 않았음.
 **어떻게 해결?
 - 
 # Model 추가 - v3

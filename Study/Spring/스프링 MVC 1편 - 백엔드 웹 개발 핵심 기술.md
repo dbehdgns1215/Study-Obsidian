@@ -2586,8 +2586,16 @@ public class MemberListControllerV1 implements ControllerV1 {
 - 중복되는 코드가 많음
 - 기존에 비해 살짝은 복잡해진 코드
 **어떻게 해결?
-- 
+- 최적화 해보자. 분리하고 다듬고!
 # View 분리 - v2
+모든 컨트롤러에서 뷰로 이동하는 부분에 중복이 있고, 깔끔하지 않다.
+```java
+String viewPath = "/WEB-INF/views/members.jsp";  
+RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);  
+dispatcher.forward(request, response);
+```
+이 부분을 깔끔하게 분리하기 위해 별도로 뷰를 처리하는 객체를 만들자.
+
 
 
 

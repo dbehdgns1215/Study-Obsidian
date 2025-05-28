@@ -2596,6 +2596,9 @@ dispatcher.forward(request, response);
 ```
 이 부분을 깔끔하게 분리하기 위해 별도로 뷰를 처리하는 객체를 만들자.
 
+**V2 구조**
+![[Pasted image 20250528223301.png]]
+- 기존 방식처럼 특정 컨트롤러가 직접 JSP로 forward 해주는 것이 아니라, MyView라는 객체를 만들어서 반환해 주는 것.
 
 
 

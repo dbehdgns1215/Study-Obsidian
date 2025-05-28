@@ -2447,11 +2447,75 @@ public interface ControllerV1 {
 
 이제 이 인터페이스를 구현한 컨트롤러를 만들어보자. 지금 단계에서는 기존 로직을 최대한 유지하는 것이 핵심.
 
+`MemberFormControllerV1`
+```java
+package hello.servlet.web.frontcontroller.v1.controller;  
+  
+import hello.servlet.web.frontcontroller.v1.ControllerV1;  
+import jakarta.servlet.RequestDispatcher;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+  
+public class MemberFormControllerV1 implements ControllerV1 {  
+    @Override  
+    public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+        String viewPath = "/WEB-INF/views/new-form.jsp";  
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);// 컨트롤러 -> 뷰 이동할 때 사용  
+        dispatcher.forward(request, response); // 서블릿에서 JSP 호출  
+    }  
+}
+```
+
+`MemberSaveControllerV1`
+```java
+package hello.servlet.web.frontcontroller.v1.controller;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import hello.servlet.web.frontcontroller.v1.ControllerV1;  
+import jakarta.servlet.RequestDispatcher;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+  
+public class MemberSaveControllerV1 implements ControllerV1 {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @Override  
+    public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+        // 쿼리 파라미터 파싱  
+        String username = request.getParameter("username");  
+        int age = Integer.parseInt(request.getParameter("age"));  
+  
+        // 비즈니스 로직 실행  
+        Member member = new Member(username, age);  
+        memberRepository.save(member);  
+  
+        // Model에 데이터를 보관한다.  
+        request.setAttribute("member", member);  
+  
+        String viewPath = "/WEB-INF/views/save-result.jsp";  
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);  
+        dispatcher.forward(request, response);  
+    }  
+}
+```
+
+``
+```java
+
+```
+
 
 
 
 **뭐가 불편?
-- 
+- 중복되는 코드가 많음
+- 기존에 비해 살짝은 복잡해진 코드
 **어떻게 해결?
 - 
 # View 분리 - v2

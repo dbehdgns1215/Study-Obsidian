@@ -2600,6 +2600,171 @@ dispatcher.forward(request, response);
 ![[Pasted image 20250528223301.png]]
 - 기존 방식처럼 특정 컨트롤러가 직접 JSP로 forward 해주는 것이 아니라, MyView라는 객체를 만들어서 반환해 주는 것.
 
+`ControllerV2`
+```java
+package hello.servlet.web.frontcontroller.v2;  
+  
+import hello.servlet.web.frontcontroller.MyView;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+  
+public interface ControllerV2 {  
+  
+    MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;  
+  
+}
+```
+
+
+`MemberFormControllerV2`
+```java
+package hello.servlet.web.frontcontroller.v2.controller;  
+  
+import hello.servlet.web.frontcontroller.MyView;  
+import hello.servlet.web.frontcontroller.v2.ControllerV2;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+  
+public class MemberFormControllerV2 implements ControllerV2 {  
+  
+    @Override  
+    public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+        return new MyView("/WEB-INF/views/new-form.jsp");  
+    }  
+}
+```
+
+`MemberSaveControllerV2`
+```java
+package hello.servlet.web.frontcontroller.v2.controller;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import hello.servlet.web.frontcontroller.MyView;  
+import hello.servlet.web.frontcontroller.v2.ControllerV2;  
+import jakarta.servlet.RequestDispatcher;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+  
+public class MemberSaveControllerV2 implements ControllerV2 {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @Override  
+    public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+        // 쿼리 파라미터 파싱  
+        String username = request.getParameter("username");  
+        int age = Integer.parseInt(request.getParameter("age"));  
+  
+        // 비즈니스 로직 실행  
+        Member member = new Member(username, age);  
+        memberRepository.save(member);  
+  
+        // Model에 데이터를 보관한다.  
+        request.setAttribute("member", member);  
+  
+        return new MyView("/WEB-INF/views/save-result.jsp");  
+    }  
+}
+```
+
+`MemberListControllerV2`
+```java
+package hello.servlet.web.frontcontroller.v2.controller;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import hello.servlet.web.frontcontroller.MyView;  
+import hello.servlet.web.frontcontroller.v2.ControllerV2;  
+import jakarta.servlet.RequestDispatcher;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+import java.util.List;  
+  
+public class MemberListControllerV2 implements ControllerV2 {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @Override  
+    public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+  
+        List<Member> members = memberRepository.findAll();  
+        request.setAttribute("members", members);  
+        return new MyView("/WEB-INF/views/members.jsp");  
+    }  
+}
+```
+
+`FrontControllerServletV2`
+```java
+package hello.servlet.web.frontcontroller.v2;  
+  
+import hello.servlet.web.frontcontroller.MyView;  
+import hello.servlet.web.frontcontroller.v2.controller.MemberFormControllerV2;  
+import hello.servlet.web.frontcontroller.v2.controller.MemberListControllerV2;  
+import hello.servlet.web.frontcontroller.v2.controller.MemberSaveControllerV2;  
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.HttpServlet;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+import java.util.HashMap;  
+import java.util.Map;  
+  
+@WebServlet(name = "frontControllerServletV2", urlPatterns = "/front-controller/v2/*")  
+public class FrontControllerServletV2 extends HttpServlet {  
+  
+    private Map<String, ControllerV2> controllerMap = new HashMap<>(); // 컨트롤러 매핑 정보  
+  
+    public FrontControllerServletV2() {  
+        controllerMap.put("/front-controller/v2/members/new-form", new MemberFormControllerV2());  
+        controllerMap.put("/front-controller/v2/members/save", new MemberSaveControllerV2());  
+        controllerMap.put("/front-controller/v2/members", new MemberListControllerV2());  
+    }  
+  
+    @Override  
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+        System.out.println("FrontControllerServletV2.service");  
+  
+        String requestURI = request.getRequestURI(); // http://localhost:8080/front-controller/v2/dhy -> 'front-controller/v1/dhy' 이 부분만 추출 가능  
+  
+        ControllerV2 controller = controllerMap.get(requestURI);  
+        if (controller == null) {  
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND); // 404 Error  
+            return;  
+        }  
+  
+        MyView view = controller.process(request, response);  
+  
+        view.render(request, response);  
+    }  
+}
+```
+- 우선, 뷰를 호출하는 부분이 중복되었기 때문에 공통적인 로직을 처리해 줄 무언가가 필요했다.
+- 그래서 만든 것이 `MyView` 클래스.
+- `render` 함수를 통해서 뷰로 연결 해줌.
+- 이 MyView 클래스를 이용해서 기존에 있던 기능들을 최적화 해줬음
+	- ex)
+```java
+// 이전 코드
+String viewPath = "/WEB-INF/views/members.jsp";  
+RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);  
+dispatcher.forward(request, response);
+
+// 최적화 코드
+request.setAttribute("members", members);  
+return new MyView("/WEB-INF/views/members.jsp");
+```
+
 
 
 **뭐가 불편?

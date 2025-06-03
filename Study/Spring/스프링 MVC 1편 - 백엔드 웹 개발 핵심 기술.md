@@ -2909,6 +2909,23 @@ public interface MyHandlerAdapter {
 # 유연한 컨트롤러2 - v5
 `FrontControllerServletV5`에 `ControllerV4` 기능도 추가해보자.
 
+**실행 로직**
+```java
+@Override  
+public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {  
+    ControllerV4 controller = (ControllerV4) handler;  
+  
+    Map<String, String> paramMap = createParamMap(request);  
+    HashMap<String, Object> model = new HashMap<>();  
+    String viewName = controller.process(paramMap, model);  
+  
+    // 어댑터의 역할 수행  
+    ModelView mv = new ModelView(viewName);  
+    mv.setModel(model);  
+  
+    return mv;  
+}
+```
 
 
 **뭐가 불편?

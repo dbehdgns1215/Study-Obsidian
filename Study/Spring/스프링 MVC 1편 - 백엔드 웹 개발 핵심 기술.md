@@ -2895,10 +2895,7 @@ public interface MyHandlerAdapter {
 	- 실제 컨트롤러가 ModelView를 반환하지 못하면 어댑터가 ModelView를 직접 생성해서라도 반환해야 한다.
 	- 이전에는 프론트 컨트롤러가 실제 컨트롤러를 호출했지만 이제는 이 어댑터를 통해서 실제 컨트롤러가 호출된다.
 
-실제 어댑터를 구현해보자.
-먼저 ControllerV3를 지원하는 어댑터를 구현하자.
 
-**ControllerV3HandlerAdapter**
 
 
 

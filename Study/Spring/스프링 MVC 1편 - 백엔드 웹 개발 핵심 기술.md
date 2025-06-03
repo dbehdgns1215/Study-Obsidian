@@ -2902,14 +2902,12 @@ public interface MyHandlerAdapter {
 
 
 
-
-
-
 **뭐가 불편?
 - 
 **어떻게 해결?
 - 
 # 유연한 컨트롤러2 - v5
+`FrontControllerServletV5`에 `ControllerV4` 기능도 추가해보자.
 
 
 

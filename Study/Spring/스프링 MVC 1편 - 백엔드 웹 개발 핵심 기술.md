@@ -2941,7 +2941,7 @@ public ModelView handle(HttpServletRequest request, HttpServletResponse response
 	- v3와 거의 비슷
 	- 구현 입장에서 ModelView를 직접 생성해서 반환하지 않도록 편리한 인터페이스 제공
 - **v5: 유연한 컨트롤러**
-	- 어댑터 도임
+	- 어댑터 패턴 도입
 	- 어댑터를 추가해서 프레임워크를 유연하고 확장성 있게 설계
 
 여기에 애노테이션을 사용해서 컨트롤러를 더 편리하게 발전시킬 수 있다.

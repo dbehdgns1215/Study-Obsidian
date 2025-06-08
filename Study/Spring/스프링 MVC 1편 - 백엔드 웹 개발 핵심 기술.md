@@ -3051,7 +3051,8 @@ HttpServletRequest 의존성을 제거하면 컨트롤러의 로직만을 순수
 **DispatcherServlet 서블릿 등록**
 - `DispatcherServlet`도 부모 클래스에서 `HttpServlet`을 상속 받아서 사용하고 서블릿으로 동작한다.
 	- DispatcherServlet -> FrameworkServlet -> HttpServletBean -> HttpServlet
-- 스프링 부트는 `DispatcherServlet`을 서블릿으로 자동으로 등록하면서 **모든 경로(urlPatterns="/")
+- 스프링 부트는 `DispatcherServlet`을 서블릿으로 자동으로 등록하면서 **모든 경로(`urlPatterns="/"
+  `)** 에 대해서 매핑한다.
 
 ## 핸들러 매핑과 핸들러 어댑터
 

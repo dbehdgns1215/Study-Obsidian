@@ -3041,7 +3041,15 @@ HttpServletRequest 의존성을 제거하면 컨트롤러의 로직만을 순수
 - MyView -> View
 
 
-**Dis
+**DispatcherServlet 구조 살펴보기**
+`org.springframework.web.servlet.DispatcherServlet`
+
+스프링 MVC도 프론트 컨트롤러 패턴으로 구현되어 있다.
+스프링 MVC의 프론트 컨트롤러가 바로 디스패처 서블릿(DispatcherServlet)이다.
+그리고 이 디스패처 서블릿이 바로 스프링 MVC의 핵심
+
+**DispatcherServlet 서블릿 등록**
+
 
 
 ## 핸들러 매핑과 핸들러 어댑터

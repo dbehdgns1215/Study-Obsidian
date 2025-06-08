@@ -3049,8 +3049,7 @@ HttpServletRequest 의존성을 제거하면 컨트롤러의 로직만을 순수
 그리고 이 디스패처 서블릿이 바로 스프링 MVC의 핵심
 
 **DispatcherServlet 서블릿 등록**
-
-
+- `DispatcherServlet`도 부모 클래스에서 `HttpServlet`을 상속 받아서 사용하고 서블
 
 ## 핸들러 매핑과 핸들러 어댑터
 

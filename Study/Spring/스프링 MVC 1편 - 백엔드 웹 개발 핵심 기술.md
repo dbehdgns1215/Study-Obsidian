@@ -3051,8 +3051,19 @@ HttpServletRequest 의존성을 제거하면 컨트롤러의 로직만을 순수
 **DispatcherServlet 서블릿 등록**
 - `DispatcherServlet`도 부모 클래스에서 `HttpServlet`을 상속 받아서 사용하고 서블릿으로 동작한다.
 	- DispatcherServlet -> FrameworkServlet -> HttpServletBean -> HttpServlet
-- 스프링 부트는 `DispatcherServlet`을 서블릿으로 자동으로 등록하면서 **모든 경로(`urlPatterns="/"
-  `)** 에 대해서 매핑한다.
+- 스프링 부트는 `DispatcherServlet`을 서블릿으로 자동으로 등록하면서 **모든 경로(`urlPatterns="/")`** 에 대해서 매핑한다.
+	- 참고: 더 자세한 경로가 우선 순위가 높다. 그래서 기존에 등록한 서블릿도 함께 동작한다.
+
+**요청 흐름**
+- 서블릿이 호출되면 `HttpServlet`이 제공하는 `service()`가 호출된다.
+- 스프링 MVC는 `DispatcherServlet`의 부모인 `FrameworkServlet`에서 `service()`를 오버라이드 해두었다.
+- `FrameworkServlet.service()`를 시작으로 여러 메서드가 호출되면서 `DispatcherServlet.doDispatch()`가 호출된다.
+
+지금부터 `DispatcherServlet`의 핵심인 `doDispatch()` 코드를 분석해보자. 
+최대한 간단히 설명하기 위해 예외 처리, 인터셉터 기능은 제외했다.
+
+
+
 
 ## 핸들러 매핑과 핸들러 어댑터
 

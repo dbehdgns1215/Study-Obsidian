@@ -3062,6 +3062,9 @@ HttpServletRequest 의존성을 제거하면 컨트롤러의 로직만을 순수
 지금부터 `DispatcherServlet`의 핵심인 `doDispatch()` 코드를 분석해보자. 
 최대한 간단히 설명하기 위해 예외 처리, 인터셉터 기능은 제외했다.
 
+>참고:
+>![[Pasted image 20250608215942.png]]
+
 
 
 

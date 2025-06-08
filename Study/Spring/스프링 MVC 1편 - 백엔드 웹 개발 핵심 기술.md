@@ -3026,6 +3026,22 @@ HttpServletRequest 의존성을 제거하면 컨트롤러의 로직만을 순수
 
 ## 스프링 MVC 전체 구조
 
+**직접 만든 MVC 구조**
+![[Pasted image 20250608204848.png]]
+
+**Spring MVC 구조**
+![[Pasted image 20250608204907.png]]
+
+**직접 만든 프레임워크 -> 스프링 MVC 비교**
+- FrontController -> DispatcherServlet
+- handlerMappingMap -> HandlerMapping
+- MyHandlerAdapter -> HandlerAdapter
+- ModelView -> ModelAndView
+- viewResolver -> ViewResolver
+- MyView -> View
+
+
+**Dis
 
 
 ## 핸들러 매핑과 핸들러 어댑터

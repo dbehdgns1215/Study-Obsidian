@@ -3167,6 +3167,33 @@ public interface Controller {
 >`Controller` 인터페이스는 `@Controller` 애노테이션과는 전혀 다른 것이다.
 
 
+```java
+package hello.servlet.web.springmvc.old;  
+  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+  
+import org.springframework.stereotype.Component;  
+import org.springframework.web.servlet.ModelAndView;  
+import org.springframework.web.servlet.mvc.Controller;  
+  
+@Component("/springmvc/old-controller")  
+public class OldController implements Controller {  
+    @Override  
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {  
+        System.out.println("OldController.handleRequest");  
+        return null;  
+    }  
+}
+```
+
+**실행**
+- `http://localhost:8080/springmvc/old-controller`
+- 콘솔에 `OldController.handleRequest`가 출력되면 성공
+
+**이 컨트롤러는 어떻게 호출될 수 있었을까?**
+![[Pasted image 20250609233338.png]]
+
 
 
 ## 뷰 리졸버

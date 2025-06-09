@@ -3245,6 +3245,61 @@ public class OldController implements Controller {
 `HandlerMapping = BeanNameUrlHandlerMapping`
 `HandlerAdapter = SimpleEControllerHandlerAdapter`
 
+---
+
+>참고
+
+| 용어           | 정의 및 역할                                               | 예시/비고                             |
+| ------------ | ----------------------------------------------------- | --------------------------------- |
+| **서블릿 컨테이너** | 서블릿(자바 웹 컴포넌트)의 생성, 실행, 생명주기 관리 및 HTTP 요청/응답 처리 담당    | 톰캣, 제티 등. 웹 서버와 연동, HTTP 통신 지원    |
+| **스프링 컨테이너** | 스프링 빈(객체)의 생성, 의존성 주입, 생명주기 관리 등 애플리케이션 로직의 객체 관리 담당  | ApplicationContext, BeanFactory 등 |
+| **디스패처 서블릿** | 스프링이 제공하는 프론트 컨트롤러 서블릿. 모든 웹 요청을 받아 컨트롤러로 분배, 응답까지 조정 | DispatcherServlet 클래스. "/" 경로에 매핑 |
+| **프론트 컨트롤러** | 모든 웹 요청을 하나의 진입점에서 받아 공통 로직 처리 후, 적절한 컨트롤러로 위임하는 패턴   | 스프링에서는 DispatcherServlet이 대표적 구현체 |
+
+
+- **서블릿 컨테이너**
+    
+    - 자바 웹 표준 기술.
+        
+    - HTTP 요청을 받아 서블릿 객체(service(), doGet(), doPost() 등)를 실행하고 응답을 반환[2](https://dev-breathe.tistory.com/32)[6](https://server-technology.tistory.com/440).
+        
+    - 웹 서버와의 통신, 멀티스레드 관리 등도 담당.
+        
+- **스프링 컨테이너**
+    
+    - 스프링 프레임워크의 핵심.
+        
+    - @Component, @Service, @Controller 등으로 등록된 객체(빈)를 생성·관리·의존성 주입[3](https://developingman.tistory.com/77)[6](https://server-technology.tistory.com/440).
+        
+    - 비즈니스 로직, 서비스 계층 등 애플리케이션의 내부 객체 관리.
+        
+- **디스패처 서블릿**
+    
+    - 스프링 MVC의 프론트 컨트롤러 서블릿.
+        
+    - 서블릿 컨테이너(톰캣 등)에 의해 실행되며, 모든 HTTP 요청을 받아 스프링 컨트롤러로 분배[1](https://mozzi-devlog.tistory.com/8)[5](https://code-lab1.tistory.com/409)[7](https://f-lab.kr/insight/dispatcher-servlet-in-spring).
+        
+    - 요청 → 핸들러 매핑 → 컨트롤러 실행 → 뷰 처리 → 응답의 전체 흐름을 조정.
+        
+- **프론트 컨트롤러**
+    
+    - 모든 웹 요청을 하나의 진입점에서 받아 공통로직(인증, 로깅 등) 처리 후, 각 컨트롤러로 위임하는 디자인 패턴[4](https://bnzn2426.tistory.com/156)[5](https://code-lab1.tistory.com/409).
+        
+    - 스프링 MVC에서는 DispatcherServlet이 프론트 컨트롤러 역할을 수행.
+        
+## 관계도
+
+- **서블릿 컨테이너**가 HTTP 요청을 받아 **디스패처 서블릿(프론트 컨트롤러)**을 실행
+    
+- **디스패처 서블릿**이 스프링 내부의 **스프링 컨테이너**에서 관리하는 컨트롤러(빈)를 찾아 요청 처리
+    
+- **프론트 컨트롤러**는 디자인 패턴 용어이며, 스프링에서는 DispatcherServlet이 그 구현체
+    
+
+
+---
+
+
 
 ## 뷰 리졸버
 

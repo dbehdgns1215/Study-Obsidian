@@ -3345,6 +3345,11 @@ public class MyHttpRequestHandler implements HttpRequestHandler {
 `HandlerAdapter = HttpRequestHandlerAdapter`
 
 
+**`@RequestMapping`**
+조금 뒤에서 설명하겠지만, 가장 우선 순위가 높은 핸들러 매핑과 핸들러 어댑터는 `RequestMappingHandlerMapping`, `RequestMappingHandlerAdapter`이다.
+- `@RequestMapping`의 앞글자를 따서 만든 이름인데, 이것이 바로 지금 스프링에서 주로 사용하는 애노테이션 기반의 컨트롤러를 지원하는 매핑과 어댑터이다.
+- 실무에서는 사실 99.9% 이 방식의 컨트롤러를 사용한다.
+
 ## 뷰 리졸버
 
 

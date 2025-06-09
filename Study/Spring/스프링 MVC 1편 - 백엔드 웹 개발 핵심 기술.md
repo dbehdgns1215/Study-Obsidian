@@ -3204,6 +3204,7 @@ public class OldController implements Controller {
 - **HandlerAdapter(핸들러 어댑터)
 	- 핸들러 매핑을 통해서 찾은 핸들러를 실행할 수 있는 핸들러 어댑터가 필요하다.
 	- 예) `Controller` **인터페이스(애노테이션 X)**를 실행할 수 있는 핸들러 어댑터를 찾고 실행해야 한다.
+		- `SimpleControllerHandlerAdapter`
 		- `supports`, `handle`
 
 스프링은 이미 필요한 핸들러 매핑과 핸들러 어댑터를 대부분 구현해두었다. 개발자가 직접 핸들러 매핑과 핸들러 어댑터를 만드는 일은 거의 없다.
@@ -3261,7 +3262,7 @@ public class OldController implements Controller {
     
     - 자바 웹 표준 기술.
         
-    - HTTP 요청을 받아 서블릿 객체(service(), doGet(), doPost() 등)를 실행하고 응답을 반환[2](https://dev-breathe.tistory.com/32)[6](https://server-technology.tistory.com/440).
+    - HTTP 요청을 받아 서블릿 객체(service(), doGet(), doPost() 등)를 실행하고 응답을 반환
         
     - 웹 서버와의 통신, 멀티스레드 관리 등도 담당.
         
@@ -3269,7 +3270,7 @@ public class OldController implements Controller {
     
     - 스프링 프레임워크의 핵심.
         
-    - @Component, @Service, @Controller 등으로 등록된 객체(빈)를 생성·관리·의존성 주입[3](https://developingman.tistory.com/77)[6](https://server-technology.tistory.com/440).
+    - @Component, @Service, @Controller 등으로 등록된 객체(빈)를 생성·관리·의존성 주입
         
     - 비즈니스 로직, 서비스 계층 등 애플리케이션의 내부 객체 관리.
         
@@ -3277,13 +3278,13 @@ public class OldController implements Controller {
     
     - 스프링 MVC의 프론트 컨트롤러 서블릿.
         
-    - 서블릿 컨테이너(톰캣 등)에 의해 실행되며, 모든 HTTP 요청을 받아 스프링 컨트롤러로 분배[1](https://mozzi-devlog.tistory.com/8)[5](https://code-lab1.tistory.com/409)[7](https://f-lab.kr/insight/dispatcher-servlet-in-spring).
+    - 서블릿 컨테이너(톰캣 등)에 의해 실행되며, 모든 HTTP 요청을 받아 스프링 컨트롤러로 분배[
         
     - 요청 → 핸들러 매핑 → 컨트롤러 실행 → 뷰 처리 → 응답의 전체 흐름을 조정.
         
 - **프론트 컨트롤러**
     
-    - 모든 웹 요청을 하나의 진입점에서 받아 공통로직(인증, 로깅 등) 처리 후, 각 컨트롤러로 위임하는 디자인 패턴[4](https://bnzn2426.tistory.com/156)[5](https://code-lab1.tistory.com/409).
+    - 모든 웹 요청을 하나의 진입점에서 받아 공통로직(인증, 로깅 등) 처리 후, 각 컨트롤러로 위임하는 디자인 패턴
         
     - 스프링 MVC에서는 DispatcherServlet이 프론트 컨트롤러 역할을 수행.
         
@@ -3299,8 +3300,27 @@ public class OldController implements Controller {
 
 ---
 
+하나의 예시를 더 들어보자.
 
+#### HttpRequestHandler
+```
+HandlerAdapter
+1 = HttpRequestHandlerAdapter : HttpRequestHandler 처리
+```
 
+핸들러 매핑과 어댑터를 더 잘 이해하기 위해서 Controller 인터페이스가 아닌 다른 핸들러를 알아보자.
+`HttpRequestHandler` 핸들러(컨트롤러)는 **서블릿과 가장 유사한 형태**의 핸들러이다.
+
+**HttpRequestHandler**
+```java
+public class MyHttpRequestHandler implements HttpRequestHandler {  
+    @Override  
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response)  
+            throws ServletException, IOException {  
+        System.out.println("MyHttpRequestHandler.handleRequest");  
+    }  
+}
+```
 ## 뷰 리졸버
 
 

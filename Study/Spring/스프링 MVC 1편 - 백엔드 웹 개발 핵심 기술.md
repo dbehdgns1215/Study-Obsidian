@@ -3357,6 +3357,17 @@ public class MyHttpRequestHandler implements HttpRequestHandler {
 참고로 권장하지는 않지만 설정 없이 다음과 같이 전체 경로를 주어도 동작하기는 한다.
 `return new ModelAndView("/WEB-INF/views/new-form.jsp);`
 
+**뷰 리졸버 동작 방식**
+![[Pasted image 20250611205205.png]]
+
+**스프링 부트가 자동 등록하는 뷰 리졸버**
+(실제로는 더 많지만, 중요한 부분 위주로 설명하기 위해 일부 생략)
+```
+1 = BeanNameViewResolver         : 빈 이름으로 뷰를 찾아서 반환한다. (예: 엑셀 파일 생성 기능에 사용) 
+2 = InternalResourceViewResolver : JSP를 처리할 수 있는 뷰를 반환한다.
+```
+
+
 
 
 

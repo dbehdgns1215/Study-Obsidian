@@ -3198,12 +3198,12 @@ public class OldController implements Controller {
 
 - **HandlerMapping(핸들러 매핑)**
 	- 핸들러 매핑에서 이 컨트롤러를 찾을 수 있어야 한다.
-	- 예) **스프링 빈의 일므으로 핸들러를 찾을 수 있는 핸들러 매핑**이 필요하다.
+	- 예) **스프링 빈의 이름으로 핸들러를 찾을 수 있는 핸들러 매핑**이 필요하다.
 		- `BeanNameUrlHandlerMapping`
 		- `private final Map<String, Object> handlerMappingMap = new HashMap<>();`
 - **HandlerAdapter(핸들러 어댑터)
 	- 핸들러 매핑을 통해서 찾은 핸들러를 실행할 수 있는 핸들러 어댑터가 필요하다.
-	- 예) `Controller` **인터페이스(애노테이션 X)**를 실행할 수 있는 핸들러 어댑터를 찾고 실행해야 한다.
+	- 예) `Controller` **인터페이스(애노테이션 X)** 를 실행할 수 있는 핸들러 어댑터를 찾고 실행해야 한다.
 		- `SimpleControllerHandlerAdapter`
 		- `supports`, `handle`
 

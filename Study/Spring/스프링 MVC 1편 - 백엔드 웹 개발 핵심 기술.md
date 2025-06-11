@@ -3352,6 +3352,12 @@ public class MyHttpRequestHandler implements HttpRequestHandler {
 
 ## 뷰 리졸버
 
+스프링 부트는 `InternalResourceViewResolver`라는 뷰 리졸버를 자동으로 등록하는데, 이때 `application.properties`에 등록한 `spring.mvc.view.prefix`, `spring.mvc.view.suffix` 설정 정보를 사용해서 등록한다.
+
+참고로 권장하지는 않지만 설정 없이 다음과 같이 전체 경로를 주어도 동작하기는 한다.
+`return new ModelAndView("/WEB-INF/views/new-form.jsp);`
+
+
 
 
 ## 스프링 MVC - 시작하기

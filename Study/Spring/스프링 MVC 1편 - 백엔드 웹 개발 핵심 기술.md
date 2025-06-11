@@ -3372,7 +3372,7 @@ public class MyHttpRequestHandler implements HttpRequestHandler {
 핸들러 어댑터를 통해 `new-form`이라는 논리 뷰 이름을 획득한다.
 
 **2. ViewResolver 호출**
-- `new-form`이라는 뷰 이름으로 viewResolver를 순서대로 호출한다.
+- `new-form`이라는 뷰 이름으로 viewResolver 리스트를 순서대로 호출한다.
 - `BeanNameViewResolver`는 `new-form`이라는 이름의 스프링 빈으로 등록된 뷰를 찾아야 하는데 없다.
 - `InternalResourceViewResolver`가 호출된다.
 

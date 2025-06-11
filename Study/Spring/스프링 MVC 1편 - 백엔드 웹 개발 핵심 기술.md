@@ -3368,6 +3368,8 @@ public class MyHttpRequestHandler implements HttpRequestHandler {
 ```
 
 
+**1. 핸들러 어댑터 호출**
+
 
 
 

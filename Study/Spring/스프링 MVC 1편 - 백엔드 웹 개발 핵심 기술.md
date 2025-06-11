@@ -3383,7 +3383,9 @@ public class MyHttpRequestHandler implements HttpRequestHandler {
 `InternalResourceView`는 JSP 처럼 포워드 `forward()`를 호출해서 처리할 수 있는 경우에 사용한다.
 
 **5. view.render()**
-`view.render()`가 호출되고 `InternalResourceView`는 `forward()`를 사용해서 
+`view.render()`가 호출되고 `InternalResourceView`는 `forward()`를 사용해서 JSP를 실행한다.
+
+
 
 
 

@@ -3478,6 +3478,43 @@ protected boolean isHandler(Class<?> beanType) {
 }
 ```
 
+`ServletApplication`
+```java
+package hello.servlet;  
+  
+import hello.servlet.web.springmvc.v1.SpringMemberFormControllerV1;  
+import org.springframework.boot.SpringApplication;  
+import org.springframework.boot.autoconfigure.SpringBootApplication;  
+import org.springframework.boot.web.servlet.ServletComponentScan;  
+import org.springframework.context.annotation.Bean;  
+import org.springframework.web.servlet.ViewResolver;  
+import org.springframework.web.servlet.view.InternalResourceViewResolver;  
+  
+@ServletComponentScan // 자동으로 패키지 내의 서블릿을 찾은 뒤 실행할 수 있게끔 만들어줌  
+@SpringBootApplication  
+public class ServletApplication {  
+  
+    public static void main(String[] args) {  
+       SpringApplication.run(ServletApplication.class, args);  
+    }  
+  
+    // 스프링 부트가 자동으로 처리해줌  
+//  @Bean  
+//  InternalResourceViewResolver internalResourceViewResolver() {  
+//     return new InternalResourceViewResolver("/WEB-INF/views/", ".jsp");  
+//  }  
+  
+    @Bean  
+    SpringMemberFormControllerV1 springMemberFormControllerV1() {  
+       return new SpringMemberFormControllerV1();  
+    }  
+}
+```
+- 스프링 빈을 직접 등록 해줘도 당연히 가능함
+
+
+
+
 ## 스프링 MVC - 컨트롤러 통합
 
 

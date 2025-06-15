@@ -3446,6 +3446,28 @@ public class SpringMemberFormControllerV1 {
 
 따라서 다음 코드도 동일하게 동작한다.
 
+```java
+package hello.servlet.web.springmvc.v1;  
+  
+import org.springframework.stereotype.Component;  
+import org.springframework.stereotype.Controller;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.servlet.ModelAndView;  
+  
+// @Controller  
+@Component  
+@RequestMapping  
+public class SpringMemberFormControllerV1 {  
+  
+    @RequestMapping("/springmvc/v1/members/new-form")  
+    public ModelAndView process() {  
+        return new ModelAndView("new-form");  
+    }  
+  
+}
+```
+
+
 
 
 ## 스프링 MVC - 컨트롤러 통합

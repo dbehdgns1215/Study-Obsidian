@@ -3414,9 +3414,27 @@ public class MyHttpRequestHandler implements HttpRequestHandler {
 그럼 이제 본격적으로 애노테이션 기반의 컨트롤러를 사용해보자.
 지금까지 만들었던 프레임워크에서 사용했던 컨트롤러를 `@RequestMapping` 기반의 스프링 MVC 컨트롤러로 변경해보자.
 
-
-
-
+`SpringMemberFormControllerV1 - 회원 등록 폼`
+```java
+package hello.servlet.web.springmvc.v1;  
+  
+import org.springframework.stereotype.Controller;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.servlet.ModelAndView;  
+  
+@Controller  
+public class SpringMemberFormControllerV1 {  
+  
+    @RequestMapping("/springmvc/v1/members/new-form")  
+    public ModelAndView process() {  
+        return new ModelAndView("new-form");  
+    }  
+  
+}
+```
+- `@Controller`
+	- 스프링이 자동으로 스프링 빈으로 등록한다. (내부에 `@Component 애노테이션이 있어서 컴포넌트 스캔의 대상이 됨)
+	- 
 
 ## 스프링 MVC - 컨트롤러 통합
 

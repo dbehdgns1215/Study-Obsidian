@@ -3467,8 +3467,16 @@ public class SpringMemberFormControllerV1 {
 }
 ```
 
-
-
+그 이유는?
+``
+`RequestMappingHandlerMapping.isHandler()`
+```java
+@Override
+protected boolean isHandler(Class<?> beanType) {
+	return (AnnotatedElementUtils.hasAnnotation(beanType, Controller.class) ||
+			AnnotatedElementUtils.hasAnnotation(beanType, RequestMapping.class));
+}
+```
 
 ## 스프링 MVC - 컨트롤러 통합
 

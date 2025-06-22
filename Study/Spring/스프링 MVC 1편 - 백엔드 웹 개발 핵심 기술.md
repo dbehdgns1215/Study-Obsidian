@@ -3809,6 +3809,154 @@ public class SpringMemberControllerV3 {
 
 
 아래와 같이 해결 가능
+```java
+package hello.servlet.web.springmvc.v3;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import java.util.List;  
+import org.springframework.stereotype.Controller;  
+import org.springframework.ui.Model;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.bind.annotation.RequestMethod;  
+import org.springframework.web.bind.annotation.RequestParam;  
+  
+@Controller  
+@RequestMapping("/springmvc/v3/members")  
+public class SpringMemberControllerV3 {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @RequestMapping(value = "/new-form", method = RequestMethod.GET)  
+    public String newForm() {  
+        return "new-form";
+        }  
+  
+    @RequestMapping(value = "/save", method = RequestMethod.POST)  
+    public String save(  
+            @RequestParam("username") String username,  
+            @RequestParam("age") int age,  
+            Model model) {  
+  
+        Member member = new Member(username, age);  
+        memberRepository.save(member);  
+  
+        model.addAttribute("member", member);  
+        return "save-result";  
+    }  
+  
+    @RequestMapping(method = RequestMethod.GET)  
+    public String members(Model model) {  
+        List<Member> members = memberRepository.findAll();  
+  
+        model.addAttribute("members", members);  
+  
+        return "members";  
+    }  
+}
+```
+
+이마저도 단축한다면?
+```java
+package hello.servlet.web.springmvc.v3;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import java.util.List;  
+import org.springframework.stereotype.Controller;  
+import org.springframework.ui.Model;  
+import org.springframework.web.bind.annotation.GetMapping;  
+import org.springframework.web.bind.annotation.PostMapping;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.bind.annotation.RequestMethod;  
+import org.springframework.web.bind.annotation.RequestParam;  
+  
+@Controller  
+@RequestMapping("/springmvc/v3/members")  
+public class SpringMemberControllerV3 {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @GetMapping("/new-form")  
+    public String newForm() {  
+        return "new-form"; // 스프링의 애노테이션 기반 컨트롤러는 ModelAndView를 반환해도 되고 문자를 반환해도 됨. (별도 세팅 없이 스프링 부트를 통해.)  
+        // HandlerAdapter가 판단함.  
+        // @RequestMapping 메서드의 반환 값 타입에 따라서 다르게 작동  
+        // ModelAndView -> 그 안의 뷰 이름, 모델을 사용  
+        // String -> 뷰 이름으로 간주  
+        // @ResponseBody -> 응답 본문으로 간주 (ex: JSON)    }  
+  
+    @PostMapping("/save")  
+    public String save(  
+            @RequestParam("username") String username,  
+            @RequestParam("age") int age,  
+            Model model) {  
+  
+        Member member = new Member(username, age);  
+        memberRepository.save(member);  
+  
+        model.addAttribute("member", member);  
+        return "save-result";  
+    }  
+  
+    @GetMapping  
+    public String members(Model model) {  
+        List<Member> members = memberRepository.findAll();  
+  
+        model.addAttribute("members", members);  
+  
+        return "members";  
+    }  
+}
+```
+- `@GetMapping`, `@PostMapping`
+
+**Model 파라미터**
+- `save()`, `members()` 를 보면 Model을 파라미터로 받는 것을 확인할 수 있다.
+- 스프링 MVC도 이런 편의 기능을 제공한다.
+
+**ViewName 직접 반환**
+- 뷰의 논리 이름을 반환할 수 있다.
+
+**@RequestParam 사용**
+스프링은 HTTP 요청 파라미터를 `@RequestParam`으로 받을 수 있다.
+- `@RequestParam("username")`은 `request.getParameter("username")`과 거의 같은 코드라 생각하면 된다.
+- 물론 GET 쿼리 파라미터, POST Form 방식을 모두 지원한다.
+
+**@RequestMapping -> @GetMapping, @PostMapping**
+- `@RequestMapping`은 URL만 매칭하는 것이 아니라, HTTP Method도 함께 구분할 수 있다.
+- 예를 들어서 URL이 `/new-form`이고, HTTP Method가 GET인 경우를 모두 만족하는 매핑을 하려면 다음과 같이 처리하면 된다.
+
+```java
+@RequestMapping(value = "/new-form", method = RequestMethod.GET)
+```
+
+이것을 `@GetMapping`, `@PostMapping`으로 더 편리하게 사용할 수 있다.
+참고로 GET, POST, PUT, DELETE, PATCH 모두 애노테이션이 준비되어 있다.
+
+`@GetMapping` 코드를 열어서 `@RequestMapping` 애노테이션을 내부에 가지고 있는 모습도 확인해보자!
+
+```java
+@Target(ElementType.METHOD)  
+@Retention(RetentionPolicy.RUNTIME)  
+@Documented  
+@RequestMapping(method = RequestMethod.GET)  
+public @interface GetMapping {  
+  
+    /**  
+     * Alias for {@link RequestMapping#name}.  
+     */    @AliasFor(annotation = RequestMapping.class)  
+    String name() default "";  
+  
+    /**  
+     * Alias for {@link RequestMapping#value}.  
+     */    @AliasFor(annotation = RequestMapping.class)  
+    String[] value() default {};
+
+// 후략
+```
+- `@GetMapping` 내에 `@RequestMapping`이 메타 애노테이션으로 들어가있는 것을 확인 가능.
+
 
 ## 정리
 

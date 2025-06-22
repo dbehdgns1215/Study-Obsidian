@@ -3504,7 +3504,8 @@ public class ServletApplication {
 //  InternalResourceViewResolver internalResourceViewResolver() {  
 //     return new InternalResourceViewResolver("/WEB-INF/views/", ".jsp");  
 //  }  
-  
+
+	// @Component 대신, 스프링 빈으로 직접 등록해도 됨 (SpringMemberFormControllerV1)
     @Bean  
     SpringMemberFormControllerV1 springMemberFormControllerV1() {  
        return new SpringMemberFormControllerV1();  
@@ -3512,6 +3513,16 @@ public class ServletApplication {
 }
 ```
 - 스프링 빈을 직접 등록 해줘도 당연히 가능함
+
+**결국?**
+- `@Controller` 를 사용하면 됨.
+	- 컴포넌트 스캔의 대상으로 자동 등록됨 (내부에 `@Component`를 상속 받고 있음)
+	- `RequestMappingHandlerMapping`에서 `@Controller`가 붙은 클래스를 **핸들러로** 인식함
+
+스프링에서는 **애노테이션 위에 다른 애노테이션을 붙이는 방식**으로 기능을 확장함.
+- **메타 애노테이션(Meta-Annotation)**
+	- 즉, `@Controller` 위에 `@Component`가 붙어 있으면 `@Controller`는 **자동으로 `@Component`의 기능도 갖는다**는 뜻.
+
 
 
 

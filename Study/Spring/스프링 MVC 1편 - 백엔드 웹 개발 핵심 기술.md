@@ -3743,9 +3743,61 @@ MVC 프레임워크 만들기에서 v3는 ModelView를 개발자가 직접 생�
 
 **SpringMemberControllerV3**
 ```java
-
+package hello.servlet.web.springmvc.v3;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import java.util.List;  
+import org.springframework.stereotype.Controller;  
+import org.springframework.ui.Model;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.bind.annotation.RequestParam;  
+  
+@Controller  
+@RequestMapping("/springmvc/v3/members")  
+public class SpringMemberControllerV3 {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @RequestMapping("/new-form")  
+    public String newForm() {  
+        return "new-form"; 
+        }  
+  
+    @RequestMapping("/save")  
+    public String save(  
+            @RequestParam("username") String username,  
+            @RequestParam("age") int age,  
+            Model model) {  
+  
+        Member member = new Member(username, age);  
+        memberRepository.save(member);  
+  
+        model.addAttribute("member", member);  
+        return "save-result";  
+    }  
+  
+    @RequestMapping  
+    public String members(Model model) {  
+        List<Member> members = memberRepository.findAll();  
+  
+        model.addAttribute("members", members);  
+  
+        return "members";  
+    }  
+}
 ```
 
+```text
+- 스프링의 애노테이션 기반 컨트롤러는 ModelAndView를 반환해도 되고 문자를 반환해도 됨.
+	- (별도 세팅 없이 스프링 부트를 통해.)
+
+- HandlerAdapter가 판단함.
+- @RequestMapping 메서드의 반환 값 타입에 따라서 다르게 작동  
+	- ModelAndView -> 그 안의 뷰 이름, 모델을 사용  
+	- String -> 뷰 이름으로 간주  
+	- @ResponseBody -> 응답 본문으로 간주 (ex: JSON)
+```
 
 ## 정리
 

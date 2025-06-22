@@ -3434,7 +3434,7 @@ public class SpringMemberFormControllerV1 {
 ```
 - `@Controller`
 	- 스프링이 자동으로 스프링 빈으로 등록한다. (내부에 `@Component 애노테이션이 있어서 컴포넌트 스캔의 대상이 됨)
-	- 스프링 MVC에서 애노테이션 기반 컨트롤러로 인식한다.
+	- 스프링 MVC에서 애노테이션 기반 컨트롤러로 인식한다. (`RequestMappingHandlerMapping`에서 핸들러 정보로 인식할 수 있게 해줌 -> 꺼낼 수 있게 됨)
 - `@RequestMapping`
 	- 요청 정보를 매핑한다.
 	- 해당 URL이 호출되면 이 메서드가 호출된다.

@@ -3523,6 +3523,26 @@ public class ServletApplication {
 - **메타 애노테이션(Meta-Annotation)**
 	- 즉, `@Controller` 위에 `@Component`가 붙어 있으면 `@Controller`는 **자동으로 `@Component`의 기능도 갖는다**는 뜻.
 
+> 참고
+> 메타 애노테이션
+``` java
+@Target(ElementType.TYPE) // 클래스, 인터페이스, enum에 붙일 수 있음
+@Retention(RetentionPolicy.RUNTIME) // 런타임까지 유지됨
+@Documented
+@Component // 이 어노테이션이 붙으면 스프링이 컴포넌트로 인식
+public @interface Service {
+}
+```
+- 이처럼, `애노테이션`에 붙일 수 있는 `애노테이션`을 **메타 애노테이션**이라 함.
+	- `@Service` : 애노테이션
+		- `@Component` : 메타 애노테이션
+		- `@Documented` : 메타 애노테이션
+		- `@Retention` : 메타 애노테이션
+		- `@Target` : 메타 애노테이션
+		- ...
+
+
+
 
 
 

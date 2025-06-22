@@ -3799,6 +3799,12 @@ public class SpringMemberControllerV3 {
 	- @ResponseBody -> 응답 본문으로 간주 (ex: JSON)
 ```
 
+- 하나의 문제가 더 있다.
+- 지금까지는 HTTP Method를 구분하지 않았다. (GET, POST, PUT, DELETE)
+- 딱 봐도 좋은 개발 방법은 아님.
+
+아래와 같이 해결 가능
+
 ## 정리
 
 

@@ -3542,8 +3542,91 @@ public @interface Service {
 		- ...
 
 
+---
+**V1 버전**
 
+`SpringMemberFormControllerV1`
+```java
+package hello.servlet.web.springmvc.v1;  
+  
+import org.springframework.stereotype.Component;  
+import org.springframework.stereotype.Controller;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.servlet.ModelAndView;  
+  
+@Controller  
+public class SpringMemberFormControllerV1 {  
+  
+    @RequestMapping("/springmvc/v1/members/new-form")  
+    public ModelAndView process() {  
+        return new ModelAndView("new-form");  
+    }  
+  
+}
+```
 
+`SpringMemberSaveControllerV1`
+```java
+package hello.servlet.web.springmvc.v1;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.util.Map;  
+import org.springframework.stereotype.Controller;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.servlet.ModelAndView;  
+  
+@Controller  
+public class SpringMemberSaveControllerV1 {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @RequestMapping("/springmvc/v1/members/save")  
+    public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Exception {  
+        String username = request.getParameter("username");  
+        int age = Integer.parseInt(request.getParameter("age"));  
+  
+        Member member = new Member(username, age);  
+        memberRepository.save(member);  
+  
+        ModelAndView mv = new ModelAndView("save-result");  
+        // mv.getModel().put("member", member);  
+        mv.addObject("member", member);  
+        return mv;  
+    }  
+}
+```
+
+`SpringMemberListControllerV1`
+```java
+package hello.servlet.web.springmvc.v1;  
+  
+import hello.servlet.domain.member.Member;  
+import hello.servlet.domain.member.MemberRepository;  
+import java.util.List;  
+import java.util.Map;  
+import org.springframework.stereotype.Controller;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.servlet.ModelAndView;  
+  
+@Controller  
+public class SpringMemberListControllerV1 {  
+  
+    private MemberRepository memberRepository = MemberRepository.getInstance();  
+  
+    @RequestMapping("/springmvc/v1/members")  
+    public ModelAndView process() {  
+        List<Member> members = memberRepository.findAll();  
+  
+        ModelAndView mv = new ModelAndView("members");  
+        // mv.getModel().put("members", members);  
+        mv.addObject("members", members);  
+        return mv;  
+    }  
+}
+```
 
 
 

@@ -3702,10 +3702,49 @@ public class SpringMemberControllerV2 {
 - 핵심 코드만 요약.
 - 클래스 레벨에 `@RequestMapping`을 걸어주고 중복되는 부분을 설정해주면 됨.
 
+**완성은 했지만...**
+뭔가 `ModelAndView`를 계속 만들어서 반환해야 하기에 뭔가 불편함.
+- 이전에 V3 -> V4 로 업그레이드 하는 과정을 기억해보자.
+	- 논리적인 뷰 이름을 반환해주고 그걸 뷰 리졸버를 통해서 물리적인 주소로 변환했던 것
+
+**조합**
+컨트롤러 클래스를 통합하는 것을 넘어서 조합도 가능하다.
+다음 코드는 `/springmvc/v2/members` 라는 부분에 중복이 있다.
+
+- `@RequestMapping("/springmvc/v2/members/new-form")`
+- `@RequestMapping("/springmvc/v2/members/save")`
+- `@RequestMapping("/springmvc/v2/members")`
+
+물론 이렇게 사용해도 되지만, 컨트롤러를 통합한 예제 코드를 보면 중복을 어떻게 제거했는지 확인할 수 있다.
+클래스 레벨에서 다음과 같이 `@RequestMapping`을 두면 메서드 레벨과 조합이 된다.
+
+```java
+@Controller
+@RequestMapping("/springmvc/v2/members")
+public class SpringMemberControllerV2 {}
+```
+
+**조합 결과**
+- `클래스 레벨 @RequestMapping("/springmvc/v2/members")`
+	- `메서드 레벨`
+	- `@RequestMapping("/new-form")` -> `/springmvc/v2/members/new-form`
+	- `메서드 레벨`
+	- `@RequestMapping` -> `/springmvc/v2/members`
+	- `메서드 레벨`
+	- `@RequestMapping("/save")` -> `/springmvc/v2/members/save"`
 
 ## 스프링 MVC - 실용적인 방식
 
+MVC 프레임워크 만들기에서 v3는 ModelView를 개발자가 직접 생성해서 반환했기 때문에 불편했던 기억이 있을 것이다.
+물론 v4를 만들면서 실용적으로 개선한 기억도 있을 것이다.
 
+스프링 MVC는 개발자가 편리하게 개발할 수 있도록 수 많은 편의 기능을 제공한다.
+**실무에서는 지금부터 설명하는 방식을 주로 사용한다.**
+
+**SpringMemberControllerV3**
+```java
+
+```
 
 
 ## 정리

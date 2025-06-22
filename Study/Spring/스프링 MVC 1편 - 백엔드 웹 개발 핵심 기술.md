@@ -3803,6 +3803,11 @@ public class SpringMemberControllerV3 {
 - 지금까지는 HTTP Method를 구분하지 않았다. (GET, POST, PUT, DELETE)
 - 딱 봐도 좋은 개발 방법은 아님.
 
+![[Pasted image 20250622231646.png]]
+
+![[Pasted image 20250622231700.png]]
+
+
 아래와 같이 해결 가능
 
 ## 정리

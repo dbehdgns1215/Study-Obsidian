@@ -3628,9 +3628,10 @@ public class SpringMemberListControllerV1 {
 }
 ```
 
-
-
 ## 스프링 MVC - 컨트롤러 통합
+`@RequestMapping`을 잘 보면 클래스 단위가 아니라 메서드 단위에 적용된 것을 확인할 수 있다.
+따라서 컨트롤러 클래스를 유연하게 하나로 통합할 수 있다.
+
 
 
 

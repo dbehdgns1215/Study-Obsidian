@@ -3694,7 +3694,7 @@ public class SpringMemberControllerV2 {
     @RequestMapping("/save")  
     public ModelAndView save() {}  
   
-    @RequestMapping("/members")  
+    @RequestMapping
     public ModelAndView members() {}  
   
 }

@@ -3911,6 +3911,8 @@ public class SpringMemberControllerV3 {
 ```
 - `@GetMapping`, `@PostMapping`
 
+### **핵심 정리**
+
 **Model 파라미터**
 - `save()`, `members()` 를 보면 Model을 파라미터로 받는 것을 확인할 수 있다.
 - 스프링 MVC도 이런 편의 기능을 제공한다.
@@ -3940,7 +3942,7 @@ public class SpringMemberControllerV3 {
 @Target(ElementType.METHOD)  
 @Retention(RetentionPolicy.RUNTIME)  
 @Documented  
-@RequestMapping(method = RequestMethod.GET)  
+@RequestMapping(method = RequestMethod.GET)    // 🔥 메타 애노테이션!
 public @interface GetMapping {  
   
     /**  
@@ -3956,6 +3958,21 @@ public @interface GetMapping {
 // 후략
 ```
 - `@GetMapping` 내에 `@RequestMapping`이 메타 애노테이션으로 들어가있는 것을 확인 가능.
+	- `@RequestMapping(method = RequestMethod.GET)`
+
+> 참고
+> 메타 애노테이션
+
+|애노테이션|설명|
+|---|---|
+|`@Target`|이 애노테이션이 어디에 붙을 수 있는지 지정 (클래스, 메서드 등)|
+|`@Retention`|런타임까지 유지할지 여부 등|
+|`@Documented`|JavaDoc에 포함 여부|
+|`@Inherited`|상속 가능 여부|
+|✅ `@RequestMapping`|커스텀 애노테이션 구성 요소로 사용될 수 있음 → 이게 핵심|
+
+---
+
 
 
 ## 정리

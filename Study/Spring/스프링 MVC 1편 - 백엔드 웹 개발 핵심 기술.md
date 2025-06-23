@@ -4052,8 +4052,8 @@ Controller가 반환한 View 이름(논리적 이름)을 가지고 실제 View �
 스프링 부트 라이브러리를 사용하면 스프링 부트 로깅 라이브러리(`spring-boot-starter-logging)`가 함께 포함된다.
 스프링 부트 로깅 라이브러리는 기본으로 다음 로깅 라이브러리를 사용한다.
 
-- SLF4J - http://www.slf4j.org
-- Logback - http://logback.qos.ch
+- SLF4J - http://www.slf4j.org // 인터페이스
+- Logback - http://logback.qos.ch // 구현체
 
 로그 라이브러리는 Logback, Log4J, Log4J2 등등 수많은 라이브러리가 있는데 그것을 통합해서 인터페이스로 제공하는 것이 바로 SLF4J 라이브러리이다.
 

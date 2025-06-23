@@ -4169,6 +4169,15 @@ spring.application.name=springmvc
 logging.level.hello.springmvc=info
 ```
 
+>참고
+1. **TRACE** (가장 상세, 가장 낮은 레벨)
+2. **DEBUG**
+3. **INFO**
+4. **WARN**
+5. **ERROR** (가장 심각, 가장 높은 레벨)
+
+
+
 
 
 ## 요청 매핑

@@ -4040,10 +4040,36 @@ Controller가 반환한 View 이름(논리적 이름)을 가지고 실제 View �
 
 
 ## 프로젝트 생성
-
-
+생략
 
 ## 로깅 간단히 알아보기
+앞으로 로그를 사용할 것이기 때문에, 이번 시간에는 로그에 대해서 간단히 알아보자.
+
+운영 시스템에서는 `System.out.println()`과 같은 시스템 콘솔을 사용해서 필요한 정보를 출력하지 않고 별도의 로깅 라이브러리를 사용해서 로그를 출력한다.
+참고로 로그 관련 라이브러리도 많고, 깊게 들어가면 끝이 없기 때문에 여기서는 최소한의 사용 방법만 알아본다.
+
+**로깅 라이브러리**
+스프링 부트 라이브러리를 사용하면 스프링 부트 로깅 라이브러리(`spring-boot-starter-logging)`가 함께 포함된다.
+스프링 부트 로깅 라이브러리는 기본으로 다음 로깅 라이브러리를 사용한다.
+
+- SLF4J - http://www.slf4j.org
+- Logback - http://logback.qos.ch
+
+로그 라이브러리는 Logback, Log4J, Log4J2 등등 수많은 라이브러리가 있는데 그것을 통합해서 인터페이스로 제공하는 것이 바로 SLF4J 라이브러리이다.
+
+쉽게 이야기해서 SLF4J는 인터페이스이고 그 구현체로 Logback 같은 로그 라이브러리를 선택하면 된다.
+실무에서는 스프링 부트가 기본으로 제공하는 Logback을 대부분 사용한다.
+
+**로그 선언**
+- `private Logger log = LoggerFactory.getLogger(getClass());`
+- `private static final Logger log = LoggerFactory.getLogger(Xxx.class)`
+- `@Slf4j` : 롬복 사용 가능
+
+**로그 호출**
+- `log.info("hello")`
+- `System.out.println("hello")`
+시스템 콘솔로 직접 출력하는 것 보다 로그를 사용하면 다음과 같은 장점이 있다.
+실무에서는 항상 로그를 사용해야 한다!
 
 
 

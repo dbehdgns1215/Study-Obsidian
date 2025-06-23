@@ -4105,6 +4105,71 @@ public class LogTestController {
 ![[Pasted image 20250623233306.png]]
 - 같은 내용을 출력하지만, `log.info()`로 출력했을 때 더 많은 정보를 얻을 수 있음
 
+```java
+package hello.springmvc.basic;  
+  
+import org.slf4j.Logger;  
+import org.slf4j.LoggerFactory;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.bind.annotation.RestController;  
+  
+@RestController  
+public class LogTestController {  
+    private final Logger log = LoggerFactory.getLogger(this.getClass()); // slf4j를 사용해야함  
+  
+    @RequestMapping("/log-test")  
+    public String logTest() {  
+        String name = "Spring";  
+  
+        System.out.println("name = " + name); // 로그 안썼을 때  
+  
+        // 로그 썼을 때 (로그에도 레벨이 있음. 각 단계별로 어디서 쓰이는 로그인지 명확히 구별됨.)  
+        log.trace("trace log {}", name);  
+        log.debug("debug log {}", name);  
+        log.info("info log {}", name);  
+        log.warn("warn log = {} ", name);  
+        log.error("error log = {} ", name);  
+  
+        return "ok";  
+    }  
+}
+```
+
+```Console
+name = Spring
+2025-06-23T23:36:06.476+09:00  INFO 16252 --- [springmvc] [nio-8080-exec-2] h.springmvc.basic.LogTestController      : info log Spring
+2025-06-23T23:36:06.477+09:00  WARN 16252 --- [springmvc] [nio-8080-exec-2] h.springmvc.basic.LogTestController      : warn log = Spring 
+2025-06-23T23:36:06.477+09:00 ERROR 16252 --- [springmvc] [nio-8080-exec-2] h.springmvc.basic.LogTestController      : error log = Spring 
+```
+- `trace`와 `debug`는 로그가 안찍혔네?
+
+`application.properties`
+```properties
+spring.application.name=springmvc  
+#hello.springmvc 패키지와 그 하위 로그 레벨 설정  
+logging.level.hello.springmvc=trace
+```
+- 이렇게 설정해주면
+
+```Console
+name = Spring
+2025-06-23T23:38:21.198+09:00 TRACE 39608 --- [springmvc] [nio-8080-exec-1] h.springmvc.basic.LogTestController      : trace log Spring
+2025-06-23T23:38:21.198+09:00 DEBUG 39608 --- [springmvc] [nio-8080-exec-1] h.springmvc.basic.LogTestController      : debug log Spring
+2025-06-23T23:38:21.198+09:00  INFO 39608 --- [springmvc] [nio-8080-exec-1] h.springmvc.basic.LogTestController      : info log Spring
+2025-06-23T23:38:21.198+09:00  WARN 39608 --- [springmvc] [nio-8080-exec-1] h.springmvc.basic.LogTestController      : warn log = Spring 
+2025-06-23T23:38:21.198+09:00 ERROR 39608 --- [springmvc] [nio-8080-exec-1] h.springmvc.basic.LogTestController      : error log = Spring 
+```
+- 만약 `trace`가 아니고 `debug`면 `debug` 하위 레벨들만 출력됨 (trace가 제외되는 거임.)
+
+그렇다면
+`개발 서버`는 `debug`로, 나의 `로컬 PC` 에서는 `trace`로, `운영 서버`에서는 `info` 레벨로 세팅한다면?
+```properties
+spring.application.name=springmvc  
+#hello.springmvc 패키지와 그 하위 로그 레벨 설정  
+logging.level.hello.springmvc=info
+```
+
+
 
 ## 요청 매핑
 

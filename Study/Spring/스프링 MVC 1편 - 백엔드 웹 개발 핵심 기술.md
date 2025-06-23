@@ -4077,6 +4077,35 @@ Controller가 반환한 View 이름(논리적 이름)을 가지고 실제 View �
 >기본적으로 스프링은 `@Controller` 와 같은 컨트롤러들은 문자를 반환하고 그걸 `뷰 이름`으로 간주하게 된다.
 >하지만 `REST Controller`는 문자를 반환하면 해당 String을 그냥 바로 그대로 반환하게 된다.
 
+
+```java
+package hello.springmvc.basic;  
+  
+import org.slf4j.Logger;  
+import org.slf4j.LoggerFactory;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.bind.annotation.RestController;  
+  
+@RestController  
+public class LogTestController {  
+    private final Logger log = LoggerFactory.getLogger(this.getClass()); // slf4j를 사용해야함  
+  
+    @RequestMapping("/log-test")  
+    public String logTest() {  
+        String name = "Spring";  
+  
+        System.out.println("name = " + name); // 로그 안썼을 때  
+        log.info("info log = {} ", name); // 로그 썼을 때  
+  
+        return "ok";  
+    }  
+}
+```
+
+![[Pasted image 20250623233306.png]]
+- 같은 내용을 출력하지만, `log.info()`로 출력했을 때 더 많은 정보를 얻을 수 있음
+
+
 ## 요청 매핑
 
 

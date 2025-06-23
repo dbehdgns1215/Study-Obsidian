@@ -3973,9 +3973,65 @@ public @interface GetMapping {
 
 ---
 
-
-
 ## 정리
 
+### 스프링 MVC에서 HTTP 요청을 가장 먼저 받아 처리하는 핵심 컴포넌트는 무엇일까요?
+
+1. HandlerMapping
+2. HandlerAdapter
+3. DispatcherServlet
+4. ViewResolver
+
+해설
+3. DispatcherServlet
+스프링 MVC에서 모든 HTTP 요청은 이 컴포넌트를 통해 들어옵니다. 여러 요청을 하나의 진입점에서 처리하는 전면 컨트롤러 패턴을 구현해요.
 
 
+### DispatcherServlet 이후, 요청 처리를 위해 일반적으로 Handler를 찾고 실행한 뒤 View를 찾는 과정에서 핵심적인 순서는 무엇인가요?
+
+1. HandlerMapping → ViewResolver → HandlerAdapter
+2. HandlerAdapter → HandlerMapping → ViewResolver
+3. HandlerMapping → HandlerAdapter → ViewResolver
+4. ViewResolver → HandlerMapping → HandlerAdapter
+
+해설
+3. HandlerMapping → HandlerAdapter → ViewResolver
+DispatcherServlet은 요청을 받으면 HandlerMapping으로 Handler를 찾고, HandlerAdapter로 실행해요. 실행 결과로 ViewResolver가 실제 View를 찾죠.
+
+
+### Spring MVC에서 요청 URL을 처리할 Handler(Controller)를 '찾는' 역할과 찾아낸 Handler를 '실행하는' 역할을 분리하여 담당하는 두 컴포넌트는 각각 무엇일까요?
+
+1. HandlerMapping, HandlerAdapter
+2. DispatcherServlet, ViewResolver
+3. View, Model
+4. ViewResolver, HandlerMapping
+
+해설
+1. HandlerMapping, HandlerAdapter
+요청 URL에 맞는 Handler를 찾는 것은 HandlerMapping이, 이 Handler의 타입에 상관없이 실행하는 것은 HandlerAdapter의 역할입니다. 이 둘이 함께 동작해요.
+
+
+### Handler 실행 후 반환된 논리적인 View 이름을 실제 View(예: JSP 파일)로 변환하여 찾아내는 역할을 하는 컴포넌트는 무엇일까요?
+
+1. DispatcherServlet
+2. HandlerMapping
+3. ViewResolver
+4. HandlerAdapter
+
+해설
+3. ViewResolver
+Controller가 반환한 View 이름(논리적 이름)을 가지고 실제 View 템플릿 객체(예: JSP)를 찾아주는 역할을 ViewResolver가 담당합니다.
+
+
+### 현대적인 Spring MVC 개발에서 @Controller, @GetMapping, @PostMapping과 같은 애노테이션은 주로 어떤 역할을 가능하게 할까요?
+
+1. 의존성 주입 설정
+2. View 렌더링 로직 구현
+3. HTTP 요청과 Handler/Method 매핑 및 처리 방식 정의
+4. 데이터베이스 직접 접근
+
+해설
+3. HTTP 요청과 Handler/Method 매핑 및 처리 방식 정의
+이 애노테이션들은 특정 URL 패턴의 HTTP 요청(GET/POST 등)을 어떤 Controller 클래스의 어떤 Method가 처리할지 편리하게 연결(매핑)하고 그 방식을 정의해요.
+
+---

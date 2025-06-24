@@ -4176,6 +4176,17 @@ logging.level.hello.springmvc=info
 4. **WARN**
 5. **ERROR** (가장 심각, 가장 높은 레벨)
 
+반면, `System.out.println()`으로 출력하게 되는 경우 모든 경우에 출력이 되기 때문에 로그 폭탄을 맞을 수 있음..
+
+
+
+**매핑 정보**
+- `@RestController`
+	- `@Controller` 는 반환 값이 `String` 이면 뷰 이름으로 인식한다.
+		- 그래서 **뷰를 찾고 뷰가 랜더링**되게 됨.
+	- `@RestController`는 반환 값으로 뷰를 찾는 것이 아니라, **HTTP 메시지 바디에 바로 입력**한다.
+		- 따라서 실행 결과로 ok 메시지를 받을 수 있다.
+	- 이는 `@ResopnseBody`와 관련이 있는데, 후술할 예정.
 
 
 

@@ -4165,6 +4165,10 @@ name = Spring
 `개발 서버`는 `debug`로, 나의 `로컬 PC` 에서는 `trace`로, `운영 서버`에서는 `info` 레벨로 세팅한다면?
 ```properties
 spring.application.name=springmvc  
+
+#전체 로그 레벨 설정 (기본 info)
+logging.level.root=info  
+  
 #hello.springmvc 패키지와 그 하위 로그 레벨 설정  
 logging.level.hello.springmvc=info
 ```
@@ -4172,9 +4176,11 @@ logging.level.hello.springmvc=info
 >참고
 1. **TRACE** (가장 상세, 가장 낮은 레벨)
 2. **DEBUG**
-3. **INFO**
+3. **INFO** (미설정시 기본 값)
 4. **WARN**
 5. **ERROR** (가장 심각, 가장 높은 레벨)
+- 개발 서버는 debug 레벨로
+- 운영 서버는 info 레벨로
 
 반면, `System.out.println()`으로 출력하게 되는 경우 모든 경우에 출력이 되기 때문에 로그 폭탄을 맞을 수 있음..
 

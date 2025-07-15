@@ -4216,11 +4216,11 @@ public class LogTestController {
         System.out.println("name = " + name); // 로그 안썼을 때  
   
         // 로그 썼을 때 (로그에도 레벨이 있음. 각 단계별로 어디서 쓰이는 로그인지 명확히 구별됨.)  
-        log.trace("trace log {}", name);  
-        log.debug("debug log {}", name);  
-        log.info("info log {}", name);  
-        log.warn("warn log = {} ", name);  
-        log.error("error log = {} ", name);  
+        log.trace("trace log {}", name);  // 매우 상세한 내부 동작 로그
+        log.debug("debug log {}", name);  // 디버깅 시 필요한 정보
+        log.info("info log {}", name);  // 일반적인 정보
+        log.warn("warn log = {} ", name);  // 경고 상황
+        log.error("error log = {} ", name);  // 에러 발생 시
   
         return "ok";  
     }  

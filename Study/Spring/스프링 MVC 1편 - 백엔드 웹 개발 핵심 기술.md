@@ -4276,7 +4276,19 @@ public class MappingController {
 	- `@RestController`는 반환 값으로 뷰를 찾는 것이 아니라, HTTP 메시지 바디에 바로 입력한다. 따라서 실행 결과로 ok 메시지를 받을 수 있다. `@ResponseBody`와 관련이 있는데, 뒤에서 더 자세히 설명한다.
 - `@RequestMapping("/hello-basic")`
 	- `/hello-basic` URL 호출이 오면 이 메서드가 실행되도록 매핑한다.
-	- 대부분의 속성을 `배열[]`로 제공하므로 다중 설정이 가능하다. `{"/hello-basic", "/hello-go"}`
+	- 대부분의 속성을 `배열[]`로 제공하므로 다중 설정이 가능하다.
+		- `{"/hello-basic", "/hello-go"}`
+
+**Postman으로 테스트 해보자.**
+
+**둘다 허용**
+다음 두가지 요청은 다른 URL 이지만, 스프링은 다음 URL 요청들을 같은 요청으로 매핑한다.
+- 매핑: `/hello-basic`
+- URL 요청: `/hello-basic`, `/hello-basic/`
+
+**HTTP 메서드**
+`@RequestMapping`에 `method` 속성으로 HTTP 메서드를 지정하지 않으면 HTTP 메서드와 무관하게 호출된다.
+모두 허용 GET, HEAD, POST, PUT, PATCH, DELETE
 
 
 

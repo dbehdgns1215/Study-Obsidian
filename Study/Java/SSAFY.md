@@ -30,7 +30,7 @@ System.out.print("5년 후 나이는 : " + (age2 + 5)); // 30 (연산이 이루�
 # 정리
 ```java
 public static void main(String[] args) throws IOException {
-	BufferedReadre bf = new BufferedReader(new InputStreamReader(System.in));
+	BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
 	int N = Integer.parseInt(bf.readLine());
@@ -39,6 +39,8 @@ public static void main(String[] args) throws IOException {
 		String s = bf.readLine(); // String으로 라인 입력 받기
 		StringTokenizer st = new StringTokenizer(s); // 공백 기준으로 구분
 
+		// st.hasMoreTokens() // 토큰 있으면 True, 없으면 False
+
 		int a = Integer.parseInt(st.nextToken()); // NoSuchElementException 조심
 		int b = Integer.parseInt(st.nextToken());
 
@@ -46,6 +48,6 @@ public static void main(String[] args) throws IOException {
 		bw.newLine();
 	}
 	bw.flush();
-	bw.close();
+	bw.close(); // 코테에서는 굳이?
 }
 ```

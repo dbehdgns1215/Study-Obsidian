@@ -1,0 +1,184 @@
+{
+  "main": {
+    "id": "0621ff6f9836050e",
+    "type": "split",
+    "children": [
+      {
+        "id": "ef1bebc58649f60d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f11df6968db5a09f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4c0a0fe6ef2808f9",
+    "type": "split",
+    "children": [
+      {
+        "id": "d2985ae47621c4bc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "93e6918e21f026fd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b1bd6ee6595e237a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "1732d061a08245c4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9d41ebb5ac55ef84",
+    "type": "split",
+    "children": [
+      {
+        "id": "a56ddd01d1e82500",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fe5b0785e0058fab",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
+            }
+          },
+          {
+            "id": "fdab7a0865c8c84c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
+            }
+          },
+          {
+            "id": "9862a83df394b036",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "beca35d2f72e106e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
+            }
+          },
+          {
+            "id": "99717e5ff2c8b944",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "f11df6968db5a09f",
+  "lastOpenFiles": []
+}

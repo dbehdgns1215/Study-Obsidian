@@ -6,6 +6,6 @@ import java.io.BufferedReader;
 Class BufferedReader(Reader in)
 Class BufferedReader(Reader in, int size)
 
-Reader r = new Reader();
+Reader r = new InputStreamReader();
 BufferedReader in = new BufferedReader(r);
 ```

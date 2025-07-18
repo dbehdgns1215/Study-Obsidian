@@ -25,7 +25,7 @@
 
 ![[Pasted image 20250416235325.png]]
 
-ss
+
 #### 웹 애플리케이션 서버(WAS - Web Application Server)
 - HTTP 기반으로 동작
 - 웹 서버 기능 포함(정적 리소스도 당연히 제공 가능)

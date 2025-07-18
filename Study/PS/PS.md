@@ -1,6 +1,7 @@
 [[C++]]
 [[C++ TIP]]
-[[BOJ]]
+[[BOJ
+[[Study/PS/Java|Java]]
 
 ![[알고리즘_개념교안.pdf]]
 

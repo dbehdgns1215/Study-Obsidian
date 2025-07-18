@@ -39,7 +39,7 @@ public static void main(String[] args) throws IOException {
 		String s = bf.readLine(); // String으로 라인 입력 받기
 		StringTokenizer st = new StringTokenizer(s); // 공백 기준으로 구분
 
-		int a = Integer.parseInt(st.nextToken());
+		int a = Integer.parseInt(st.nextToken()); // NoSuchElementException 조심
 		int b = Integer.parseInt(st.nextToken());
 
 		bw.write(String.valueOf(a + b));

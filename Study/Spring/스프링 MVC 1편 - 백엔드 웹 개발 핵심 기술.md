@@ -4409,10 +4409,14 @@ public class MappingClassController {
 }
 ```
 
-
-
 ## HTTP 요청 - 기본, 헤더 조회
+애노테이션 기반의 스프링 컨트롤러는 다양한 파라미터를 지원한다.
+이번 시간에는 HTTP 헤더 정보를 조회하는 방법을 알아보자.
 
+`RequestHeaderController`
+```java
+
+```
 
 
 ## HTTP 요청 파라미터 - 쿼리 파라미터, HTML Form

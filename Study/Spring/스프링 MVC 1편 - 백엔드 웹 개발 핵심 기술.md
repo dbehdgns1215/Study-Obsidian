@@ -4415,8 +4415,52 @@ public class MappingClassController {
 
 `RequestHeaderController`
 ```java
-
+package hello.springmvc.basic.request;  
+  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.util.Locale;  
+import lombok.extern.slf4j.Slf4j;  
+import org.springframework.http.HttpMethod;  
+import org.springframework.util.MultiValueMap;  
+import org.springframework.web.bind.annotation.CookieValue;  
+import org.springframework.web.bind.annotation.RequestHeader;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.bind.annotation.RestController;  
+  
+@Slf4j  
+@RestController  
+public class RequestHeaderController {  
+  
+    @RequestMapping("/headers")  
+    public String headers(HttpServletRequest request,  
+                          HttpServletResponse response,  
+                          HttpMethod httpMethod,  
+                          Locale locale,  
+                          @RequestHeader MultiValueMap<String, String> headerMap,  
+                          @RequestHeader("host") String host,  
+                          @CookieValue(value = "myCookie", required = false) String myCookie) {  
+  
+        log.info("request={}", request);  
+        log.info("response={}", response);  
+        log.info("httpMethod={}", httpMethod);  
+        log.info("locale={}", locale);  
+        log.info("headerMap={}", headerMap);  
+        log.info("header host={}", host);  
+        log.info("myCookie={}", myCookie);  
+  
+        return "ok";  
+    }  
+}
 ```
+- `HttpMethod`: HTTP 메서드 타입
+- `Locale`: 언어
+- `@RequestHeader MultiValueMap<...>`: 헤더 정보 전부
+- `@RequestHeader("host")`: host 헤더 정보만
+- `@CookieValue(value = "...")`: 쿠키 정보
+
+**결과**
+![[Pasted image 20250719230625.png]]
 
 
 ## HTTP 요청 파라미터 - 쿼리 파라미터, HTML Form

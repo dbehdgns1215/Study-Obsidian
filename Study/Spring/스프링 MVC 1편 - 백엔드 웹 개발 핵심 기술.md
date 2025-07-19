@@ -4461,10 +4461,30 @@ public class RequestHeaderController {
 
 **결과**
 ![[Pasted image 20250719230625.png]]
+>참고
+>`MultiValueMap
+- Map과 유사한데, 하나의 키에 여러 값을 받을 수 있다.
+- HTTP header, HTTP 쿼리 파라미터와 같이 하나의 키에 여러 값을 받을 때 사용한다.
+	- `keyA = value1 & keyA = value2`
+```java
+MultiValueMap<String, Strinmg> map = new LinkedMultiValueMap();
+map.add("keyA", "value1");
+map.add("keyA", "value2");
+
+// [value1, value2]
+List<String> values = map.get("keyA");
+```
+
+> 참고
+> `Slf4j`
+다음 코드를 자동으로 생성해서 로그를 선언해줌. 개발자는 편리하게 `log`라고 사용하면 됨.
+```java
+private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(RequestHeaderController.class);
+```
+
 
 
 ## HTTP 요청 파라미터 - 쿼리 파라미터, HTML Form
-
 
 
 ## HTTP 요청 파라미터 - @RequestParam

@@ -42,6 +42,11 @@ class Solution
 	- substring 활용
 - 출력 형식 포맷
 
+## 2058. 자릿수 더하기
+```java
+
+```
+
 ## 2072. 홀수만 더하기
 ```java
 import java.io.BufferedReader;
@@ -121,6 +126,44 @@ class Solution
 	}
 }
 ```
+
+## 2068. 최대수 구하기
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+
+
+class Solution
+{
+	public static void main(String args[]) throws Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		int T = Integer.parseInt(br.readLine());
+		
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+			String[] nums = br.readLine().split(" ");
+			List<Integer> li = new ArrayList<Integer>();
+			
+			for (int i = 0; i < 10; i++) {
+				li.add(Integer.parseInt(nums[i]));
+			}
+			
+			Collections.sort(li);
+			
+			bw.write("#" + test_case + " " + li.get(9) + "\n");
+			bw.flush();
+		}
+	}
+}
+```
+- 띄어쓰기로 구분된 숫자들 입력 받아서 나누기
+- List에 넣고 Collections sort 활용
 
 
 ## 2063. 중간값 찾기

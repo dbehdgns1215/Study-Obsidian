@@ -38,9 +38,47 @@ class Solution
 	}
 }
 ```
-- substring 활용
+- 한줄 띄어쓰기 없는 라인 입력 받기 (12345)
+	- substring 활용
 - 출력 형식 포맷
-- 
+
+## 2072. 홀수만 더하기
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+
+
+class Solution
+{
+	public static void main(String args[]) throws Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int T = Integer.parseInt((br.readLine()));
+		
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+			String[] numbers = br.readLine().split(" ");
+			int sum = 0;
+			
+			for (String number : numbers) {
+                int num = Integer.parseInt(number);
+                if (num % 2 == 1) {
+                    sum += num;
+                }
+            }
+			
+			bw.write("#" + test_case + " " + sum + "\n");
+			bw.flush();
+		}
+	}
+}
+```
+- 한 칸씩 띄어진 정수 입력 받기 (1 2 3 4 5)
 ## 2063. 중간값 찾기
 ```java
 package codingtest;
@@ -78,3 +116,6 @@ class Solution
 	}
 }
 ```
+- 한 칸씩 띄어진 정수 입력 받기 (1 2 3 4 5)
+- Collections sort 활용
+- ArrrayList 활용

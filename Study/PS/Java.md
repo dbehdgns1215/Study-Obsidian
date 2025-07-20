@@ -123,6 +123,12 @@ public class MapDemo {
 	iteratorUsingIterator(a);
 	}
 
+	static void iteratorUsingForEach(HashMap map) {
+		Set<Map.Entry<String, Integer>> entries = map.entrySet();
+		for (Map.Entry<String, Integer> entry : entries) {
+			System.out.println(entry.getKey() + " : " + entry.getValue());
+		}
+	}
 }
 ```
 

@@ -238,16 +238,13 @@ StringTokenizer st = new StringTokenizer(br.readLine());
 int N = Integer.parseInt(st.nextToken());
 int M = Integer.parseInt(st.nextToken());
 
-// 또는
+// 또는 (빠른건 StringTokenizer)
 
 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 String[] parts = br.readLine().split(" ");
 
 int N = Integer.parseInt(parts[0]);
 int M = Integer.parseInt(parts[1]);
-
-// -------------------------------------------------
-
 
 // -------------------------------------------------
 

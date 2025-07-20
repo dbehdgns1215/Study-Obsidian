@@ -129,6 +129,15 @@ public class MapDemo {
 			System.out.println(entry.getKey() + " : " + entry.getValue());
 		}
 	}
+
+		static void iteratorUsingIterator(HashMap map) {
+		Set<Map.Entry<String, Integer>> entries = map.entrySet();
+		Iterator<Map.Entry<String, Integer>> i = entries.iterator();
+		while(i.hasNext()) {
+			Map.Entry<String, Integer> entry = i.next();
+			System.out.println(entry.getKey() + " : " + entry.getValue());
+		}
+	}
 }
 ```
 

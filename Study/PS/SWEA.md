@@ -79,6 +79,14 @@ class Solution
 }
 ```
 - 한 칸씩 띄어진 정수 입력 받기 (1 2 3 4 5)
+
+
+## 2070 큰 놈, 작은 놈, 같은 놈
+```java
+
+```
+
+
 ## 2063. 중간값 찾기
 ```java
 package codingtest;

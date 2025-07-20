@@ -33,3 +33,5 @@ for (int i = 0; i < al.size(); i++) {
 - List: `ArrayList<Integer> A = new ArrayList<Integer>();`
 	- 중복 허용함
 
+
+## Set

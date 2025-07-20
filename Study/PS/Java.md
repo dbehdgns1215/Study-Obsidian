@@ -230,6 +230,27 @@ for (int i = 0; i < input.length(); i++) {
 
 // -------------------------------------------------
 
+// 입력: N M (한 줄에 있는 정수들 각 변수에 할당)
+
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+StringTokenizer st = new StringTokenizer(br.readLine());
+
+int N = Integer.parseInt(st.nextToken());
+int M = Integer.parseInt(st.nextToken());
+
+// 또는
+
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+String[] parts = br.readLine().split(" ");
+
+int N = Integer.parseInt(parts[0]);
+int M = Integer.parseInt(parts[1]);
+
+// -------------------------------------------------
+
+
+// -------------------------------------------------
+
 // 입력: N * M 크기의 맵 (띄어쓰기 X)
 int N = 
 int[][] map = new int[N][M];
@@ -238,10 +259,23 @@ for (int i = 0; i < N; i++) {
     String line = br.readLine(); // "11000111"
     for (int j = 0; j < M; j++) {
         map[i][j] = line.charAt(j) - '0'; // '1' -> 1, '0' -> 0
+        // String만 Integer.parseInt() 가능.
     }
 }
 
 // -------------------------------------------------
+
+// 입력: N * M 크기의 맵 (띄어쓰기 O)
+int[][] map = new int[N][M];
+
+for (int i = 0; i < N; i++) {
+    String line = br.readLine(); // 예: "1 1 0 0 0 1 1 1"
+    String[] tokens = line.split(" ");
+    
+    for (int j = 0; j < M; j++) {
+        map[i][j] = Integer.parseInt(tokens[j]);
+    }
+}
 
 
 ```

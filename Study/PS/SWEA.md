@@ -301,4 +301,65 @@ class Solution
 	}
 }
 ```
-- 
+
+
+## 1945. 간단한 소인수분해
+```java
+
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+
+
+class Solution
+{
+	public static void main(String args[]) throws Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		int T = Integer.parseInt(br.readLine());
+		
+		for (int test_case = 1; test_case <= T; test_case++) {
+			
+			int target = Integer.parseInt(br.readLine());
+			
+			int two = 0;
+			int three = 0;
+			int five = 0;
+			int seven = 0;
+			int eleven = 0;
+			
+			while (target != 1) {
+				if (target % 2 == 0) {
+					target /= 2;
+					two++;
+				} else if (target % 3 == 0) {
+					target /= 3;
+					three++;
+				} else if (target % 5 == 0) {
+					target /= 5;
+					five++;
+				} else if (target % 7 == 0) {
+					target /= 7;
+					seven++;
+				} else if (target % 11 == 0) {
+					target /= 11;
+					eleven++;
+				}
+			}
+			
+			bw.write("#" + test_case + " " + two + " " + three + " " + five + " " + seven + " " + eleven + " \n");
+			bw.flush();
+		}
+	}
+}
+```
+- 소인수분해 활용
+- 시간복잡도가 엄청 널널했음
+	- 만약 1초였다면?
+	- 10,000,000을 인수분해 하면 -> 2$^7$ $*$ 5$^7$
+	- 

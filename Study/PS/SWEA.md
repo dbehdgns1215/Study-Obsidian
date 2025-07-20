@@ -75,8 +75,6 @@ class Solution
 	- `Integer.parseInt()`: String to Int
 	- 따라서 `- '0'` 으로 형변환
 
-
-
 ## 2072. 홀수만 더하기
 ```java
 import java.io.BufferedReader;
@@ -114,7 +112,6 @@ class Solution
 }
 ```
 - 한 칸씩 띄어진 정수 입력 받기 (1 2 3 4 5)
-
 
 ## 2070 큰 놈, 작은 놈, 같은 놈
 ```java
@@ -236,3 +233,8 @@ class Solution
 - 한 칸씩 띄어진 정수 입력 받기 (1 2 3 4 5)
 - Collections sort 활용
 - ArrrayList 활용
+
+## 2050. 알파벳을 숫자로 변환
+```java
+
+```

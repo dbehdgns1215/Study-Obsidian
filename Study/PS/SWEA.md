@@ -236,5 +236,37 @@ class Solution
 
 ## 2050. 알파벳을 숫자로 변환
 ```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
 
+
+class Solution
+{
+	public static void main(String args[]) throws Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		String line = br.readLine();
+		
+		for (int i = 0; i < line.length(); i++) {
+			if (line.charAt(i) >= 'A' && line.charAt(i) <= 'Z') {
+				int ans = line.charAt(i) - 'A' + 1;
+				bw.write(ans + " ");
+			} else if (line.charAt(i) >= 'a' && line.charAt(i) <= 'a') {
+				int ans = line.charAt(i) - 'a' + 1;
+				bw.write(ans + " ");
+			}
+		}
+		
+		bw.flush();
+	}
+}
 ```
+- 띄어쓰기 없는 입력들을 나누어서 출력
+- 영어 대소문자에 따라서 다른 로직 적용
+	- 대소문자 구분 안해도 통과하기는 함.
+

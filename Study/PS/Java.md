@@ -56,6 +56,28 @@ boolean retainAll (Collection c)
 int size ()
 Object[] toArray ()
 Object[] toArray (Object a[])
+```
 
+## Set Interface \<extends Collection>
+```
+Collection과 기능적으로 똑같은 API를 제공함.
+```
 
+## List Interface \<extends Collection>
+```java
+// Accessors
+boolean get / set (int idx)
+Object set (int idx, Object element)
+
+// Collectors
+void add (int idx, Object element)
+boolean addAll (int idx, Collection c)
+Object remove (int idx)
+
+// Other Public Methods
+int indexOf (Object o)
+int lastIndexOf (Object o)
+List Iterator iterator ()
+List Iterator iterator (int idx)
+List subList (int fromIdx, int toIdx)
 ```

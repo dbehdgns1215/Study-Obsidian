@@ -228,4 +228,20 @@ for (int i = 0; i < input.length(); i++) {
     int num = input.charAt(i) - '0';
 }
 
+// -------------------------------------------------
+
+// 입력: N * M 크기의 맵 (띄어쓰기 X)
+int N = 
+int[][] map = new int[N][M];
+
+for (int i = 0; i < N; i++) {
+    String line = br.readLine(); // "11000111"
+    for (int j = 0; j < M; j++) {
+        map[i][j] = line.charAt(j) - '0'; // '1' -> 1, '0' -> 0
+    }
+}
+
+// -------------------------------------------------
+
+
 ```

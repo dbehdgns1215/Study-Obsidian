@@ -81,3 +81,23 @@ List Iterator iterator ()
 List Iterator iterator (int idx)
 List subList (int fromIdx, int toIdx)
 ```
+
+
+## Iterator
+```java
+public class Iterator
+	public static void main(String[] args) {
+		HashSet<Integer> A = new HashSet<Integer>();
+		A.add(1);
+		A.add(2);
+		A.add(3);
+
+		Iterator hi = A.iterator();
+		while(hi.hasNext()) {
+			System.out.println(hi.next());
+		}
+	}
+```
+- `hasNext()`
+- `next()`
+

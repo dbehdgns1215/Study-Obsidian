@@ -36,3 +36,26 @@ for (int i = 0; i < al.size(); i++) {
 	- 순서 보장함
 
 
+## Collection Interface
+```java
+// Accessors + Collectors
+boolean isEmpty()
+boolean add / remove (Object o)
+boolean addAll / removeAll (Collection c)
+
+// Object
+boolean equals (Object o)
+int hashCode ()
+
+// Other Public Methods
+void clear ()
+boolean contains (Object o)
+boolean containsAll (Collection c)
+Iterator iterator ()
+boolean retainAll (Collection c)
+int size ()
+Object[] toArray ()
+Object[] toArray (Object a[])
+
+
+```

@@ -28,3 +28,8 @@ for (int i = 0; i < al.size(); i++) {
 
 
 ## Set vs List
+- Set: `HashSet<Integer> A = new HashSet<Integer>();`
+	- 중복 허용하지 않음
+- List: `ArrayList<Integer> A = new ArrayList<Integer>();`
+	- 중복 허용함
+

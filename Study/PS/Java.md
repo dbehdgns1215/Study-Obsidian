@@ -177,6 +177,7 @@ public class CollectionsDemo {
 		while(i.hasNext()) {
 			System.out.println(i.next());
 		}
+
 		
 		Collections.sort(computers);
 		System.out.println("\nafter");
@@ -186,4 +187,45 @@ public class CollectionsDemo {
 		}
 	}
 }
+```
+
+
+## IO
+```java
+// -------------------------------------------------
+
+// 입력: 5 7 2 9 1
+String[] inputs = br.readLine().split(" ");
+
+for (String s : inputs) {
+    int num = Integer.parseInt(s);
+}
+
+// -------------------------------------------------
+
+// 입력: 10
+int N = Integer.parseInt(br.readLine());
+
+// -------------------------------------------------
+
+// 입력:
+// 3
+// 1 2 3
+// 4 5 6
+// 7 8 9
+int T = Integer.parseInt(br.readLine());
+
+for (int i = 0; i < T; i++) {
+    String[] nums = br.readLine().split(" ");
+}
+
+// -------------------------------------------------
+
+// 입력: 12345
+String input = br.readLine();
+
+for (int i = 0; i < input.length(); i++) {
+    int num = input.charAt(i) - '0';
+}
+
 ```

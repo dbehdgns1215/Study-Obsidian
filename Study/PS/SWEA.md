@@ -84,6 +84,42 @@ class Solution
 ## 2070 큰 놈, 작은 놈, 같은 놈
 ```java
 
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+
+
+class Solution
+{
+	public static void main(String args[]) throws Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		int T = Integer.parseInt(br.readLine());
+		
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			
+			int A = Integer.parseInt(st.nextToken());
+			int B = Integer.parseInt(st.nextToken());
+			
+			if (A > B) {
+				bw.write("#" + test_case + " " + ">\n");
+			} else if(A < B) {
+				bw.write("#" + test_case + " " + "<\n");
+			} else {
+				bw.write("#" + test_case + " " + "=\n");
+			}
+			
+			bw.flush();
+		}
+	}
+}
 ```
 
 

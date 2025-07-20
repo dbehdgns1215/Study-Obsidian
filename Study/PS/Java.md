@@ -1,3 +1,7 @@
+![[Pasted image 20250720131250.png]]
+
+
+
 ## ArrayList
 ```java
 // 구버전
@@ -21,3 +25,6 @@ for (int i = 0; i < al.size(); i++) {
 	System.out.println(al.get(i));
 }
 ```
+
+
+## Set vs List

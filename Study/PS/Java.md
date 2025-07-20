@@ -230,7 +230,7 @@ for (int i = 0; i < input.length(); i++) {
 
 // -------------------------------------------------
 
-// 입력: N M (한 줄에 있는 정수들 각 변수에 할당)
+// 입력: N M (띄어쓰기 O) (한 줄에 있는 정수들 각 변수에 할당)
 
 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 StringTokenizer st = new StringTokenizer(br.readLine());
@@ -249,7 +249,6 @@ int M = Integer.parseInt(parts[1]);
 // -------------------------------------------------
 
 // 입력: N * M 크기의 맵 (띄어쓰기 X)
-int N = 
 int[][] map = new int[N][M];
 
 for (int i = 0; i < N; i++) {

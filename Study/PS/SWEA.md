@@ -44,8 +44,38 @@ class Solution
 
 ## 2058. 자릿수 더하기
 ```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
 
+
+class Solution
+{
+	public static void main(String args[]) throws Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		int sum = 0;
+		
+	    String line = br.readLine();
+	    for (int j = 0; j < 4; j++) {
+	    	sum += line.charAt(j) - '0';
+	    }
+		
+		bw.write(sum + "");
+		bw.flush();
+	}
+}
 ```
+- 띄어쓰기 없는 입력에 대해서 각 자리수 매핑
+- `line.charAt()` 의 반환 값은 `char` 이기 때문에, `Integer.parseInt()` 불가능.
+	- `Integer.parseInt()`: String to Int
+	- 따라서 `- '0'` 으로 형변환
+
+
 
 ## 2072. 홀수만 더하기
 ```java

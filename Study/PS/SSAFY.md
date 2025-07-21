@@ -18,6 +18,7 @@ TODO (git_repository 디렉토리)
 		- `git add .`
 		- `git commit -m "알고 과제"`
 		- `git push origin master`
+		- 추가로 MM에 `답글달기`로 `메모리, 시간, 전략` + `코드 파일`
 	- `algo_homework\` -> lab.ssafy.com에서 clone 뜨기
 		- `https://lab.ssafy.com/dbehdgns1215/homework`
 - 자바 라이브

@@ -51,6 +51,8 @@ eclipse.ini파일 안에 아래 내용 추가
 	- SW검정 폴더 내에 있는 파일
 - eclipse 2018-09
 	- SW검정 폴더 내에 있는 파일
+- STS
+	- sts-4.22.1.RELEASE
 
 - Utils
 	- algo_submit - SWEA, 백준 코드 자동 변경

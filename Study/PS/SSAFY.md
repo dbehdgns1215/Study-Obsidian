@@ -21,6 +21,8 @@ TODO (git_repository 디렉토리)
 		- 추가로 MM에 `답글달기`로 `메모리, 시간, 전략` + `코드 파일`
 	- `algo_homework\` -> lab.ssafy.com에서 clone 뜨기
 		- `https://lab.ssafy.com/dbehdgns1215/homework`
+	- 집에서
+		- `D:\SSAFY\algo_homework` -> `git bash 열기` -> `git pull https://lab.ssafy.com/dbehdgns1215/homework.git master` pull 땡겨오기 
 - 자바 라이브
 	- `live\` -> 어디선가 가져왔음
 - 알고리즘 라이브

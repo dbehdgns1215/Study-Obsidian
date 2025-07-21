@@ -27,8 +27,12 @@ TODO (git_repository 디렉토리)
 		- `git clone https://lab.ssafy.com/s14/java/algorithm_live.git`
 		- 매일 라이브 진행 이후 또는 이전에 미리 pull 받아야 함
 
-- https://jungol.co.kr/ - 정올
-- MM`IM 대비.pdf` - IM 검정 대비 필수 문제 20선
+
+- MM에 있는 파일 `IM 대비.pdf` - IM 검정 대비 필수 문제 20선
+	- https://jungol.co.kr/ - 정올
+	- 백준
+	- SWEA
+
 
 
 ![[Pasted image 20250721160309.png]]

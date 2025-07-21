@@ -3,7 +3,7 @@ STS = 오전 자바 라이브
 
 TODO (git_repository 디렉토리)
 ![[Pasted image 20250721164510.png]]
-- 자바 진도 나간만큼
+- 자바 라이브 과제
 	-  제출법
 		- `project.ssafy.com`
 	- 과제 내용
@@ -11,7 +11,7 @@ TODO (git_repository 디렉토리)
 		- 과제 문제 1개씩
 	- `homework\` -> project.ssafy.com에서 clone 뜨기
 		- 각 문제 들어가서 `실습하기` 후 깃랩 주소 복사
-- 알고리즘 과제 1문제
+- 자바 알고리즘 라이브 과제
 	- 제출법
 		- `C:SSAFY/git_repository/algo_homework/오늘날짜/`
 		- 오늘 날짜 폴더 및 파일 생성해서 과제 진행
@@ -46,7 +46,14 @@ eclipse.ini파일 안에 아래 내용 추가
     -vm
     C:\Program Files\Zulu\zulu-8\bin // 경로 확인 필요
 ```
+- Zulu
+	- SW검정 폴더 내에 있는 파일
+- eclipse 2018-09
+	- SW검정 폴더 내에 있는 파일
 
+- Utils
+	- algo_submit - SWEA, 백준 코드 자동 변경
+	- SWEA COPYPASTA - 예제 입력 출력을 버튼 하나로
 
 
 

@@ -363,3 +363,50 @@ class Solution
 
 
 ## 1288. 새로운 불면증 치료법
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+class Solution {
+    public static void main(String args[]) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int T = Integer.parseInt(br.readLine());
+
+        for (int test_case = 1; test_case <= T; test_case++) {
+            boolean[] arr = new boolean[10]; // 0~9 숫자 등장 여부
+            int countSeen = 0; // 지금까지 본 숫자의 개수
+
+            int N = Integer.parseInt(br.readLine());
+            int idx = 0; // 몇 번째 양을 센 건지 (k)
+
+            while (countSeen < 10) {
+                idx++;
+                int current = N * idx;
+                String currentStr = Integer.toString(current);
+
+                for (int i = 0; i < currentStr.length(); i++) {
+                    int digit = currentStr.charAt(i) - '0';
+                    if (!arr[digit]) {
+                        arr[digit] = true;
+                        countSeen++;
+                    }
+                }
+            }
+
+            bw.write("#" + test_case + " " + (N * idx) + "\n");
+        }
+
+        bw.flush();
+    }
+}
+```
+- 일단 아주 쓰레기같은 문제
+	- 출력 예가 없었으면 진짜 풀 수가 없음.
+	- `최소 몇 번 양을 세었을 때 이전에 봤던 숫자들의 자릿수에서 0에서 9까지의 모든 숫자를 보게 되는지 출력한다.` 라고 명시되어 있지만 실제로는 마지막으로 본 양의 숫자를 출력해야 하는 거였음.
+- 로직은 심플함.
+	- 0~9 숫자 배열 만들고 현재 양의 숫자를 한글자씩 분해해서 0~9 숫자 체크
+	- 0~9 숫자가 전부 나오지 않았으면 \*2, \*3, \*4 ... 계속 진행

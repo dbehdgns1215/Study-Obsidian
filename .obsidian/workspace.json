@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Java/SSAFY.md",
+                "file": "Study/PS/SSAFY.md",
                 "mode": "source",
                 "source": false
               },
@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Study/Java/SSAFY.md",
+                "file": "Study/PS/SSAFY.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Study/Java/SSAFY.md",
+                "file": "Study/PS/SSAFY.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Study/Java/SSAFY.md",
+                "file": "Study/PS/SSAFY.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -163,7 +163,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -182,6 +182,10 @@
   },
   "active": "7bf72a14c86fc4eb",
   "lastOpenFiles": [
+    "Study/PS/PS.md",
+    "Study/PS/SSAFY.md",
+    "Study/PS/Java.md",
+    "Study/Java/SSAFY.md",
     "Pasted image 20250721105524.png",
     "Pasted image 20250721104417.png",
     "Pasted image 20250721104401.png",
@@ -190,11 +194,8 @@
     "Pasted image 20250721095631.png",
     "Pasted image 20250721094746.png",
     "Study/Java/Java.md",
-    "Study/Java/SSAFY.md",
     "Pasted image 20250721093600.png",
     "Study/PS/SWEA.md",
-    "Study/PS/PS.md",
-    "Study/PS/Java.md",
     "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md"
   ]
 }

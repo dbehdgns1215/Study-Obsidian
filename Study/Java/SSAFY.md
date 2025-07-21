@@ -76,3 +76,6 @@ public static void main(String[] args) throws IOException {
 ![[Pasted image 20250721100037.png]]
 
 
+## 배열
+![[Pasted image 20250721103539.png]]
+

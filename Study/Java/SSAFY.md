@@ -51,3 +51,58 @@ public static void main(String[] args) throws IOException {
 	bw.close(); // 코테에서는 굳이?
 }
 ```
+
+
+# IO
+
+## 출력 형식 지정
+![[Pasted image 20250721093600.png]]
+
+
+## 형변환
+![[Pasted image 20250721094746.png]]
+- long -> float
+	- 표현 범위의 크기 자체는 long(64bit), float(32bit)이나, 표현 범위는 float이 더 큼 (정밀도 손실은 존재)
+
+
+# Wrapper Class
+![[Pasted image 20250721095631.png]]
+
+- 객체형은 기본형과 달리 추가적인 속성과 기능을 포함
+	- `Integer.parseInt(String str)` -> String to int
+	- `Integer.valueOf(int i)` -> int to Integer // autoboxing 가능
+	- `Integer.intValue()` -> Integer to int // unboxing 가능
+
+![[Pasted image 20250721100037.png]]
+
+
+## 배열
+![[Pasted image 20250721103539.png]]
+
+## String to char, String to int
+```java
+
+```
+![[Pasted image 20250721104401.png]]
+
+![[Pasted image 20250721104417.png]]
+
+![[Pasted image 20250721105524.png]]
+
+
+## 배열 복사
+```java
+System.arrayCopy(Object src, int srcPos, Object dest, int destPos)
+Arrays.copyOf(int[] original, int newLength)
+```
+
+
+## 배열 선언
+
+|선언 방식|허용 여부|이유|
+|---|---|---|
+|`int[] arr = new int[];`|❌ 불가능|배열 **크기를 반드시 지정**해야 함 (초기화 없이 크기 생략 불가)|
+|`int[][] arr = new int[3][];`|✅ 가능|**바깥 배열(행) 크기만 지정**가능, 각 행(내부 배열)은 추후 할당|
+- 두 번째 방식이 가능한 이유
+	- 바깥 배열만 생성된거고 내부 배열은 아직 생성되지 않았기 때문.
+

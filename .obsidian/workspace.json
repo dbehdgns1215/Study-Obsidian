@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "ef1bebc58649f60d",
+        "id": "a69eaf308b92faff",
         "type": "tabs",
         "children": [
           {
-            "id": "f11df6968db5a09f",
+            "id": "7bf72a14c86fc4eb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/PS/SWEA.md",
+                "file": "Study/PS/SSAFY.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SWEA"
+              "title": "SSAFY"
             }
           }
         ]
@@ -44,7 +44,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "파일 탐색기"
             }
           },
           {
@@ -94,9 +94,9 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Study/PS/SWEA.md",
+                "file": "Study/PS/SSAFY.md",
                 "collapseAll": false,
-                "extraContext": false,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for SWEA"
+              "title": "SSAFY 의 백링크"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Study/PS/SWEA.md",
+                "file": "Study/PS/SSAFY.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from SWEA"
+              "title": "SSAFY 의 나가는 링크"
             }
           },
           {
@@ -133,7 +133,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "Tags"
+              "title": "태그"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Study/PS/SWEA.md",
+                "file": "Study/PS/SSAFY.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of SWEA"
+              "title": "SSAFY 의 개요"
             }
           },
           {
@@ -170,22 +170,37 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f11df6968db5a09f",
+  "active": "7bf72a14c86fc4eb",
   "lastOpenFiles": [
-    "Study/PS/PS.md",
-    "Study/PS/SWEA.md",
-    "Study/Java/SSAFY.md",
-    "Study/Java/Java.md",
+    "Pasted image 20250721164510.png",
+    "Pasted image 20250721160309.png",
     "Study/PS/Java.md",
+    "Study/PS/SWEA.md",
+    "Study/PS/SSAFY.md",
+    "Study/HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+    "Study/Java/Java.md",
+    "Study/Java/DI와 테스트의 용이함.md",
+    "Study/Java/스레드(Thread).md",
+    "Study/Java/자바 메모리 구조 (JVM 메모리 구조).md",
+    "Study/PS/PS.md",
+    "Study/Java/SSAFY.md",
+    "Pasted image 20250721105524.png",
+    "Pasted image 20250721104417.png",
+    "Pasted image 20250721104401.png",
+    "Pasted image 20250721103539.png",
+    "Pasted image 20250721100037.png",
+    "Pasted image 20250721095631.png",
+    "Pasted image 20250721094746.png",
+    "Pasted image 20250721093600.png",
     "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md"
   ]
 }

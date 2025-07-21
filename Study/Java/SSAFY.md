@@ -56,4 +56,8 @@ public static void main(String[] args) throws IOException {
 # IO
 
 ## 출력 형식 지정
+![[Pasted image 20250721093600.png]]
 
+
+## 형변환
+![[Pasted image 20250721094746.png]]

@@ -79,3 +79,11 @@ public static void main(String[] args) throws IOException {
 ## 배열
 ![[Pasted image 20250721103539.png]]
 
+## String to char, String to int
+```java
+
+```
+![[Pasted image 20250721104401.png]]
+
+![[Pasted image 20250721104417.png]]
+

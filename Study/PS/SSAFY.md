@@ -34,8 +34,19 @@ TODO (git_repository 디렉토리)
 	- SWEA
 
 - A형 대비
-	- BOJ 게리맨더링
-	- SWEA 나무 높이
+	- BOJ - 게리맨더링
+	- SWEA - 나무 높이
+
+- 집에서 알고 이클립스 실행
+```
+eclipse.ini파일 안에 아래 내용 추가
+
+✨ 위치 : --launcher 아래 -vmargs 위에 즉, 둘 사이의 위치에 설정할 것    
+📖 내용 
+    -vm
+    C:\Program Files\Zulu\zulu-8\bin // 경로 확인 필요
+```
+
 
 
 

@@ -87,3 +87,10 @@ public static void main(String[] args) throws IOException {
 
 ![[Pasted image 20250721104417.png]]
 
+## 배열 복사
+```java
+System.arrayCopy(Object src, int srcPos, Object dest, int destPos)
+Arrays.copyOf(int[] original, int newLength)
+```
+
+

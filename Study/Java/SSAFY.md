@@ -64,3 +64,12 @@ public static void main(String[] args) throws IOException {
 - long -> float
 	- 표현 범위의 크기 자체는 long(64bit), float(32bit)이나, 표현 범위는 float이 더 큼 (정밀도 손실은 존재)
 
+
+# Wrapper Class
+![[Pasted image 20250721095631.png]]
+
+- 객체형은 기본형과 달리 추가적인 속성과 기능을 포함
+	- `Integer.parseInt(String str)` -> String to int
+	- `Integer.valueOf(int i)` -> int to Integer // autoboxing 가능
+	- `Integer.intValue()` -> Integer to int // unboxing 가능
+

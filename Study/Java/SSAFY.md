@@ -52,3 +52,8 @@ public static void main(String[] args) throws IOException {
 }
 ```
 
+
+# IO
+
+## 출력 형식 지정
+

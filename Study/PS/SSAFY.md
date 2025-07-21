@@ -33,6 +33,10 @@ TODO (git_repository 디렉토리)
 	- 백준
 	- SWEA
 
+- A형 대비
+	- BOJ 게리맨더링
+	- SWEA 나무 높이
+
 
 
 ![[Pasted image 20250721160309.png]]

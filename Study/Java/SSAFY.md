@@ -62,4 +62,5 @@ public static void main(String[] args) throws IOException {
 ## 형변환
 ![[Pasted image 20250721094746.png]]
 - long -> float
-	- 표현 범위의 크기 자체는 long(64bit), float(32bit)이나, 표현 범위는 float이 더 큼
+	- 표현 범위의 크기 자체는 long(64bit), float(32bit)이나, 표현 범위는 float이 더 큼 (정밀도 손실은 존재)
+

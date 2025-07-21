@@ -73,3 +73,6 @@ public static void main(String[] args) throws IOException {
 	- `Integer.valueOf(int i)` -> int to Integer // autoboxing 가능
 	- `Integer.intValue()` -> Integer to int // unboxing 가능
 
+![[Pasted image 20250721100037.png]]
+
+

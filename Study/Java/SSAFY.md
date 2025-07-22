@@ -106,3 +106,4 @@ Arrays.copyOf(int[] original, int newLength)
 - 두 번째 방식이 가능한 이유
 	- 바깥 배열만 생성된거고 내부 배열은 아직 생성되지 않았기 때문.
 
+

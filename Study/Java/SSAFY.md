@@ -120,6 +120,7 @@ Arrays.copyOf(int[] original, int newLength)
 **객체지향 프로그래밍의 장점**
 ![[Pasted image 20250722091641.png]]
 
+![[Pasted image 20250722091949.png]]
 
 
 

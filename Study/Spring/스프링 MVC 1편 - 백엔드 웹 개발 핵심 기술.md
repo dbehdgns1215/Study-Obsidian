@@ -4575,6 +4575,30 @@ public String requestParamV2(
 - @RequestParam("**username**") String **memberName**
 - -> request.getParameter("**username**") 와 동일
 
+```java
+@ResponseBody  
+@RequestMapping("/request-param-v3") // HTTP Request 속 넘어오는 변수명과 파라미터 변수명이 동일하면 생략 가능  
+public String requestParamV3(  
+        @RequestParam String username,  
+        @RequestParam int age) {  
+  
+    log.info("username={}, age={}", username, age);  
+    return "ok";  
+}  
+  
+@ResponseBody  
+@RequestMapping("/request-param-v4") // 근데 사실 V3을 만족한다면 V4로 변환도 가능  
+public String requestParamV4(String username, int age) {  
+    log.info("username={}, age={}", username, age);  
+    return "ok";  
+}
+```
+- HTTP 파라미터 이름이 변수 이름과 같으면 `@RequestParam(name="xx")` 생략 가능.
+	- 스프링 MVC 파라미터 바인딩
+- V4처럼, `String`, `int`, `Integer` 등의 단순 타입이면 `@RequestParam`도 생략 가능
+	- 근데 이건 너무 과하지 않나..
+	- `@RequestParam`을 명시하면서 목적을 가시적으로 보여줄 수 있는게 더 좋다고 생각.
+
 
 ## HTTP 요청 파라미터 - @ModelAttribute
 

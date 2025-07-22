@@ -155,7 +155,7 @@ p.work();
 │    Native Method Stack    │ ← C/C++ native 메서드용
 └───────────────────────────┘
 ```
-
+- static 변수의 `값`은 Heap 영역에 저장됨
 
 **JVM 메모리 구조**
 ![[Pasted image 20250722094459.png]]

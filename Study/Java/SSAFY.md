@@ -186,3 +186,7 @@ public void addAll (int... params) {
 
 ## class 멤버와 instance 멤버간의 참조와 호출
 ![[Pasted image 20250722103928.png]]
+
+
+## 기본형 변수와 참조형 변수
+![[Pasted image 20250722105113.png]]

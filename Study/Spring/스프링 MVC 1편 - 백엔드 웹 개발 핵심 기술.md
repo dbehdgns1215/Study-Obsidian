@@ -4528,10 +4528,35 @@ GET 쿼리 파라미터 전송 방식이든, POST HTML Form 전송 방식이든 
 
 **RequestParamController**
 ```java
-
+package hello.springmvc.basic.request;  
+  
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException;  
+import lombok.extern.slf4j.Slf4j;  
+import org.springframework.stereotype.Controller;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+  
+@Slf4j  
+@Controller  
+public class RequestParamController {  
+  
+    // HttpServletRequest가 제공하는 getParameter 사용  
+    @RequestMapping("/request-param-v1")  
+    public void requestParamV1(HttpServletRequest request, HttpServletResponse response) throws IOException {  
+        String username = request.getParameter("username");  
+        int age = Integer.parseInt(request.getParameter("age"));  
+        log.info("username={}, age={}", username, age);  
+  
+        response.getWriter().write("ok");  
+    }  
+}
 ```
 
 ## HTTP 요청 파라미터 - @RequestParam
+스프링이 제공하는 `@RequestParam` 을 사용하면 요청 파라미터를 매우 편리하게 사용할 수 있다.
+
+`requestParamV2`
 
 
 

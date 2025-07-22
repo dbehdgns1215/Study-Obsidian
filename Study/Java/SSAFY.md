@@ -160,3 +160,7 @@ p.work();
 **JVM 메모리 구조**
 ![[Pasted image 20250722094459.png]]
 
+
+
+**static 변수**
+![[Pasted image 20250722101239.png]]

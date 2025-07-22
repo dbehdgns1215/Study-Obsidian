@@ -285,3 +285,4 @@ for (int i = 0; i < N; i++) {
 - `peek()`: 스택의 top에 있는 item을 반환
 - `isEmpty()`: 스택이 비어있는지 확인 (비어있으면 true)
 - `size()`: 스택의 사이즈 반환
+

@@ -169,3 +169,20 @@ p.work();
 - 지역 변수, 파라미터 매개 변수 -> Stack의 메서드 프레임 내부
 	- 소멸 시점 -> { } 을 벗어날 때
 
+## Variable arguments
+![[Pasted image 20250722103616.png]]
+```java
+main
+VariableTest vt = new VariableTest();
+vt.addAll(1, 2, 3);
+
+public void addAll (int... params) {
+	int sum = 0;
+	for (int i : params) {
+		sum += i;
+	}
+}
+```
+
+## class 멤버와 instance 멤버간의 참조와 호출
+![[Pasted image 20250722103928.png]]

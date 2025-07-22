@@ -1,5 +1,6 @@
 
-# BufferedReader 사용법
+# Day 1
+## BufferedReader 사용법
 ```java
 import java.io.BufferedReader;
 
@@ -27,7 +28,7 @@ System.out.print("5년 후 나이는 : " + (age1 + 5)); // 255 (String이 append
 System.out.print("5년 후 나이는 : " + (age2 + 5)); // 30 (연산이 이루어짐)
 ```
 
-# 정리
+## 정리
 ```java
 public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -53,7 +54,7 @@ public static void main(String[] args) throws IOException {
 ```
 
 
-# IO
+## IO
 
 ## 출력 형식 지정
 ![[Pasted image 20250721093600.png]]
@@ -65,7 +66,7 @@ public static void main(String[] args) throws IOException {
 	- 표현 범위의 크기 자체는 long(64bit), float(32bit)이나, 표현 범위는 float이 더 큼 (정밀도 손실은 존재)
 
 
-# Wrapper Class
+## Wrapper Class
 ![[Pasted image 20250721095631.png]]
 
 - 객체형은 기본형과 달리 추가적인 속성과 기능을 포함
@@ -107,6 +108,7 @@ Arrays.copyOf(int[] original, int newLength)
 	- 바깥 배열만 생성된거고 내부 배열은 아직 생성되지 않았기 때문.
 
 
+# Day 2
 ![[Pasted image 20250722091255.png]]
 - 만약 장미꽃이 아니라면?
 	- 다형성의 좋은 예

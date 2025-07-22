@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Study/PS/SSAFY.md",
+                "file": "Study/Java/SSAFY.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -163,12 +163,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,7 +180,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7bf72a14c86fc4eb",
+  "active": "beca35d2f72e106e",
   "lastOpenFiles": [
     "Pasted image 20250722101239.png",
     "Pasted image 20250722094459.png",

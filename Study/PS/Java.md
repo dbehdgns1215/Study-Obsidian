@@ -277,7 +277,9 @@ for (int i = 0; i < N; i++) {
 ```
 
 ## Stack
-- `push`: 저장소에 자료를 저장
-- `pop`: 저장소에서 자료를 꺼냄 (삭제)
-- `peek`: 스택의 top에 있는 item을 반환
-
+- `java.utl.Stack`
+- `push()`: 저장소에 자료를 저장
+- `pop()`: 저장소에서 자료를 꺼냄 (삭제)
+- `peek()`: 스택의 top에 있는 item을 반환
+- `isEmpty()`: 스택이 비어있는지 확인 (비어있으면 true)
+- `size()`: 스택의 사이즈 반환

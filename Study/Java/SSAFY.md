@@ -275,3 +275,4 @@ class Example {
 
 # Day 3
 
+## Inheritance

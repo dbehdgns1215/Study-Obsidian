@@ -4599,6 +4599,18 @@ public String requestParamV4(String username, int age) {
 	- 근데 이건 너무 과하지 않나..
 	- `@RequestParam`을 명시하면서 목적을 가시적으로 보여줄 수 있는게 더 좋다고 생각.
 
+```java
+@ResponseBody  
+@RequestMapping("/request-param-required") // 근데 사실 V3을 만족한다면 V4로 변환도 가능  
+public String requestParamRequired(  
+        @RequestParam(required = true) String username,  
+        @RequestParam(required = true) int age) {  
+    log.info("username={}, age={}", username, age);  
+    return "ok";  
+}
+```
+- `required` 옵션을 통해서 필수적으로 HTTP 파라미터 이름이 넘어와야 함.
+
 
 ## HTTP 요청 파라미터 - @ModelAttribute
 

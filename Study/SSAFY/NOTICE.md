@@ -59,4 +59,3 @@ eclipse.ini파일 안에 아래 내용 추가
 - Utils
 	- algo_submit - SWEA, 백준 코드 자동 변경
 	- SWEA COPYPASTA - 예제 입력 출력을 버튼 하나로
-

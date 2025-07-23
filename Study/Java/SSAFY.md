@@ -301,3 +301,5 @@ class Example {
 		- non-sealed: 봉인이 해제된 클래스로 자유롭게 상속 가능
 ![[Pasted image 20250723093603.png]]
 
+![[Pasted image 20250723095117.png]]
+

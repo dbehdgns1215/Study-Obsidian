@@ -348,4 +348,11 @@ public class LoadingSequenceTest {
 	- `private static LoadingSequenceTest lst = new LoadingSequenceTest(); `
 	- 해당 코드를 `int SIZE` 보다 아래로 옮긴다
 - 이유
-	- 
+	- 자바에서 클래스가 로드될 때, **static** (정적) 멤버들은 작성된 순서대로, 순차적으로 초기화 된다.
+	- 따라서, `private static LoadingSequenceTest`를 제일 먼저 초기화 하는 시점에서는 `static int SIZE` 가 0인 상태로 존재하기 때문.
+- 2번 해결법
+	- `private final static int SIZE = 10;`
+- 이유
+	- `final static` 상수는 컴파일 시점에 상수로 처리되어 순서에 상관 없음.
+
+

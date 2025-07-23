@@ -314,3 +314,38 @@ class Example {
 - 값이 할당되지 않은 멤버 변수
 	- final 멤버 변수에 초기 값이 할당되어 버리면 모든 객체는 같은 값을 사용해야 함.
 	- 객체가 생성되면 값을 변경할 기회가 없기 때문에 반드시 생성자에서 1회 초기화 가능 
+
+
+### Quiz
+```java
+package com.ssafy.day03.c_modifier.last;  
+  
+public class LoadingSequenceTest {  
+  
+	private static LoadingSequenceTest lst = new LoadingSequenceTest();  
+	// TODO: array의 length가 10이 될 수 있도록 코드를 개선해보자.  
+	private static int SIZE = 10;  
+	  
+	// END  
+	private int[] array;  
+	  
+	public static LoadingSequenceTest getInstance() {  
+		return lst;  
+	}  
+	  
+	private LoadingSequenceTest() {  
+		// 멤버 변수의 초기화  
+		array = new int[SIZE];  
+	}  
+  
+	public static void main(String[] args) {  
+		LoadingSequenceTest lst = LoadingSequenceTest.getInstance();  
+		System.out.println(lst.array.length);  
+	}  
+}
+```
+- 1번 해결법
+	- `private static LoadingSequenceTest lst = new LoadingSequenceTest(); `
+	- 해당 코드를 `int SIZE` 보다 아래로 옮긴다
+- 이유
+	- 

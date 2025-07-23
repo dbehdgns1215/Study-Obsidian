@@ -303,3 +303,9 @@ class Example {
 
 ![[Pasted image 20250723095117.png]]
 
+## Package
+- 일반적인 package naming 룰
+	- 소속, 프로젝트, 용도
+	- com.ssafy.hrm.common
+	- 주로 소속은 도메인 주소를 뒤집어서 사용
+- 

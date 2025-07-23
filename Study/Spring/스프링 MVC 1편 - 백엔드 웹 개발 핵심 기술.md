@@ -4634,8 +4634,14 @@ public String requestParamDefault(
 
 **파라미터를 Map으로 조회하기 - requestParamMap**
 ```java
-
+@ResponseBody  
+@RequestMapping("/request-param-map") // 근데 사실 V3을 만족한다면 V4로 변환도 가능  
+public String requestParamMap(@RequestParam Map<String, Object> paramMap) {  
+    log.info("username={}, age={}", paramMap.get("username"), paramMap.get("age"));  
+    return "ok";  
+}
 ```
+
 
 ## HTTP 요청 파라미터 - @ModelAttribute
 

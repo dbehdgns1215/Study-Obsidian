@@ -4641,7 +4641,11 @@ public String requestParamMap(@RequestParam Map<String, Object> paramMap) {
     return "ok";  
 }
 ```
-
+- MultiValueMap 으로도 조회 가능
+	- `@RequestParam Map`
+		- `Map(key=value)`
+	- `@RequestParam MultiValueMap`
+		- `MultiValueMap(key=[value1, value2, ...] ex) (key=userIds, value=[id1, id2])`
 
 ## HTTP 요청 파라미터 - @ModelAttribute
 

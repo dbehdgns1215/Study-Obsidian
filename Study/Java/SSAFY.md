@@ -279,9 +279,11 @@ class Example {
 
 >참고
 >인터페이스, 구현체, 업캐스팅과는 다르게 상속의 관계에서 생각해볼만한 내용
-`Stack<Integer> st = new Stack<>(); st.push(1); st.push(2); System.out.println(st.pop());  // 2`
- **주의할 점**
- 만약 `List`나 `Vector` 타입으로 선언하면, **`push()`, `pop()`, `peek()` 같은 Stack 고유 메서드는 호출할 수 없습니다**.
-이 메서드들은 `Stack` 클래스에만 정의되어 있기 때문이에요.
+	`Stack<Integer> st = new Stack<>(); st.push(1); st.push(2); System.out.println(st.pop());  // 2`
+  **주의할 점**
+	 만약 `List`나 `Vector` 타입으로 선언하면, **`push()`, `pop()`, `peek()` 같은 Stack 고유 메서드는 호출할 수 없습니다**.
+	이 메서드들은 `Stack` 클래스에만 정의되어 있기 때문이에요.
 
 
+
+## Sealed Class

@@ -4610,7 +4610,32 @@ public String requestParamRequired(
 }
 ```
 - `required` 옵션을 통해서 필수적으로 HTTP 파라미터 이름이 넘어와야 함.
+	- 만약, age 가 `required = false` 인 상태로, username="aa" 만 HTTP 요청을 보냈다면?
+		- **500 Error** 발생
+		- HTTP 스펙대로 보냈지만, age처럼 받지 못한 값들은 null을 넣어준다.
+		- 근데 int에는 null을 대입할 수 없어서 500 에러 발생..
+			- 이를 해결하기 위해선 `int age`를 `Integer age`로 수정해주면 됨
+			- 또는 `defaultValue`를 사용하면 됨
+- `required`의 기본 값은 `true`
+	- `username`이 `true`인데 요청에 포함 안시켰다면 **400 에러** 발생
+		- `null` 과 `""` 는 언뜻 보면 동일해 보이지만 그렇지 않고 명백히 다름.
 
+**DefaultValue**
+```java
+@ResponseBody  
+@RequestMapping("/request-param-default") // 근데 사실 V3을 만족한다면 V4로 변환도 가능  
+public String requestParamDefault(  
+        @RequestParam(required = true, defaultValue = "guest") String username,  
+        @RequestParam(required = false, defaultValue = "-1") int age) {  
+    log.info("username={}, age={}", username, age);  
+    return "ok";  
+}
+```
+
+**파라미터를 Map으로 조회하기 - requestParamMap**
+```java
+
+```
 
 ## HTTP 요청 파라미터 - @ModelAttribute
 

@@ -2,22 +2,16 @@
 
 ![[Pasted image 20250721160309.png]]
 
+**Pair in Java**
 ```java
-class Pair {
-	int x_, y_;
+public class Pair {
+    public int x;
+    public int y;
 
-	public Pair(int x_, int y_) {
-		this.x_ = x_;
-		this.y_ = y_;
-	}
-
-	public int y() {
-		return y_;
-	}
-
-	public int x() {
-		return x_;
-	}
+    public Pair(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 }
 ```
 

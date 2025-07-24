@@ -356,3 +356,4 @@ public class LoadingSequenceTest {
 	- `final static` 상수는 컴파일 시점에 상수로 처리되어 순서에 상관 없음.
 
 
+# Day 4

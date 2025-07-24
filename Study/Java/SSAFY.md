@@ -357,3 +357,9 @@ public class LoadingSequenceTest {
 
 
 # Day 4
+
+캡슐화를 이루어내는 방식
+- 변수는 private
+- getter/setter
+	- 그런데, getter 가 있는 데도 완전한 캡슐화라고 할 수 있는가?
+	- 

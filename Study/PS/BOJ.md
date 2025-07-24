@@ -1,0 +1,20 @@
+
+## BOJ_2206 - 벽 부수고 이동하기 \[G3]
+```memo
+if (board[ny][nx] == 1 && wallBreakCnt == 0) {
+	Q2.add... // 큐에 현재 좌표 넣고
+	BFS 계속 진행
+	wallBreakCnt++;
+}
+
+if (board[ny][nx] == 1 && wallBreakCnt == 1) {
+	wallBreakCnt--;
+	continue;
+}
+
+} // BFS 끝
+
+- 탐색이 끝났을 때, Q2에 있는 BP 부터 다시 BFS를 시작? -> 사실상 n^3이 아닌가?
+- Q2를 도입 안하고 하나의 큐로 이용한다면, 경로가 겹쳤을 때 dist를 어떻게 갱신해야하지?
+	- 그래서 탐색이 끝났을 때, 벽 만난 지점부터 다시 BFS를 다른 경로로 돌린다면 -> 이게 n^3인데????
+```

@@ -384,5 +384,13 @@ public void println(Object x) {
 ```
 - 여러 매개 변수를 받을 땐, `StringBuilder`가 개입함
 
+**equals()**
+- Object.equals()는, 같은 객체를 가리키고 있는지 확인함.
+```java
+String a = new String("hello");
+String b = new String("hello");
 
+System.out.println(a == b);       // false (다른 객체)
+System.out.println(a.equals(b));  // true (내용 같음)
 
+```

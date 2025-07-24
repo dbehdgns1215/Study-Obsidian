@@ -382,5 +382,7 @@ public void println(Object x) {
 	}
 }
 ```
+- 여러 매개 변수를 받을 땐, `StringBuilder`가 개입함
+
 
 

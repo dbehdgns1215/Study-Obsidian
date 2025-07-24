@@ -362,4 +362,13 @@ public class LoadingSequenceTest {
 - 변수는 private
 - getter/setter
 	- 그런데, getter 가 있는 데도 완전한 캡슐화라고 할 수 있는가?
-	- 
+		- 무분별한 getter 지양
+		- private final 멤버 변수를 setter로 단 한번 할당해주고 getter로 접근
+		- getter에서 값이 아닌 객체를 반환해주는 방식
+		- 마치 불변 객체를 이용하는 것처럼 구성하면 캡슐화 장점이 극대화 될 듯'
+			- 아니면 setter 대신, 생성자를 이용해서 생성하는 것도 좋은 방식임.
+				- setter 자체가 값을 할당하는 메서드니까, 외부 접근이 일어날 수도?
+
+
+
+

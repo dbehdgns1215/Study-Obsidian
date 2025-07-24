@@ -371,4 +371,14 @@ public class LoadingSequenceTest {
 
 
 
-
+## 매개변수의 다형성
+사실 println은..
+```java
+public void println(Object x) {
+	String s = String.valueOf(x);
+	synchronized (this) {
+		print(s);
+		newLine();
+	}
+}
+```

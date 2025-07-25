@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
+                "file": "Study/SSAFY/NOTICE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
+              "title": "NOTICE"
             }
           }
         ]
@@ -182,6 +182,7 @@
   },
   "active": "2e1e60c5ebd15399",
   "lastOpenFiles": [
+    "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Study/Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Study/Spring/스프링 핵심 원리 - 기본편.md",
     "Study/HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
@@ -190,7 +191,6 @@
     "Study/Java/자바 메모리 구조 (JVM 메모리 구조).md",
     "Study/Java/스레드(Thread).md",
     "Study/PS/Java.md",
-    "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Study/PS/SSAFY.md",
     "Study/PS/PS.md",
     "Study/PS/BOJ.md",

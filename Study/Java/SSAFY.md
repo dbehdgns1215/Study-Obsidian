@@ -406,4 +406,19 @@ System.out.println(a.equals(b));  // true (내용 같음)
 	- 멤버 구성
 		- 모든 멤버 변수는 public static final이며 생략 가능
 		- 모든 메서드는 public abstract이며 생략 가능
+- 클래스와 다른 점은 인터페이스는 다중 상속이 가능하다는 것
+
+```java
+interface Fightable{
+	int fire();
+}
+
+interface Transformable {
+	void changeShape(boolean isHeroMode);
+}
+
+public interface Heroable extends Fightable, Transformable {
+	void upgrade();
+}
+```
 

@@ -396,3 +396,14 @@ System.out.println(a.equals(b));  // true (내용 같음)
 ```
 
 
+# Day 5
+
+## Interface
+- 최고 수준의 추상화 단계: 일반 메서드는 모두 abstract 형태
+	- JDK 8에서 default method와 static method 추가
+- 형태
+	- 클래스와 유사하게 interface 선언
+	- 멤버 구성
+		- 모든 멤버 변수는 public static final이며 생략 가능
+		- 모든 메서드는 public abstract이며 생략 가능
+

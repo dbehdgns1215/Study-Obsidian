@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/PS/BOJ.md",
+                "file": "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BOJ"
+              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
             }
           }
         ]
@@ -182,23 +182,26 @@
   },
   "active": "2e1e60c5ebd15399",
   "lastOpenFiles": [
+    "Study/Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
+    "Study/Spring/스프링 핵심 원리 - 기본편.md",
+    "Study/HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
+    "Study/Java/Java.md",
+    "Study/Java/DI와 테스트의 용이함.md",
+    "Study/Java/자바 메모리 구조 (JVM 메모리 구조).md",
+    "Study/Java/스레드(Thread).md",
     "Study/PS/Java.md",
-    "Study/PS/SWEA.md",
+    "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Study/PS/SSAFY.md",
     "Study/PS/PS.md",
-    "Study/Java/SSAFY.md",
-    "Study/Java/Java.md",
-    "Study/Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
-    "Study/Java/DI와 테스트의 용이함.md",
     "Study/PS/BOJ.md",
+    "Study/PS/SWEA.md",
+    "Study/Java/SSAFY.md",
     "Study/PS/C++.md",
-    "Study/HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
     "Study/SSAFY/NOTICE.md",
     "Study/SSAFY/SSAFY.md",
     "Pasted image 20250723095117.png",
     "Pasted image 20250723093603.png",
     "Study/SSAFY",
-    "Study/Java/자바 메모리 구조 (JVM 메모리 구조).md",
     "Pasted image 20250722110157.png",
     "Pasted image 20250722105113.png",
     "Pasted image 20250722103928.png",
@@ -206,7 +209,6 @@
     "Pasted image 20250722101239.png",
     "Pasted image 20250722094459.png",
     "Pasted image 20250722092754.png",
-    "Pasted image 20250722092627.png",
-    "Study/Java/스레드(Thread).md"
+    "Pasted image 20250722092627.png"
   ]
 }

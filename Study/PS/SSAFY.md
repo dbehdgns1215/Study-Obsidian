@@ -68,8 +68,7 @@ Map<String, Integer> m = new LinkedHashMap<>();
 Map<String, Integer> m = new TreeMap<>();
 
 // ========== Stack (Deque로 구현 권장) ==========
-Deque<Integer> stack = new ArrayDeque<>();   // 추천
-Stack<Integer> legacyStack = new Stack<>();  // 구식 클래스 (비추천)
+Deque<Integer> s = new ArrayDeque<>();   // 추천
 
 // ========== PriorityQueue (Queue의 서브타입) ==========
 Queue<Integer> minHeap = new PriorityQueue<>();

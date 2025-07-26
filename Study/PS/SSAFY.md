@@ -4,14 +4,13 @@
 
 **Pair in Java**
 ```java
-public class Pair {
-    public int x;
-    public int y;
-
-    public Pair(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+static class Pair {
+	int x, y;
+	
+	public Pair(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
 }
 ```
 

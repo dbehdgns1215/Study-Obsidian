@@ -23,39 +23,56 @@ static class Pair {
 - Vector (권장 X)
 
 
+```text
+Collection<E> (인터페이스)
+├── List<E>
+│   ├── ArrayList<E>
+│   └── LinkedList<E>
+│
+├── Queue<E>
+│   ├── LinkedList<E>
+│   └── ArrayDeque<E>
+│
+└── Set<E>
+    ├── HashSet<E>
+    ├── LinkedHashSet<E>
+    └── TreeSet<E>
+
+Map<K, V> (인터페이스)
+├── HashMap<K, V>
+├── LinkedHashMap<K, V>
+└── TreeMap<K, V>
+```
 
 ```java
-// ======================= List =======================
-List<Integer> arrayList = new ArrayList<>();
-List<Integer> linkedList = new LinkedList<>();
+// ========== List 계열 ==========
+List<Integer> li = new ArrayList<>();
+List<Integer> li = new LinkedList<>();
 
-// ======================= Queue =======================
-Queue<Integer> linkedQueue = new LinkedList<>();
-Queue<Integer> arrayDequeQueue = new ArrayDeque<>();
+// ========== Queue 계열 ==========
+Queue<Integer> q = new LinkedList<>();
+Queue<Integer> q = new ArrayDeque<>();
 
-// ======================= Deque =======================
-Deque<Integer> linkedDeque = new LinkedList<>();
-Deque<Integer> arrayDeque = new ArrayDeque<>();
+// ========== Deque 계열 ==========
+Deque<Integer> dq = new LinkedList<>();
+Deque<Integer> dq = new ArrayDeque<>();
 
-// ======================= Stack =======================
-Deque<Integer> stack = new ArrayDeque<>(); // 추천 방식
-Stack<Integer> legacyStack = new Stack<>(); // 구식 방식 (비추천)
+// ========== Set 계열 ==========
+Set<Integer> s = new HashSet<>();
+Set<Integer> s = new LinkedHashSet<>();
+Set<Integer> s = new TreeSet<>();
 
-// ======================= Set =======================
-Set<Integer> hashSet = new HashSet<>();
-Set<Integer> treeSet = new TreeSet<>();             // 자동 정렬
-Set<Integer> linkedHashSet = new LinkedHashSet<>(); // 입력 순서 유지
+// ========== Map 계열 ==========
+Map<String, Integer> m = new HashMap<>();
+Map<String, Integer> m = new LinkedHashMap<>();
+Map<String, Integer> m = new TreeMap<>();
 
-// ======================= Map =======================
-Map<String, Integer> hashMap = new HashMap<>();
-Map<String, Integer> treeMap = new TreeMap<>();             // Key 기준 자동 정렬
-Map<String, Integer> linkedHashMap = new LinkedHashMap<>(); // 입력 순서 유지
+// ========== Stack (Deque로 구현 권장) ==========
+Deque<Integer> stack = new ArrayDeque<>();   // 추천
+Stack<Integer> legacyStack = new Stack<>();  // 구식 클래스 (비추천)
 
-// ======================= PriorityQueue =======================
-PriorityQueue<Integer> minHeap = new PriorityQueue<>(); // 오름차순
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder()); // 내림차순
-
-// ======================= 2D 구조, 좌표 처리 =======================
-boolean[][] visited = new boolean[100][100];           // 방문 체크 배열 
+// ========== PriorityQueue (Queue의 서브타입) ==========
+Queue<Integer> minHeap = new PriorityQueue<>();
+Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
 ```

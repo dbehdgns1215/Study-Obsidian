@@ -4710,7 +4710,23 @@ class HelloData {
 **바인딩 오류**
 `age = abc` 처럼 숫자가 들어가야 할 곳에 문자를 넣으면 `BindException`이 발생한다. 이런 바인딩 오류를 처리하는 방법은 검증 부분에서 다룬다.
 
+`@ModelAttribute 생략 - modelAttributeV2`
+```java
+@ResponseBody  
+@RequestMapping("/model-attribute-v2")  
+public String modelAttributeV2(HelloData helloData) {  
+    log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());  
+    log.info("hellodata={}", helloData);  
+  
+    return "ok";  
+}
+```
+- `@ModelAttribute`는 생략할 수 있다.
+- 그런데 `@RequestParam`도 생략할 수 있으니 혼란이 발생할 수 있다.
 
+스프링은 해당 생략시 다음과 같은 규칙을 적용한다.
+- `String`, `int`, `Integer` 같은 단순 타입 = `@RequestParam`
+- 나머지 = `@ModelAttribute` (argument resolver로 지정해둔 타입 외)
 
 
 

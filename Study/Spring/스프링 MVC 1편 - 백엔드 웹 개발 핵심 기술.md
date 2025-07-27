@@ -4695,6 +4695,24 @@ public String modelAttributeV1(@ModelAttribute HelloData helloData) {
 - 요청 파라미터의 이름으로 `HelloData`객체의 프로퍼티를 찾는다. 그리고 해당 프로퍼티의 setter를 호출해서 파라미터의 값을 입력(바인딩) 한다.
 - 예) 파라미터의 이름이 `username`이면, `setUsername()` 메서드를 찾아서 호출하면서 값을 입력한다.
 
+> `@RequestParam`은 수동 바인딩이고 `@ModelAttribute`는 자동 바인딩이다.
+
+**프로퍼티**
+객체에 `getUsername()`, `setUsername()` 메서드가 있으면 이 객체는 `username`이라는 프로퍼티를 가지고 있다.
+`username`프로퍼티의 값을 변경하면 `setUsername()`이 호출되고, 조회하게 되면 `getUsername()`이 자동으로 호출된다.
+```java
+class HelloData {
+	getUsername();
+	setUsername();
+}
+```
+
+**바인딩 오류**
+`age = abc` 처럼 숫자가 들어가야 할 곳에 문자를 넣으면 `BindException`이 발생한다. 이런 바인딩 오류를 처리하는 방법은 검증 부분에서 다룬다.
+
+
+
+
 
 
 ## HTTP 요청 메시지 - 단순 텍스트

@@ -4658,6 +4658,26 @@ data.setUsername(username);
 data.setAge(age);
 ```
 
+스프링은 이 과정을 완전히 자동화해주는 `@ModelAttribute`기능을 제공한다.
+
+먼저 요청 파라미터를 바인딩 받을 객체를 만들자.
+
+`helloData`
+```java
+package hello.springmvc.basic;  
+  
+import lombok.Data;  
+  
+@Data  
+public class HelloData {  
+    private String username;  
+    private Integer age;  
+}
+```
+- 롬복 `@Data`
+	- `@Getter`, `@Setter`, `@ToString`, `@EqualsAndHashCode`, `@RequiredArgsConstructor`를 자동으로 적용해준다.
+
+
 
 ## HTTP 요청 메시지 - 단순 텍스트
 

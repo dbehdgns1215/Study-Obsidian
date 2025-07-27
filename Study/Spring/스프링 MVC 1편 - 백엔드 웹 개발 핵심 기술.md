@@ -4648,7 +4648,15 @@ public String requestParamMap(@RequestParam Map<String, Object> paramMap) {
 		- `MultiValueMap(key=[value1, value2, ...] ex) (key=userIds, value=[id1, id2])`
 
 ## HTTP 요청 파라미터 - @ModelAttribute
+실제 개발을 하면 요청 파라미터를 받앙서 필요한 객체를 만들고 그 객체에 값을 넣어주어야 한다. 보통 다음과 같이 코드를 작성할 것이다.
+```java
+@RequestParam String username;
+@RequestParam int age;
 
+HelloData data = new HelloData();
+data.setUsername(username);
+data.setAge(age);
+```
 
 
 ## HTTP 요청 메시지 - 단순 텍스트

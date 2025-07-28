@@ -502,3 +502,26 @@ public void genericArray() {
 	System.out.println(boxes3[1].getSome());
 }
 ```
+
+
+
+**한정형 형인자(bounded type parameter)**
+- 필요에 따라 구체적인 타입 제한 필요
+	- 계산기 프로그램 구현 시 Number 이하의 타입(Byte, Short, Integer...)로만 제한
+		- type parameter 선언 뒤 extends 와 함께 상위 타입 명시
+```java
+class NumberBox<T extends Number> {
+	public void addSomes(T... ts) {
+		double d = 0;
+		for (T t : ts) {
+			d += t.doubleValue();
+		}
+		System.out.println("총 합은: " + d);
+	}
+}
+```
+- 인터페이스로 제한할 경우에도 `implement` 대신 `extends` 사용
+- 클래스와 함께 인터페이스 제약 조건을 이용하라 경우 &로 연결
+`class TypeRestrict1<T extends Compiler & ClassA>{}`
+
+

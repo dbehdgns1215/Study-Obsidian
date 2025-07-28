@@ -847,3 +847,21 @@ public int hashCode() {
 	- Set에서는 SortedSet 계열
 	- Map에서는 SortedMap 계열 (key 기준)
 
+**Comparable**
+```java
+public interface Comparable<T> {
+	public int compareTo(T o);
+}
+```
+
+> 양수 : 자리 바꿈
+> 음수 : 자리 유지
+> 0 : 동일 위치
+
+
+```java
+@Override
+public int compareTo(SmartPhone o) {
+	return this.number.compareTo(o.number);
+}
+```

@@ -748,3 +748,4 @@ public @interface Targer {
 	![[Pasted image 20250728141312.png]]
 - 관련 클래스 관계도
 ![[Pasted image 20250728141328.png]]
+- 과거 버전들은 Thread Safe 하고, 그 외의 것들은 Thread Safe 하지 않음.

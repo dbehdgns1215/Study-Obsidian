@@ -630,3 +630,26 @@ Grade grade = Grade.SALES;
 **Enum의 주요 메서드**
 - java.lang.Enum의 메서드
 ![[Pasted image 20250728103825.png]]
+
+- 자체 멤버 추가
+	- 일반 클래스처럼 Enum에도 멤버 변수, 메서드 추가 가능
+	- 단, enum 상수 선언 끝에 ; 추가 필요
+
+```java
+enum Greeting {
+	GOOD_MORNING("좋은 아침");
+	GOOD_AFTERNOON("오후도 힘내");
+	GOOD_EVENING("오늘도 수고했어");
+
+	private String message;
+
+	Greeting(String message) {
+		this.message = message;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+}
+```
+

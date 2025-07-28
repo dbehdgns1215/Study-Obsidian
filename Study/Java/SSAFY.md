@@ -738,3 +738,13 @@ public @interface Targer {
 	- value의 중복은 가능
 		- ex) 속성 - 값, 지역번호 - 지역
 	- 대표적 구현체: HashMap, TreeMap
+
+
+
+## List
+- 특징
+	- 입력 순서가 있는 데이터의 집합
+	- 입력 순서가 있으므로 데이터의 중복을 허락
+	![[Pasted image 20250728141312.png]]
+- 관련 클래스 관계도
+![[Pasted image 20250728141328.png]]

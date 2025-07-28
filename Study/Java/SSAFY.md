@@ -865,3 +865,19 @@ public int compareTo(SmartPhone o) {
 	return this.number.compareTo(o.number);
 }
 ```
+
+**Comparator**
+- 객체가 Comparable을 구현하고 있지 않거나 사용자 정의 알고리즘으로 정렬하려는 경우
+	- String을 알파벳 순이 아닌 글자 수로 정렬하려면?
+- `sort(List<T> list, Comparator<? Super T> c)`
+
+```java
+public interface Comparator<T> {
+	int compare(T o1, T o2);
+}
+```
+
+> 양수 : 자리 바꿈
+> 음수 : 자리 유지
+> 0 : 동일 위치
+

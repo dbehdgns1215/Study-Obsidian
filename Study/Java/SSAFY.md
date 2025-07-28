@@ -836,4 +836,6 @@ public int hashCode() {
 
 **Map Interface의 주요 메서드**
 ![[Pasted image 20250728152240.png]]
-
+- HashMap에서는 putifAbsent()가 있음.
+	- 값이 없을 때만 추가하는 메서드
+- 

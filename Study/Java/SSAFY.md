@@ -881,3 +881,8 @@ public interface Comparator<T> {
 > 음수 : 자리 유지
 > 0 : 동일 위치
 
+- 1회성 객체 사용시 anonymous inner class 사용
+	- 클래스 정의, 객체 생성을 한 번에 처리할 수 있음
+```java
+Collections.sort(names, new Comparator<String>)
+```

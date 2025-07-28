@@ -423,3 +423,17 @@ public interface Heroable extends Fightable, Transformable {
 ```
 
 # Day 6
+
+## Generics
+- 다양한 타입의 객체를 다루는 메서드, 컬렉션 클래스에서 컴파일시에 타입을 체크함
+	- 미리 사용할 타입을 명시해서 형변환을 하지 않아도 되게 함
+
+`public interface Interface_Name<T>()`
+`public class Class_Name<T>{}`
+- `<T>`: 형인자(Type Parameter)
+	- 단순히 임의의 참조형 타입을 말하며 성격에 따라 선언 (T: reference Type, E: Element, K: Key, V: Value)
+- 객체 생성
+	- 변수 쪽과 생성 쪽의 타입은 반드시 같아야 함. (상속 관계 등 X)
+	- `ClassName<Number> generic = new ClassName<Number>();`
+	- `ClassName<Number> generic = new ClassName<>();` (자바 7 이후 생략 가능)
+	- `ClassName rawType = new ClassName()` (컴파일 경고 발생)

@@ -790,3 +790,49 @@ public @interface Targer {
 - 관련 클래스 관계도
 ![[Pasted image 20250728150633.png]]
 
+```java
+// TODO: 동일한 번호의 SmartPhone이면 하나만 추가될 수 있도록 처리하시오.
+
+@Override
+public boolean equals(Object obj) {
+	if (obj instanceof SmartPhone sphone) {
+	return sphone.number.equals(this.number);
+	}
+	return false;
+}
+
+// 이 객체가 가질 수 있는 unique한 값을 만들어주는 메서드
+@Override
+public int hashCode() {
+	return this.number.hashCode();
+}
+// END
+```
+
+```text
+`HashSet`은 내부적으로 `HashMap`을 사용한다.
+
+원소를 추가할 때 **1단계**로 `hashCode()`를 호출해 어느 버킷(bucket)에 저장할지 결정한다.  
+그리고 같은 해시코드를 가진 객체가 이미 있다면, **2단계**로 `equals()`를 호출해 실제로 같은 객체인지 확인한다.
+
+따라서 `hashCode()`와 `equals()`를 **둘 다 일관되게 오버라이딩**해야 한다.  
+이렇게 해야만 `HashSet`이 값이 같은 객체를 **중복으로 저장하지 않고 하나만 유지**할 수 있다.
+
+반대로 하나만 오버라이딩하거나 둘 다 기본 구현을 쓰면,  
+객체는 주소값 기준으로만 비교되어 같은 값이라도 서로 다른 객체로 취급되어 중복 저장될 수 있다.
+```
+
+
+## Map Interface
+- 특징
+	- Key와 Value를 하나의 Entry로 묶어서 데이터 관리
+		- key : Object 형태로 데이터 중복을 허락하지 않음
+		- Value : Object 형태로 데이터 중복이 허락됨.
+![[Pasted image 20250728152144.png]]
+- 관련 클래스 관계도
+![[Pasted image 20250728152154.png]]
+- 일반적으로는 HashMap
+- 정렬이 필요하면 TreeMap
+
+**Map Interface의 주요 메서드**
+![[Pasted image 20250728152240.png]]

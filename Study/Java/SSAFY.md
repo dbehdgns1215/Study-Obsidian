@@ -714,3 +714,28 @@ public @interface Targer {
 @SuppressWarnings({"unused", "rawtypes"})
 ```
 
+## Collection Framework
+- java.util 패키지
+	- 다수의 데이터를 쉽게 처리하는 방법 제공 -> DB 처럼 CRUD 기능 중요
+- collection framework 핵심 interface
+
+![[Pasted image 20250728141000.png]]
+
+- List
+	- 입력 순서가 있는 데이터의 집합.
+	- 순서가 있으니까 데이터의 중복을 허락
+		- ex) 일렬로 줄 서기
+	- 대표적 구현체: ArrayList, LinkedList
+- Set
+	- 입력 순서를 유지하지 않는 데이터의 집합.
+	- 순서가 없어서 같은 데이터 구별할 수 없음
+	- 중복 허락 X
+		- ex) 알파벳이 한 종류씩 들어있는 주머니
+	- 대표적 구현체: HashSet, TreeSet
+- Map
+	- key와 value의 쌍으로 데이터를 관리하는 집합.
+	- 순서는 없고 key의 중복은 불가.
+	- value의 중복은 가능
+		- ex) 속성 - 값, 지역번호 - 지역
+	- 대표적 구현체: HashMap, TreeMap
+

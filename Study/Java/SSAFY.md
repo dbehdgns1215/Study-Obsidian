@@ -749,3 +749,9 @@ public @interface Targer {
 - 관련 클래스 관계도
 ![[Pasted image 20250728141328.png]]
 - 과거 버전들은 Thread Safe 하고, 그 외의 것들은 Thread Safe 하지 않음.
+
+**주요 메서드**
+![[Pasted image 20250728141752.png]]
+- List의 조회, 만약 찾지 못하면 `-1` 을 반환
+
+

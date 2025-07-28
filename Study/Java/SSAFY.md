@@ -838,4 +838,12 @@ public int hashCode() {
 ![[Pasted image 20250728152240.png]]
 - HashMap에서는 putifAbsent()가 있음.
 	- 값이 없을 때만 추가하는 메서드
+
+
+
+## 정렬
+- 정렬 가능한 Collection
+	- 배열, List 계열
+	- Set에서는 SortedSet 계열
+	- Map에서는 SortedMap 계열 (key 기준)
 - 

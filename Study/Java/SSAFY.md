@@ -441,4 +441,45 @@ public interface Heroable extends Fightable, Transformable {
 
 **주의사항**
 - raw type의 사용과 `@SuppresWarning`
-	- 
+	- 무분별한 사용은 금지
+```java
+@SuppressWarnings({"rawtypes", "unused"})
+public void useRawType() {
+GenericBox box = new GenericBox();
+}
+```
+
+- 헷갈리는 사용법
+```java
+public void confusing() {
+	GenericBox<Person> pbox = new GenericBox<>();
+	pbox.setSome(new Person());
+	pbox.setSome(new SpiderMan());
+	// pbox = new GenericBox<SpiderMan>(); // 가능할까?
+}
+```
+- pbox는 Person 타입을 담을 수 있다.
+	- Person을 담는 박스와 SpiderMan을 담는 박스는 상속 관계가 없다.
+
+- 타입 파라미터는 인스턴스 레벨에서 결정됨
+	- 클래스 레벨의 static 멤버에서는 사용할 수 없음
+	- `static I item; //Cannot make a static reference to the non-static type T`
+
+- Generic은 컴파일 타입에 지정한 타입으로 존재 -> 런타임에는 타입 정보 소거(Type Erasure: 단순 Object로 관리)
+	- Compiler가 이미 타입을 체크했기 때문에 runtime에는 자유롭게 사용
+	- runtime에 동작하는 new, instanceof 키워드 사용 불가
+```java
+I i = new I(); // compile error: Cannot instantiate the type I
+
+GenericBox<SpiderMan> obj new GenericBox<>(); // compile error: Type Object cannot be safely cast to GenericBox<String>
+
+if (obj instanceof GenericBox gb) {
+	System.out.println("맞지만 타입에 안전하지 않음");
+	gb.setSome("Hello"); // 에러는 아니지만 타입에 안전하지 않음
+}
+
+if (obj instanceof GenericBox<?>) {
+	Sysyem.out.println("이것이 최선: 타입이 훼손될 일은 없다.");
+}
+```
+

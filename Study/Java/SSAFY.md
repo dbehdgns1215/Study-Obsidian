@@ -623,3 +623,10 @@ Grade grade = Grade.SALES;
 
 ![[Pasted image 20250728103120.png]]
 
+**Enum을  이용한 연산**
+- 비교 연산에서 주로 사용
+	- `==`, `equals`: 두 개의 enum 상수 값이 같은지 비교 (주로 `equals`)
+
+**Enum의 주요 메서드**
+- java.lang.Enum의 메서드
+![[Pasted image 20250728103825.png]]

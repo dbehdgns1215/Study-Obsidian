@@ -894,3 +894,19 @@ Collections.sort(names, new Comparator<String>() {
 });
 ```
 
+
+
+
+
+
+
+
+--- 
+
+## 추상 Class 객체 생성법
+1. 구현한 하위 class 참조
+2. 자신의 객체를 Return하는 static method
+3. 외부 Class를 이용
+4. 자신의 생성자 이용 (익명 클래스)
+
+

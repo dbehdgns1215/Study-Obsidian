@@ -553,5 +553,72 @@ public static void main(String[] args) {
 		- `Generic_type <? extends T>`
 		- `Generic_type <? super T>`
 
+- PECS
+	- Producer Extens: 제네릭 타입이 데이터를 생산하여 외부로 공급하는 역할
 
+```java
+void useWildCardType2(GenericBox<? extends Person> boxEntendsPerson) {
+}
+```
 
+	 - Consume Super: 제네릭 타입이 데이터를 소비하는 역할(제네릭 타입에 추가, 수정)
+```java
+void useWildCardType3(GenericBox<? super Person> boxSuperPerson) {
+}
+```
+
+**Generic Type 객체를 할당 받을 떄 와일드 카드 사용**
+- java.util.List.addAll
+```java
+public interface List<E> extends Collection<E> {
+	boolean addAll(int index, Collection<? extends E> c);
+}
+```
+![[Pasted image 20250728102508.png]]
+
+- 만약 `List<Person>`에 다른 요소들을 추가하는데 Collection의 타입 파라미터가
+- `E` 였다면?
+	- `List<Person> 만 처리` - `List<SpiderMan>`을 추가할 수 없음
+- `<?>` 였다면?
+	- 모든 대상을 받겠다는 얘기
+		- 안됨
+- `<? super E>` 였다면?
+	- Object를 받겠다는 얘기
+		- 안됨
+
+타입을 콕 집어버리면 하위에 있는 애들을 처리할 수 없음.
+
+- java.util.Arrays.compare
+```java
+public static <T> int compare(T[] a, T[] b, Comparator<? super T> cmp) {}
+```
+![[Pasted image 20250728102520.png]]
+
+- 만약 SpiderMan을 비교하는데 Comparator의 타입 파라미터가
+	- `T` 였다면?
+		- SpiderMan 만 처리 - `Comparator<SpiderMan>`이 없으므로 처리 불가
+		- 여러 타입을 받으려면 와일드 카드가 필요함
+	- `<?>` 였다면?
+		- 모두의 기준으로 사용 가능 - 처리할 수 없음
+	- `<? extends E>` 였다면?
+		- `Comparator<Venom>`을 받겠다는 이야기 - 원하는 게 아님
+
+## Enum
+- 열거형 데이터 타입
+	- 데이터가 몇가지 한정된 값(주로 상수들)만을 갖는 형태로 구성되는 경우
+		- 요일, 월, 계절 등
+	- java.langEnum을 내부적으로 상속 받은 형태의 특별한 클래스
+		- class 대신 enum 키워드 사용
+
+```java
+enum Grade{
+	SALES, PART_TIME_JOB, NORMAL
+}
+```
+- Enum 타입에 선언된 내용은 enum 상수로 불림: 일반적인 상수 선언의 컨벤션을 따름
+
+```java
+Grade grade = Grade.SALES;
+```
+
+![[Pasted image 20250728103120.png]]

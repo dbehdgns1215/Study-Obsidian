@@ -884,5 +884,13 @@ public interface Comparator<T> {
 - 1회성 객체 사용시 anonymous inner class 사용
 	- 클래스 정의, 객체 생성을 한 번에 처리할 수 있음
 ```java
-Collections.sort(names, new Comparator<String>)
+Collections.sort(names, new Comparator<String>() {
+	@Override
+	public int compare(String o1, String o2) {
+		int len1 = o1.length();
+		int len2 = o2.length();
+		return Integer.compare(len1, len2) * -1;
+	}
+});
 ```
+

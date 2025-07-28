@@ -478,8 +478,27 @@ if (obj instanceof GenericBox gb) {
 	gb.setSome("Hello"); // 에러는 아니지만 타입에 안전하지 않음
 }
 
-if (obj instanceof GenericBox<?>) {
+if (obj instanceof GenericBox<?>) { // wild card 사용
 	Sysyem.out.println("이것이 최선: 타입이 훼손될 일은 없다.");
 }
 ```
 
+- Generic 타입의 배열 생성 불가
+	- `GenericBox<String> [] boxes1 = new GenericBox<>[3];`
+	- 배열은 runtime에 객체의 저보를 유지하고 동일한 타입의 객체만 처리함
+	- 만약 `GenericBox<T>[]`이 된다고 가정했을 때는 runtime에 GenericBox[]로 변경됨
+		- T가 Integer였을 때 runtime에는 box에 뭐든지 들어가버림
+
+- raw 타입 객체의 형변환 주의
+	- 실제 메모리에는 모든 객체를 담을 수 있으므로 형이 보장되지 못함
+
+```java
+public void genericArray() {
+	GenericBox<Person>[] boxes3 = (GenericBox<Person>[]) new GenericBox[3];
+	boxes3[0] = new GenericBox<Person>();
+	GenericBox<String> box = new GenericBox<>("Hello");
+	
+	boxes3[1] = (GenercBox) (box);
+	System.out.println(boxes3[1].getSome());
+}
+```

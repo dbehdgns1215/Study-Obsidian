@@ -836,3 +836,4 @@ public int hashCode() {
 
 **Map Interface의 주요 메서드**
 ![[Pasted image 20250728152240.png]]
+

@@ -548,7 +548,7 @@ public static void main(String[] args) {
 **와일드 카드(?) 자료형**
 - 제네릭 타입 변수 선언시 실제 type parameter가 무엇인지 모르거나 신경쓰고 싶지 않을 경우
 	- 비한정형 와일드카드 자료형
-		- `Generic_type<?>`
+		- `Generic_type <?>`
 	- 한정형 와일드카드 자료형
 		- `Generic_type <? extends T>`
 		- `Generic_type <? super T>`

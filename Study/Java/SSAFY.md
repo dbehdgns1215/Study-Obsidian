@@ -653,3 +653,33 @@ enum Greeting {
 }
 ```
 
+
+**Annotation**
+- 컴파일러, JVM, 프레임워크 등이 보는 주석으로 소스코드에 메타 데이터를 삽입하는 형태
+	- 코드에 대한 정보 추가 -> 소스 코드의 구조 변경, 환경 설정 정보 추가 등의 작업 진행
+
+- JDK의 기본 Annotation의 예
+	- `@Deprecated`
+		- 컴파일러에게 해당 메서드가 deprecated 되었다고 알려줌
+	- `@Override`
+		- 컴파일러에게 해당 메서드는 override했다고 알려줌
+	- `@SuppressWarings`
+		- 컴파일러에게 사소한  warning의 경우 신경쓰지 말라고 알려줌
+
+- 선언
+	- interface와 유사하게 @interface 사용
+- 구성
+	- `@Target`, `@Retention` 등 메타 Annotation
+![[Pasted image 20250728104540.png]]
+
+- Annotation 설정을 위한 Annotation
+	- `@Document`: JavaDoc을 만들 때, Annotation이 문서에 표시되어야 함
+	- `@Inherited`: Annotation이 하위 클래스에 상속됨
+	- `@Repeatable`: 해당 Annotation이 반복해서 적용될 수 있는지 표시
+
+- 메타 Annotation
+	- `@Retention`: 어느 단계까지 Annotation 정보를 유지할 것인가?
+		- `RetentionPolicy enum`의 항목 중 용도에 맞춰 하나 선택 가능
+		- `RetentionPolicy`의 상수 값
+![[Pasted image 20250728104836.png]]
+

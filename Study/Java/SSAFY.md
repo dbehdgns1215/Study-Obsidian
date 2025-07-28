@@ -772,3 +772,12 @@ public @interface Targer {
 - 데이터 삭제 및 추가
 ![[Pasted image 20250728144243.png]]
 
+**ArrayList vs LinkedList**
+![[Pasted image 20250728144427.png]]
+
+- 결론
+	- 특정 클래스가 좋고 나쁨이 아니라, 용도에 적합하게 사용해야 함.
+	- 소량의 데이터를 가지고 사용할 경우에는 큰 차이가 없음
+	- 정적인 데이터 활용, 단순한 데이터 조회용 : ArrayList
+	- 동적인 데이터 추가, 삭제가 많은 작업 :LinkedList
+

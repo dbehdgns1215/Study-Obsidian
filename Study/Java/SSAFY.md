@@ -525,3 +525,22 @@ class NumberBox<T extends Number> {
 `class TypeRestrict1<T extends Compiler & ClassA>{}`
 
 
+**Generic Method**
+- 파라미터와 리턴 타입으로 type parameter를 갖는 메서드
+	- 메서드 리턴 타입 앞에 타입 파라미터 변수 선언
+```java
+public class TypeParameterMethodTest<T> { // 객체 생성시 T 결정, 전체 객체에게 영향 줌
+}
+
+public <P> P method(P p) { // 메서드 호출시 P 결정, 메서드 내에서만 영향 줌줌
+	System.out.printf("클래스..."
+	return p;
+}
+
+public static void main(String[] args) {
+	TypeParameterMethodTest<String> tpmt = new TypeParameterMethodTest<>("Hello");
+	tpmt.<Long>method(20L); // 타입이 Long
+	tpmt.method<10>; // 타입이 Integer
+	}
+```
+

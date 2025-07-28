@@ -738,4 +738,3 @@ public @interface Targer {
 	- value의 중복은 가능
 		- ex) 속성 - 값, 지역번호 - 지역
 	- 대표적 구현체: HashMap, TreeMap
-

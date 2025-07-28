@@ -781,3 +781,12 @@ public @interface Targer {
 	- 정적인 데이터 활용, 단순한 데이터 조회용 : ArrayList
 	- 동적인 데이터 추가, 삭제가 많은 작업 :LinkedList
 
+## Set Interface
+- 특징
+	- 입력 순서를 관리하지 않고 주머니에 구슬(데이터)을 넣는 형태
+	- 데이터를 구별할 순서(idx)가 없어서 중복이 허용되지 않음
+		- 효율적인 중복 데이터 제거 수단
+![[Pasted image 20250728150625.png]]
+- 관련 클래스 관계도
+![[Pasted image 20250728150633.png]]
+

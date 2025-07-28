@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "9d41ebb5ac55ef84",
@@ -182,6 +183,9 @@
   },
   "active": "c3e7a65865e9f7bb",
   "lastOpenFiles": [
+    "Pasted image 20250728144243.png",
+    "Pasted image 20250728144233.png",
+    "Pasted image 20250728144132.png",
     "Pasted image 20250728141752.png",
     "Pasted image 20250728141748.png",
     "Pasted image 20250728141328.png",
@@ -190,9 +194,6 @@
     "Pasted image 20250728105215.png",
     "Pasted image 20250728105054.png",
     "Pasted image 20250728104836.png",
-    "Pasted image 20250728104540.png",
-    "Pasted image 20250728103825.png",
-    "Pasted image 20250728103120.png",
     "Study/Java/Java.md",
     "Study/PS/Java.md",
     "Study/SSAFY/STUDY.md",

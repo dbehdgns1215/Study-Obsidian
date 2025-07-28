@@ -683,3 +683,34 @@ enum Greeting {
 		- `RetentionPolicy`의 상수 값
 ![[Pasted image 20250728104836.png]]
 
+- `@Target`: Annotation을 어디에서 사용할 수 있는가?
+```java
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.ANNOTATION_TYPE)
+public @interface Targer {
+	ElementType[] valuse();
+}
+```
+![[Pasted image 20250728105054.png]]
+
+- 속성
+	- 추상 메서드처럼 선언
+		- 메서드 이름 = 속성명, 리턴 타입 = 속성의 타입
+![[Pasted image 20250728105215.png]]
+- 일반 속성처럼 '키 = 값' 으로 사용
+	- 설정하는 속성이 valuse 하나인 경우, 속성 생략 가능
+	- 배열 {}를 쓰는데, 길이가 1일 때는 {} 생략 가능
+	- 속성은 default 값을 가질 수 있으며 이 경우 속성 설정 생략 가능
+	- 속성이 value 하나일 경우에는 key 값인 value 생략 가능 (주로 빈번히 사용되는 속성)
+
+```java
+// 키 = 값 형태로 배열 할당
+@SuppressWarnings(valus = {"unused", "rawtypes"})
+
+// 배열이지만 값이 하나인 경우는 중괄호 생략 가능
+@SuppressWarnings(value = "unused")
+
+// 할당하려는 속성이 하나일 경우에는 key 값 생략 가능
+@SuppressWarnings({"unused", "rawtypes"})
+```
+

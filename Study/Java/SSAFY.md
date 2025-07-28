@@ -437,3 +437,8 @@ public interface Heroable extends Fightable, Transformable {
 	- `ClassName<Number> generic = new ClassName<Number>();`
 	- `ClassName<Number> generic = new ClassName<>();` (자바 7 이후 생략 가능)
 	- `ClassName rawType = new ClassName()` (컴파일 경고 발생)
+
+
+**주의사항**
+- raw type의 사용과 `@SuppresWarning`
+	- 

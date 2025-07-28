@@ -422,3 +422,4 @@ public interface Heroable extends Fightable, Transformable {
 }
 ```
 
+# Day 6

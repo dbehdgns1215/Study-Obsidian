@@ -1170,7 +1170,22 @@ list.stream().mapToInt(data -> {
 **중간 처리**
 ![[Pasted image 20250729104815.png]]
 
-
 **최종 처리**
 ![[Pasted image 20250729104918.png]]
 
+**중간 처리: 정렬**
+![[Pasted image 20250729105637.png]]
+
+**중간 처리: 매핑(변환)**
+![[Pasted image 20250729105656.png]]
+![[Pasted image 20250729105712.png]]
+
+**최종 처리: 매칭**
+![[Pasted image 20250729105809.png]]
+
+
+**최종 처리:  집계(aggregate) - 통계**
+![[Pasted image 20250729105834.png]]
+
+**최종 처리:  사용자 정의 집계 처리 - reduce()**
+![[Pasted image 20250729105907.png]]

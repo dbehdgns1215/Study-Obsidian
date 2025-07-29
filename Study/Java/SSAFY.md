@@ -1145,3 +1145,22 @@ set.parallelStream().forEach(System.out::println); // 병렬 처리 (:: 있음 �
 	- Collection, 배열, File, Random 및 Stream 클래스의 static 또는 default method로 생성
 ![[Pasted image 20250729103906.png]]
 
+
+**단계별 주요 처리 메서드**
+![[Pasted image 20250729104415.png]]
+- 중간 처리는 최종 처리가 진행될 때까지 지연됨
+```java
+list.stream().mapToInt(data -> {
+	System.out.println("문자열의 길이: " + data);
+	return data.length();
+});
+```
+- 최종 처리가 없으므로 중간 처리는 지연(LAZY) -> 출력 없음
+
+```java
+list.stream().mapToInt(data -> {
+	System.out.println("문자열의 길이: " + data);
+	return data.length();
+}).sum();
+```
+- 최종 처리 시 중간 처리 일괄 진행 -> 출력 진행

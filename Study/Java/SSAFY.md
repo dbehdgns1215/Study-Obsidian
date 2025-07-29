@@ -1100,3 +1100,16 @@ names.forEach(System.out::println);
 - 배열 및 Collection의 요소를 하나씩 참조해서 처리하는 목적
 	- 람다와 내부 반복자를 이용해 컬렉션을 다루는 코드를 간결화
 
+```java
+public void streamStyle() {
+	double avg = heroes.stream()
+						.mapToInt(String::length)  // 글자 수로 변환
+						.filter(len -> len > 3)    // 필터링
+						.average()                 // 평균
+						.getAsDouble();            // 결과
+	System.out.println(avg);
+}
+```
+
+
+

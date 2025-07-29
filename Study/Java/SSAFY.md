@@ -1111,5 +1111,15 @@ public void streamStyle() {
 }
 ```
 
+**Stream API의 역할 및 특징**
+- 컬렉션 배열 등 데이터 소스에 대한 공통된 접근 방식 제공
+![[Pasted image 20250729103253.png]]
+
+- 손쉬운 병렬 처리
+```java
+set        .stream().forEach(System.out::println); // 순차 처리 (:: 있음 주의)
+set.parallelStream().forEach(System.out::println); // 병렬 처리 (:: 있음 주의)
+```
+
 
 

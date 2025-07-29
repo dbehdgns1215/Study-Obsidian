@@ -1134,3 +1134,14 @@ set.parallelStream().forEach(System.out::println); // 병렬 처리 (:: 있음 �
 - 최종 처리는 최종적으로 원하는 값(void 포함)을 반환
 	- 한 번 최종 처리가 끝난 스트림은 재사용 불가
 
+**Stream의 종류와 획득**
+- java.util.stream package에 정의
+- 종류
+	- Stream - 객체 요소에 대한 처리
+	- IntStream, LongStream, DoubleStream - 각각 int, long, double 데이터 처리
+![[Pasted image 20250729103825.png]]
+
+- Stream의 획득
+	- Collection, 배열, File, Random 및 Stream 클래스의 static 또는 default method로 생성
+![[Pasted image 20250729103906.png]]
+

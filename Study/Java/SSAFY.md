@@ -1004,3 +1004,10 @@ public class A_BasicLambda {
 }
 ```
 
+
+
+## 표준 함수형 Interface
+- java.util.function package에 정의
+	- 주로 메서드 또는 생성자의 parameter로 Lambda 식을 제공하기 위함임
+![[Pasted image 20250729093159.png]]
+

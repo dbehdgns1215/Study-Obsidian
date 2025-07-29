@@ -1007,7 +1007,63 @@ public class A_BasicLambda {
 
 
 ## 표준 함수형 Interface
+**강의 다시보기로 이 부분만 다시 볼 필요 있을 듯**
 - java.util.function package에 정의
 	- 주로 메서드 또는 생성자의 parameter로 Lambda 식을 제공하기 위함임
 ![[Pasted image 20250729093159.png]]
+
+
+**Consumer**
+![[Pasted image 20250729093942.png]]
+
+![[Pasted image 20250729093955.png]]
+
+**Supplier**
+![[Pasted image 20250729094015.png]]
+
+**Function**
+![[Pasted image 20250729094049.png]]
+
+**Operator**
+![[Pasted image 20250729094115.png]]
+
+**Predicate**
+![[Pasted image 20250729094132.png]]
+
+**Optional\<T>**
+- T 타입의 객체에 대한 Wrapper
+- 객체가 있을 수도 있고 없을 수도 있는 (null) 상태를 나타내는 객체
+	- NullPointerException에 대한 적극적 대처 가능
+	- java.util.function은 아님 (java.util.package)
+- 기존의 NullPointerException 처리 과정
+```java
+public void useString1(String str) {
+	// 어떤 문제가 있을 수 있을까?
+	System.out.println(str + " : " + str.length());
+}
+```
+- str이 null일 수도 있음.
+```java
+public void useString1(String str) {
+	if (str != null) {
+		System.out.println(str + " : " + str.length());
+	} else {
+		System.out.println("str is null");
+	}
+}
+```
+- 옛날 방식은 이러했지만, 이제는 Optional\<T> 객체를 활용함
+
+```java
+public void useString2(Optional<String> str) {
+	if (str.isPresent()) {
+		System.out.println(str + " : " + str.length());
+	} else {
+		System.out.println("str is null");
+	}
+```
+- 이게 요즘 방식
+
+![[Pasted image 20250729094532.png]]
+
 

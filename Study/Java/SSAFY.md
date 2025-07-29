@@ -1094,3 +1094,9 @@ names.forEach(names::add);
 names.forEach(item -> sysout(item));
 names.forEach(System.out::println);
 ```
+
+## Stream API
+- JDK 8에서 추가된 java.util.stream package
+- 배열 및 Collection의 요소를 하나씩 참조해서 처리하는 목적
+	- 람다와 내부 반복자를 이용해 컬렉션을 다루는 코드를 간결화
+

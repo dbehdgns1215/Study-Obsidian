@@ -1067,3 +1067,30 @@ public void useString2(Optional<String> str) {
 ![[Pasted image 20250729094532.png]]
 
 
+
+## 메서드 참조와 생성자 참조
+
+**메서드 참조**
+- 람다 실행문 내부에서 다른 함수 하나만을 실행하는 경우 :: 연산자를 이용해 기존 메서드를 참조함
+	- <소유자>::<파라미터를 사용하는 소유자의 메서드>
+- 파라미터의 인스턴스 메서드 참조
+	- 객체::인스턴스 메서드
+		- 첫 번째 파라미터는 메서드의 소유자, 나머지 파라미터는 메서드의 파라미터 순서대로 전달됨
+- 정적 메서드 참조
+	- 클래스::정적 메서드
+		- 모든 파라미터가 메서드의 파라미터 순서대로 전달됨
+![[Pasted image 20250729102233.png]]
+
+**메서드 참조**
+- 특정 객체의 instance의 메서드 참조
+	- 객체::인스턴스 메서드 형태
+		- 객체의 메서드가 호출되며 파라미터는 메서드에 그대로 전달됨
+```java
+List<String> names = new ArrayList<>();
+
+names.forEach(item -> names.add(item));
+names.forEach(names::add);
+
+names.forEach(item -> sysout(item));
+names.forEach(System.out::println);
+```

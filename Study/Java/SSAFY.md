@@ -912,3 +912,43 @@ Collections.sort(names, new Comparator<String>() {
 
 
 # Day 7
+
+## Lambda
+- 타겟 타입과 @FunctionalInterface
+	- 타겟 타입 또는 함수형 인터페이스
+		- Lambda 식이 할당되는 인터페이스를 Lambda 식의 타겟 타입이라 함
+		- 타겟 타입은 abstract 메서드가 반드시 하나만 존재해야 함. (default, static 등은 무관)
+			- 이 메서드 구현부가 Lambda 식으로 대체됨
+	- `FunctionallInterface`
+		- 컴파일러가 재정의해야 하는 abstract method가 하나만 있음을 체크
+			- 그렇지 않을 경우 오류 발생 -> 안정적인 programming을 위한 option
+```java
+@FunctionalInterface
+public interface Comparator<T> {
+	int compare(T o1, T o2);
+
+	boolean equals(Object obj);
+
+	default Comparator<T> reversed() {
+		return Collections.reverseOrder(this);
+	}
+}
+```
+- abstract method가 2개 이상 존재하는 경우는 여전히 익명의 inner claass를 사용해줘야 함.
+
+- 구현체 작성 방법
+	- `(type variable_name[,...]) -> {실행문;};`
+		- 선언된 변수들을 이용해서 실행문을 실행하면 됨
+		- 매개변수 부분은 실행문 블록에서 사용하기 위한 값 제공 (일반적인 변수 선언)
+			- `(String str) -> {System.out.println(str);`
+		- 매개변수의 타입은 런타임시에 대입되는 값에 따라서 자동으로 인식되므로 생략함
+			- (str) -> {System.out.println(str);}
+		- 매개변수 및 실행문이 하나일 때는 변수 및 실행문의 괄호, ';' 생략 가능
+			- str -> System.out.println(str)
+		- 리턴이 필요할 경우 return 문장 사용
+			- num -> {
+				- System.out.prinln(num);
+				- return num \* 2
+			- }
+		- 리턴문만 있는 경우 중괄호와 return 생략 가능
+			- num -> num \* 2

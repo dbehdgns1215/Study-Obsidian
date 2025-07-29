@@ -1164,3 +1164,13 @@ list.stream().mapToInt(data -> {
 }).sum();
 ```
 - 최종 처리 시 중간 처리 일괄 진행 -> 출력 진행
+
+
+
+**중간 처리**
+![[Pasted image 20250729104815.png]]
+
+
+**최종 처리**
+![[Pasted image 20250729104918.png]]
+

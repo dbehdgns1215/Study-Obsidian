@@ -1189,3 +1189,14 @@ list.stream().mapToInt(data -> {
 
 **최종 처리:  사용자 정의 집계 처리 - reduce()**
 ![[Pasted image 20250729105907.png]]
+
+**최종 처리: 조사 - findFirst(), findAny()**
+![[Pasted image 20250729110146.png]]
+
+**최종 처리: 결과 모으기 - collect()**
+![[Pasted image 20250729110211.png]]
+- `<R, A> R collect(Collector<? super T, A, R> collector)` 얘를 주로 사용
+![[Pasted image 20250729110254.png]]
+- 위와 같은 static 메서드를 사용해서 collect를 사용하면 됨
+
+

@@ -1207,3 +1207,9 @@ list.stream().mapToInt(data -> {
 - Unchecked Exception (RuntimeException의 하위 클래스)
 	- 예외에 대한 대처 코드가 없더라도 컴파일은 진행됨
 
+![[Pasted image 20250730141419.png]]
+
+## try ~ catch 구문
+![[Pasted image 20250730141519.png]]
+![[Pasted image 20250730141539.png]]
+

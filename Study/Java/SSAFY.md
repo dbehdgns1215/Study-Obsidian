@@ -1222,3 +1222,22 @@ list.stream().mapToInt(data -> {
 	- `public void printStackTrace()`
 		- 예외가 발생된 메서드가 호출되기까지의 메서드 호출 스택을 출력한다.
 		- 디버깅의 수단으로 주로 사용.
+			- 예외 처리시에 꼭 사용해주자.
+
+```java
+package com.ssafy.day09.a_basic;
+
+public class SimpleException {
+    public static void main(String[] args) {
+        int[] intArray = { 10 };
+        try {
+        	System.out.println(intArray[2]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+        	System.out.println("예외 처리: " + e.getMessage());
+        	e.printStackTrace(); 
+        }
+        
+        System.out.println("프로그램 종료합니다.");
+    }
+}
+```

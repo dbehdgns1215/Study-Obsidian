@@ -1242,6 +1242,7 @@ public class SimpleException {
 }
 ```
 
+
 ![[Pasted image 20250730142443.png]]
 
 ![[Pasted image 20250730142606.png]]
@@ -1249,4 +1250,29 @@ public class SimpleException {
 ### Checked Exception 처리
 - 처리하지 않으면 컴파일 불가 : Checked Exception
 ![[Pasted image 20250730142846.png]]
+- 예외 발생 여부와 관계 없이, 혹시나 문제가 생기면 `너 대책 있어?` 를 체크하는 것.
 
+## 다중 exception handling
+- try 블록에서 여러 종류의 예외가 발생할 경우
+	- 하나의 try 블록에 여러 개의 catch 블록 추가 가능
+		- 예외 종류별로 catch 블록 구성
+		- 처리될 catch 문장을 찾을 때는 다형성이 적용됨
+
+![[Pasted image 20250730143221.png]]
+- `CCException` 발생, 처리 가능한가?
+	- 다형성에 의해 `Exception e`에 걸림
+
+만약 순서가
+```java
+try {
+} catch (Exception e) {
+
+} catch (YYException e) {
+
+} catch (XXException e) {
+
+}
+```
+- 모든 예외가 `Exception`에 걸려버리기 때문에 YY... XX... 가 아무런 의미를 가지지 못함
+
+![[Pasted image 20250730143520.png]]

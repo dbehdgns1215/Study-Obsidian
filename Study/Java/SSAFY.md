@@ -1595,7 +1595,7 @@ public class ThrowsTest {
 - Checked Exception
 	- Non Runtime Exception
 		- Compile Error
-		- 반드시 예외 처리를 해주어야 함.
+		- 반드시 예외 처리를 해주어야 함. (try ~ catch)
 - UnChecked Exception
 	- Runtime Exception
 		- `~OutOfBoundException`

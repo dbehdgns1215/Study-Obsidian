@@ -1576,3 +1576,11 @@ public class ThrowsTest {
 **실제 예시**
 ![[Pasted image 20250730154522.png]]
 
+
+### 사용자 정의 예외
+- Exception 또는 RuntimeException 등을 Extends 받아서 내가 원하는 예외를 만들면 됨.
+- API에 정의된 exception 이외에 필요에 따라 사용자 정의 예외 클래스 작성
+
+![[Pasted image 20250730155004.png]]
+
+

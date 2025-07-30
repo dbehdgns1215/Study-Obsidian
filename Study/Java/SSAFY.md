@@ -1199,3 +1199,4 @@ list.stream().mapToInt(data -> {
 ![[Pasted image 20250729110254.png]]
 - 위와 같은 static 메서드를 사용해서 collect를 사용하면 됨
 
+![[Pasted image 20250730140642.png]]

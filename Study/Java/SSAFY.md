@@ -1543,4 +1543,5 @@ public class ThrowsTest {
 
 ### throws의 목적과 API 활용
 ![[Pasted image 20250730153423.png]]
-
+- 왜 JVM에서 처리 안하고 개발자에게 throws를 던지는걸까?
+	- API가 제공하는 메서드들은 사전에 예외가 발생할 수 있음을 선언부에 명시하고 프로그래머가 그 예외에 대처하도록 강요하기 때문.

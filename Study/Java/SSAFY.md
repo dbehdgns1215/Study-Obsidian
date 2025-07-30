@@ -1586,3 +1586,10 @@ public class ThrowsTest {
 
 ![[Pasted image 20250730155258.png]]
 
+에러
+- 문법
+	- 개발자 잘못
+- 논리
+	- 개발자 잘못
+- System
+	- 

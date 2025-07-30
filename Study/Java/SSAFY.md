@@ -1594,9 +1594,12 @@ public class ThrowsTest {
 예외(Exception) 처리(Handling)
 - Checked Exception
 	- Non Runtime Exception
+		- Compile Error
+		- 반드시 예외 처리를 해주어야 함.
 - UnChecked Exception
 	- Runtime Exception
 		- `~OutOfBoundException`
 		- `NullPointerException`
 		- `NumberFormatException`
-		- 
+			- 즉, Runtime Exception은 예외 처리를 하지 않아도 됨.
+			- 예외 처리가 아니라, 예외가 발생하지 않게끔 로직을 처리해야 함.

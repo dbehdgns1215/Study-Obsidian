@@ -1200,3 +1200,10 @@ list.stream().mapToInt(data -> {
 - 위와 같은 static 메서드를 사용해서 collect를 사용하면 됨
 
 ![[Pasted image 20250730140642.png]]
+
+![[Pasted image 20250730140807.png]]
+- Checked Exception
+	- 예외에 대한 대처 코드가 없으면 컴파일이 진행되지 않음
+- Unchecked Exception (RuntimeException의 하위 클래스)
+	- 예외에 대한 대처 코드가 없더라도 컴파일은 진행됨
+

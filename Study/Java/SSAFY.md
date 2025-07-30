@@ -1325,3 +1325,42 @@ public class MultiExceptionHandling {
 ![[Pasted image 20250730144241.png]]
 
 
+### try ~ catch ~ finally 구문을 이용한 예외 처리
+![[Pasted image 20250730150307.png]]
+- 생성한 시스템 자원을 반납하지 않으면 장래 resource leak 발생 가능 -> close 처리
+	- 제대로 썼을 때, 실패했을 때 모두 close 처리를 해줘야 함.
+
+![[Pasted image 20250730150457.png]]
+- finally ... e.printStackTrace() 여기까지 지저분하게 finally 블록을 만들었어야 했음.
+	- close 메서드 자체가 IOException 유발 가능.
+
+**이를 해결하기 위해**
+- try-with-resources
+	- 리소스의 자동 close 처리
+```java
+try (리소스 타입 res1 = 초기화; 리소스_타입2 res2 = 초기화; ...) {
+ // 예외 발생 코드
+} catch (Exception e) {
+ // exception handling code
+}
+```
+
+![[Pasted image 20250730150935.png]]
+- 확장된 try~with~resources 사용 시 주의점
+	- try~with~resources 문장에 하나 이상의 catch 또는 finally가 필요
+- Close 시점 주의!!
+	- 자동 생성되는 코드들은 마법이 아니므로 실제로 어떻게 동작되고 있는지 정확히 알 필요가 있다.
+	- try~with~resources 문장은 nested try 블록을 구성
+	- ![[Pasted image 20250730151111.png]]
+
+![[Pasted image 20250730150819.png]]
+- try 선언문이 꼭 `AutoCloseable interface`를 구현해야 함!
+
+
+**확장된 확장된 try~with~resources 사용 시 주의점**
+![[Pasted image 20250730151135.png]]
+- 두 번째 예시에서, con.commit(); 이후에 con이 close 되기 때문에 catch문 이하에서 rollback()이 동작하지 않음.
+- 따라서 첫 번째 예시처럼 try 문이 끝나면 종료시키려고 하는 경우에만 확장된 구문을 사용하는 것이 유용.
+
+**해결법**
+![[Pasted image 20250730151444.png]]

@@ -1241,3 +1241,5 @@ public class SimpleException {
     }
 }
 ```
+
+![[Pasted image 20250730142443.png]]

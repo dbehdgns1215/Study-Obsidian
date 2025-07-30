@@ -1404,6 +1404,7 @@ try (리소스 타입 res1 = 초기화; 리소스_타입2 res2 = 초기화; ...)
 ![[Pasted image 20250730151957.png]]
 - 나를 호출한 곳으로 예외를 던지고 해당 예외는 그곳에서 예외를 처리할 책임을 갖는다.
 
+**checked exception과 throws**
 ![[Pasted image 20250730152031.png]]
 
 ```java
@@ -1441,4 +1442,90 @@ public class ThrowsTest {
 }
 
 ```
+
+
+우선
+```java
+package com.ssafy.day09.c_throws;
+
+public class ThrowsTest {
+    // TODO: 1. methodCall2()에서 uncheckedExceptionMethod()를 호출할 때 발생하는 예외를 throws로 처리하세요.
+    // TODO: 2. methodCall2()에서 checkedExceptionMethod()를 호출할 때 발생하는 예외를 throws로 처리하세요.
+     public static void main(String[] args){
+    	 try {
+    		 methodCall1();
+    	 } catch (ClassNotFoundException e){
+    		 e.printStackTrace();
+    	 }
+       
+        System.out.println("done");
+    }
+
+     private static void methodCall1() throws ClassNotFoundException {
+        methodCall2();
+    }
+
+     private static void methodCall2() throws ClassNotFoundException {
+        uncheckedExceptionMethod();
+         checkedExceptionMethod();
+    }
+
+     private static void checkedExceptionMethod() throws ClassNotFoundException {
+//        Class.forName("Hello");
+    	 Class.forName("com.ssafy.day09.c_throws.ThrowsTest");
+    }
+
+    private static void uncheckedExceptionMethod() { 
+        int i = 1 / 0; // runtime exception 발생 (ArithmeticException)
+    }
+}
+
+```
+- 이 경우, main 에서도 ArithmeticException을 던져버림 (JVM에게)
+- JVM의 기본 예외 처리 로직 작동
+- 단, done은 호출되지 않음.
+
+```java
+package com.ssafy.day09.c_throws;
+
+public class ThrowsTest {
+    // TODO: 1. methodCall2()에서 uncheckedExceptionMethod()를 호출할 때 발생하는 예외를 throws로 처리하세요.
+    // TODO: 2. methodCall2()에서 checkedExceptionMethod()를 호출할 때 발생하는 예외를 throws로 처리하세요.
+     public static void main(String[] args){
+    	 try {
+    		 methodCall1();
+    	 } catch (ClassNotFoundException e){
+    		 e.printStackTrace();
+    	 } catch (ArithmeticException e) {
+    		 e.printStackTrace();
+    	 }
+       
+        System.out.println("done");
+    }
+
+     private static void methodCall1() throws ClassNotFoundException {
+        methodCall2();
+    }
+
+     private static void methodCall2() throws ClassNotFoundException {
+        uncheckedExceptionMethod();
+         checkedExceptionMethod();
+    }
+
+     private static void checkedExceptionMethod() throws ClassNotFoundException {
+//        Class.forName("Hello");
+    	 Class.forName("com.ssafy.day09.c_throws.ThrowsTest");
+    }
+
+    private static void uncheckedExceptionMethod() { 
+        int i = 1 / 0; // runtime exception 발생 (ArithmeticException)
+    }
+}
+
+```
+- 이렇게 main에서 잡아주면 정상적으로 done 까지 출력함.
+
+
+## 로그 분석과 예외의 추적
+![[Pasted image 20250730153019.png]]
 

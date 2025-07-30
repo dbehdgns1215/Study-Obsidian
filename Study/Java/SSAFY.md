@@ -1588,8 +1588,15 @@ public class ThrowsTest {
 
 에러
 - 문법
-	- 개발자 잘못
 - 논리
-	- 개발자 잘못
 - System
-	- 
+
+예외(Exception) 처리(Handling)
+- Checked Exception
+	- Non Runtime Exception
+- UnChecked Exception
+	- Runtime Exception
+		- `~OutOfBoundException`
+		- `NullPointerException`
+		- `NumberFormatException`
+		- 

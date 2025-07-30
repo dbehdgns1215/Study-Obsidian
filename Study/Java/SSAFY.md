@@ -1246,3 +1246,7 @@ public class SimpleException {
 
 ![[Pasted image 20250730142606.png]]
 
+### Checked Exception 처리
+- 처리하지 않으면 컴파일 불가 : Checked Exception
+![[Pasted image 20250730142846.png]]
+

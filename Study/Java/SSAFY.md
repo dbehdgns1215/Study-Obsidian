@@ -1529,3 +1529,18 @@ public class ThrowsTest {
 ## 로그 분석과 예외의 추적
 ![[Pasted image 20250730153019.png]]
 
+**디버깅 순서/팁**
+![[Pasted image 20250730153227.png]]
+
+![[Pasted image 20250730153236.png]]
+
+![[Pasted image 20250730153245.png]]
+
+![[Pasted image 20250730153257.png]]
+
+예외 종류가 뭐고.. 원인은 이거고 제일 아래부터 호출되기 시작해서 제일 위에서 예외를 최종적으로 잡아서 throws ... 계속 전파해서 위와 같은 로그가 생겨난 것.
+
+
+### throws의 목적과 API 활용
+![[Pasted image 20250730153423.png]]
+

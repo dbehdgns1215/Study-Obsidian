@@ -1360,7 +1360,50 @@ try (리소스 타입 res1 = 초기화; 리소스_타입2 res2 = 초기화; ...)
 **확장된 확장된 try~with~resources 사용 시 주의점**
 ![[Pasted image 20250730151135.png]]
 - 두 번째 예시에서, con.commit(); 이후에 con이 close 되기 때문에 catch문 이하에서 rollback()이 동작하지 않음.
+	- **해결법**
+		![[Pasted image 20250730151444.png]]
 - 따라서 첫 번째 예시처럼 try 문이 끝나면 종료시키려고 하는 경우에만 확장된 구문을 사용하는 것이 유용.
 
-**해결법**
-![[Pasted image 20250730151444.png]]
+
+```java
+    public void useStream() {
+        FileInputStream fileInput = null;
+        try {
+            fileInput = new FileInputStream("abc.txt");
+            fileInput.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fileInput != null) { // 이게 없으면 아래에서 NullPtrExcep 발생할 수도 있음.
+                try {
+                    fileInput.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void useStreamNewStye() {
+        // TODO: useStream을 try~with~resource 문장으로 변경하세요.
+    	try (FileInputStream input = FileInputStream("abc.txt")) {
+    		// input 사용
+    	} catch(IOException e) {
+    		e.printStackTrace();
+    	}
+        // END
+    }
+```
+
+
+## throws 키워드를 통한 처리 위임
+- method 에서 처리해야 할 하나 이상의 예외를 호출한 곳으로 전달함 (처리 위임)
+	- catch하지 않는 이상 예외가 없어지지 않음. throws는 단순히 전달하는 것.
+![[Pasted image 20250730151850.png]]
+- 위 예에서, Exeption1, Exeption2의 처리 구조
+![[Pasted image 20250730151957.png]]
+- 나를 호출한 곳으로 예외를 던지고 해당 예외는 그곳에서 예외를 처리할 책임을 갖는다.
+
+![[Pasted image 20250730152031.png]]
+
+

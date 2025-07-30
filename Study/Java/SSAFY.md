@@ -1276,3 +1276,51 @@ try {
 - 모든 예외가 `Exception`에 걸려버리기 때문에 YY... XX... 가 아무런 의미를 가지지 못함
 
 ![[Pasted image 20250730143520.png]]
+
+### 다중 예외 처리를 이용한 Checked Exception 처리
+- 발생하는 예외들을 하나로 처리하기
+![[Pasted image 20250730143757.png]]
+- 예외 상황별로 처리하는 것이 쉽지 않음
+	- 가급적 예외 상황별로 처리하는 것을 권장함.
+
+**심각하지 않은 예외를 굳이 세분화해서 처리하는 것도 낭비**
+![[Pasted image 20250730143918.png]]
+
+```java
+package com.ssafy.day09.a_basic;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class MultiExceptionHandling {
+    @SuppressWarnings("resource")
+    public static void main(String[] args) {
+        // TODO: 다음에서 발생하는 예외를 처리해보자.
+         try {
+             Class.forName("abc.Def"); // ClassNotFoundException
+             new FileInputStream("Hello.java"); // FileNotFoundException
+             DriverManager.getConnection("Hello"); // SQLException
+         } catch (ClassNotFoundException | FileNotFoundException e){
+        	 System.out.println("뭔가 시스템 리소스가 없다");
+         } catch (SQLException e){
+        	 System.out.println("SQL 예외");
+         } 
+        // END
+        System.out.println("프로그램 정상 종료");
+
+    }
+}
+```
+
+![[Pasted image 20250730144057.png]]
+- 이떄 출력되는 순서는, 자식 -> 부모 순으로 출력됨
+
+
+## finally
+- finally는 예외 발생 여부와 상관 없이 언제나 실행
+	- 중간에 return을 만나는 경우도 finally 블록을 먼저 수행 후 리턴 실행
+
+![[Pasted image 20250730144241.png]]
+

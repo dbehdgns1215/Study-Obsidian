@@ -1603,3 +1603,11 @@ public class ThrowsTest {
 		- `NumberFormatException`
 			- 즉, Runtime Exception은 예외 처리를 하지 않아도 됨.
 			- 예외 처리가 아니라, 예외가 발생하지 않게끔 로직을 처리해야 함.
+
+
+`throw` - 현재진행형
+- 예외를 직접 발생 시킬 때.
+	- `if (order == null) throw new ...Exception`
+`throws` - 미래형
+- 앞으로 던질 수도 있다.
+	- 예를 들어, 이 메서드가 `...Exception`을 던질 수 있음을 시사하는 것.

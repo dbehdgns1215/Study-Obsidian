@@ -1213,3 +1213,12 @@ list.stream().mapToInt(data -> {
 ![[Pasted image 20250730141519.png]]
 ![[Pasted image 20250730141539.png]]
 
+## Exception 객체의 정보 활용
+- Throwable의 주요 메서드
+	- `public String getMessage()`
+		- 발생된 예외에 대한 구체적인 메시지를 반환한다.
+	- `public Throwable getCause()`
+		- 예외의 원인이 되는 Throwable 객체 또는 null을 반환한다.
+	- `public void printStackTrace()`
+		- 예외가 발생된 메서드가 호출되기까지의 메서드 호출 스택을 출력한다.
+		- 디버깅의 수단으로 주로 사용.

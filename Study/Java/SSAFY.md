@@ -1756,4 +1756,30 @@ public class ThrowsTest {
 
 ---
 
-## 
+## CSV / XML / JSON
+
+![[Pasted image 20250731153303.png]]
+
+### XML
+- Markup Language
+	- 태그 등을 이용하여 문서나 데이터의 구조를 명기하는 언어
+	- HTML, SGML
+- Extesible Markup Language
+- HTML과 달리
+	- 필요에 따라서 태그를 확장해서 사용 가능
+	- 정확한 문법을 지켜야 동작: Well formed
+		- 문서의 시작은 `<?xml version="1.0" encoding="UTF-8"?>`
+		- 반드시 root element가 존재해야 한다.
+			- 나머지 태그들은 Tree 형태로
+		
+		- 시작 태그와 종료 태그는 일치해야 한다.
+		- 시작 태그는 key-value 구조의 속성을 가질 수 있다.
+			- 속성 값은 " " 또는 ' '로 묶어서 표현한다.
+		- 태그는 대소문자를 구별한다.
+
+
+### Valid
+![[Pasted image 20250731153415.png]]
+![[Pasted image 20250731153514.png]]
+- `phone?`: Optional 하다는 뜻.
+

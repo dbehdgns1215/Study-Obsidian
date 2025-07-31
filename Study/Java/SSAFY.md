@@ -1807,3 +1807,29 @@ public class ThrowsTest {
 **SAX 실습 - DTO**
 ![[Pasted image 20250731154307.png]]
 
+
+## DTO vs VO vs record
+- 데이터를 보관하는데 사용되는 **불변 객체**를 간단하고 명료하게 정의 가능
+- 불변의 DTO를 구현할 때 유용
+
+- 주요 특징
+	- 불변성: 객체의 상태는 객체 생성시 정의되며 이후는 변경할 수 없음 - 모든 field가 final
+	- 간결성: 변수 선언 외에 필요한 코드는 컴파일 시점에 자동 생성
+		- field에 대한 final 선언, blank final 초기화를 위한 생성자, getter, equals, hashCode, toString ...
+
+- 제한 사항
+	- 이미 묵시적으로 java.lang.Record를 상속받았기 때문에 추가로 다른 클래스를 상속받을 수 없음
+	- 다른 클래스가 상속 받을 수도 없음
+
+**예시**
+![[Pasted image 20250731154750.png]]
+
+![[Pasted image 20250731154758.png]]
+- 이렇게 정의 가능.
+
+### record 클래스
+![[Pasted image 20250731154836.png]]
+
+### Handler 작성성
+![[Pasted image 20250731154911.png]]
+

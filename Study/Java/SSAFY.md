@@ -1736,3 +1736,10 @@ public class ThrowsTest {
 	- 직렬화에서 제외허려는 멤버는 transient 선언
 ![[Pasted image 20250731103548.png]]
 
+## 객체 직렬화
+- seria Version UID
+![[Pasted image 20250731103743.png]]
+- 직렬화 할 때의 UID와 역직렬화 할 때의 PID가 다른 경우 예외 발생
+- 직렬화되는 객체에 UID가 설정되지 않았을 경우 컴파일러가 자동 생성
+	- 멤버 변경으로 인한 컴파일 시마다 변경 -> InvalidClassException 초래
+- 직렬화되는 객체에 대해서 serialVersionUID 설정 권장

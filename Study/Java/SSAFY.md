@@ -1720,4 +1720,6 @@ public class ThrowsTest {
 
 - 스트림의 입/출력 효율을 높이기 위해 버퍼를 사용하는 스트림
 ![[Pasted image 20250731102410.png]]
+- BufferedReader: readLine() -> 줄 단위로 데이터를 읽어 들임
+![[Pasted image 20250731102800.png]]
 

@@ -1863,3 +1863,43 @@ public class ThrowsTest {
 ## JSON
 ![[Pasted image 20250731165051.png]]
 
+```JSON
+{
+	"boxOfficeResult": {
+		"boxofficeType": "일별 박스 오피스",
+		"showRange": "20120101~20120101",
+		"dailyBoxOfficeList": [...],
+		...
+	}
+}
+```
+- 자바로 표현해보면?
+	- `Map<String, Map<String, Object>>`
+
+```JSON
+{
+	"boxOfficeResult": {
+		"boxofficeType": "일별 박스 오피스",
+		"showRange": "20120101~20120101",
+		"dailyBoxOfficeList": [
+		{
+			"rank": "1",
+			"movieNm": "미션임파서블",
+			"openDt": "2011-12-15",
+			"audiAcc": "5328435"
+		},
+		{
+			"rank": "2",
+			...
+		}
+		
+		],
+		...
+	}
+}
+```
+- dailyBoxOfficeList를 다시 확장해보면?
+	- `List<Map<String, Object>>`
+
+결국
+`Map<String, Map<String, List<Map<String, Object>>>>`

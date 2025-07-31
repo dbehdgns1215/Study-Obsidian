@@ -1802,3 +1802,8 @@ public class ThrowsTest {
 
 ### SAX
 ![[Pasted image 20250731153909.png]]
+
+
+**SAX 실습 - DTO**
+![[Pasted image 20250731154307.png]]
+

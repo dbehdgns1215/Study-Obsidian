@@ -1696,3 +1696,8 @@ public class ThrowsTest {
 #### 종료
 - 보조 스트림의 close()를 호출하면 노드 스트림의 close() 까지 호출됨
 
+### 사용할 스트림의 결정 과정
+![[Pasted image 20250731101533.png]]
+
+![[Pasted image 20250731101608.png]]
+

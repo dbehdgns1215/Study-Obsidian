@@ -1686,4 +1686,13 @@ public class ThrowsTest {
 	- 필요에 따라 여러 보조 스트림을 연결해서 사용 가능
 ![[Pasted image 20250731101039.png]]
 
+### 보조 스트림의 종류
+![[Pasted image 20250731101206.png]]
+
+#### 생성
+- 이전 스트림을 생성자의 파라미터에 연결
+![[Pasted image 20250731101226.png]]
+- `BufferedReader br = new BufferedReader(new InputStreamReader(System.in));`
+#### 종료
+- 보조 스트림의 close()를 호출하면 노드 스트림의 close() 까지 호출됨
 

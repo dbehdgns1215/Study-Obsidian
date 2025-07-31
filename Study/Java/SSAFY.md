@@ -1800,7 +1800,7 @@ public class ThrowsTest {
 
 
 
-### SAX
+### SAX parser
 ![[Pasted image 20250731153909.png]]
 
 
@@ -1833,3 +1833,9 @@ public class ThrowsTest {
 ### Handler 작성성
 ![[Pasted image 20250731154911.png]]
 
+
+
+## DOM Parser
+![[Pasted image 20250731163452.png]]
+
+![[Pasted image 20250731163521.png]]

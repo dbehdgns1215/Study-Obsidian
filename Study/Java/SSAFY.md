@@ -1723,3 +1723,9 @@ public class ThrowsTest {
 - BufferedReader: readLine() -> 줄 단위로 데이터를 읽어 들임
 ![[Pasted image 20250731102800.png]]
 
+
+## 객체 직렬화(serialization)
+- 객체를 파일 등에 저장하거나 네트워크로 전송하기 위해 연속적인 데이터로 변환하는 것
+- 반대의 경우는 역직렬화(deserialization)
+![[Pasted image 20250731103254.png]]
+

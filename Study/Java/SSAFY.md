@@ -1652,3 +1652,21 @@ public class ThrowsTest {
 
 ### OutputStream의 주요 메서드
 ![[Pasted image 20250731092208.png]]
+
+## Writer의 주요 메서드
+![[Pasted image 20250731092338.png]]
+
+
+## 노드 스트림 활용
+### File
+- 가장 기본적인 입출력 장치 중 하나로 파일과 디렉터리를 다루는 클래스
+![[Pasted image 20250731092452.png]]
+- 파일 내용 수정과 관련된 건 `stream`과 연관이 있음.
+
+![[Pasted image 20250731092549.png]]
+- 절대경로
+	- `C:/./././././.abc.txt`
+- 상대경로
+	- 현재 디렉토리를 기준으로
+	- `./abc.txt`
+

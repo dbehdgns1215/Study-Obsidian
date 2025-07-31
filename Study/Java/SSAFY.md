@@ -1903,3 +1903,9 @@ public class ThrowsTest {
 
 결국
 `Map<String, Map<String, List<Map<String, Object>>>>`
+- 물론
+	- **Object 꺼낼 때 (List<Map<String,Object>>)로 캐스팅해서 써야함**
+
+![[Pasted image 20250731170559.png]]
+
+

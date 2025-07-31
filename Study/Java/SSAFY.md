@@ -1648,3 +1648,7 @@ public class ThrowsTest {
 
 ### Reader의 주요 메서드
 ![[Pasted image 20250731091556.png]]
+
+
+### OutputStream의 주요 메서드
+![[Pasted image 20250731092208.png]]

@@ -1665,7 +1665,7 @@ public class ThrowsTest {
 
 ![[Pasted image 20250731092549.png]]
 - 절대경로
-	- `C:/./././././.abc.txt`
+	- `C:/./././././abc.txt`
 - 상대경로
 	- 현재 디렉토리를 기준으로
 	- `./abc.txt`

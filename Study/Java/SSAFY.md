@@ -1670,3 +1670,5 @@ public class ThrowsTest {
 	- 현재 디렉토리를 기준으로
 	- `./abc.txt`
 
+![[Pasted image 20250731093933.png]]
+

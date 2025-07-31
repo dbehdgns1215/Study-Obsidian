@@ -1752,3 +1752,8 @@ public class ThrowsTest {
 **직렬화에 쓰이는 보조 스트림 정리**
 ![[Pasted image 20250731104043.png]]
 
+
+
+---
+
+## 

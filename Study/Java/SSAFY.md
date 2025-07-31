@@ -1615,7 +1615,7 @@ public class ThrowsTest {
 ### 예외 처리
 - try ~ catch
 - throws
-    
+
 
 # Day 8
 

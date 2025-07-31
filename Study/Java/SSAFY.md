@@ -1676,3 +1676,14 @@ public class ThrowsTest {
 ![[Pasted image 20250731094851.png]]
 
 ![[Pasted image 20250731095022.png]]
+
+## 보조 스트림
+- Filter Stream, Processing Stream
+	- 다른 스트림에 부가적인 기능을 제공하는 스트림
+![[Pasted image 20250731101017.png]]
+
+- 스트림 체이닝 (Stream Chaining)
+	- 필요에 따라 여러 보조 스트림을 연결해서 사용 가능
+![[Pasted image 20250731101039.png]]
+
+

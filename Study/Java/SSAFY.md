@@ -1728,4 +1728,11 @@ public class ThrowsTest {
 - 객체를 파일 등에 저장하거나 네트워크로 전송하기 위해 연속적인 데이터로 변환하는 것
 - 반대의 경우는 역직렬화(deserialization)
 ![[Pasted image 20250731103254.png]]
+![[Pasted image 20250731103445.png]]
+
+- 직렬화 되기 위한 조건
+	- Serializable 인터페이스를 구현할 것
+	- 클래스의 모든 멤버가 Serializable 인터페이스를 구현해야 함
+	- 직렬화에서 제외허려는 멤버는 transient 선언
+![[Pasted image 20250731103548.png]]
 

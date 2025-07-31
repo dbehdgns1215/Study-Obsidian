@@ -1839,7 +1839,7 @@ public class ThrowsTest {
 ![[Pasted image 20250731163452.png]]
 ![[Pasted image 20250731163521.png]]
 
-# ✅ 정리
+## ✅ 정리
 
 **SAX (Simple API for XML)**
 - ✔ **이벤트 기반 파싱**

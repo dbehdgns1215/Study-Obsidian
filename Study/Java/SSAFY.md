@@ -1674,3 +1674,5 @@ public class ThrowsTest {
 ![[Pasted image 20250731093933.png]]
 
 ![[Pasted image 20250731094851.png]]
+
+![[Pasted image 20250731095022.png]]

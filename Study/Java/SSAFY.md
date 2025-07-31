@@ -1617,7 +1617,7 @@ public class ThrowsTest {
 ## I/O와 Stream
 - I/O? 데이터의 입력과 출력
 - 데이터는 한 쪽에서 주고 한 쪽에서 받는 구조로 되어있음.
-	- 이때 입력과 출력의 끝단을 **노드(Node)**라고 함
+	- 이때 입력과 출력의 끝단을 **노드(Node)** 라고 함
 	- 두 노드를 연결하고 데이터를 전송할 수 있는 개념 **스트림(Stream)**
 	- 스트림은 단방향으로만 통신이 가능하며 하나의 스트림으로 입출력 동시에는 불가능
 ![[Pasted image 20250731090529.png]]
@@ -1701,3 +1701,23 @@ public class ThrowsTest {
 
 ![[Pasted image 20250731101608.png]]
 ![[Pasted image 20250731101736.png]]
+![[Pasted image 20250731102023.png]]
+![[Pasted image 20250731102134.png]]
+- 다 외우진 않더라도 뭐가 뭔지는 알아야 할 듯
+
+
+## 보조 스트림 활용
+### InputStreamReader & OutputStreamWriter
+- byte 기반 스트림을 cahr 기반으로 변경해주는 스트림
+	- 문자열을 관리하기 위해서는 byte 단위보다 char 단위가 유리함
+	- 키보드에서 입력(byte stream) 받은 데이터를 처리할 경우 등
+- 변환시 Encoding 지정 가능
+![[Pasted image 20250731102326.png]]
+
+### Buffered 계열
+- 버퍼의 역할
+![[Pasted image 20250731102350.png]]
+
+- 스트림의 입/출력 효율을 높이기 위해 버퍼를 사용하는 스트림
+![[Pasted image 20250731102410.png]]
+

@@ -1611,3 +1611,38 @@ public class ThrowsTest {
 `throws` - 미래형
 - 앞으로 던질 수도 있다.
 	- 예를 들어, 이 메서드가 `...Exception`을 던질 수 있음을 시사하는 것.
+
+# Day 8
+
+## I/O와 Stream
+- I/O? 데이터의 입력과 출력
+- 데이터는 한 쪽에서 주고 한 쪽에서 받는 구조로 되어있음.
+	- 이때 입력과 출력의 끝단을 **노드(Node)**라고 함
+	- 두 노드를 연결하고 데이터를 전송할 수 있는 개념 **스트림(Stream)**
+	- 스트림은 단방향으로만 통신이 가능하며 하나의 스트림으로 입출력 동시에는 불가능
+![[Pasted image 20250731090529.png]]
+
+## Node Stream의 종류와 Naming
+- 데이터 타입에 따라
+	- byte
+		- XXStream
+	- char
+		- XXer
+- 방향에 따라
+	- XXStream
+		- 입력
+			- InputStream
+			- OutputStream
+	- XXer
+		- 출력
+			- Reader
+			- Writer
+- 노드 타입에 따라
+	- 키보드, 콘솔, File, ByteArray, Pipe...
+- 최종 노드 스트림
+
+![[Pasted image 20250731090822.png]]
+
+### InputStream의 주요 메서드
+![[Pasted image 20250731090916.png]]
+

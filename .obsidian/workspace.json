@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "9d41ebb5ac55ef84",
@@ -172,7 +173,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -190,8 +191,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "93e6918e21f026fd",
+  "active": "df465685d0c4f08d",
   "lastOpenFiles": [
+    "Pasted image 20250731090916.png",
+    "Pasted image 20250731090822.png",
+    "Pasted image 20250731090529.png",
     "Study-Obsidian.zip",
     "Pasted image 20250730155258.png",
     "Pasted image 20250730155004.png",
@@ -202,8 +206,6 @@
     "Pasted image 20250730154127.png",
     "Pasted image 20250730154117.png",
     "Pasted image 20250730154052.png",
-    "Pasted image 20250730153954.png",
-    "Pasted image 20250730153902.png",
     "Pasted image 20250730140807.zip",
     "Study/Java/Java.md",
     "Study/PS/Java.md",

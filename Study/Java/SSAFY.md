@@ -1612,6 +1612,11 @@ public class ThrowsTest {
 - 앞으로 던질 수도 있다.
 	- 예를 들어, 이 메서드가 `...Exception`을 던질 수 있음을 시사하는 것.
 
+### 예외 처리
+- try ~ catch
+- throws
+
+
 # Day 8
 
 ## I/O와 Stream

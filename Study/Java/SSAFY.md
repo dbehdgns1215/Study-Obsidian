@@ -1783,3 +1783,22 @@ public class ThrowsTest {
 ![[Pasted image 20250731153514.png]]
 - `phone?`: Optional 하다는 뜻.
 
+## 파싱
+- 문서에서 필요한 정보를 얻기 위해 태그를 구별하고 내용을 추출하는 과정
+	- 전문적인 parser 활용
+
+- SAX parser
+	- Simple API for XML parser
+	- 문서를 읽으면서 태그의 시작, 종료 등 이벤트 기반으로 처리하는 방식
+
+- DOM parser
+	- Document Object Model parser
+	- 문서를 다 읽고 난 후 문서 구조 전체를 자료구조에 저장하여 탐색하는 방식
+
+- SAX는 빠르고 한번에 처리하기 때문에 다양한 탐색이 어렵다.
+- DOM은 다양한 탐색이 가능하지만 느리고 무거우며 큰 문서를 처리하기 어렵다.
+
+
+
+### SAX
+![[Pasted image 20250731153909.png]]

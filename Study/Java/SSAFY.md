@@ -1743,3 +1743,7 @@ public class ThrowsTest {
 - 직렬화되는 객체에 UID가 설정되지 않았을 경우 컴파일러가 자동 생성
 	- 멤버 변경으로 인한 컴파일 시마다 변경 -> InvalidClassException 초래
 - 직렬화되는 객체에 대해서 serialVersionUID 설정 권장
+
+**직렬화에 쓰이는 보조 스트림 정리**
+![[Pasted image 20250731104043.png]]
+

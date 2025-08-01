@@ -1928,3 +1928,11 @@ z## CSV / XML / JSON
 
 ![[Pasted image 20250801100757.png]]
 
+
+**Event Handling**
+![[Pasted image 20250801102402.png]]
+
+**이벤트 처리 클래스**
+![[Pasted image 20250801102515.png]]
+
+

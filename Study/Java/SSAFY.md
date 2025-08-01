@@ -1926,3 +1926,5 @@ z## CSV / XML / JSON
 **Layout과 LayoutManager**
 ![[Pasted image 20250801100419.png]]
 
+![[Pasted image 20250801100757.png]]
+

@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "SSAFY"
             }
+          },
+          {
+            "id": "6caa94e656fda9f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Readme.md.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Readme.md"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -78,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "9d41ebb5ac55ef84",
@@ -173,7 +187,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -191,21 +205,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "df465685d0c4f08d",
+  "active": "6caa94e656fda9f8",
   "lastOpenFiles": [
+    "Study/Java/SSAFY.md",
+    "Readme.md.md",
+    "Pasted image 20250801102515.png",
+    "Pasted image 20250801102402.png",
+    "Pasted image 20250801100757.png",
+    "Pasted image 20250801100419.png",
+    "Pasted image 20250801100351.png",
     "Pasted image 20250731170805.png",
     "Pasted image 20250731170559.png",
     "Pasted image 20250731165051.png",
     "Pasted image 20250731163521.png",
     "Pasted image 20250731163452.png",
-    "Pasted image 20250731154911.png",
-    "Pasted image 20250731154836.png",
-    "Pasted image 20250731154758.png",
-    "Pasted image 20250731154750.png",
-    "Pasted image 20250731154307.png",
-    "Pasted image 20250731153909.png",
     "Study-Obsidian.zip",
-    "Study/Java/SSAFY.md",
     "Pasted image 20250730140807.zip",
     "Study/Java/Java.md",
     "Study/PS/Java.md",

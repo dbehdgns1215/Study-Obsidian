@@ -1910,3 +1910,28 @@ z## CSV / XML / JSON
 
 
 
+# Day 9
+**SWING**
+
+- Container
+	- 다른 컴포넌트들을 배치하기 위한 컴포넌트
+	- 다른 Container를 포함하여 복합적인 Layout을 구성할 때 사용
+	- 종류
+		- JFrame: 독립적으로 사용될 수 있고 타이틀과 사이즈를 조절할 수 있는 버튼을 가짐
+		- JPanel: 반드시 다른 Container에 포함되어야 하며 복합적인 레이아웃 구성에 사용
+
+- 다른 Component
+![[Pasted image 20250801100351.png]]
+
+**Layout과 LayoutManager**
+![[Pasted image 20250801100419.png]]
+
+![[Pasted image 20250801100757.png]]
+
+
+**Event Handling**
+![[Pasted image 20250801102402.png]]
+
+**이벤트 처리 클래스**
+![[Pasted image 20250801102515.png]]
+- 

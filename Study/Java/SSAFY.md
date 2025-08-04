@@ -1965,3 +1965,14 @@ z## CSV / XML / JSON
 ![[Pasted image 20250804091158.png]]
 
 ## HTML
+![[Pasted image 20250804092258.png]]
+- 위와 같이 영역별로 역할을 분리 해놓은 게 웹 표준
+
+### Tag
+![[Pasted image 20250804092434.png]]
+
+**용도에 따른 Tag의 종류**
+![[Pasted image 20250804092459.png]]
+
+**Block 요소와 Inline 요소**
+![[Pasted image 20250804092557.png]]

@@ -2088,8 +2088,6 @@ z## CSV / XML / JSON
 
 #### form
 ![[Pasted image 20250804104234.png]]
-
-![[Pasted image 20250804104713.png]]
 ```html
     <!--TODO: 01. 서버로 username과 comment를 전달하기 위한 form을 만들어보자.-->
     <!--form>filedset>legend-->
@@ -2109,4 +2107,23 @@ comment
     <!--END-->
 ```
 ![[Pasted image 20250804104930.png]]
+
+![[Pasted image 20250804104713.png]]
+- 회원가입
+	- POST
+- 검색
+	- GET
+- 로그인
+	- POST (?)
+- 글 보기
+	- GET
+
+```html
+      <button formmethod="get">get</button>
+      <button formmethod="post">post</button>
+```
+**GET**
+![[Pasted image 20250804105204.png]]
+**POST**
+![[Pasted image 20250804105218.png]]
 

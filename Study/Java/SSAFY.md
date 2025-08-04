@@ -2127,3 +2127,9 @@ comment
 **POST**
 ![[Pasted image 20250804105218.png]]
 
+#### input의 type
+![[Pasted image 20250804105402.png]]
+- 빨간색 부분은, HTML 5에 추가된 기능
+	- 스마트 폰을 타겟으로 추가된 기능임.
+
+

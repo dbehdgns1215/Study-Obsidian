@@ -2012,4 +2012,15 @@ z## CSV / XML / JSON
 ![[Pasted image 20250804100605.png]]
 - `<!--TODO: 01. thead, tbody, tfoot를 지우고 스타일이 적용되지 않는 이유를 생각해보자.-->`
 	- 자동으로 생성됨.
+		- DOM을 잘 파악해야함.
+		- 크롬같은 브라우저는 DOM으로 인식하기 때문
+
+#### table 병합
+![[Pasted image 20250804101140.png]]
+- 1 row
+	- 2개
+- 2 row
+	- 3개
+- 3 row
+	- 3개
 

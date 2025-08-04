@@ -2010,3 +2010,6 @@ z## CSV / XML / JSON
 ![[Pasted image 20250804100512.png]]
 
 ![[Pasted image 20250804100605.png]]
+- `<!--TODO: 01. thead, tbody, tfoot를 지우고 스타일이 적용되지 않는 이유를 생각해보자.-->`
+	- 자동으로 생성됨.
+

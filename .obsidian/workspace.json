@@ -192,8 +192,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -208,6 +207,8 @@
   },
   "active": "6caa94e656fda9f8",
   "lastOpenFiles": [
+    "Pasted image 20250804143827.png",
+    "Pasted image 20250804143634.png",
     "Pasted image 20250804142729.png",
     "Pasted image 20250804142113.png",
     "Study/Java/SSAFY.md",
@@ -220,8 +221,6 @@
     "Pasted image 20250804105803.png",
     "Pasted image 20250804105726.png",
     "Pasted image 20250804105618.png",
-    "Pasted image 20250804105402.png",
-    "Pasted image 20250804105218.png",
     "Study/Java/Java.md",
     "Readme.md.md",
     "Study-Obsidian.zip",

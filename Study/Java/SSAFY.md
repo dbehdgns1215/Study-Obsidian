@@ -2024,3 +2024,5 @@ z## CSV / XML / JSON
 - 3 row
 	- 2개
 
+#### img
+![[Pasted image 20250804101629.png]]

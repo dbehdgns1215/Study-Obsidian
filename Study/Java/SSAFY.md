@@ -2145,3 +2145,6 @@ comment
 ![[Pasted image 20250804110021.png]]
 - `type`이 중요함.
 
+#### select
+![[Pasted image 20250804110154.png]]
+

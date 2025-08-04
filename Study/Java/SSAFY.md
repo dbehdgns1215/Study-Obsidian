@@ -1958,3 +1958,9 @@ z## CSV / XML / JSON
 ## Markup Language
 ![[Pasted image 20250804090930.png]]
 
+- HTML, DOM Tree
+![[Pasted image 20250804091118.png]]
+
+## HTML 5의 주요 특징
+![[Pasted image 20250804091158.png]]
+

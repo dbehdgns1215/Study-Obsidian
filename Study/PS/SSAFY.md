@@ -78,3 +78,6 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 # Day 10
 
 ## Tree
+- 비선형
+- 그래프
+- 

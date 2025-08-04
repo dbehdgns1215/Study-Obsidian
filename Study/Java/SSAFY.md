@@ -2026,3 +2026,19 @@ z## CSV / XML / JSON
 
 #### img
 ![[Pasted image 20250804101629.png]]
+```html
+    <!-- TODO: 01. resource/wedding.jpg와 rocks.jpg를 절대/상대 경로로 출력해보자. -->
+    img[src=/resource/wedding.jpg]
+    <img src="/resource/wedding.jpg" alt="" />
+    img[src=../../resource/rocks.jpg]
+    <img src="../../resource/rocks.jpg" alt="" />
+    <!--END-->
+```
+- `lazy`, `eager`
+	- 현재 보여지는 페이지에 대해서 이미지 로딩 -> `lazy`
+	- 사이트 접근 시 모든 이미지 로딩 -> `eager`
+		- 웹툰 사이트를 생각해보면 됨
+
+![[Pasted image 20250804102031.png]]
+- 기본적으로 눈에 보이는 400 ~ 403이 lazy 로딩됨과 동시에 499번 이미지도 eager 로딩된 것을 볼 수 있음
+

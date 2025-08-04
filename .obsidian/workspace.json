@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Readme.md.md",
+                "file": "Study/Java/SSAFY.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Readme.md"
+              "title": "SSAFY"
             }
           }
         ],
@@ -93,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "9d41ebb5ac55ef84",
@@ -191,8 +192,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -207,8 +207,9 @@
   },
   "active": "6caa94e656fda9f8",
   "lastOpenFiles": [
-    "Study/Java/SSAFY.md",
+    "Study/Java/Java.md",
     "Readme.md.md",
+    "Study/Java/SSAFY.md",
     "Pasted image 20250801102515.png",
     "Pasted image 20250801102402.png",
     "Pasted image 20250801100757.png",
@@ -221,7 +222,6 @@
     "Pasted image 20250731163452.png",
     "Study-Obsidian.zip",
     "Pasted image 20250730140807.zip",
-    "Study/Java/Java.md",
     "Study/PS/Java.md",
     "Study/SSAFY/STUDY.md",
     "Study/SSAFY/NOTICE.md",

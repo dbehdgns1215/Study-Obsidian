@@ -2006,3 +2006,7 @@ z## CSV / XML / JSON
 - `<!-- 단 그룹은 순서가 없고 포지션은 우측이 우선순위가 높다.-->`
 	- ![[Pasted image 20250804095317.png]]
 
+#### table
+![[Pasted image 20250804100512.png]]
+
+![[Pasted image 20250804100605.png]]

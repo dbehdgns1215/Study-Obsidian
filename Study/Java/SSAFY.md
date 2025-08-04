@@ -2066,3 +2066,10 @@ z## CSV / XML / JSON
     <a href="#map">이미지 맵</a>
     <!--END-->
 ```
+
+
+#### form
+![[Pasted image 20250804102915.png]]
+
+![[Pasted image 20250804102945.png]]
+

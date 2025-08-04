@@ -1964,3 +1964,4 @@ z## CSV / XML / JSON
 ## HTML 5의 주요 특징
 ![[Pasted image 20250804091158.png]]
 
+## HTML

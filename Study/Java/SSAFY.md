@@ -2132,4 +2132,11 @@ comment
 - 빨간색 부분은, HTML 5에 추가된 기능
 	- 스마트 폰을 타겟으로 추가된 기능임.
 
+![[Pasted image 20250804105618.png]]
+
+#### input의 기타 속성
+![[Pasted image 20250804105726.png]]
+
+#### checkbox와 radio 타입
+![[Pasted image 20250804105803.png]]
 

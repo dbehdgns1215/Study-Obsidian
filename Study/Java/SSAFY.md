@@ -1995,3 +1995,7 @@ z## CSV / XML / JSON
 #### emmet
 ![[Pasted image 20250804093858.png]]
 
+### 기본 태그
+#### heading
+![[Pasted image 20250804094750.png]]
+- ``

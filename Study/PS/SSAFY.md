@@ -141,3 +141,8 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 - 바로 2$^i$ 개
 ![[Pasted image 20250804143827.png]]
 - 높이가 h인 이진 트리가 가질 수 있는 노드의 최소 개수는 (h + 1)개가 되며, 최대 개수는 2($^h$ $^+$ $^1$ - 1)개가 된다.
+
+## 정 이진 트리 (Full Binary Tree)
+- 모든 노드의 차수가 0이거나 2인 이진 트리
+![[Pasted image 20250804144239.png]]
+

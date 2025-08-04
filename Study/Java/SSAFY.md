@@ -1983,3 +1983,6 @@ z## CSV / XML / JSON
 #### Global 속성
 ![[Pasted image 20250804093310.png]]
 
+#### 문서의 구조
+![[Pasted image 20250804093447.png]]
+

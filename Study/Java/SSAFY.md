@@ -2148,3 +2148,6 @@ comment
 #### select
 ![[Pasted image 20250804110154.png]]
 
+### Semantic 태그
+![[Pasted image 20250804113054.png]]
+

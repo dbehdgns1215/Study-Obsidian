@@ -2139,4 +2139,9 @@ comment
 
 #### checkbox와 radio 타입
 ![[Pasted image 20250804105803.png]]
+- input과 label이 연결되어 있지 않으면 체크 불가능
+
+#### button
+![[Pasted image 20250804110021.png]]
+- `type`이 중요함.
 

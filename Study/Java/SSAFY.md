@@ -2150,7 +2150,6 @@ comment
 
 ### Semantic 태그
 ![[Pasted image 20250804113054.png]]
-
 - 아무 것도 없으면
 	- 태그
 - \#
@@ -2158,4 +2157,4 @@ comment
 - .
 	- 클래스
 
-
+![[Pasted image 20250804114442.png]]

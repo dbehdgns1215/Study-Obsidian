@@ -2075,3 +2075,7 @@ z## CSV / XML / JSON
 
 ![[Pasted image 20250804103147.png]]
 
+#### input
+![[Pasted image 20250804103354.png]]
+- name, value -> 서버로 전달되는 값들
+

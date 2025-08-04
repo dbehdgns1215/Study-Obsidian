@@ -1942,5 +1942,19 @@ z## CSV / XML / JSON
 
 ![[Pasted image 20250804090534.png]]
 
+- HTML
+	- 페이지 구조와 내용
+	- 이미지 링크 ...
+	- 저수준 상호작용
+- CSS
+	- 페이지 디자인
+	- 컬러, 폰트 ...
+	- 위치 배치 ...
+- JavaScript
+	- 이벤트 처리
+	- 고수준 상호작용
+	- 프로그래밍 처리
 
+## Markup Language
+![[Pasted image 20250804090930.png]]
 

@@ -179,3 +179,5 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 - 트리의 중간에 새로운 노드를 삽입하거나 기존의 노드를 삭제할 경우 배열의 크기 변경 어려움
 
 ## 비선형 자료구조 탐색
+![[Pasted image 20250804152540.png]]
+

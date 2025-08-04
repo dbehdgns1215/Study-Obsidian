@@ -2086,3 +2086,6 @@ z## CSV / XML / JSON
 #### Snipet
 ![[Pasted image 20250804103917.png]]
 
+#### form
+![[Pasted image 20250804104234.png]]
+

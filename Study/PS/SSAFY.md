@@ -140,3 +140,4 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 ### 높이 i(레벨 i)에서의 노드의 최대 개수
 - 바로 2$^i$ 개
 ![[Pasted image 20250804143827.png]]
+- 높이가 h인 이진 트리가 가질 수 있는 노드의 최소 개수는 (h + 1)개가 되며, 최대 개수는 2($^h$ $^+$ $^1$ - 1)개가 된다.

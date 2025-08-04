@@ -165,3 +165,12 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 	- 오른쪽 편향 이진 트리
 ![[Pasted image 20250804145448.png]]
 
+
+## 배열을 이용한 이진 트리의 표현
+![[Pasted image 20250804151638.png]]
+
+![[Pasted image 20250804151544.png]]
+
+![[Pasted image 20250804151552.png]]
+- 0번 인덱스 비우고 노드의 번호를 배열의 인덱스로 해서 생성
+

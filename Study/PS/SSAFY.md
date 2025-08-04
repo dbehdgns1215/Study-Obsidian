@@ -79,8 +79,7 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
 ## Tree
 - 비선형 구조
-- 원소들간에 1:n 관계를 가지는 자료구조
+- 원소들간에 `1:n` 관계를 가지는 자료구조
 - 원소들 간에 계층 관계를 가지는 계층형 자료구조
 - 상위 원소에서 하위 원소로 내려가면서 확장되는 트리(나무)모양의 구조
  
-

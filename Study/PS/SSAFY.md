@@ -73,5 +73,8 @@ Deque<Integer> s = new ArrayDeque<>();   // 추천
 // ========== PriorityQueue (Queue의 서브타입) ==========
 Queue<Integer> minHeap = new PriorityQueue<>();
 Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-
 ```
+
+# Day 10
+
+## Tree

@@ -1976,3 +1976,10 @@ z## CSV / XML / JSON
 
 **Block 요소와 Inline 요소**
 ![[Pasted image 20250804092557.png]]
+
+### Tag의 Attribute(속성)
+![[Pasted image 20250804093154.png]]
+
+#### Global 속성
+![[Pasted image 20250804093310.png]]
+

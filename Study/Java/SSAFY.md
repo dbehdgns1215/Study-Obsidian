@@ -2045,3 +2045,5 @@ z## CSV / XML / JSON
 #### a
 ![[Pasted image 20250804102220.png]]
 
+![[Pasted image 20250804102357.png]]
+

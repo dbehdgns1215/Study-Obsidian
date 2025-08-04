@@ -2090,3 +2090,23 @@ z## CSV / XML / JSON
 ![[Pasted image 20250804104234.png]]
 
 ![[Pasted image 20250804104713.png]]
+```html
+    <!--TODO: 01. 서버로 username과 comment를 전달하기 위한 form을 만들어보자.-->
+    <!--form>filedset>legend-->
+    <form action="#">
+      <fieldset>
+        <legend>form test</legend>
+        <label for="username">username: </label>
+        <input type="text" id="username" name="username" value="hong" />
+        <label for="">comment</label>
+        <textarea name="comment" id="comment">
+comment
+        </textarea>
+      </fieldset>
+      <button>get</button>
+      <button>post</button>
+    </form>
+    <!--END-->
+```
+![[Pasted image 20250804104930.png]]
+

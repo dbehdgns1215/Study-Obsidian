@@ -2046,4 +2046,14 @@ z## CSV / XML / JSON
 ![[Pasted image 20250804102220.png]]
 
 ![[Pasted image 20250804102357.png]]
+```html
+    <h1>basic link</h1>
+    <!--TODO: 01. a 태그를 이용하여 구글로 이동하는 링크를 작성해보자.-->
+    <!--구글(새창) | 싸피(현재창)-->
+    a[href=http://www.google.com target=_blank]{구글로}
+    <a href="http://www.google.com" target="_blank">구글로</a>
+    a[href=http://www.ssafy.com]{싸피}
+    <a href="http://www.ssafy.com">싸피로</a>
+    <!--END-->
+```
 

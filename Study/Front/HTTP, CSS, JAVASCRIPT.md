@@ -457,3 +457,24 @@ p {
 - `inner2` 의 box-size는 200px
 	- box-sizing이 `content-box`냐 또는 `border-box`냐에 따른 차이
 
+#### margin 영역
+- border 외부에서 다른 요소와의 거리
+![[Pasted image 20250805105354.png]]
+#### block 요소와 inline 요소의 margin
+- inline 요소는 padding과 마찬가지로 좌우 margin만 가질 수 있으며 상하 마진은 의미 없음
+- block 요소끼리의 상하 마진은 병합(더 큰 마진 값 하나만 적용)되며 수평 margin은 각자의 margin을 유지.
+	- 단, 요소의 일반적인 문서의 흐름을 벗어나는 경우 margin 병합은 발생하지 않음
+![[Pasted image 20250805105528.png]]
+
+#### box를 활용한 기본 레이아웃 구성
+- 가운데 정렬
+	- div의 width를 고정한 채 상하 margin을 0으로 두고 좌우 margin을 auto로 구성
+- header, footer 고정
+	- header + footer + main의 height가 viewport를 채우도록 함
+		- 100vh
+	- header와 footer의 height를 고정
+	- 나머지 공간을 main이 모두 가져갈 수 있도록 처리
+![[Pasted image 20250805105648.png]]
+
+![[Pasted image 20250805105656.png]]
+

@@ -221,3 +221,5 @@ comment
 
 ![[Pasted image 20250804114442.png]]
 
+
+# Day 11

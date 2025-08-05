@@ -283,5 +283,25 @@ comment
 	- `author`: 웹 페이지를 작성한 개발자가 정의한 스타일
 		- "우리 사이트는 이렇게 보였으면 좋겠어"
 - 우선 순위 적용 순서는 얼마나 중요한가?
+![[Pasted image 20250805092937.png]]
+- `User normal Style Sheet`, `User important Style Sheet`는 잘 사용되지 않음.
+- inherited style sheet에서는 `!important` 무시함.
+	- 즉, 상속 받은 CSS 에서는 그것이 중요하지 않음.
+```css
+p {
+	color: red !important
+}
+```
 
-	- inherited style sheet에서는 `!important` 무시함.
+### Cascading 3
+- 만약 중요도가 같다면 다음으로는 명시도를 확인
+	- 명시도는 선택자를 이용해서 우선 순위를 정하기 위한 값
+		- 얼마나 한정 지을 수 있는가?
+	- X - Y - Z 의 3가지 숫자로 명시도를 매기며 마치 금 - 은 - 동과 유사
+	- X: ID 선택자의 개수
+	- Y: class 선택자, 속성 선택자, 가상 클래스 선택자의 개수
+	- Z: 타입 선택자, 가상 요소 선택자의 개수
+- 만약 명시도마저 똑같다면 로드된 우선 순위에 의해 결정됨.
+![[Pasted image 20250805093222.png]]
+
+

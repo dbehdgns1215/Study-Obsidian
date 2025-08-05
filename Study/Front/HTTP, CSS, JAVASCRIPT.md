@@ -445,3 +445,7 @@ p {
 - 위 내용은 border나 margin도 마찬가지로 적용됨
 
 ![[Pasted image 20250805103829.png]]
+
+#### border 영역
+- padding을 밖에서 감싸고 있는 테두리
+![[Pasted image 20250805104032.png]]

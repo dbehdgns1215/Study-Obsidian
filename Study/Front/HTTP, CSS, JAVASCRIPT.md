@@ -449,3 +449,8 @@ p {
 #### border 영역
 - padding을 밖에서 감싸고 있는 테두리
 ![[Pasted image 20250805104032.png]]
+- `border-top-left-radius: 20px;`
+#### box-sizing
+- width와 height를 측정할 때의 기준 설정
+![[Pasted image 20250805104316.png]]
+

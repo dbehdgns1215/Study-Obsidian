@@ -453,4 +453,5 @@ p {
 #### box-sizing
 - width와 height를 측정할 때의 기준 설정
 ![[Pasted image 20250805104316.png]]
-
+- `inner1` 의 box-size는 240px
+- `inner2` 의 box-size는 200px

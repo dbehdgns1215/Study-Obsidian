@@ -432,4 +432,16 @@ p {
 
 #### content 영역
 ![[Pasted image 20250805103113.png]]
+#### display 속성
+- block 요소는 width와 height를 갖지만, inline 요소에서는 무시됨
+	- 즉, span에게 width, height를 줘봤자 무의미함.
 
+#### padding 영역
+- content와 border 사이의 여백
+![[Pasted image 20250805103656.png]]
+
+#### block 요소와 inline 요소의 padding 차이
+![[Pasted image 20250805103805.png]]
+- 위 내용은 border나 margin도 마찬가지로 적용됨
+
+![[Pasted image 20250805103829.png]]

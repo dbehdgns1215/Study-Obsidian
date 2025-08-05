@@ -422,3 +422,14 @@ p {
     </style>
   </head>
 ```
+
+### box model
+- 텍스트, 이미지 등의 모든 콘텐츠를 사각의 박스 형태로 관리하는 모델
+- HTML의 모든 요소는 사각형의 박스 모델이고 block 요소는 위에서 아래로, inline 요소는 왼쪽에서 오른쪽으로 배치됨
+- box는 content, padding, border, margin으로 구성됨
+![[Pasted image 20250805103050.png]]
+
+
+#### content 영역
+![[Pasted image 20250805103113.png]]
+

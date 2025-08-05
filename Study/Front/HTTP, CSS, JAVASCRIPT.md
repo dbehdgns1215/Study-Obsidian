@@ -336,3 +336,89 @@ p {
 - 보이지 않는 가상의 요소를 선택하기 위한 선택자로 엘리먼트 이름 앞에 `::` 추가
 ![[Pasted image 20250805095844.png]]
 
+**실습**
+```css
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이언맨 팬 페이지</title>
+    <style>
+      /* TODO: 01. 모든 요소를 선택하세요 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* TODO: 02. body 태그를 선택하세요 */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      /* TODO: 03. main-title이라는 id를 가진 요소를 선택하세요 */
+      #main-title {
+        color: #e62429;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      /* TODO: 04. movie-title이라는 클래스를 가진 요소를 선택하세요 */
+      .movie-title {
+        color: #4a4a4a;
+        font-size: 1.5em;
+        margin: 15px 0;
+      }
+
+      /* TODO: 05. movie-info 클래스를 가진 요소의 직계 자식 p태그를 선택하세요 */
+      .movie-info > p {
+        margin-bottom: 10px;
+        color: #666;
+      }
+
+      /* TODO: 06. movie-section 클래스를 가진 요소 아래의 모든 span 태그를 선택하세요 */
+      .movie-section span {
+        color: #e62429;
+        font-weight: bold;
+      }
+
+      /* TODO: 07. movie-title 클래스를 가진 요소에 마우스를 올렸을 때를 선택하세요 */
+      .movie-title:hover {
+        color: #e62429;
+        cursor: pointer;
+      }
+
+      /* TODO: 08. highlight와 important 클래스를 모두 가진 요소를 선택하세요 */
+      .highlight.important {
+        background-color: #ffe6e6;
+        padding: 10px;
+      }
+
+      /* TODO: 09. h2 바로 다음에 오는 p 태그를 선택하세요 */
+      h2 + p {
+        font-style: italic;
+      }
+
+      /* TODO: 010. alt 속성에 'Iron Man'이라는 텍스트를 포함하는 img 태그를 선택하세요 */
+      img[alt*="Iron Man"] {
+        border: 3px solid #e62429;
+        border-radius: 10px;
+      }
+
+      /* TODO: 11. .movie-info 안의 첫 번째 p 태그를 선택하세요 */
+      .movie-info p:first-child {
+        font-weight: bold;
+        border-bottom: 1px solid #e62429;
+      }
+
+      /* TODO: 12. 체크된 상태의 라디오 버튼을 선택하세요 */
+      input[type="radio"]:checked + label {
+        color: #e62429;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+```

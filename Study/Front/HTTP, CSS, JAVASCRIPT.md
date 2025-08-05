@@ -455,3 +455,5 @@ p {
 ![[Pasted image 20250805104316.png]]
 - `inner1` 의 box-size는 240px
 - `inner2` 의 box-size는 200px
+	- box-sizing이 `content-box`냐 또는 `border-box`냐에 따른 차이
+

@@ -512,3 +512,16 @@ p {
 
 ## none
 ![[Pasted image 20250806095952.png]]
+
+## position
+![[Pasted image 20250806101706.png]]
+
+### position 속성
+
+### static
+![[Pasted image 20250806101727.png]]
+
+### relative
+![[Pasted image 20250806101754.png]]
+
+### ab

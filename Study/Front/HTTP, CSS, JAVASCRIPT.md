@@ -507,3 +507,6 @@ p {
 ![[Pasted image 20250806094036.png]]
 
 
+## flex item에게 적용되는 속성
+![[Pasted image 20250806095215.png]]
+

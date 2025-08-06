@@ -545,3 +545,8 @@ p {
 ### 미디어 쿼리
 ![[Pasted image 20250806104041.png]]
 
+![[Pasted image 20250806104722.png]]
+
+**조건 활용**
+![[Pasted image 20250806104759.png]]
+

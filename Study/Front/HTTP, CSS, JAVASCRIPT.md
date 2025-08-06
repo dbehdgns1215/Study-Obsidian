@@ -504,4 +504,6 @@ p {
 
 **flex container에게 적용되는 속성**
 ![[Pasted image 20250806093809.png]]
+![[Pasted image 20250806094036.png]]
+
 

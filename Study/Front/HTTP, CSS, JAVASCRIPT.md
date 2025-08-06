@@ -527,3 +527,6 @@ p {
 ### absolute
 ![[Pasted image 20250806102120.png]]
 
+### fixed
+![[Pasted image 20250806102837.png]]
+

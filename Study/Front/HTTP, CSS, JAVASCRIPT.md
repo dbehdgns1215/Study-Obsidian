@@ -510,3 +510,5 @@ p {
 ## flex item에게 적용되는 속성
 ![[Pasted image 20250806095215.png]]
 
+## none
+![[Pasted image 20250806095952.png]]

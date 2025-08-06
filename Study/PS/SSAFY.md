@@ -182,5 +182,7 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 ![[Pasted image 20250804152540.png]]
 
 # Day 12
-![[Pasted image 20250806142433.png]]
+![[Pasted image 20250806144936.png]]
+
+
 

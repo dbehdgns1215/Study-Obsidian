@@ -501,3 +501,7 @@ p {
 
 ## flexible box model
 ![[Pasted image 20250806093641.png]]
+
+**flex container에게 적용되는 속성**
+![[Pasted image 20250806093809.png]]
+

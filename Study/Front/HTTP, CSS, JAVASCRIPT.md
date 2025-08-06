@@ -483,3 +483,9 @@ p {
 
 ## display 속성
 - 웹페이지의 레이아웃을 결정하는 중요한 속성
+
+![[Pasted image 20250806090631.png]]
+
+### block과 imline, inline-block
+![[Pasted image 20250806090737.png]]
+

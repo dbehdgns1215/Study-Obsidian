@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/PS/SSAFY.md",
+                "file": "Study/Front/HTTP, CSS, JAVASCRIPT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SSAFY"
+              "title": "HTTP, CSS, JAVASCRIPT"
             }
           }
         ],
@@ -93,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "9d41ebb5ac55ef84",
@@ -207,10 +208,10 @@
   },
   "active": "6caa94e656fda9f8",
   "lastOpenFiles": [
+    "Study/PS/SSAFY.md",
     "Study/PS/SWEA.md",
     "Study/PS/Java.md",
     "Study/PS/PS.md",
-    "Study/PS/SSAFY.md",
     "Study/Front/HTTP, CSS, JAVASCRIPT.md",
     "Pasted image 20250805105656.png",
     "Pasted image 20250805105648.png",

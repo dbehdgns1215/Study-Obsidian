@@ -495,3 +495,6 @@ p {
 ## float
 ![[Pasted image 20250806092725.png]]
 
+## clear
+![[Pasted image 20250806092944.png]]
+

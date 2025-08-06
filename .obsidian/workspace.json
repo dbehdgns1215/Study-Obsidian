@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Front/HTTP, CSS, JAVASCRIPT.md",
+                "file": "Study/SSAFY/NOTICE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HTTP, CSS, JAVASCRIPT"
+              "title": "NOTICE"
             }
           }
         ],
@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "9d41ebb5ac55ef84",
@@ -208,6 +207,7 @@
   },
   "active": "6caa94e656fda9f8",
   "lastOpenFiles": [
+    "Study/Front/HTTP, CSS, JAVASCRIPT.md",
     "Pasted image 20250806104759.png",
     "Pasted image 20250806104722.png",
     "Pasted image 20250806104041.png",
@@ -218,8 +218,6 @@
     "Pasted image 20250806101754.png",
     "Pasted image 20250806101727.png",
     "Pasted image 20250806101706.png",
-    "Pasted image 20250806095952.png",
-    "Study/Front/HTTP, CSS, JAVASCRIPT.md",
     "Study/PS/SSAFY.md",
     "Study/PS/SWEA.md",
     "Study/PS/Java.md",

@@ -524,4 +524,6 @@ p {
 ### relative
 ![[Pasted image 20250806101754.png]]
 
-### ab
+### absolute
+![[Pasted image 20250806102120.png]]
+

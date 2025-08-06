@@ -498,3 +498,6 @@ p {
 ## clear
 ![[Pasted image 20250806092944.png]]
 
+
+## flexible box model
+![[Pasted image 20250806093641.png]]

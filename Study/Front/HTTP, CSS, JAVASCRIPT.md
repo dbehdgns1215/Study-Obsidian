@@ -489,3 +489,9 @@ p {
 ### block과 imline, inline-block
 ![[Pasted image 20250806090737.png]]
 
+## block 요소의 가로 방향 배치
+![[Pasted image 20250806092713.png]]
+
+## float
+![[Pasted image 20250806092725.png]]
+

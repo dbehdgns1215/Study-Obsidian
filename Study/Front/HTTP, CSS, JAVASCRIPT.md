@@ -606,3 +606,9 @@ p {
 #### undefined와 null
 ![[Pasted image 20250807095251.png]]
 
+#### 참조형
+![[Pasted image 20250807095525.png]]
+
+#### JavaScript의 객체
+![[Pasted image 20250807095545.png]]
+

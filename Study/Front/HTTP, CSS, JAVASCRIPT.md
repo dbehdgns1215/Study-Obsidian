@@ -557,7 +557,9 @@ p {
 ![[Pasted image 20250807090511.png]]
 - 호스트 실행 환경: 브라우저
 
-## Html 파일 내에 `<script>` 태그를 이용한 영역 표시
+### Html 파일 내에 `<script>` 태그를 이용한 영역 표시
 ![[Pasted image 20250807091040.png]]
 
+### 외부 파일 링크
+![[Pasted image 20250807091234.png]]
 

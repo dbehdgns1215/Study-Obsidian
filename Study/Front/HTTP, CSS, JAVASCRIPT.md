@@ -563,3 +563,6 @@ p {
 ### 외부 파일 링크
 ![[Pasted image 20250807091234.png]]
 
+### inline 방식
+![[Pasted image 20250807091413.png]]
+

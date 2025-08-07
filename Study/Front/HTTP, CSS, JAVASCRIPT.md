@@ -550,3 +550,9 @@ p {
 **조건 활용**
 ![[Pasted image 20250806104759.png]]
 
+
+# Day 13
+
+## JavaScript
+![[Pasted image 20250807090511.png]]
+

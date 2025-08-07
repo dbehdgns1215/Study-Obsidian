@@ -668,3 +668,16 @@ p {
 ![[Pasted image 20250807104501.png]]
 ![[Pasted image 20250807104807.png]]
 
+#### 생성자로서의 function (잘 안씀)
+![[Pasted image 20250807105452.png]]
+
+#### 대신 class 활용 권장
+![[Pasted image 20250807105517.png]]
+
+
+#### first class citizen
+![[Pasted image 20250807105535.png]]
+
+#### 인자로 활용된 function
+![[Pasted image 20250807105608.png]]
+

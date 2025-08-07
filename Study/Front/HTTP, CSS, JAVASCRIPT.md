@@ -651,3 +651,8 @@ p {
 ### 예외 처리 구문
 ![[Pasted image 20250807103318.png]]
 
+## function
+
+### 다시 한 번 JavaScript는
+![[Pasted image 20250807103441.png]]
+

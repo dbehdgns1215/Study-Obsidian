@@ -555,4 +555,5 @@ p {
 
 ## JavaScript
 ![[Pasted image 20250807090511.png]]
-
+- 호스트 실행 환경: 브라우저
+- 

@@ -625,13 +625,18 @@ p {
 ![[Pasted image 20250807100203.png]]
 
 
-## 연산자
+### 연산자
 
-### 산술연산
+#### 산술연산
 ![[Pasted image 20250807102120.png]]
 
 ![[Pasted image 20250807102136.png]]
 
-### 비교 연산
+#### 비교 연산
 ![[Pasted image 20250807102218.png]]
 
+#### 비교 연산의 형 변환
+![[Pasted image 20250807102620.png]]
+
+#### short-circuit 논리 연산자
+![[Pasted image 20250807102642.png]]

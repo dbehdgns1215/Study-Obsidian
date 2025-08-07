@@ -664,3 +664,6 @@ p {
 ![[Pasted image 20250807104022.png]]
 ![[Pasted image 20250807104039.png]]
 
+#### 함수 호이스팅
+![[Pasted image 20250807104501.png]]
+

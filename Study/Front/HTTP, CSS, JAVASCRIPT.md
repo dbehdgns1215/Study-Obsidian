@@ -596,3 +596,6 @@ p {
 #### 문자열 (string)
 ![[Pasted image 20250807094424.png]]
 
+#### 템플릿 문자열
+![[Pasted image 20250807094639.png]]
+

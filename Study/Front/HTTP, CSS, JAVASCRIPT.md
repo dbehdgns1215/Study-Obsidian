@@ -612,3 +612,6 @@ p {
 #### JavaScript의 객체
 ![[Pasted image 20250807095545.png]]
 
+#### 배열
+![[Pasted image 20250807095714.png]]
+

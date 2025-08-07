@@ -588,3 +588,11 @@ p {
 
 #### 기본형
 ![[Pasted image 20250807093741.png]]
+
+#### 숫자 타입
+![[Pasted image 20250807094352.png]]
+![[Pasted image 20250807094404.png]]
+
+#### 문자열 (string)
+![[Pasted image 20250807094424.png]]
+

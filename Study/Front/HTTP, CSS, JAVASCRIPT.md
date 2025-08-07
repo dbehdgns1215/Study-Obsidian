@@ -601,5 +601,8 @@ p {
 
 #### boolean
 ![[Pasted image 20250807095039.png]]
-- 위에 언급된 5가지 경우 외에는 모두 `true`
-- 
+- 위에 언급된 5가지 경우(falsy) 외에는 모두 `true`
+
+#### undefined와 null
+![[Pasted image 20250807095251.png]]
+

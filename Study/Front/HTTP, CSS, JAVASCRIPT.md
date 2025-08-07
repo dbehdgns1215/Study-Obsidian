@@ -615,3 +615,9 @@ p {
 #### 배열
 ![[Pasted image 20250807095714.png]]
 
+#### 배열 객체
+![[Pasted image 20250807095952.png]]
+
+#### 사용자 정의 Object의 생성
+![[Pasted image 20250807100030.png]]
+

@@ -680,4 +680,3 @@ p {
 
 #### 인자로 활용된 function
 ![[Pasted image 20250807105608.png]]
-

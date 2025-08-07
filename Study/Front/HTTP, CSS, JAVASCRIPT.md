@@ -582,3 +582,9 @@ p {
 
 **변수 선언 지시어 별 scope 확인**
 ![[Pasted image 20250807093600.png]]
+
+### 자료형
+![[Pasted image 20250807093716.png]]
+
+#### 기본형
+![[Pasted image 20250807093741.png]]

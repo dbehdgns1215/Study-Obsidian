@@ -656,3 +656,11 @@ p {
 ### 다시 한 번 JavaScript는
 ![[Pasted image 20250807103441.png]]
 
+#### function 기본 형태
+![[Pasted image 20250807103835.png]]
+- `myFunc(1, 2, 3, 4, 5)`는 어떻게 처리할 수 있을까? 버리진 않을텐데?
+
+#### 다양한 정의 방법
+![[Pasted image 20250807104022.png]]
+![[Pasted image 20250807104039.png]]
+

@@ -688,3 +688,6 @@ p {
 - event와 event listener
 ![[Pasted image 20250808090455.png]]
 
+- event listener 등록 방식
+![[Pasted image 20250808090755.png]]
+

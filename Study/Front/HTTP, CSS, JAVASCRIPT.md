@@ -713,3 +713,5 @@ p {
 ![[Pasted image 20250808094355.png]]
 
 
+#### Node의 생성
+![[Pasted image 20250808094550.png]]

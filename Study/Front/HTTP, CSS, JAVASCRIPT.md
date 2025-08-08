@@ -727,4 +727,7 @@ p {
 
 ### Node의 속성 관리
 ![[Pasted image 20250808101827.png]]
+##### data-*
+![[Pasted image 20250808102352.png]]
+- 일종의 prefix
 

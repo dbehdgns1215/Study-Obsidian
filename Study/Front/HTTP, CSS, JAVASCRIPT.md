@@ -702,3 +702,7 @@ p {
 ### Node의 기본 속성
 ![[Pasted image 20250808092354.png]]
 
+### Element의 조회
+
+#### document를 통한 조회
+![[Pasted image 20250808092546.png]]

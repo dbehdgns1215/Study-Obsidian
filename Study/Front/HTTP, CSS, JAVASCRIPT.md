@@ -690,4 +690,5 @@ p {
 
 - event listener 등록 방식
 ![[Pasted image 20250808090755.png]]
+![[Pasted image 20250808091205.png]]
 

@@ -685,10 +685,13 @@ p {
 # Day 14
 
 ## 이벤트 처리 기본
-- event와 event listener
+### event와 event listener
 ![[Pasted image 20250808090455.png]]
 
-- event listener 등록 방식
+### event listener 등록 방식
 ![[Pasted image 20250808090755.png]]
 ![[Pasted image 20250808091205.png]]
+
+#### event source 가져오는 방법의 비교
+![[Pasted image 20250808092032.png]]
 

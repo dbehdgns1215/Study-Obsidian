@@ -743,3 +743,12 @@ p {
 
 #### Storage 종류
 ![[Pasted image 20250808103907.png]]
+
+#### Storage API
+![[Pasted image 20250808105553.png]]
+
+#### 객체 저장
+![[Pasted image 20250808105607.png]]
+
+#### 객체 직렬화/역직렬화
+![[Pasted image 20250808105624.png]]

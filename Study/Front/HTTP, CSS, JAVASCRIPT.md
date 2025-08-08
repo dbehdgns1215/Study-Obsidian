@@ -685,3 +685,6 @@ p {
 # Day 14
 
 ## 이벤트 처리 기본
+- event와 event listener
+![[Pasted image 20250808090455.png]]
+

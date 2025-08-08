@@ -709,3 +709,7 @@ p {
 #### 조회된 element와의 관계를 이용한 탐색
 ![[Pasted image 20250808092922.png]]
 
+#### Node의 생성
+![[Pasted image 20250808094355.png]]
+
+

@@ -706,3 +706,6 @@ p {
 
 #### document를 통한 조회
 ![[Pasted image 20250808092546.png]]
+#### 조회된 element와의 관계를 이용한 탐색
+![[Pasted image 20250808092922.png]]
+

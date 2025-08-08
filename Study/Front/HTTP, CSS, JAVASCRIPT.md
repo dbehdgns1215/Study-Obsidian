@@ -699,3 +699,6 @@ p {
 ## DOM
 ![[Pasted image 20250808092214.png]]
 
+### Node의 기본 속성
+![[Pasted image 20250808092354.png]]
+

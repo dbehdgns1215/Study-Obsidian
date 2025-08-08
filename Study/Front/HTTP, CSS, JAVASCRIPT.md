@@ -735,3 +735,11 @@ p {
 #### style 속성 관리
 ![[Pasted image 20250808102717.png]]
 
+#### class 관리
+![[Pasted image 20250808103818.png]]
+
+### Storage
+![[Pasted image 20250808103846.png]]
+
+#### Storage 종류
+![[Pasted image 20250808103907.png]]

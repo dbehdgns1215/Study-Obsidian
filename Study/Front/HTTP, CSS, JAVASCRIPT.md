@@ -695,3 +695,7 @@ p {
 #### event source 가져오는 방법의 비교
 ![[Pasted image 20250808092032.png]]
 
+
+## DOM
+![[Pasted image 20250808092214.png]]
+

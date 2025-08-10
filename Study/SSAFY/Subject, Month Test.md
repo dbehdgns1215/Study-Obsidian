@@ -57,3 +57,8 @@
 
 - 조합
 ![[Pasted image 20250810224445.png]]
+
+- 부분 조합
+![[Pasted image 20250810224729.png]]
+![[Pasted image 20250810224738.png]]
+

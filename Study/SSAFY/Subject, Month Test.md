@@ -76,3 +76,507 @@
 
 
 ---
+
+# 파리퇴치
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Solution {
+	
+	static BufferedReader br;
+	static StringTokenizer st;
+	
+	public static void main(String[] args) throws IOException {
+		br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int T = Integer.parseInt(br.readLine());
+		
+		for (int test_case = 1; test_case <= T; test_case++) {
+			st = new StringTokenizer(br.readLine());
+			int N = Integer.parseInt(st.nextToken());
+			int M = Integer.parseInt(st.nextToken());
+			
+			int[][] arr = new int[N][N];
+			
+			for (int i = 0; i < N; i++) {
+				st = new StringTokenizer(br.readLine());
+				for (int j = 0; j < N; j++) {
+					arr[i][j] = Integer.parseInt(st.nextToken());
+				}
+			}
+			
+			int maxSum = Integer.MIN_VALUE;
+			
+			for (int i = 0; i <= N - M; i++) {
+				for (int j = 0; j <= N - M; j++) {
+					int sum = 0;
+					for (int y = 0; y < M; y++) {
+						for (int x = 0; x < M; x++) {
+							sum += arr[i + y][j + x];
+						}
+					}
+					maxSum = Math.max(maxSum, sum);
+				}
+			}
+			
+			System.out.println("#" + test_case + " " + maxSum);
+		}
+	}
+}
+
+```
+
+---
+
+# 햄버거 다이어트
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+import org.omg.CORBA.INTERNAL;
+
+public class Solution {
+
+	static BufferedReader br;
+	static StringTokenizer st;
+	static StringBuilder sb;
+	static int N, L;
+	static int[] michelinScore;
+	static int[] kcal;
+//	static boolean[] ate;
+	static int curKcal;
+	static int curMicehlinScore;
+	static int maxMichelinScore;
+	
+	public static void main(String[] args) throws IOException {
+		br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int T = Integer.parseInt(br.readLine());
+		
+		for (int test_case = 1; test_case <= T; test_case++) {
+			
+			curKcal = 0;
+			curMicehlinScore = 0;
+			maxMichelinScore = Integer.MIN_VALUE;
+			 
+			st = new StringTokenizer(br.readLine());
+			
+			N = Integer.parseInt(st.nextToken());
+			L = Integer.parseInt(st.nextToken());
+			
+			michelinScore = new int[N];
+			kcal = new int[N];
+//			ate = new boolean[N];
+			
+			for (int i = 0; i < N; i++) {
+				st = new StringTokenizer(br.readLine());
+				michelinScore[i] = Integer.parseInt(st.nextToken());
+				kcal[i] = Integer.parseInt(st.nextToken());
+			}
+			
+			hambugi(0);
+			
+			sb = new StringBuilder().append("#").append(test_case).append(" ").append(maxMichelinScore);
+			System.out.println(sb);
+		}
+
+	}
+
+	// 순열 버전
+//	private static void hambugi(int eatingCnt) {
+//		if (curKcal > L) return;
+//		
+//		if (eatingCnt == N) {
+//			// 다 먹어도 제한 칼로리 미만이면 그게 최대값
+//			maxMichelinScore = Math.max(maxMichelinScore, curMicehlinScore);
+//			return;
+//		}
+//		
+//		maxMichelinScore = Math.max(maxMichelinScore, curMicehlinScore);
+//		
+//		for (int i = 0; i < N; i++) {
+//			if (ate[i]) continue;
+//			
+//			ate[i] = true;
+//			curKcal += kcal[i];
+//			curMicehlinScore += michelinScore[i];
+//
+//			hambugi(eatingCnt + 1);
+//			
+//			ate[i] = false;
+//			curKcal -= kcal[i];
+//			curMicehlinScore -= michelinScore[i];
+//		}
+//		
+//	}
+	
+	private static void hambugi(int eatingIdx) {
+		if (curKcal > L) return;
+		
+		maxMichelinScore = Math.max(maxMichelinScore, curMicehlinScore);
+		
+		for (int i = eatingIdx; i < N; i++) {
+			curKcal += kcal[i];
+			curMicehlinScore += michelinScore[i];
+	
+			hambugi(i + 1);
+			
+			curKcal -= kcal[i];
+			curMicehlinScore -= michelinScore[i];
+		}
+	}
+}
+
+```
+
+---
+
+# 수제 버거 장인
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.Character.Subset;
+import java.util.StringTokenizer;
+
+public class Solution {
+	
+	static int N;
+	static int M;
+	static StringBuilder sb;
+	static boolean[] isUsed;
+	static boolean[][] hambugiProhibit; // 금지된 햄부기 조합
+//	static int[] hambugiIndex;
+	static int ans;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		int T = Integer.parseInt(br.readLine());
+		
+		for (int test_case = 1; test_case <= T; test_case++) {
+			sb = new StringBuilder();
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			
+			ans = 0;
+			N = Integer.parseInt(st.nextToken());
+			M = Integer.parseInt(st.nextToken());
+			
+			isUsed = new boolean[N + 1];
+			hambugiProhibit = new boolean[N + 1][N + 1];
+			
+			if (M == 0) {
+				int ans = 1 << N;
+				sb.append("#").append(test_case).append(" ").append(ans);
+				System.out.println(sb);
+				continue;
+			}
+			
+			for (int i = 1; i <= M; i++) {
+				st = new StringTokenizer(br.readLine());
+				int A = Integer.parseInt(st.nextToken());
+				int B = Integer.parseInt(st.nextToken());
+				hambugiProhibit[A][B] = true;
+				hambugiProhibit[B][A] = true;
+			}
+			
+			subset(1);
+			
+			sb.append("#").append(test_case).append(" ").append(ans);
+			System.out.println(sb);
+		}
+	}
+
+	private static void subset(int idx) {
+		boolean flag = false;
+		
+		if (idx == N + 1) {
+			for (int i = 1; i <= N; i++) {
+		        if (!isUsed[i]) continue;
+		        for (int j = i + 1; j <= N; j++) {
+		        	if (!isUsed[j]) continue;
+		            if (hambugiProhibit[i][j]) {
+		            	return;
+		            }
+		        }
+		    }
+			ans++;
+			return;
+		}
+		
+	    // idx번째 재료를 사용해도 되는지 체크
+	    boolean canUse = true;
+	    for (int i = 1; i < idx; i++) {
+	        if (isUsed[i] && hambugiProhibit[i][idx]) {
+	            canUse = false;
+	            break;
+	        }
+	    }
+	    
+	    // idx번째 재료를 사용하는 경우
+	    if (canUse) {
+	        isUsed[idx] = true;
+	        subset(idx + 1);
+	    }
+	    
+	    // idx번쨰 재료를 사용하지 않는 경우
+	    isUsed[idx] = false;
+	    subset(idx + 1);
+	    
+	}
+}
+
+```
+
+---
+
+# Ladder1
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Solution {
+	
+	public static class Pair {
+		int x;
+		int y;
+		
+		public Pair(int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+	}
+	
+	static int[] dx = {-1, 1, 0};
+	static int[] dy = {0, 0, -1};
+
+	static int[][] arr;
+	static Queue<Pair> q = new LinkedList<>();
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		for (int test_case = 1; test_case <= 10; test_case++) {
+			int T = Integer.parseInt(br.readLine());
+			StringBuilder sb = new StringBuilder();
+			
+			arr = new int[100][100];
+			
+			for (int i = 0; i < 100; i++) {
+				StringTokenizer st = new StringTokenizer(br.readLine());
+				for (int j = 0; j < 100; j++) {
+					arr[i][j] = Integer.parseInt(st.nextToken());
+					// 시간 초과 난다면 -> 가로 사다리 위치를 3과 같은 수로 만들 필요도 있을 듯
+//					if (j > 0 && j < 99 && arr[i][j - 1] == 1) {
+//						arr[i][j - 1] = 3;
+//					}
+				}
+			}
+			
+			for (int i = 0; i < 100; i++) {
+				if (arr[99][i] == 2) {
+					q.add(new Pair(i, 99));
+					Pair ans = bfs();
+					sb.append("#");
+					sb.append(test_case);
+					sb.append(" ");
+					sb.append(ans.x);
+				}
+			}
+			
+			System.out.println(sb);
+		}
+
+	}
+
+	private static Pair bfs() {
+		
+		while (!q.isEmpty()) {
+			Pair cur = q.poll();
+
+			for (int dir = 0; dir < 3; dir++) {
+				int nx = cur.x + dx[dir];
+				int ny = cur.y + dy[dir];
+				
+				if (nx < 0 || nx >= 100) continue;
+				if (ny < 0) {
+					return new Pair(cur.x, cur.y);
+				}
+				if (arr[ny][nx] == 0) continue;
+				
+				q.add(new Pair(nx, ny));
+				arr[cur.y][cur.x] = 0;
+				break;
+			}
+		}
+		return null;
+	}
+}
+
+
+```
+
+
+---
+
+# 결혼식
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main {
+
+    static boolean[][] network;
+    static boolean[] visited;
+    static int[] depth;
+    
+    public static void main(String[] args) throws IOException {
+        
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        int N = Integer.parseInt(br.readLine());
+        int M = Integer.parseInt(br.readLine());
+        
+        network = new boolean[N + 1][N + 1];
+        visited = new boolean[N + 1];
+        depth = new int[N + 1];
+
+        for (int i = 0; i < M; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            network[a][b] = true;
+            network[b][a] = true;
+        }
+
+        Queue<Integer> q = new LinkedList<>();
+        
+        q.add(1);
+        visited[1] = true;
+
+        int inviteCnt = 0;
+
+        while (!q.isEmpty()) {
+            int cur = q.poll();
+
+            for (int i = 1; i <= N; i++) {
+                if (!visited[i] && network[cur][i]) {
+                    depth[i] = depth[cur] + 1;
+                    if (depth[i] <= 2) {
+                        inviteCnt++;
+                        visited[i] = true;
+                        q.add(i);
+                    }
+                }
+            }
+        }
+
+        System.out.println(inviteCnt);
+    }
+}
+
+```
+
+---
+
+# 효율적인 해킹
+구현은 성공, 시간 초과가 문제
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main {
+	static BufferedReader br;
+	static StringTokenizer st;
+	static StringBuilder sb;
+	
+	static int N, M;
+	static ArrayList<Integer>[] graph;
+	static int[] hackingCnt;
+
+    public static void main(String[] args) throws IOException {
+        
+        br = new BufferedReader(new InputStreamReader(System.in));
+        sb = new StringBuilder();
+        
+        st = new StringTokenizer(br.readLine());
+        
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+        
+        graph = new ArrayList[N + 1];
+        hackingCnt = new int[N + 1];
+        
+        for (int i = 1; i <= N; i++) {
+        	graph[i] = new ArrayList<>();
+        }
+
+        for (int i = 0; i < M; i++) {
+            st = new StringTokenizer(br.readLine());
+            
+            int a = Integer.parseInt(st.nextToken()); 
+            int b = Integer.parseInt(st.nextToken());
+            
+            graph[b].add(a);
+        }
+        
+        for (int i = 1; i <= N; i++) {
+            boolean[] visited = new boolean[N + 1];
+            
+            Queue<Integer> q = new LinkedList<>();
+            
+            q.add(i);
+            visited[i] = true;
+            int count = 0;
+
+            while (!q.isEmpty()) {
+                int cur = q.poll();
+                for (int next : graph[cur]) {
+                    if (!visited[next]) {
+                        visited[next] = true;
+                        q.add(next);
+                        count++;
+                    }
+                }
+            }
+
+            hackingCnt[i] = count;
+        }
+
+        int maxCnt = 0;
+        for (int i = 1; i <= N; i++) {
+            if (hackingCnt[i] > maxCnt) {
+            	maxCnt = hackingCnt[i];
+            }
+        }
+   
+        for (int i = 1; i <= N; i++) {
+            if (hackingCnt[i] == maxCnt) {
+            	sb.append(i).append(" ");
+            }
+        }
+
+        System.out.println(sb);
+    }
+}
+
+```

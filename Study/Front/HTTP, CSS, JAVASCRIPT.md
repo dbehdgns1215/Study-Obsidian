@@ -765,3 +765,9 @@ p {
 ## 이벤트 객체의 활용
 ![[Pasted image 20250811141323.png]]
 
+## event source 확인
+![[Pasted image 20250811141954.png]]
+
+### event.target vs event.currentTarget
+![[Pasted image 20250811142018.png]]
+

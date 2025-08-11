@@ -771,3 +771,5 @@ p {
 ### event.target vs event.currentTarget
 ![[Pasted image 20250811142018.png]]
 
+## capturing vs bubbling
+![[Pasted image 20250811142409.png]]

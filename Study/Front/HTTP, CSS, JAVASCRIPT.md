@@ -825,3 +825,5 @@ p {
 - 달리 사용하지 않음
 ### location 객체
 ![[Pasted image 20250811155140.png]]
+![[Pasted image 20250811155251.png]]
+

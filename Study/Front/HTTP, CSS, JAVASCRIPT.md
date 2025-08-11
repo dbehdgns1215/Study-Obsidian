@@ -820,3 +820,8 @@ p {
 
 ![[Pasted image 20250811154621.png]]
 
+### Screen
+![[Pasted image 20250811155121.png]]
+- 달리 사용하지 않음
+### location 객체
+![[Pasted image 20250811155140.png]]

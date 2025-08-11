@@ -818,3 +818,5 @@ p {
 ### window 객체
 ![[Pasted image 20250811153512.png]]
 
+![[Pasted image 20250811154621.png]]
+

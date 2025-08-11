@@ -773,3 +773,7 @@ p {
 
 ## capturing vs bubbling
 ![[Pasted image 20250811142409.png]]
+
+## 동일한 이벤트가 겹칠 때의 처리 방식
+![[Pasted image 20250811142807.png]]
+

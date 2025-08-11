@@ -802,5 +802,11 @@ p {
 ![[Pasted image 20250811151745.png]]
 - invalid 이벤트는 캡처링 방식
 
+## 화면에 invalid 내용 반영
+![[Pasted image 20250811152423.png]]
+
+
+## custom validation rule 추가
+![[Pasted image 20250811152400.png]]
 
 

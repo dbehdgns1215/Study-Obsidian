@@ -815,3 +815,6 @@ p {
 	- window - 브라우저 객체의 최상위 객체
 ![[Pasted image 20250811153235.png]]
 
+### window 객체
+![[Pasted image 20250811153512.png]]
+

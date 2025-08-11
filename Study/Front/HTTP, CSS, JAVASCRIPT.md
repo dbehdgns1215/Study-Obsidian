@@ -795,5 +795,12 @@ p {
 - 어차피 커스텀 validation 처리가 필요함.
 ![[Pasted image 20250811151437.png]]
 
+- 전통적인 invalid
+![[Pasted image 20250811151728.png]]
+
+- invalid 이벤트 활용
+![[Pasted image 20250811151745.png]]
+- invalid 이벤트는 캡처링 방식
+
 
 

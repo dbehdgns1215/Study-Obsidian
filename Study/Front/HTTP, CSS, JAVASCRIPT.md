@@ -790,3 +790,8 @@ p {
 ![[Pasted image 20250811144935.png]]
 
 
+## submit과 validation
+![[Pasted image 20250811151153.png]]
+
+
+

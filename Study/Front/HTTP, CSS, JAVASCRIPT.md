@@ -780,4 +780,10 @@ p {
 ## 이벤트 진행 제어
 ![[Pasted image 20250811143150.png]]
 
+## 키보드 이벤트
+![[Pasted image 20250811144027.png]]
+- keydown + keyup 은 세트로 다님.
+![[Pasted image 20250811144117.png]]
+
+
 

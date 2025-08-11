@@ -833,3 +833,7 @@ p {
 ### navigator 객체
 ![[Pasted image 20250811155646.png]]
 
+
+### geolocation api 활용
+![[Pasted image 20250811155857.png]]
+

@@ -827,3 +827,9 @@ p {
 ![[Pasted image 20250811155140.png]]
 ![[Pasted image 20250811155251.png]]
 
+### history 객체
+![[Pasted image 20250811155634.png]]
+
+### navigator 객체
+![[Pasted image 20250811155646.png]]
+

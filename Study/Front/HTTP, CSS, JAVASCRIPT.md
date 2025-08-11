@@ -792,6 +792,8 @@ p {
 
 ## submit과 validation
 ![[Pasted image 20250811151153.png]]
+- 어차피 커스텀 validation 처리가 필요함.
+![[Pasted image 20250811151437.png]]
 
 
 

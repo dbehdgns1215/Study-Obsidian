@@ -786,4 +786,7 @@ p {
 ![[Pasted image 20250811144117.png]]
 
 
+## form 및 input 이벤트
+![[Pasted image 20250811144935.png]]
+
 

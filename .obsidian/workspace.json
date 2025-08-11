@@ -168,12 +168,12 @@
             "state": {
               "type": "git-history-view",
               "state": {},
-              "icon": "lucide-file",
-              "title": "플러그인이 더 이상 활성화돼있지 않음"
+              "icon": "history",
+              "title": "History"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -192,6 +192,7 @@
   },
   "active": "3f05460c9d80aaf4",
   "lastOpenFiles": [
+    "Pasted image 20250811153235.png",
     "Pasted image 20250811152423.png",
     "Pasted image 20250811152400.png",
     "Pasted image 20250811151745.png",
@@ -202,7 +203,6 @@
     "Pasted image 20250811144117.png",
     "Pasted image 20250811144027.png",
     "Pasted image 20250811143150.png",
-    "Pasted image 20250811142807.png",
     "Study/PS/SSAFY.md",
     "Study/Front/HTTP, CSS, JAVASCRIPT.md",
     "Study/PS/Java.md",

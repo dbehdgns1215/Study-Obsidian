@@ -880,3 +880,7 @@ Promise.resolve(Promise.reject('fail')) // rejected 상태로 반환[2]
 
 ## async ~ await
 ![[Pasted image 20250812101142.png]]
+
+## 비동기 동작 원리
+![[Pasted image 20250812101638.png]]
+

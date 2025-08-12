@@ -951,3 +951,9 @@ Promise.resolve(Promise.reject('fail')) // rejected 상태로 반환[2]
 ```
 - Client Side Rendering
 
+## CORS
+
+### CORS 오류 처리
+![[Pasted image 20250812110251.png]]
+
+

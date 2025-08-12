@@ -889,5 +889,65 @@ Promise.resolve(Promise.reject('fail')) // rejected 상태로 반환[2]
 
 ## fetch API
 ![[Pasted image 20250812102350.png]]
+
+**fetch API 요청**
 ![[Pasted image 20250812102402.png]]
+
+**fetch API 응답 처리**
+![[Pasted image 20250812102653.png]]
+
+```javascript
+  <script>
+    const userInfo = document.querySelector("#user-info");
+    document.querySelector("#get-user").addEventListener("click", async () => {
+      const userId = document.querySelector("#user-id").value;
+      if (!userId) {
+        alert("Please enter a user ID");
+        return;
+      }
+      //TODO: 01. fetch를 이용해서 https://reqres.in/api/users/${userId}를 조회해서 #user-info에 출력해보세요.
+      // x-api-key: reqres-free-v1
+      try {
+        const response = await fetch(`https://reqres.in/api/users/${userId}`, {
+          headers: { "x-api-key": "reqres-free-v1" },
+        });
+        const json = await response.json();
+        console.log(json);
+        userInfo.innerHTML = `<h2>${json.data["first_name"]}, ${json.data["last_name"]}</h2>
+        <p>email: ${json.data["email"]}</p>
+        <img src=${json.data["avatar"]} />
+        `;
+      } catch (e) {
+        console.log("사용자 조회 실패", e);
+      }
+
+      //END
+    });
+
+    document.querySelector("#post-user").addEventListener("click", async () => {
+      const name = document.querySelector("#name").value;
+      const job = document.querySelector("#job").value;
+
+      //TODO: 02. https://reqres.in/api/users를 통해 사용자 정보를 추가해보세요.
+      try {
+        const response = await fetch("https://reqres.in/api/users/register", {
+          method: "POST",
+          headers: { "x-api-key": "reqres-free-v1" },
+          bodys: JSON.stringify(
+            { username: "hong" },
+            { email: "hong@ssafy.com" },
+            { password: "1234" }
+          ),
+        });
+        const json = await response.json();
+        console.log(json);
+        userInfo.innerHTML = `<h2>${json["id"]}"생성 완료"</h2>`;
+      } catch (e) {
+        console.log("error: ", e);
+      }
+      //END
+    });
+  </script>
+```
+- Client Side Rendering
 

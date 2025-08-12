@@ -837,3 +837,7 @@ p {
 ### geolocation api 활용
 ![[Pasted image 20250811155857.png]]
 
+
+![[Pasted image 20250811160135.png]]
+
+![[Pasted image 20250811160207.png]]

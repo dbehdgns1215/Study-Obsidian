@@ -884,3 +884,10 @@ Promise.resolve(Promise.reject('fail')) // rejected 상태로 반환[2]
 ## 비동기 동작 원리
 ![[Pasted image 20250812101638.png]]
 
+![[Pasted image 20250812102336.png]]
+
+
+## fetch API
+![[Pasted image 20250812102350.png]]
+![[Pasted image 20250812102402.png]]
+

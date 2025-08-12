@@ -870,4 +870,10 @@ p {
 ### promise chaining
 ![[Pasted image 20250812094302.png]]
 ![[Pasted image 20250812094546.png]]
-- `resolve`는 성공한 Promise만 반환 받음
+- `resolve`는 성공하는 Promise를 반환함
+```javascript
+Promise.resolve('success') // 항상 fulfilled로 반환[3]
+Promise.resolve(Promise.reject('fail')) // rejected 상태로 반환[2]
+```
+
+

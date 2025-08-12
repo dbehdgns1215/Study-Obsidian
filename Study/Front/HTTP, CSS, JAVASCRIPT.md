@@ -876,3 +876,7 @@ Promise.resolve('success') // 항상 fulfilled로 반환[3]
 Promise.resolve(Promise.reject('fail')) // rejected 상태로 반환[2]
 ```
 - 위 코드의 순서는 `1, 7, 2, 3, 4, 6` 순서로 출력 됨.
+
+
+## async ~ await
+![[Pasted image 20250812101142.png]]

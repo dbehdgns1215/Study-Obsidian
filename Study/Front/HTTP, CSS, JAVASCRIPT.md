@@ -856,3 +856,4 @@ p {
 
 ![[Pasted image 20250812092308.png]]
 
+![[Pasted image 20250812092632.png]]

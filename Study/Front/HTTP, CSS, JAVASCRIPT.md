@@ -848,3 +848,6 @@ p {
 ## Ajax
 ![[Pasted image 20250812090351.png]]
 
+## 주 사용처
+![[Pasted image 20250812090751.png]]
+

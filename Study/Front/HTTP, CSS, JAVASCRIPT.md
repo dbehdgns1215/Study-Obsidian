@@ -857,3 +857,11 @@ p {
 ![[Pasted image 20250812092308.png]]
 
 ![[Pasted image 20250812092632.png]]
+- 콜백부 정의: consuming code
+
+**Producing code**
+![[Pasted image 20250812092912.png]]
+
+**Consuming code**
+![[Pasted image 20250812092942.png]]
+

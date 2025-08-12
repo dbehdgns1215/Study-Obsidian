@@ -869,4 +869,5 @@ p {
 
 ### promise chaining
 ![[Pasted image 20250812094302.png]]
-
+![[Pasted image 20250812094546.png]]
+- `resolve`는 성공한 Promise만 반환 받음

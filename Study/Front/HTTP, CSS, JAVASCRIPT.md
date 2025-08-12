@@ -851,3 +851,6 @@ p {
 ## 주 사용처
 ![[Pasted image 20250812090751.png]]
 
+## Promise
+![[Pasted image 20250812091828.png]]
+

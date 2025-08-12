@@ -865,3 +865,4 @@ p {
 **Consuming code**
 ![[Pasted image 20250812092942.png]]
 
+![[Pasted image 20250812093320.png]]

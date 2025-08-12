@@ -854,3 +854,5 @@ p {
 ## Promise
 ![[Pasted image 20250812091828.png]]
 
+![[Pasted image 20250812092308.png]]
+

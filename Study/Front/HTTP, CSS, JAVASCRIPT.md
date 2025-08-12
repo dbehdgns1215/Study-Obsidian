@@ -841,3 +841,10 @@ p {
 ![[Pasted image 20250811160135.png]]
 
 ![[Pasted image 20250811160207.png]]
+
+
+# Day 16
+
+## Ajax
+![[Pasted image 20250812090351.png]]
+

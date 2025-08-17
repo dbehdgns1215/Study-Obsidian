@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/PS/Java.md",
+                "file": "Study/Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java"
+              "title": "스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술"
             }
           }
         ],
@@ -68,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Context",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -76,7 +76,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Search"
+              "title": "검색"
             }
           },
           {
@@ -89,7 +89,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -205,11 +206,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8c6f97ead77bb67a",
+  "active": "b1bd6ee6595e237a",
   "lastOpenFiles": [
+    "Study/PS/Java.md",
+    "Study/SSAFY/Mentoring.md",
     "Study/PS/SSAFY.md",
     "Study/PS/SWEA.md",
-    "Study/PS/Java.md",
     "Study/Front/HTTP, CSS, JAVASCRIPT.md",
     "Study/Java/SSAFY.md",
     "Study/PS/PS.md",

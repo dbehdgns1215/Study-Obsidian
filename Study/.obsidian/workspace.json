@@ -86,16 +86,17 @@
             }
           },
           {
-            "id": "a3d75795cf984734",
+            "id": "54ee57ddb319ae60",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "mk-path-view"
+              "icon": "layout-grid",
+              "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",

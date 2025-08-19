@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
+                "file": "SSAFY/NOTICE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
+              "title": "NOTICE"
             }
           }
         ],
@@ -99,8 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.500732421875,
-    "collapsed": true
+    "width": 296.500732421875
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -226,6 +225,9 @@
   },
   "active": "39f689e21972b819",
   "lastOpenFiles": [
+    "SSAFY/1Attack4Hit.md",
+    "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
+    "알고리즘 문제해설.pdf",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Tags",
     "conflict-files-obsidian-git.md",
@@ -256,9 +258,7 @@
     "Java",
     "#1주차.md",
     "2025-03-17.md",
-    "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "알고리즘교안.pdf",
-    "알고리즘 문제해설.pdf",
     "알고리즘_개념교안.pdf",
     "2025-03-05.md",
     "PS",

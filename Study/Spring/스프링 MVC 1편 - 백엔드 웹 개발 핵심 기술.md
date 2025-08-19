@@ -13,8 +13,8 @@
 
 - HTML, TEXT
 - IMAGE, 음성, 영상, 파일
-- JSON, XML (API를 사용할 때 주로 사용)
-- 거의 모든 형태의 데이터 전송 가능
+- JSON, XML (API를 사용할 때 주로 사용)asdasdasd
+- 거의 모든 형태의 데이터 전송 가능aaaaa
 - 서버간의 데이터를 주고 받는 경우에도 대부분 HTTP 사용
 
 #### 웹 서버(Web Server)

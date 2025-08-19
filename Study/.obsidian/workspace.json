@@ -25,14 +25,10 @@
             "id": "bd08ff72be307e94",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "conflict-files-obsidian-git"
+              "title": "새 탭"
             }
           }
         ],
@@ -95,8 +91,8 @@
             "state": {
               "type": "recent-files",
               "state": {},
-              "icon": "clock",
-              "title": "Recent Files"
+              "icon": "lucide-ghost",
+              "title": "recent-files"
             }
           },
           {
@@ -105,8 +101,8 @@
             "state": {
               "type": "mk-path-view",
               "state": {},
-              "icon": "layout-grid",
-              "title": "Navigator"
+              "icon": "lucide-ghost",
+              "title": "mk-path-view"
             }
           }
         ]
@@ -170,8 +166,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "icon": "lucide-ghost",
+              "title": "calendar"
             }
           },
           {
@@ -180,8 +176,8 @@
             "state": {
               "type": "advanced-tables-toolbar",
               "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
+              "icon": "lucide-ghost",
+              "title": "advanced-tables-toolbar"
             }
           },
           {
@@ -226,6 +222,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:새 베이스 생성하기": false,
       "switcher:빠른 전환기 열기": false,
       "daily-notes:오늘의 일일 노트 열기": false,
       "graph:그래프 뷰 열기": false,
@@ -239,6 +236,7 @@
   },
   "active": "39f689e21972b819",
   "lastOpenFiles": [
+    "Tags",
     "conflict-files-obsidian-git.md",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Pasted image 20250512232456.png",
@@ -281,7 +279,6 @@
     "HTTP/무제 폴더",
     "HTTP",
     "Excalidraw/Drawing 2025-01-09 00.16.37.excalidraw.md",
-    "Excalidraw",
-    "Tags"
+    "Excalidraw"
   ]
 }

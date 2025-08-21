@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "SSAFY",
+      "path": "PS/SSAFY.md"
+    },
+    {
+      "basename": "Java",
+      "path": "PS/Java.md"
+    },
+    {
+      "basename": "PS",
+      "path": "PS/PS.md"
+    },
+    {
+      "basename": "Java",
+      "path": "Java/Java.md"
+    },
+    {
       "basename": "NOTICE",
       "path": "SSAFY/NOTICE.md"
     },
@@ -39,14 +55,6 @@
     {
       "basename": "HTTP",
       "path": "HTTP/HTTP.md"
-    },
-    {
-      "basename": "Java",
-      "path": "Java/Java.md"
-    },
-    {
-      "basename": "PS",
-      "path": "PS/PS.md"
     },
     {
       "basename": "BOJ",

@@ -81,12 +81,12 @@
             "state": {
               "type": "recent-files",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "recent-files"
+              "icon": "clock",
+              "title": "Recent Files"
             }
           },
           {
-            "id": "54ee57ddb319ae60",
+            "id": "915a65e2d341bb27",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",

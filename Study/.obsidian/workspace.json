@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PS/SSAFY.md",
+                "file": "PS/Java.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SSAFY"
+              "title": "Java"
             }
           }
         ],
@@ -226,6 +226,7 @@
   },
   "active": "39f689e21972b819",
   "lastOpenFiles": [
+    "PS/SSAFY.md",
     "PS/Java.md",
     "PS/PS.md",
     "Java/Java.md",
@@ -268,7 +269,6 @@
     "Spring",
     "섹션 3 - URI와 웹 브라우저 요청 흐름.md",
     "create a link.md",
-    "HTTP/.md",
     "HTTP/무제 폴더",
     "HTTP",
     "Excalidraw"

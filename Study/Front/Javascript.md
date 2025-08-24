@@ -56,4 +56,19 @@
  - 간결하고 콜백 함수 작성시에 자주 사용됨
 
 
+일급 함수로서의 자바스크립트
+- 함수가 변수처럼 어디든 할당될 수 있다는 특징
+
+```javascript
+function logText(message) {
+	message();
+}
+
+logText(function() {
+	console.log('hi');
+});
+```
+- 결과로 `hi`가 출력됨
+- 분명 매개변수를 넘겨줬을 뿐인데, 어떻게 함수로서 동작하는걸까?
+	- 그건 바로 
 

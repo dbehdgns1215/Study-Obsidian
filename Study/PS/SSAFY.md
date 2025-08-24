@@ -186,6 +186,3 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
 
 # Day 17
-
-
-

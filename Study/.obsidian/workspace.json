@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PS/Java.md",
+                "file": "Front/Javascript.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java"
+              "title": "Javascript"
             }
           }
         ],
@@ -223,11 +223,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "27929ebbc290ff8b",
+  "active": "39f689e21972b819",
   "lastOpenFiles": [
+    "PS/Java.md",
     "Tags",
     "PS/SSAFY.md",
-    "PS/Java.md",
     "PS/PS.md",
     "Java/Java.md",
     "SSAFY/NOTICE.md",

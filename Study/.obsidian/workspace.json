@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Front/Javascript.md",
+                "file": "SSAFY/listup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Javascript"
+              "title": "listup"
             }
           }
         ],
@@ -225,6 +225,9 @@
   },
   "active": "39f689e21972b819",
   "lastOpenFiles": [
+    "SSAFY/STUDY.md",
+    "SSAFY/listup.md",
+    "Front/Javascript.md",
     "PS/Java.md",
     "Tags",
     "PS/SSAFY.md",
@@ -263,10 +266,8 @@
     "2025-03-17.md",
     "알고리즘교안.pdf",
     "알고리즘_개념교안.pdf",
-    "2025-03-05.md",
     "PS",
     "Spring",
-    "섹션 3 - URI와 웹 브라우저 요청 흐름.md",
     "HTTP/무제 폴더",
     "HTTP",
     "Excalidraw"

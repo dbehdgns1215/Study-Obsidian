@@ -54,6 +54,24 @@
  ```
  - `this` 바인딩이 없음
  - 간결하고 콜백 함수 작성시에 자주 사용됨
+```javascript
+// 일반 함수 표현식
+let logText = function(message) {
+  return message;
+};
+
+// 화살표 함수 (return 생략 불가)
+let logText = (message) => {
+  return message;
+};
+
+// 화살표 함수 (return까지 축약)
+let logText = message => message;
+
+// 값 고정 반환
+let logMessage = () => 'a';
+
+```
 
 
 일급 함수로서의 자바스크립트

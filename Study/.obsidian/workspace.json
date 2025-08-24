@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#섹션-3---URI와-웹-브라우저-요청-흐름",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -81,12 +81,12 @@
             "state": {
               "type": "recent-files",
               "state": {},
-              "icon": "clock",
-              "title": "Recent Files"
+              "icon": "lucide-ghost",
+              "title": "recent-files"
             }
           },
           {
-            "id": "915a65e2d341bb27",
+            "id": "7dc7d48d7ef295e4",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -207,8 +207,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -224,8 +223,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "39f689e21972b819",
+  "active": "27929ebbc290ff8b",
   "lastOpenFiles": [
+    "Tags",
     "PS/SSAFY.md",
     "PS/Java.md",
     "PS/PS.md",
@@ -235,7 +235,6 @@
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "알고리즘 문제해설.pdf",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
-    "Tags",
     "conflict-files-obsidian-git.md",
     "Pasted image 20250512232456.png",
     "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md",
@@ -268,7 +267,6 @@
     "PS",
     "Spring",
     "섹션 3 - URI와 웹 브라우저 요청 흐름.md",
-    "create a link.md",
     "HTTP/무제 폴더",
     "HTTP",
     "Excalidraw"

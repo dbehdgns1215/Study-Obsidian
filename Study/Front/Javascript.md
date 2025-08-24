@@ -71,6 +71,25 @@ let logText = message => message;
 // 값 고정 반환
 let logMessage = () => 'a';
 
+// (1) 매개변수 1개, 표현식 1개
+const f1 = x => x * 2;
+
+// (2) 매개변수 1개, 본문 여러 줄
+const f2 = x => { 
+  console.log(x);
+  return x * 2;
+};
+
+// (3) 매개변수 2개 이상
+const f3 = (x, y) => x + y;
+
+// (4) 매개변수 없음
+const f4 = () => "hi";
+
+// (5) 객체 리터럴 반환 (괄호 필요)
+const f5 = () => ({ a: 1, b: 2 });
+
+
 ```
 
 

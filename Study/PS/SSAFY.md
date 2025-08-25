@@ -201,4 +201,9 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 	- `Union( x, y )`: $x$가 속한 집합 $U$ y가 속한 집합 -> 집합 통합 (합집합)
 
 
+- 같은 집합의 원소들은 하나의 연결리스트로 관리한다.
+- 연결리스트의 맨 앞의 원소를 집합의 대표 원소로 삼는다.
+- 각 원소는 집합의 대표 원소를 가리키는 링크를 갖는다.
+- ![[Pasted image 20250825094333.png]]
 
+![[Pasted image 20250825094403.png]]

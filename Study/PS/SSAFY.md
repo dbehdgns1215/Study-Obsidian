@@ -208,4 +208,8 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
 ![[Pasted image 20250825094403.png]]
 ![[Pasted image 20250825094832.png]]
+![[Pasted image 20250825094952.png]]
+- `Find-Set(c)` $!=$ `Find-Set(d)`
+	- -> `Union(c, d)`
+		- 예시로 오른쪽 노드를 왼쪽 노드로 합친 것
 

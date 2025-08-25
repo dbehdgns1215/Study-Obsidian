@@ -186,3 +186,16 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
 
 # Day 26
+
+## 서로소 집합 & 상호배타 집합
+- 서로 중복 포함된 원소가 없는 집합들
+- 집합에 속한 하나의 특정 멤버를 통해 각 집합들을 구분한다.
+	- 이를 대표자(representative)라 한다.
+
+- 서로소 집합을 표현하는 방법
+	- 연결 리스트
+	- 트리
+- 서로소 집합 연산
+	- `Make-Set( x )`
+	- `Find-Set( x )`
+	- `Union( x, y )`

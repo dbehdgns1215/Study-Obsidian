@@ -213,3 +213,6 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 	- -> `Union(c, d)`
 		- 예시로 오른쪽 노드를 왼쪽 노드로 합친 것
 
+![[Pasted image 20250825095330.png]]
+- 항상 부모 노드 쪽으로 탐색이 일어나고 있음.
+- 

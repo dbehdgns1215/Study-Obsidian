@@ -220,3 +220,61 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 ![[Pasted image 20250825101307.png]]
 
 ### 구현 (코드)
+```java
+package test;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class DisjointSetTest {
+	static int N;
+	static int[] parents;
+	
+	private static void make() {
+		for (int i = 0; i < N; i++) {
+			parents[i] = i; // make set: 자신을 자신의 부모로 초기화(자신이 곧 루트이자 대표자)
+		}
+	}
+	
+	private static int find(int a) { // a가 속한 집합(집합의 대표자) 찾기
+		if (parents[a] == a) {
+			return a;
+		} else {
+			return find(parents[a]);
+		}
+	}
+	
+	private static boolean union(int a, int b) { // 원소 a, 원소 b가 속한 집합을 합치기
+		int aRoot = find(a);
+		int bRoot = find(b);
+		if (aRoot == bRoot) return false; // 같은 집합이니까 union할 필요 없음
+		
+		parents[bRoot] = aRoot; // b, a가 아닌, bRoot, aRoot를 사용해야 대표자끼리 연산하는 게 됨.
+		return true; // union 성공
+	}
+	
+	public static void main(String[] args) {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		N = 5;
+		parents = new int[N];
+		
+		// 1. make set 처리
+		make();
+		System.out.println(Arrays.toString(parents));
+		System.out.println(union(0, 1));
+		System.out.println(Arrays.toString(parents));
+		System.out.println(union(2, 1));
+		System.out.println(Arrays.toString(parents));
+		System.out.println(union(3, 1));
+		System.out.println(Arrays.toString(parents));
+		System.out.println(union(4, 3));
+		System.out.println(Arrays.toString(parents));
+		
+	}
+
+}
+
+```

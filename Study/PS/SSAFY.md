@@ -306,5 +306,11 @@ public class DisjointSetTest {
 		- 이게 해당 로직의 주요 쟁점이기 때문
 - 아무튼 `Find-Set(h)`를 실행하는 도중 경로를 압축해주면 됨.
 ```java
-
+	private static int find(int a) { // a가 속한 집합(집합의 대표자) 찾기
+		if (parents[a] == a) {
+			return a;
+		} else {
+			return parents[a] = find(parents[a]);
+		}
+	}
 ```

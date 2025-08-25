@@ -288,3 +288,14 @@ public class DisjointSetTest {
 ```
 ![[Pasted image 20250825103757.png]]
 
+## 최적화
+
+### Rank를 이용한 Union
+- 각 노드는 자신을 루트로 하는 subtree의 높이를 rank로 저장한다.
+- 두 집합을 합칠 때 rank가 낮은 집합을 rank가 높은 집합에 붙인다.
+![[Pasted image 20250825105051.png]]
+
+![[Pasted image 20250825105104.png]]
+### Path compression
+- Find-Set을 행하는 과정에서 만나는 모든 노드들이 직접 root를 가리키도록 포인터를 바꾸어 준다.
+

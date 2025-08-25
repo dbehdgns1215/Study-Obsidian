@@ -216,6 +216,7 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 ![[Pasted image 20250825095330.png]]
 - 항상 부모 노드 쪽으로 탐색이 일어나고 있음.
 
-### 구현
+### 구현 (수도 코드)
 ![[Pasted image 20250825101307.png]]
- 
+
+### 구현 (코드)

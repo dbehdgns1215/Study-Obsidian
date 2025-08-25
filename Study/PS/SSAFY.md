@@ -294,8 +294,10 @@ public class DisjointSetTest {
 - 각 노드는 자신을 루트로 하는 subtree의 높이를 rank로 저장한다.
 - 두 집합을 합칠 때 rank가 낮은 집합을 rank가 높은 집합에 붙인다.
 ![[Pasted image 20250825105051.png]]
-
+- a 노드가 e 노드보다 rank가 높기 때문에 Union 결과에도 rank 변화 없음
 ![[Pasted image 20250825105104.png]]
+- a 노드와 e 노드가 rank가 같다면, a가 부모가 되기 위해서 a의 rank는 증가되어야만 함
 ### Path compression
 - Find-Set을 행하는 과정에서 만나는 모든 노드들이 직접 root를 가리키도록 포인터를 바꾸어 준다.
+![[Pasted image 20250825105327.png]]
 

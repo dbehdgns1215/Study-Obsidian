@@ -196,6 +196,9 @@ Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 	- 연결 리스트
 	- 트리
 - 서로소 집합 연산
-	- `Make-Set( x )`
-	- `Find-Set( x )`
-	- `Union( x, y )`
+	- `Make-Set( x )`: 집합 생성 (크기가 1인 단위 집합)
+	- `Find-Set( x )`: $x$가 속한 집합 찾기 -> 집합 식별자인 대표자 찾기
+	- `Union( x, y )`: $x$가 속한 집합 $U$ y가 속한 집합 -> 집합 통합 (합집합)
+
+
+

@@ -273,9 +273,18 @@ public class DisjointSetTest {
 		System.out.println(union(4, 3));
 		System.out.println(Arrays.toString(parents));
 		
+		System.out.println("===find parent===");
+		System.out.println(find(0)); // 4
+		System.out.println(find(1)); // 4
+		System.out.println(find(2)); // 4
+		System.out.println(find(3)); // 4
+		System.out.println(find(4)); // 4
+				
+		System.out.println("===union fail===");
+		System.out.println(union(2, 3));
 	}
 
 }
-
 ```
 ![[Pasted image 20250825103757.png]]
+

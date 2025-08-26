@@ -1,1 +1,3 @@
 [[NOTICE]]
+[[Algorithm]]
+[[STUDY]]

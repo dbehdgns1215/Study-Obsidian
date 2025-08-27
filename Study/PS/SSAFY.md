@@ -338,3 +338,137 @@ public class DisjointSetTest {
 	- 사이클이 존재하면 남아 있는 간선 중 그 다음으로 가중치가 낮은 간선 선택
 3. n - 1 개의 간선이 선택될 때까지 2를 반복
 
+`템플릿 코드드`
+```java
+package src;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class SWEA_3124 {
+	// Union-Find
+	public static int[] parents;
+	
+	public static void make() {
+		for (int i = 0; i <= V; i++) {
+			parents[i] = -1; // Union By Rank
+		}
+	}
+	
+	public static int find(int cur) {
+		if (parents[cur] < 0) return cur; // 값이 -1이면 루트 노드를 의미, -2 이하이면 랭크가 증가한 부모 노드를 의미
+		return parents[cur] = find(parents[cur]); // 경로 압축
+	}
+	
+	public static boolean union(int a, int b) {
+		int aP = find(a);
+		int bP = find(b);
+		
+		// 이미 같은 집합
+		if (aP == bP) return false;
+		
+		// 랭크가 서로 다를 때 (b가 더 큰 랭크) -> 왜 스왑? -> 자식으로 만드는 부분을 하나의 코드로 통일
+		if (parents[aP] > parents[bP]) {
+			// swap
+			int temp = aP;
+			aP = bP;
+			bP = temp;
+		}
+		
+		// 랭크가 서로 같을 때 -> a의 Rank를 증가 (-1, -2, -3 ... 작아질 수록 랭크가 큼)
+		if (parents[aP] == parents[bP]) {
+			parents[aP]--;
+		}
+
+		// 기본적으로는 b를 a의 자식으로 만듦.
+		parents[bP] = aP;
+		
+		return true; // Union 연산 성공
+	}
+	
+	// Kruskal -> 간선 배열 오름차순 정렬 + Union-Find로 간선 처리	
+	public static class Edge implements Comparable<Edge> {
+		int from;
+		int to;
+		int weight;
+		
+		public Edge(int from, int to, int weight) {
+			this.from = from;
+			this.to = to;
+			this.weight = weight;
+		}
+
+		@Override
+		public int compareTo(Edge o) {
+			return Integer.compare(this.weight, o.weight);
+		}
+	}
+	
+	public static Edge[] edges;
+	
+	// ---
+	public static int V;
+	public static int E;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		StringTokenizer st;
+		int T = Integer.parseInt(br.readLine());
+		
+		for (int test_case = 1; test_case <= T; test_case++) {
+			st = new StringTokenizer(br.readLine());
+			
+			V = Integer.parseInt(st.nextToken());
+			E = Integer.parseInt(st.nextToken());
+			
+			parents = new int[V + 1];
+			edges = new Edge[E];
+			
+			for (int i = 0; i < E; i++) {
+				st = new StringTokenizer(br.readLine());
+				int from = Integer.parseInt(st.nextToken());
+				int to = Integer.parseInt(st.nextToken());
+				int weight = Integer.parseInt(st.nextToken());
+				edges[i] = new Edge(from, to, weight);
+			}
+			
+			Arrays.sort(edges);
+			make();
+			
+			int cnt = 0;
+			long sum = 0;
+			for (Edge e : edges) {
+				int f = e.from;
+				int t = e.to;
+				int w = e.weight;
+				
+				if (!union(f, t)) continue; // union 결과가 !false = true -> 이미 트리 구조에 편입됨 또는 사이클?
+				sum += w;
+				if (++cnt == V - 1) break;
+			}
+			
+			sb.append("#").append(test_case).append(" ").append(sum).append("\n");
+		}
+		System.out.print(sb);
+	}
+
+}
+```
+
+# Day 28
+
+## PRIM 알고리즘
+
+**하나의 정점에서 연결된 간선들 중에 하나씩 선택하면서 MST를 만들어 가는 방식**
+1. 임의 정점을 하나 선택해서 시작
+2. 선택한 정점과 인접하는 정점들 중의 최소 비용의 간선이 존재하는 정점을 선택
+3. 모든 정점이 선택될 때까지 2번 과정을 반복
+
+**서로소인 2개의 집합(2 disjoint-sets) 정보를 유지**
+- 트리 정점들(tree vertices) - MST를 만들기 위해 선택된 정점들
+- 비트리 정점들(non-tree vertices) - 선택되지 않은 정점들
+

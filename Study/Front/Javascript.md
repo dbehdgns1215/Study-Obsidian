@@ -181,3 +181,16 @@ console.log(doubled); // [2, 4, 6, 8]
 - 함수는 **선언문/표현식/화살표 함수** 세 가지 방식
 - 자바스크립트 함수는 **일급 객체**라서, 값처럼 다룰 수 있고 고차 함수 패턴을 만들어낼 수 있음
 
+
+
+- 연산자
+- 자료형
+- 호이스팅
+- BOM 객체
+- DOM 접근 및 활용
+- function 선언 함수
+- arrow function 함수
+- addEventListener
+- form 태그 전송 방식 2가지 특징
+- async/awiat, Promise.then() 비교 및 장점
+- 코드 실행 결과가 많이 나올 듯

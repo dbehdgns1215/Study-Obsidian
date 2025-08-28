@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/listup.md",
+                "file": "Front/Javascript.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "listup"
+              "title": "Javascript"
             }
           }
         ],
@@ -86,7 +86,7 @@
             }
           },
           {
-            "id": "7dc7d48d7ef295e4",
+            "id": "7cf05db2d49b58df",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -225,8 +225,11 @@
   },
   "active": "39f689e21972b819",
   "lastOpenFiles": [
-    "SSAFY/STUDY.md",
     "SSAFY/listup.md",
+    "DB/Mysql.md",
+    "DB/DB.md",
+    "DB",
+    "SSAFY/STUDY.md",
     "Front/Javascript.md",
     "PS/Java.md",
     "Tags",
@@ -262,14 +265,11 @@
     "😀 Dongni 😀.md",
     "Java/무제.md",
     "Java",
-    "#1주차.md",
-    "2025-03-17.md",
     "알고리즘교안.pdf",
     "알고리즘_개념교안.pdf",
     "PS",
     "Spring",
     "HTTP/무제 폴더",
-    "HTTP",
-    "Excalidraw"
+    "HTTP"
   ]
 }

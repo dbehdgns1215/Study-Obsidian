@@ -1,8 +1,52 @@
 {
   "recentFiles": [
     {
+      "basename": "HTTP, CSS, JAVASCRIPT",
+      "path": "Front/HTTP, CSS, JAVASCRIPT.md"
+    },
+    {
+      "basename": "Front",
+      "path": "Front/Front.md"
+    },
+    {
+      "basename": "Pasted image 20250720172627",
+      "path": "Pasted image 20250720172627.png"
+    },
+    {
+      "basename": "Pasted image 20250110230849",
+      "path": "Pasted image 20250110230849.png"
+    },
+    {
       "basename": "Javascript",
       "path": "Front/Javascript.md"
+    },
+    {
+      "basename": "스프링 핵심 원리 - 기본편",
+      "path": "Spring/스프링 핵심 원리 - 기본편.md"
+    },
+    {
+      "basename": "스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술",
+      "path": "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md"
+    },
+    {
+      "basename": "스레드(Thread)",
+      "path": "Java/스레드(Thread).md"
+    },
+    {
+      "basename": "DI와 테스트의 용이함",
+      "path": "Java/DI와 테스트의 용이함.md"
+    },
+    {
+      "basename": "자바 메모리 구조 (JVM 메모리 구조)",
+      "path": "Java/자바 메모리 구조 (JVM 메모리 구조).md"
+    },
+    {
+      "basename": "HTTP",
+      "path": "HTTP/HTTP.md"
+    },
+    {
+      "basename": "모든 개발자를 위한 HTTP 웹 기본 지식",
+      "path": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md"
     },
     {
       "basename": "listup",
@@ -37,10 +81,6 @@
       "path": "SSAFY/1Attack4Hit.md"
     },
     {
-      "basename": "스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술",
-      "path": "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md"
-    },
-    {
       "basename": "알고리즘 문제해설",
       "path": "알고리즘 문제해설.pdf"
     },
@@ -53,10 +93,6 @@
       "path": "Pasted image 20250512232456.png"
     },
     {
-      "basename": "모든 개발자를 위한 HTTP 웹 기본 지식",
-      "path": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md"
-    },
-    {
       "basename": "C++",
       "path": "PS/C++.md"
     },
@@ -65,24 +101,12 @@
       "path": "PS/C++ TIP.md"
     },
     {
-      "basename": "HTTP",
-      "path": "HTTP/HTTP.md"
-    },
-    {
       "basename": "BOJ",
       "path": "PS/BOJ.md"
     },
     {
       "basename": "Spring",
       "path": "Spring/Spring.md"
-    },
-    {
-      "basename": "스프링 핵심 원리 - 기본편",
-      "path": "Spring/스프링 핵심 원리 - 기본편.md"
-    },
-    {
-      "basename": "DI와 테스트의 용이함",
-      "path": "Java/DI와 테스트의 용이함.md"
     },
     {
       "basename": "😀 Dongni 😀",
@@ -123,10 +147,6 @@
     {
       "basename": "Pasted image 20250110231621",
       "path": "Pasted image 20250110231621.png"
-    },
-    {
-      "basename": "Pasted image 20250110230849",
-      "path": "Pasted image 20250110230849.png"
     }
   ],
   "omittedPaths": [],

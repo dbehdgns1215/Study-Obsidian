@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "Javascript"
             }
+          },
+          {
+            "id": "5756a61ec86247fa",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.12"
+              },
+              "icon": "lucide-book-up",
+              "title": "릴리즈 노트 1.9.12"
+            }
           }
         ],
+        "currentTab": 1,
         "stacked": true
       }
     ],
@@ -86,7 +99,7 @@
             }
           },
           {
-            "id": "7cf05db2d49b58df",
+            "id": "934c29abf620b9d6",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -95,7 +108,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -223,7 +237,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "39f689e21972b819",
+  "active": "5756a61ec86247fa",
   "lastOpenFiles": [
     "SSAFY/listup.md",
     "DB/Mysql.md",

@@ -9,6 +9,10 @@
       "path": "Front/HTTP, CSS, JAVASCRIPT.md"
     },
     {
+      "basename": "NOTICE",
+      "path": "SSAFY/NOTICE.md"
+    },
+    {
       "basename": "Front",
       "path": "Front/Front.md"
     },
@@ -75,10 +79,6 @@
     {
       "basename": "Java",
       "path": "Java/Java.md"
-    },
-    {
-      "basename": "NOTICE",
-      "path": "SSAFY/NOTICE.md"
     },
     {
       "basename": "1Attack4Hit",

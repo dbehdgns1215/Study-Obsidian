@@ -679,8 +679,10 @@ Ajax의 개념정리 할것(지문을 주고 이게 뭐냐?? 라고 주관식으
 ----------------------------------------------------------
 4. e-book (JavaScript 2 / 26,27 페이지)
 webStorage의 종류에 대해 정리하고, Storage API도 정리하세요
-   (1) sessionStorage
-   (2) localStorage
+웹 스토리지의 종류
+- sessionStorage
+- 
+- localStorage
 ----------------------------------------------------------
 5. e-book (JavaScript 2 / 30 페이지)
 객체직렬화/ 역직렬화 설명과 함수

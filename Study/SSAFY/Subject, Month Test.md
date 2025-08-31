@@ -580,6 +580,10 @@ public class Main {
 
 
 ### CSS
+`!important`
+- 우선 적용되어야 하는 속성
+
+
 1. e-book (CSS 1 / 28 - 37 페이지)
 box model 읽어볼것
 
@@ -599,6 +603,7 @@ position ==> static, relative, absolute, fiexd 정리
 ----------------------------------------------------------
 4. 반응형 레이아웃을 위해 사용되는 HTML 메타 태그는 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 이 태그는 사용자의 기기 화면 크기에 맞게 웹사이트의 레이아웃을 동적으로 조정하도록 브라우저에 지시한다.
 
 

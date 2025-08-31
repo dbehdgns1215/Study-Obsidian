@@ -579,6 +579,28 @@ public class Main {
 ## 과목 평가 - Front
 
 
+### CSS
+1. e-book (CSS 1 / 28 - 37 페이지)
+box model 읽어볼것
+
+(1) 34페이지
+   box-sizing: content-box는 width/height가 콘텐츠 영역만 계산한다.
+(2) 28페이지
+   content+padding+border의 높이 구하는 방법
+---------------------------------------------------------
+2. e-book (CSS 2 / 13, 15 페이지)
+(1) flex container에게 적용되는 속성
+    ex) display / flex-direction / flex-wrap 등 설명 읽어볼것
+(2) flex item에 적용되는 속성
+    ex) flex-grow / flex-shrink 등 설명 읽어볼것
+-----------------------------------------------------------
+3. e-book (CSS 2 / 20-24 페이지)
+position ==> static, relative, absolute, fiexd 정리
+----------------------------------------------------------
+4. 반응형 레이아웃을 위해 사용되는 HTML 메타 태그는 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+이 태그는 사용자의 기기 화면 크기에 맞게 웹사이트의 레이아웃을 동적으로 조정하도록 브라우저에 지시한다.
+
 
 ## 월말 평가 - 알고리즘
 

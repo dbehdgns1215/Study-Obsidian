@@ -620,6 +620,7 @@ box model 읽어볼것
 -----------------------------------------------------------
 3. e-book (CSS 2 / 20-24 페이지)
 position ==> static, relative, absolute, fiexd 정리
+
 ----------------------------------------------------------
 4. 반응형 레이아웃을 위해 사용되는 HTML 메타 태그는 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

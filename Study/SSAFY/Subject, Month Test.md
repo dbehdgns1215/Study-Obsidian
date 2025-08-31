@@ -579,6 +579,7 @@ public class Main {
 ## 과목 평가 - Front
 
 
+
 ### CSS
 `!important`
 - 우선 적용되어야 하는 속성
@@ -595,12 +596,21 @@ box model 읽어볼것
 - box는 content, padding, boreer, margin 등으로 구성됨.
 - width, height, ... minwidth minheight ... 등등
 - block 요소는 width와 height를 갖지만 inline 요소는 무시됨
+- margin: (상하 좌우) 또는 (상 좌우 하) 또는 (상 우 하 좌)
 
 (1) 34페이지
    box-sizing: content-box는 width/height가 콘텐츠 영역만 계산한다.
-   - 
+   - content-box 
+	   - 전체 크기 : (가로 + padding + border), (세로 + padding + border)
+	   - 콘텐츠 영역: 지정한 가로, 세로
+   - border-box 
+	   - 전체 크기 : 지정한 가로, 세로
+	   - 콘텐츠 영역 : (가로 - padding - border), (세로 - padding - border)
+
 (2) 28페이지
    content+padding+border의 높이 구하는 방법
+   - content-box : (가로 + padding + border), (세로 + padding + border)
+   - border-box : 지정한 가로, 세로
 ---------------------------------------------------------
 2. e-book (CSS 2 / 13, 15 페이지)
 (1) flex container에게 적용되는 속성

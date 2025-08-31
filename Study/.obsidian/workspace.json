@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/Subject, Month Test.md",
+                "file": "SSAFY/8. August.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Subject, Month Test"
+              "title": "8. August"
             }
           }
         ],
@@ -99,8 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.500732421875,
-    "collapsed": true
+    "width": 296.500732421875
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -227,10 +226,11 @@
   },
   "active": "617560068770863d",
   "lastOpenFiles": [
+    "SSAFY/7. July.md",
+    "SSAFY/8. August.md",
     "Pasted image 20250901015329.png",
     "Pasted image 20250901015315.png",
     "Front/HTTP, CSS, JAVASCRIPT.md",
-    "SSAFY/Subject, Month Test.md",
     "SSAFY/NOTICE.md",
     "Pasted image 20250825105327.png",
     "Pasted image 20250825105104.png",
@@ -240,7 +240,6 @@
     "Pasted image 20250825095330.png",
     "Pasted image 20250825094952.png",
     "Pasted image 20250825094832.png",
-    "Pasted image 20250825094403.png",
     "Front/Front.md",
     "Front/Javascript.md",
     "Spring/스프링 핵심 원리 - 기본편.md",

@@ -621,6 +621,13 @@ box model 읽어볼것
 3. e-book (CSS 2 / 20-24 페이지)
 position ==> static, relative, absolute, fiexd 정리
 
+|값|문서 흐름|기준(Containing block)|오프셋(top/right/bottom/left)|용도/특징|
+|---|---|---|---|---|
+|`static`(기본)|포함됨|일반 흐름|**무시**|기본 배치, 겹침 제어 없음|
+|`relative`|포함됨|**자기 원래 위치**|적용됨(시각적으로만 이동)|살짝 밀기, 자식 `absolute`의 기준이 되도록 “positioned” 만들기|
+|`absolute`|**제거됨**|**가장 가까운 “positioned” 조상**(없으면 `initial containing block`)|적용됨|배치 자유, 주변 레이아웃에 영향 X|
+|`fixed`|**제거됨**|보통 **뷰포트**(스크롤해도 고정)|적용됨|플로팅 버튼/고정 헤더 등|
+
 ----------------------------------------------------------
 4. 반응형 레이아웃을 위해 사용되는 HTML 메타 태그는 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

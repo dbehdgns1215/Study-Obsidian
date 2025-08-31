@@ -578,6 +578,46 @@ public class Main {
 
 ## 과목 평가 - Front
 
+### HTML
+1. html 의 주석처리 :  `<!--    -->`
+----------------------------------------------------------
+2. e-book (HTML / 13페이지) 
+
+block와 inline 요소 종류
+ex)
+block: `<div> <p>` 
+inline: `<span>`
+
+----------------------------------------------------------- 
+3. e-book (HTML / 30페이지) 
+`<form>`의 속성
+method의 get / post방식 이해하기(서술형으로 잘 나오기 때문에 정리해 둘것)
+
+----------------------------------------------------------
+4.  e-book (HTML / 31,32,33 페이지)
+`<form>`의 하위테이블
+
+33페이지 잘 봐둘것==> label를 클릭하면 해당 input이 focus가 됨
+`<label for="user">user: </lable>`
+`<input type="text" id="user" name="username" value="long"/>`
+
+----------------------------------------------------------
+5. e-book (HTML / 37, 38페이지)
+input 태그의 type속성의 종류
+
+`hidden, text, password, search, tel, url, email, number, range, color, checkbox, radio, date, month, week, time, button, file, submit, reset`
+
+----------------------------------------------------------
+6.  e-book (HTML / 39 페이지)
+input의 기타속성
+ex)
+`placeholder`: 입력 필드에 안내 텍스트 표시
+`required`: 입력 필드의 필수 여부를 지정
+
+-----------------------------------------------------------
+7. e-book (HTML / 47 - 52페이지) 
+   
+시멘틱태그의 종류: `<header> <footer> <aside> <article> <section>`
 
 
 ### CSS

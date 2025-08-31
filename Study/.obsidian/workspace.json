@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Front/HTTP, CSS, JAVASCRIPT.md",
+                "file": "SSAFY/Subject, Month Test.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HTTP, CSS, JAVASCRIPT"
+              "title": "Subject, Month Test"
             }
           }
         ],
@@ -99,8 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.500732421875,
-    "collapsed": true
+    "width": 296.500732421875
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -227,6 +226,7 @@
   },
   "active": "5756a61ec86247fa",
   "lastOpenFiles": [
+    "Front/HTTP, CSS, JAVASCRIPT.md",
     "Pasted image 20250825105327.png",
     "Pasted image 20250825105104.png",
     "Pasted image 20250825105051.png",
@@ -237,9 +237,7 @@
     "Pasted image 20250825094832.png",
     "Pasted image 20250825094403.png",
     "Pasted image 20250825094333.png",
-    "Pasted image 20250812110251.png",
     "Front/Front.md",
-    "Front/HTTP, CSS, JAVASCRIPT.md",
     "Front/Javascript.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",

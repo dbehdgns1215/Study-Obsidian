@@ -595,10 +595,10 @@ box model 읽어볼것
 - box는 content, padding, boreer, margin 등으로 구성됨.
 - width, height, ... minwidth minheight ... 등등
 - block 요소는 width와 height를 갖지만 inline 요소는 무시됨
-- 
 
 (1) 34페이지
    box-sizing: content-box는 width/height가 콘텐츠 영역만 계산한다.
+   - 
 (2) 28페이지
    content+padding+border의 높이 구하는 방법
 ---------------------------------------------------------

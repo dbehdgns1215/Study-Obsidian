@@ -666,22 +666,36 @@ box model 읽어볼것
 2. e-book (CSS 2 / 13, 15 페이지)
 (1) flex container에게 적용되는 속성
     ex) display / flex-direction / flex-wrap 등 설명 읽어볼것
+    ![[Pasted image 20250901015315.png]]
 (2) flex item에 적용되는 속성
     ex) flex-grow / flex-shrink 등 설명 읽어볼것
+    ![[Pasted image 20250901015329.png]]
 -----------------------------------------------------------
 3. e-book (CSS 2 / 20-24 페이지)
 position ==> static, relative, absolute, fiexd 정리
+- static
+	- 기본 속성, 일반적인 문서 흐름에 따라 배치
+	- block은 top -> bottom
+	- inline 요소는 left -> right
+- relative
+	- 일단 static하게 배치하고
+	- top bottom left right 만큼 이동
+- absolute
+	- static이 아닌 조상 요소를 기준으로 배치
+	- 조건 맞는 조상이 없으면 body 태그를 기준으로 배치
+- fixed
+	- 요소를 뷰포트 기준으로 특정 위치에 고정
 
-|값|문서 흐름|기준(Containing block)|오프셋(top/right/bottom/left)|용도/특징|
-|---|---|---|---|---|
-|`static`(기본)|포함됨|일반 흐름|**무시**|기본 배치, 겹침 제어 없음|
-|`relative`|포함됨|**자기 원래 위치**|적용됨(시각적으로만 이동)|살짝 밀기, 자식 `absolute`의 기준이 되도록 “positioned” 만들기|
-|`absolute`|**제거됨**|**가장 가까운 “positioned” 조상**(없으면 `initial containing block`)|적용됨|배치 자유, 주변 레이아웃에 영향 X|
-|`fixed`|**제거됨**|보통 **뷰포트**(스크롤해도 고정)|적용됨|플로팅 버튼/고정 헤더 등|
+| 값            | 문서 흐름   | 기준(Containing block)                                       | 오프셋(top/right/bottom/left) | 용도/특징                                          |
+| ------------ | ------- | ---------------------------------------------------------- | -------------------------- | ---------------------------------------------- |
+| `static`(기본) | 포함됨     | 일반 흐름                                                      | **무시**                     | 기본 배치, 겹침 제어 없음                                |
+| `relative`   | 포함됨     | **자기 원래 위치**                                               | 적용됨(시각적으로만 이동)             | 살짝 밀기, 자식 `absolute`의 기준이 되도록 “positioned” 만들기 |
+| `absolute`   | **제거됨** | **가장 가까운 “positioned” 조상**(없으면 `initial containing block`) | 적용됨                        | 배치 자유, 주변 레이아웃에 영향 X                           |
+| `fixed`      | **제거됨** | 보통 **뷰포트**(스크롤해도 고정)                                       | 적용됨                        | 플로팅 버튼/고정 헤더 등                                 |
 
 ----------------------------------------------------------
 4. 반응형 레이아웃을 위해 사용되는 HTML 메타 태그는 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
 
 이 태그는 사용자의 기기 화면 크기에 맞게 웹사이트의 레이아웃을 동적으로 조정하도록 브라우저에 지시한다.
 
@@ -763,8 +777,6 @@ webStorage의 종류에 대해 정리하고, Storage API도 정리하세요
 - **길이**: `length` 속성 (저장된 항목 개수)
 - **Key 접근**: `key(index)` → 저장된 키 이름 반환
 	- 또는 `storage["key"]` 도 가능
-
-
 
 ----------------------------------------------------------
 5. e-book (JavaScript 2 / 30 페이지)

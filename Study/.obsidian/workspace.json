@@ -95,8 +95,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -223,7 +222,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9e1df587845f03bd",
+  "active": "27929ebbc290ff8b",
   "lastOpenFiles": [
     "SSAFY/7. July.md",
     "SSAFY/8. August.md",

@@ -86,7 +86,7 @@
             }
           },
           {
-            "id": "934c29abf620b9d6",
+            "id": "88371a213f3a8bf8",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -95,7 +95,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -115,13 +116,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PS/C++.md",
+                "file": "SSAFY/8. August.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "C++ 의 개요"
+              "title": "8. August 의 개요"
             }
           },
           {
@@ -202,13 +203,11 @@
               "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 나가는 링크"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -224,7 +223,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "617560068770863d",
+  "active": "9e1df587845f03bd",
   "lastOpenFiles": [
     "SSAFY/7. July.md",
     "SSAFY/8. August.md",

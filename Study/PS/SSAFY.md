@@ -472,3 +472,6 @@ public class SWEA_3124 {
 - 트리 정점들(tree vertices) - MST를 만들기 위해 선택된 정점들
 - 비트리 정점들(non-tree vertices) - 선택되지 않은 정점들
 
+# Day 31
+
+## 최단경로 1

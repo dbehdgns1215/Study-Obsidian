@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/8. August.md",
+                "file": "SSAFY/사과 먹기 게임.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "8. August"
+              "title": "사과 먹기 게임"
             }
           }
         ],
@@ -95,8 +95,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -116,13 +115,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSAFY/8. August.md",
+                "file": "SSAFY/사과 먹기 게임.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "8. August 의 개요"
+              "title": "사과 먹기 게임 의 개요"
             }
           },
           {
@@ -203,7 +202,8 @@
               "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 나가는 링크"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -223,10 +223,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "27929ebbc290ff8b",
+  "active": "2a4797b1d0b64515",
   "lastOpenFiles": [
-    "SSAFY/7. July.md",
+    "SSAFY/풍선 사격 게임.md",
+    "KakaoTalk_20250903_005703424_01.jpg",
+    "KakaoTalk_20250903_005703424.jpg",
+    "SSAFY/사과 먹기 게임.md",
     "SSAFY/8. August.md",
+    "SSAFY/7. July.md",
     "Pasted image 20250901015329.png",
     "Pasted image 20250901015315.png",
     "Front/HTTP, CSS, JAVASCRIPT.md",
@@ -237,8 +241,6 @@
     "Pasted image 20250825103757.png",
     "Pasted image 20250825101307.png",
     "Pasted image 20250825095330.png",
-    "Pasted image 20250825094952.png",
-    "Pasted image 20250825094832.png",
     "Front/Front.md",
     "Front/Javascript.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
@@ -261,9 +263,6 @@
     "SSAFY/1Attack4Hit.md",
     "알고리즘 문제해설.pdf",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
-    "conflict-files-obsidian-git.md",
-    "PS/C++.md",
-    "PS/C++ TIP.md",
     "Java",
     "알고리즘교안.pdf",
     "알고리즘_개념교안.pdf",

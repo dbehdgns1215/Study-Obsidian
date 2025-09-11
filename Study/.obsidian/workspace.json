@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/사과 먹기 게임.md",
+                "file": "SSAFY/9..md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "사과 먹기 게임"
+              "title": "9."
             }
           }
         ],
@@ -86,7 +86,7 @@
             }
           },
           {
-            "id": "8336efad7e57594b",
+            "id": "0416fbf8c2520c8c",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -223,13 +223,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2a4797b1d0b64515",
+  "active": "617560068770863d",
   "lastOpenFiles": [
+    "SSAFY/8. August.md",
+    "Java/SSAFY.md",
+    "SSAFY/사과 먹기 게임.md",
+    "SSAFY/9..md",
     "SSAFY/풍선 사격 게임.md",
     "KakaoTalk_20250903_005703424_01.jpg",
     "KakaoTalk_20250903_005703424.jpg",
-    "SSAFY/사과 먹기 게임.md",
-    "SSAFY/8. August.md",
     "SSAFY/7. July.md",
     "Pasted image 20250901015329.png",
     "Pasted image 20250901015315.png",
@@ -262,7 +264,6 @@
     "Java/Java.md",
     "SSAFY/1Attack4Hit.md",
     "알고리즘 문제해설.pdf",
-    "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Java",
     "알고리즘교안.pdf",
     "알고리즘_개념교안.pdf",

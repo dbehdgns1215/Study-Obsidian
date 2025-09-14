@@ -86,7 +86,7 @@
             }
           },
           {
-            "id": "0416fbf8c2520c8c",
+            "id": "66b19452a9c06e7e",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -95,7 +95,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -225,6 +226,7 @@
   },
   "active": "617560068770863d",
   "lastOpenFiles": [
+    "DB/JDBC.md",
     "SSAFY/8. August.md",
     "Java/SSAFY.md",
     "SSAFY/사과 먹기 게임.md",
@@ -262,7 +264,6 @@
     "PS/SSAFY.md",
     "PS/PS.md",
     "Java/Java.md",
-    "SSAFY/1Attack4Hit.md",
     "알고리즘 문제해설.pdf",
     "Java",
     "알고리즘교안.pdf",

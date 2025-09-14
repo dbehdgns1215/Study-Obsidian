@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/9..md",
+                "file": "SSAFY/8. August.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "9."
+              "title": "8. August"
             }
           }
         ],
@@ -115,13 +115,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSAFY/사과 먹기 게임.md",
+                "file": "SSAFY/8. August.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "사과 먹기 게임 의 개요"
+              "title": "8. August 의 개요"
             }
           },
           {
@@ -202,13 +202,11 @@
               "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 나가는 링크"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -224,14 +222,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "27929ebbc290ff8b",
+  "active": "9e1df587845f03bd",
   "lastOpenFiles": [
+    "SSAFY/9..md",
     "SSAFY/위상정렬.md",
     "DB/JDBC.md",
     "SSAFY/8. August.md",
     "Java/SSAFY.md",
     "SSAFY/사과 먹기 게임.md",
-    "SSAFY/9..md",
     "SSAFY/풍선 사격 게임.md",
     "KakaoTalk_20250903_005703424_01.jpg",
     "KakaoTalk_20250903_005703424.jpg",

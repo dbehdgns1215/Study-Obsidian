@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker/Lecture.md",
+                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lecture"
+              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술"
             }
           }
         ],
@@ -115,13 +115,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docker/Lecture.md",
+                "file": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Lecture 의 개요"
+              "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 개요"
             }
           },
           {
@@ -224,9 +224,10 @@
   },
   "active": "75fb16a201efa397",
   "lastOpenFiles": [
+    "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
+    "Docker/Lecture.md",
     "Pasted image 20250916231959.png",
     "Docker/Docker.md",
-    "Docker/Lecture.md",
     "SSAFY/9..md",
     "Docker",
     "SSAFY/8. August.md",
@@ -247,11 +248,9 @@
     "Pasted image 20250825105051.png",
     "Pasted image 20250825103757.png",
     "Pasted image 20250825101307.png",
-    "Pasted image 20250825095330.png",
     "Front/Front.md",
     "Front/Javascript.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
-    "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Java/스레드(Thread).md",
     "Java/DI와 테스트의 용이함.md",
     "Java/자바 메모리 구조 (JVM 메모리 구조).md",

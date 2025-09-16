@@ -4729,8 +4729,6 @@ public String modelAttributeV2(HelloData helloData) {
 - 나머지 = `@ModelAttribute` (argument resolver로 지정해둔 타입 외)
 
 
-
-
 ## HTTP 요청 메시지 - 단순 텍스트
 
 

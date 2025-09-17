@@ -35,3 +35,12 @@
 - HTTP Request와 Response 포맷
 
 ![[Pasted image 20250917103652.png]]
+
+
+
+### HttpServletRequest
+![[Pasted image 20250917104023.png]]
+
+
+### HttpServletResponse
+![[Pasted image 20250917104047.png]]

@@ -29,3 +29,9 @@
 	- `destroy()`: 어떤 요청이라도 처리하고 있으면 destroy는 동작하지 않음.
 		- init에서 초기화 한 자원의 정리 작업
 
+
+## HttpServletRequest, HttpServletResponse
+- 각각 Http의 `Request`, `Response`를 추상화하기 위한 JEE 인터페이스
+- HTTP Request와 Response 포맷
+
+![[Pasted image 20250917103652.png]]

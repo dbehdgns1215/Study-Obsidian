@@ -49,3 +49,7 @@
 
 ### HttpServletResponse
 ![[Pasted image 20250917104047.png]]
+
+#### Http Status
+![[Pasted image 20250917105232.png]]
+

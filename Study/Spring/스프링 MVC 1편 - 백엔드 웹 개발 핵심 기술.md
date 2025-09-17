@@ -4745,8 +4745,32 @@ HTTP 메시지 바디의 데이터는 `InputStream`을 사용해서 직접 읽�
 
 **RequestBodyStringController**
 ```java
-
+@Slf4j  
+@Controller  
+public class RequestBodyStringController {  
+  
+    @PostMapping("/request-body-string-v1")  
+    public void requestBodyString(HttpServletRequest request, HttpServletResponse response) throws IOException {  
+        ServletInputStream inputStream = request.getInputStream();  
+        String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);  
+  
+        log.info("messageBody = {}", messageBody);  
+  
+        response.getWriter().write("ok");  
+    }  
+  
+    @PostMapping("/request-body-string-v2")  
+    public void requestBodyStringV2(InputStream inputStream, Writer responseWriter) throws IOException {  
+        String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);  
+        log.info("messageBody = {}", messageBody);  
+        responseWriter.write("ok");  
+    }  
+}
 ```
+- 스프링 MVC는 `InputStream`, `OutputStream`, `Writer`들을 모두 파라미터로 제공한다.
+
+
+
 
 ## HTTP 요청 메시지 - JSON
 

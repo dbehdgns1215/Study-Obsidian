@@ -4769,6 +4769,36 @@ public class RequestBodyStringController {
 ```
 - 스프링 MVC는 `InputStream`, `OutputStream`, `Writer`들을 모두 파라미터로 제공한다.
 
+```java
+@PostMapping("/request-body-string-v3")  
+public HttpEntity<String> requestBodyStringV3(HttpEntity<String> httpEntity) throws IOException {  
+  
+    String messageBody = httpEntity.getBody();  
+    log.info("messageBody = {}", messageBody);  
+  
+    return new HttpEntity<>("ok");  
+}
+```
+**스프링 MVC**는 다음 파라미터를 지원한다.
+- `HttpEntity`: HTTP header, body 정보를 편리하게 조회
+	- 메시지 바디 정보를 직접 조회
+	- 요청 파라미터를 조회하는 기능과는 관계 없음 `@RequestParam` -> X, `2ModelAttribute` -> X
+- `HttpEntity`는 응답에도 사용 가능
+	- 메시지 바디 정보를 직접 반환
+	- 헤더 정보 포함 가능
+	- view 조회 X
+
+`HttpEntity`를 상속받은 다음 객체들도 같은 기능을 제공한다.
+- `RequestEntity`
+	- HttpMethod, url 정보가 추가와 요청에 사용 됨
+- `ResponseEntity`
+	- Http 상태 코드 설정 가능, 응답에서 아용
+	- `return new ResponseEntity<String>("Hello World", responseHeaders, HttpStatus.CREATED)` 
+
+>**참고**
+>스프링 MVC 내부에서 HTTP 메시지 바디를 읽어서 문자나 객체로 변환해서 전달해주는데, 이때 HTTP 메시지 컨버터(`HttpMessageConverter`)라는 기능을 사용한다.
+
+
 
 
 

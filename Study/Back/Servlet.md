@@ -53,3 +53,17 @@
 #### Http Status
 ![[Pasted image 20250917105232.png]]
 
+
+#### Content-Type, Character Encoding
+- Content-Type
+	- 서버가 전송하는 데이터의 MIME 타입으로 데이터의 형식과 인코딩 방식을 포함함
+	- 주요 Content-Type
+![[Pasted image 20250917105506.png]]
+
+- Character Encoding
+	- 데이터를 컴퓨터가 이해하고 처리할 수 있는 형태로 변환하는 방법
+	- 응답의 기본 encoding은 `IOS-8859-1`로 한글 전송이 불가능함.
+		- `setContentType`을 통해서 UTF-8로 지정 가능.
+
+
+

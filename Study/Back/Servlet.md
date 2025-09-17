@@ -41,6 +41,11 @@
 ### HttpServletRequest
 ![[Pasted image 20250917104023.png]]
 
+![[Pasted image 20250917104434.png]]
+- `<form>` 또는 queryString을 통해서 클라이언트가 전달한 값으로 언제나 문자열
+	- 처음 클라이언트에서 설정된 이후 조작은 불가능함.
+
+
 
 ### HttpServletResponse
 ![[Pasted image 20250917104047.png]]

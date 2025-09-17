@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "9.",
+      "path": "SSAFY/9..md"
+    },
+    {
+      "basename": "SSAFY",
+      "path": "PS/SSAFY.md"
+    },
+    {
+      "basename": "Java",
+      "path": "PS/Java.md"
+    },
+    {
       "basename": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술",
       "path": "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md"
     },
@@ -15,10 +27,6 @@
     {
       "basename": "Docker",
       "path": "Docker/Docker.md"
-    },
-    {
-      "basename": "9.",
-      "path": "SSAFY/9..md"
     },
     {
       "basename": "8. August",
@@ -103,14 +111,6 @@
     {
       "basename": "STUDY",
       "path": "SSAFY/STUDY.md"
-    },
-    {
-      "basename": "Java",
-      "path": "PS/Java.md"
-    },
-    {
-      "basename": "SSAFY",
-      "path": "PS/SSAFY.md"
     },
     {
       "basename": "PS",

@@ -166,3 +166,9 @@ public class MainController extends HttpServlet implements ControllerHelper {
 ![[Pasted image 20250918101505.png]]
 ![[Pasted image 20250918101705.png]]
 ![[Pasted image 20250918101840.png]]
+
+**아래와 같은 경우에도 필터가 사용됨**
+![[Pasted image 20250918103435.png]]
+
+![[Pasted image 20250918103408.png]]
+

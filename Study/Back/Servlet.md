@@ -80,4 +80,5 @@
 - 와일드 카드를 이용한 URL 매핑
 
 
-
+## Front Controller 작성
+![[Pasted image 20250918092431.png]]

@@ -72,4 +72,9 @@
 
 # Front Controller Pattern
 ![[Pasted image 20250918091635.png]]
-- 
+- 그럼 main은 어떻게 요청들을 구별할 수 있을까?
+
+![[Pasted image 20250918092012.png]]
+- url에 파라미터 추가
+- 와일드 카드를 이용한 URL 매핑
+

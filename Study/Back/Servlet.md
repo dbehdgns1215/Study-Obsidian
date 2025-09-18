@@ -84,3 +84,70 @@
 ![[Pasted image 20250918092431.png]]
 
 ![[Pasted image 20250918092743.png]]
+
+`FrontController`
+```java
+package com.ssafy.live.controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Servlet implementation class MainController
+ */
+@WebServlet("/main")
+public class MainController extends HttpServlet implements ControllerHelper {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. action 파라미터 추출
+		String action = preProcessing(request, response);
+		switch(action) {
+			
+		}
+		
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. action 파라미터 추출
+		String action = preProcessing(request, response);
+		switch(action) {
+		case "login" -> login(request, response);
+		}
+	}
+	
+	// Controller
+	protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. 파라미터 추출
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		
+		// 2. 비즈니스 로직 호출
+		String result = null;
+		if("ssafy".equals(id) && "1234".equals(pass)) {
+			result = "로그인 성공";
+		} else {
+			result = "id/pass 확인해라";
+		}
+		
+		// 3. 화면 처리
+		responseHtml(response, "로그인 결과", result);
+	}
+	
+	protected void template(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. action 파라미터 추출
+		String action = preProcessing(request, response);
+		switch(action) {
+			
+		}
+	}
+
+}
+
+```

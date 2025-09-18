@@ -172,3 +172,12 @@ public class MainController extends HttpServlet implements ControllerHelper {
 
 ![[Pasted image 20250918103408.png]]
 
+
+# Listener
+- 웹 애플리케이션에서 발생하는 이벤트에 대한 모니터링 객체
+- 웹 애플리케이션에서 발생하는 이벤트?
+![[Pasted image 20250918104615.png]]
+- ServletContextListener: 웹 애플리케이션 생성에서 소멸까지의 주요 사항 모니터링
+	- 개별 서블릿 동작 전에 초기화하는데 비용이 많이 드는 공유 자원의 초기화에 주로 사용
+
+

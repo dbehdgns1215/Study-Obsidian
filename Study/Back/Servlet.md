@@ -8,7 +8,7 @@
 - 예외는 tomcat 같은 WAS가 받게 됨.
 - 예외 처리 또한 WAS가
 
-## Servlet 주료 API
+## Servlet 주요요 API
 - `extends jakarta.servlet.http.HtttpServlet`
 	- Jakarta EE의 패키지 (과거 Java EE)
 	- tomcat 등 웹 컨테이너들이 Jakarta EE 구현
@@ -67,3 +67,9 @@
 
 
 
+## 기존 서블릿 작성 방식의 문제점
+![[Pasted image 20250918091603.png]]
+
+# Front Controller Pattern
+![[Pasted image 20250918091635.png]]
+- 

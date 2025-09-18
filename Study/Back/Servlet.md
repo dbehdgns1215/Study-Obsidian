@@ -82,3 +82,5 @@
 
 ## Front Controller 작성
 ![[Pasted image 20250918092431.png]]
+
+![[Pasted image 20250918092743.png]]

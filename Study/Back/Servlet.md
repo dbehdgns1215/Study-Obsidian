@@ -152,3 +152,7 @@ public class MainController extends HttpServlet implements ControllerHelper {
 
 ```
 
+# Filter
+- 여러 개의 컨트롤러에서 부분적으로 필요한 공통 기능이 있다면?
+![[Pasted image 20250918100829.png]]
+

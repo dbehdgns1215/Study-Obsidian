@@ -8,7 +8,7 @@
 - 예외는 tomcat 같은 WAS가 받게 됨.
 - 예외 처리 또한 WAS가
 
-## Servlet 주요요 API
+## Servlet 주요 API
 - `extends jakarta.servlet.http.HtttpServlet`
 	- Jakarta EE의 패키지 (과거 Java EE)
 	- tomcat 등 웹 컨테이너들이 Jakarta EE 구현
@@ -179,5 +179,7 @@ public class MainController extends HttpServlet implements ControllerHelper {
 ![[Pasted image 20250918104615.png]]
 - ServletContextListener: 웹 애플리케이션 생성에서 소멸까지의 주요 사항 모니터링
 	- 개별 서블릿 동작 전에 초기화하는데 비용이 많이 드는 공유 자원의 초기화에 주로 사용
+
+
 
 

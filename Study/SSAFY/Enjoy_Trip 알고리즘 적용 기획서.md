@@ -16,7 +16,7 @@
 
 ### 점수 계산
 $score = a ⋅  rating + b ⋅ searchRank + c ⋅ planCount$
-$a = 5, b = -1, c = 
+$a = 5, b = -1, c = 2$ 
 
 
 ## B. 유사 여행지 클러스터링 알고리즘

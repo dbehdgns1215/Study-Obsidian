@@ -79,9 +79,9 @@ $a = 2, b = -1, c = 3$
     $rank=\alpha \cdot \text{normDistance} + \beta \cdot \text{popularity} + \gamma \cdot \text{userPreference}$ 
 ### 5) 콘텐츠 기반 유사 추천
 
-- **근접 탐색**:
-    - 기준 POI의 임베딩 `z*`에 대해 **ANN**(FAISS/HNSW)로 top-N 후보
-    - 위치 가중: `score = sim(z*, z_i) - λ·distance(baseline, i)`
+- **이름 기반 유사도 검사**:
+    - 관광지/축제 이름에서 문자열 추출
+    - 해당 문자열과 같은 이름을 가진 관광지/축제 탐색 → KMP 알고리즘
 
 ### 6) 워크플로우
 
@@ -90,10 +90,3 @@ $a = 2, b = -1, c = 3$
 3. 각 클러스터 내부를 **기준점과의 최단거리** 순으로 정렬
 4. 병렬로 **콘텐츠 기반** 유사 후보 top-N 생성
 5. 두 리스트를 **탭/토글**로 제공 (“근처 묶음 / 비슷한 곳”)
-6. “하루 일정 담기” 누르면 **TSP 근사(2-Opt/Greedy)로 방문 순서 자동 정렬
-
-### 7) 복잡도 & 운영
-
-- DBSCAN: 평균 O(N log N) (공간 인덱스 R-tree/KD-tree 활용)
-- ANN: 서브선형 쿼리 (HNSW/FAISS)
-- 거리 계산 캐시: **(baseline, gridCell) → avg ETA** 캐싱으로 체감 속도 향상

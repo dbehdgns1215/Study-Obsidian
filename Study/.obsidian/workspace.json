@@ -116,13 +116,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docker/Lecture.md",
+                "file": "SSAFY/BattleSSAFY.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Lecture 의 개요"
+              "title": "BattleSSAFY 의 개요"
             }
           },
           {

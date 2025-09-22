@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/9..md",
+                "file": "SSAFY/사과 먹기 게임.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "9."
+              "title": "사과 먹기 게임"
             }
           }
         ],
@@ -99,7 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.500732421875
+    "width": 293.50418853759766
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -115,13 +115,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSAFY/9..md",
+                "file": "SSAFY/사과 먹기 게임.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "9. 의 개요"
+              "title": "사과 먹기 게임 의 개요"
             }
           },
           {
@@ -224,12 +224,25 @@
   },
   "active": "75fb16a201efa397",
   "lastOpenFiles": [
+    "KakaoTalk_20250903_005703424_02.jpg",
+    "KakaoTalk_20250903_005703424_01.jpg",
+    "KakaoTalk_20250903_005703424.jpg",
+    "😀 Dongni 😀.md",
+    "SSAFY/STUDY.md",
+    "SSAFY/SSAFY.md",
+    "SSAFY/NOTICE.md",
+    "SSAFY/Mentoring.md",
+    "SSAFY/listup.md",
+    "SSAFY/Enjoy_Trip 알고리즘 적용 기획서.md",
+    "SSAFY/BattleSSAFY.md",
+    "SSAFY/위상정렬.md",
+    "SSAFY/Algorithm.md",
+    "SSAFY/풍선 사격 게임.md",
+    "SSAFY/사과 먹기 게임.md",
+    "SSAFY/9..md",
     "SSAFY/8. August.md",
     "SSAFY/7. July.md",
-    "SSAFY/9..md",
-    "SSAFY/BattleSSAFY.md",
     "Docker/Lecture.md",
-    "SSAFY/Enjoy_Trip 알고리즘 적용 기획서.md",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "Docker/Docker.md",
@@ -241,27 +254,14 @@
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Pasted image 20250916231959.png",
     "Docker",
-    "SSAFY/위상정렬.md",
     "DB/JDBC.md",
-    "Java/SSAFY.md",
-    "SSAFY/사과 먹기 게임.md",
-    "SSAFY/풍선 사격 게임.md",
-    "KakaoTalk_20250903_005703424_01.jpg",
-    "KakaoTalk_20250903_005703424.jpg",
     "Pasted image 20250901015329.png",
     "Pasted image 20250901015315.png",
-    "Front/HTTP, CSS, JAVASCRIPT.md",
-    "SSAFY/NOTICE.md",
     "Pasted image 20250825105327.png",
     "Pasted image 20250825105104.png",
     "Pasted image 20250825105051.png",
     "Pasted image 20250825103757.png",
     "Pasted image 20250825101307.png",
-    "Front/Front.md",
-    "Front/Javascript.md",
-    "Java/스레드(Thread).md",
-    "Java/DI와 테스트의 용이함.md",
-    "Java/자바 메모리 구조 (JVM 메모리 구조).md",
     "DB",
     "Tags",
     "알고리즘 문제해설.pdf",

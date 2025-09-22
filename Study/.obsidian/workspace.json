@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/BattleSSAFY.md",
+                "file": "SSAFY/9..md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BattleSSAFY"
+              "title": "9."
             }
           }
         ],
@@ -99,8 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.500732421875,
-    "collapsed": true
+    "width": 296.500732421875
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -116,13 +115,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSAFY/BattleSSAFY.md",
+                "file": "SSAFY/9..md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "BattleSSAFY 의 개요"
+              "title": "9. 의 개요"
             }
           },
           {
@@ -207,8 +206,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -226,13 +224,15 @@
   },
   "active": "75fb16a201efa397",
   "lastOpenFiles": [
-    "Docker/Lecture.md",
+    "SSAFY/8. August.md",
+    "SSAFY/7. July.md",
+    "SSAFY/9..md",
     "SSAFY/BattleSSAFY.md",
+    "Docker/Lecture.md",
     "SSAFY/Enjoy_Trip 알고리즘 적용 기획서.md",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "Docker/Docker.md",
-    "SSAFY/9..md",
     "PS/SSAFY.md",
     "PS/Java.md",
     "Back/Servlet.md",
@@ -241,7 +241,6 @@
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Pasted image 20250916231959.png",
     "Docker",
-    "SSAFY/8. August.md",
     "SSAFY/위상정렬.md",
     "DB/JDBC.md",
     "Java/SSAFY.md",
@@ -249,7 +248,6 @@
     "SSAFY/풍선 사격 게임.md",
     "KakaoTalk_20250903_005703424_01.jpg",
     "KakaoTalk_20250903_005703424.jpg",
-    "SSAFY/7. July.md",
     "Pasted image 20250901015329.png",
     "Pasted image 20250901015315.png",
     "Front/HTTP, CSS, JAVASCRIPT.md",

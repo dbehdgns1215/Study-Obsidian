@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/9..md",
+                "file": "Docker/Lecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "9."
+              "title": "Lecture"
             }
           }
         ],
@@ -95,8 +95,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -116,13 +115,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSAFY/9..md",
+                "file": "Docker/Lecture.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "9. 의 개요"
+              "title": "Lecture 의 개요"
             }
           },
           {
@@ -225,6 +224,10 @@
   },
   "active": "75fb16a201efa397",
   "lastOpenFiles": [
+    "Pasted image 20250924002126.png",
+    "Pasted image 20250924001642.png",
+    "Docker/Docker.md",
+    "SSAFY/9..md",
     "Back/Servlet, JSP.md",
     "SSAFY/사과 먹기 게임.md",
     "KakaoTalk_20250903_005703424_02.jpg",
@@ -241,13 +244,11 @@
     "SSAFY/위상정렬.md",
     "SSAFY/Algorithm.md",
     "SSAFY/풍선 사격 게임.md",
-    "SSAFY/9..md",
     "SSAFY/8. August.md",
     "SSAFY/7. July.md",
     "Docker/Lecture.md",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
-    "Docker/Docker.md",
     "PS/SSAFY.md",
     "PS/Java.md",
     "Back/Servlet.md",
@@ -256,13 +257,11 @@
     "Spring/스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술.md",
     "Pasted image 20250916231959.png",
     "Docker",
-    "DB/JDBC.md",
     "Pasted image 20250901015329.png",
     "Pasted image 20250901015315.png",
     "Pasted image 20250825105327.png",
     "Pasted image 20250825105104.png",
     "Pasted image 20250825105051.png",
-    "Pasted image 20250825103757.png",
     "DB",
     "Tags",
     "알고리즘 문제해설.pdf",

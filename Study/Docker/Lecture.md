@@ -35,4 +35,41 @@
 
 # 이미지 다운로드
 컨테이너를 실행시키려면 이미지가 필요함.
+이미지는 말하자면 닌텐도 기계에 꽂을 수 있는 게임 칩 같은 느낌.
+
+
+
+# Docker 실행
+
+```powershell
+PS C:\WINDOWS\system32> docker image ls
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+nginx        latest    d5f28ef21aab   5 weeks ago   279MB
+```
+- 다운받은 이미지 목록 확인
+
+```powershell
+PS C:\WINDOWS\system32> docker run --name webserver -d -p 80:80 nginx
+eeadd89da9f50821732cda98f1b1a1d3416f70489b8fc9e189ea92500faefa02
+```
+- 도커 실행 명령어
+
+![[Pasted image 20250924001642.png]]
+- 실행 후 `localhost:80` 접속 사진
+
+```powershell
+PS C:\WINDOWS\system32> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                 NAMES
+eeadd89da9f5   nginx     "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   0.0.0.0:80->80/tcp, [::]:80->80/tcp   webserver
+```
+- 실행 확인 (nginx가 실행되고 있는 컨테이너 목록)
+
+```powershell
+PS C:\WINDOWS\system32> docker stop webserver
+webserver
+```
+- 실행되고 있는 컴퓨터(컨테이너) 종료 (`Names` 값과 매칭됨)
+
+
+![[Pasted image 20250924002126.png]]
 

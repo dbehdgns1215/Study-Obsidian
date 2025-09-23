@@ -183,3 +183,68 @@ public class MainController extends HttpServlet implements ControllerHelper {
 
 
 
+# JSP
+
+![[Pasted image 20250923102122.png]]
+
+
+## Life Cycle
+![[Pasted image 20250923102107.png]]
+
+
+## 구성 요소
+![[Pasted image 20250923102145.png]]
+
+![[Pasted image 20250923102338.png]]
+```jsp
+<%@page import="java.time.LocalDateTime"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	<%-- JSP 주석: 클라이언트에게는 가지 않는다. --%>
+	<!-- HTML 주석: 클라이언트에게 전달 된다. -->
+	<%
+		// Script let: 실행문 작성
+		LocalDateTime now = LocalDateTime.now();
+		out.println(now);
+		String temp = sayHello();
+		out.println(temp);
+	%>
+	
+	<%!
+		// declaration: 선언부, 멤버 변수 또는 메서드
+		private String sayHello() {
+			return "Hello";
+		}
+	%>
+
+	<%=
+		// expression: 표현식, 출력할 내용
+		sayHello()
+	%>
+	</body>
+</html>
+```
+
+## 내장 객체
+![[Pasted image 20250923102357.png]]
+
+## 정리
+![[Pasted image 20250923102415.png]]
+
+
+# MVC
+
+## MVC 1
+![[Pasted image 20250923102443.png]]
+
+## MVC 2
+![[Pasted image 20250923102456.png]]
+![[Pasted image 20250923102513.png]]

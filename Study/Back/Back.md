@@ -1,2 +1,2 @@
 [[Back]]
-[[Servlet]]
+[[Servlet, JSP]]

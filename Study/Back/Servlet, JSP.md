@@ -248,3 +248,29 @@ pageEncoding="UTF-8"%>
 ## MVC 2
 ![[Pasted image 20250923102456.png]]
 ![[Pasted image 20250923102513.png]]
+
+
+
+# EL & JSTL
+
+- JSP를 좀 더 JSP답게 만드는 요소
+```jstl
+<%
+Object error = request.getAttribute("error")
+	if (error != null) {
+		out.println("...");
+	}
+%>
+```
+- 기존 방식
+
+
+- JSP에서 최대한 프로그래밍 요소 제거
+	- 많은 부분을 진짜 태그 중심으로 변경
+	- 디자이너, 퍼블리셔 등이 쉽게 접근하고 이해할 수 있도록
+- EL (Expression Language)
+	- 표현, 즉 출력을 위한 언어로 JSP의 expression (`<%=...%>`)대체
+	- 단순한 출력, 특히 웹 스코프에 저장된 attribute를 사용하는 데 편리
+- JSTL (JSP Standard Tag Library)
+	- 자주 사용되는 기능들에 대해 정형화된 태그 제공
+

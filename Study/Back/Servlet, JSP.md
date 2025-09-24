@@ -284,7 +284,7 @@ Object error = request.getAttribute("error")
 ## EL
 ![[Pasted image 20250924100313.png]]
 
-```html
+```jsp
 <body>
 	<div class="container">
 		<%
@@ -308,7 +308,7 @@ Object error = request.getAttribute("error")
 </body>
 ```
 
-```html
+```jsp
 <script>
 	let org = "${org}"
 	let message = "I am in " + org;
@@ -320,7 +320,7 @@ Object error = request.getAttribute("error")
 	- 정답은 `ssafy`
 	- 서버단에서 처리되어서 클라이언트에게 전달됨.
 
-```html
+```jsp
 <!-- TODO: 02. ``를 이용해서 "message: I am in SSAFY" 형태로 출력해보자. -->
 <script>
 	let data = `message : \${message}`
@@ -338,3 +338,22 @@ Object error = request.getAttribute("error")
 
 ## JSTL
 ![[Pasted image 20250924102322.png]]
+
+![[Pasted image 20250924103452.png]]
+
+![[Pasted image 20250924103507.png]]
+
+```jsp
+<%
+pageContext.setAttribute("name", "hong");
+request.setAttribute("org", "ssafy");
+session.setAttribute("name", "jang");
+application.setAttribute("loc", "seoul");
+%>
+
+<!-- TODO: 04. 위 코드를 JSTL로 대체해보자. -->
+<c:set var="name이라는 변수에" value="hong이라는 값을" scope="page에다가 저장할거임"/>
+<c:set var="name" value="hong" scope="page"/>
+<c:set var="org" value="ssafy" scope="request"/>
+<!-- END -->
+```

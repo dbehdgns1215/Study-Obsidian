@@ -280,3 +280,9 @@ Object error = request.getAttribute("error")
 - JSTL (JSP Standard Tag Library)
 	- 자주 사용되는 기능들에 대해 정형화된 태그 제공
 
+
+## EL
+![[Pasted image 20250924100313.png]]
+
+
+

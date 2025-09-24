@@ -284,5 +284,39 @@ Object error = request.getAttribute("error")
 ## EL
 ![[Pasted image 20250924100313.png]]
 
+```html
+<body>
+	<div class="container">
+		<%
+		pageContext.setAttribute("name", "hong");
+		request.setAttribute("org", "ssafy");
+		session.setAttribute("name", "jang");
+		application.setAttribute("loc", "seoul");
+		%>
+		<!-- TODO: 04. 위 코드를 JSTL로 대체해보자. -->
+		<!-- END -->
+		<h2>EL 기본</h2>
+		<ul>
+			<!-- TODO: 01. 원하는 값을 출력해보세요. -->
+			<li>hong: <%=pageContext.getAttribute("name") %>, ${name }</li>
+			<li>jang:${sessionScope.name }</li>
+			<li>ssafy:${org }</li>
+			<li>addr:${loc }</li>
+			<!-- END -->
+		</ul>
+	</div>
+</body>
+```
 
+```html
+<script>
+	let org = "${org}"
+	let message = "I am in " + org;
+	console.log(message);
+</script>
+```
+- 실제 클라이언트에게는 무엇이 보일까?
+	- `${org}` ?, `ssafy` ?
+	- 정답은 `ssafy`
+	- 서버단에서 처리되어서 클라이언트에게 전달됨.
 

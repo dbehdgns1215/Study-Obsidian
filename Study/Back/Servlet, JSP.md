@@ -341,6 +341,7 @@ Object error = request.getAttribute("error")
 
 ![[Pasted image 20250924103452.png]]
 
+### c:set
 ![[Pasted image 20250924103507.png]]
 
 ```jsp
@@ -357,3 +358,8 @@ application.setAttribute("loc", "seoul");
 <c:set var="org" value="ssafy" scope="request"/>
 <!-- END -->
 ```
+
+
+### c:if
+![[Pasted image 20250924103831.png]]
+

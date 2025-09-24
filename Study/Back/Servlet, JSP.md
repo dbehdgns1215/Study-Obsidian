@@ -336,3 +336,5 @@ Object error = request.getAttribute("error")
 ![[Pasted image 20250924101529.png]]
 - `User-Agent`의 경우 빼기 연산이 될 수도 있으니까 대괄호 표기법 사용
 
+## JSTL
+![[Pasted image 20250924102322.png]]

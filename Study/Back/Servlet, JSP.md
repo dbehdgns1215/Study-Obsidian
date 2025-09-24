@@ -320,3 +320,15 @@ Object error = request.getAttribute("error")
 	- 정답은 `ssafy`
 	- 서버단에서 처리되어서 클라이언트에게 전달됨.
 
+```html
+<!-- TODO: 02. ``를 이용해서 "message: I am in SSAFY" 형태로 출력해보자. -->
+<script>
+	let data = `message : \${message}`
+	console.log(data)
+</script>
+```
+- 이스케이프 문자를 사용하면 출력 가능
+
+## EL 내장 객체
+![[Pasted image 20250924101302.png]]
+

@@ -363,3 +363,12 @@ application.setAttribute("loc", "seoul");
 ### c:if
 ![[Pasted image 20250924103831.png]]
 
+### c:choose
+![[Pasted image 20250924104338.png]]
+
+
+### c:forEach
+![[Pasted image 20250924104355.png]]
+
+
+### 

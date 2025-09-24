@@ -254,7 +254,7 @@ pageEncoding="UTF-8"%>
 # EL & JSTL
 
 - JSP를 좀 더 JSP답게 만드는 요소
-```jstl
+```html
 <%
 Object error = request.getAttribute("error")
 	if (error != null) {
@@ -264,6 +264,12 @@ Object error = request.getAttribute("error")
 ```
 - 기존 방식
 
+```html
+<c:if test="${not empty error}">
+    ...
+</c:if>
+
+```
 
 - JSP에서 최대한 프로그래밍 요소 제거
 	- 많은 부분을 진짜 태그 중심으로 변경

@@ -396,6 +396,8 @@ application.setAttribute("loc", "seoul");
 
 
 # Session
+![[Pasted image 20250925101314.png]]
+![[Pasted image 20250925101351.png]]
 
 
 # Exception Handling

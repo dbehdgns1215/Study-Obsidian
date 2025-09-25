@@ -399,6 +399,15 @@ application.setAttribute("loc", "seoul");
 ![[Pasted image 20250925101314.png]]
 ![[Pasted image 20250925101351.png]]
 
+## HttpSession 사용
+- Servlet에서 Session 객체 획득
+	- `request.getSession()`: 현재의 세션을 반환하며 아직 없을 경우 새로 생성
+- 주요 메서드
+![[Pasted image 20250925101700.png]]
+- 유효기간
+![[Pasted image 20250925101721.png]]
+
+
 
 # Exception Handling
 

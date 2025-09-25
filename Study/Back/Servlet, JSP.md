@@ -374,3 +374,14 @@ application.setAttribute("loc", "seoul");
 # 페이지 모듈화
 - 사이트들은 대부분 반복적인 구조를 가짐.
 - 매번 코딩해야 하나? --> 모듈화 시키자
+
+
+
+# Cookie
+
+
+# Session
+
+
+# Exception Handling
+

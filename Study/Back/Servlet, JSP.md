@@ -248,3 +248,166 @@ pageEncoding="UTF-8"%>
 ## MVC 2
 ![[Pasted image 20250923102456.png]]
 ![[Pasted image 20250923102513.png]]
+
+
+
+# EL & JSTL
+
+- JSP를 좀 더 JSP답게 만드는 요소
+```html
+<%
+Object error = request.getAttribute("error")
+	if (error != null) {
+		out.println("...");
+	}
+%>
+```
+- 기존 방식
+
+```html
+<c:if test="${not empty error}">
+    ...
+</c:if>
+
+```
+
+- JSP에서 최대한 프로그래밍 요소 제거
+	- 많은 부분을 진짜 태그 중심으로 변경
+	- 디자이너, 퍼블리셔 등이 쉽게 접근하고 이해할 수 있도록
+- EL (Expression Language)
+	- 표현, 즉 출력을 위한 언어로 JSP의 expression (`<%=...%>`)대체
+	- 단순한 출력, 특히 웹 스코프에 저장된 attribute를 사용하는 데 편리
+- JSTL (JSP Standard Tag Library)
+	- 자주 사용되는 기능들에 대해 정형화된 태그 제공
+
+
+## EL
+![[Pasted image 20250924100313.png]]
+
+```jsp
+<body>
+	<div class="container">
+		<%
+		pageContext.setAttribute("name", "hong");
+		request.setAttribute("org", "ssafy");
+		session.setAttribute("name", "jang");
+		application.setAttribute("loc", "seoul");
+		%>
+		<!-- TODO: 04. 위 코드를 JSTL로 대체해보자. -->
+		<!-- END -->
+		<h2>EL 기본</h2>
+		<ul>
+			<!-- TODO: 01. 원하는 값을 출력해보세요. -->
+			<li>hong: <%=pageContext.getAttribute("name") %>, ${name }</li>
+			<li>jang:${sessionScope.name }</li>
+			<li>ssafy:${org }</li>
+			<li>addr:${loc }</li>
+			<!-- END -->
+		</ul>
+	</div>
+</body>
+```
+
+```jsp
+<script>
+	let org = "${org}"
+	let message = "I am in " + org;
+	console.log(message);
+</script>
+```
+- 실제 클라이언트에게는 무엇이 보일까?
+	- `${org}` ?, `ssafy` ?
+	- 정답은 `ssafy`
+	- 서버단에서 처리되어서 클라이언트에게 전달됨.
+
+```jsp
+<!-- TODO: 02. ``를 이용해서 "message: I am in SSAFY" 형태로 출력해보자. -->
+<script>
+	let data = `message : \${message}`
+	console.log(data)
+</script>
+```
+- 이스케이프 문자를 사용하면 출력 가능
+
+## EL 내장 객체
+![[Pasted image 20250924101302.png]]
+
+### 객체 접근 방법
+![[Pasted image 20250924101529.png]]
+- `User-Agent`의 경우 빼기 연산이 될 수도 있으니까 대괄호 표기법 사용
+
+## JSTL
+![[Pasted image 20250924102322.png]]
+
+![[Pasted image 20250924103452.png]]
+
+### c:set
+![[Pasted image 20250924103507.png]]
+
+```jsp
+<%
+pageContext.setAttribute("name", "hong");
+request.setAttribute("org", "ssafy");
+session.setAttribute("name", "jang");
+application.setAttribute("loc", "seoul");
+%>
+
+<!-- TODO: 04. 위 코드를 JSTL로 대체해보자. -->
+<c:set var="name이라는 변수에" value="hong이라는 값을" scope="page에다가 저장할거임"/>
+<c:set var="name" value="hong" scope="page"/>
+<c:set var="org" value="ssafy" scope="request"/>
+<!-- END -->
+```
+
+
+### c:if
+![[Pasted image 20250924103831.png]]
+
+### c:choose
+![[Pasted image 20250924104338.png]]
+
+
+### c:forEach
+![[Pasted image 20250924104355.png]]
+
+
+# 페이지 모듈화
+- 사이트들은 대부분 반복적인 구조를 가짐.
+- 매번 코딩해야 하나? --> 모듈화 시키자
+
+
+# HTTP 특징
+- Stateless: 상태를 기억하지 않음.
+	- 단순성: 각 요청이 독립적으로 처리되기 때문에 이전 요청과 연결할 필요가 없고 서버의 구성이 단순해지며 속도가 빠름
+	- 확장성: 여러 서버 간 공유해야 할 상태가 없기 때문에 여러 서버에 요청을 분산시킬 수 있어서 부하 분산 및 시스템 확장이 용이
+	- 신뢰성: 요청들이 독립적이기 때문에 한 요청의 실패가 다른 요청에 영향을 미치지 않음으로 시스템 신뢰도가 향상
+	- 자원절약: 서버에서 상태를 저장하지 않기 때문에 그만큼 서버의 메모리, 저장 공간 절약
+
+# Cookie
+![[Pasted image 20250925092408.png]]
+
+## Cookie의 주요 property
+![[Pasted image 20250925092436.png]]
+![[Pasted image 20250925092521.png]]
+![[Pasted image 20250925092530.png]]
+![[Pasted image 20250925092602.png]]
+
+
+
+
+# Session
+![[Pasted image 20250925101314.png]]
+![[Pasted image 20250925101351.png]]
+
+## HttpSession 사용
+- Servlet에서 Session 객체 획득
+	- `request.getSession()`: 현재의 세션을 반환하며 아직 없을 경우 새로 생성
+- 주요 메서드
+![[Pasted image 20250925101700.png]]
+- 유효기간
+![[Pasted image 20250925101721.png]]
+
+
+
+# Exception Handling
+

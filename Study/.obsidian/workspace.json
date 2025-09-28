@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/listup.md",
+                "file": "SSAFY/9..md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "listup"
+              "title": "9."
             }
           }
         ],
@@ -86,7 +86,7 @@
             }
           },
           {
-            "id": "288bd76d126ec1df",
+            "id": "9a0621b3eb8e2be4",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -116,13 +116,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSAFY/listup.md",
+                "file": "SSAFY/9..md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "listup 의 개요"
+              "title": "9. 의 개요"
             }
           },
           {
@@ -225,6 +225,7 @@
   },
   "active": "75fb16a201efa397",
   "lastOpenFiles": [
+    "SSAFY/listup.md",
     "SSAFY/Enjoy_Trip 알고리즘 적용 기획서.md",
     "SSAFY/Mentoring.md",
     "SSAFY/NOTICE.md",
@@ -241,7 +242,6 @@
     "KakaoTalk_20250903_005703424_01.jpg",
     "KakaoTalk_20250903_005703424.jpg",
     "😀 Dongni 😀.md",
-    "SSAFY/listup.md",
     "SSAFY/BattleSSAFY.md",
     "SSAFY/위상정렬.md",
     "SSAFY/Algorithm.md",

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker/Lecture.md",
+                "file": "SSAFY/listup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lecture"
+              "title": "listup"
             }
           }
         ],
@@ -86,7 +86,7 @@
             }
           },
           {
-            "id": "544089be80dca35c",
+            "id": "288bd76d126ec1df",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -95,7 +95,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -115,13 +116,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docker/Lecture.md",
+                "file": "SSAFY/listup.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Lecture 의 개요"
+              "title": "listup 의 개요"
             }
           },
           {
@@ -224,6 +225,12 @@
   },
   "active": "75fb16a201efa397",
   "lastOpenFiles": [
+    "SSAFY/Enjoy_Trip 알고리즘 적용 기획서.md",
+    "SSAFY/Mentoring.md",
+    "SSAFY/NOTICE.md",
+    "SSAFY/SSAFY.md",
+    "SSAFY/STUDY.md",
+    "Docker/Lecture.md",
     "Pasted image 20250924002126.png",
     "Pasted image 20250924001642.png",
     "Docker/Docker.md",
@@ -234,19 +241,13 @@
     "KakaoTalk_20250903_005703424_01.jpg",
     "KakaoTalk_20250903_005703424.jpg",
     "😀 Dongni 😀.md",
-    "SSAFY/STUDY.md",
-    "SSAFY/SSAFY.md",
-    "SSAFY/NOTICE.md",
-    "SSAFY/Mentoring.md",
     "SSAFY/listup.md",
-    "SSAFY/Enjoy_Trip 알고리즘 적용 기획서.md",
     "SSAFY/BattleSSAFY.md",
     "SSAFY/위상정렬.md",
     "SSAFY/Algorithm.md",
     "SSAFY/풍선 사격 게임.md",
     "SSAFY/8. August.md",
     "SSAFY/7. July.md",
-    "Docker/Lecture.md",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
     "PS/SSAFY.md",
@@ -261,7 +262,6 @@
     "Pasted image 20250901015315.png",
     "Pasted image 20250825105327.png",
     "Pasted image 20250825105104.png",
-    "Pasted image 20250825105051.png",
     "DB",
     "Tags",
     "알고리즘 문제해설.pdf",

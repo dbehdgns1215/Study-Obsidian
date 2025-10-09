@@ -90,3 +90,16 @@ eclipse.ini파일 안에 아래 내용 추가
 	- 나머지 두개는 알고리즘 써야함
 		- 순열 조합 부분집합
 
+
+
+
+# 자리 옮기고 옵시디언 세팅
+```cmd
+git clone 옵시디언
+-> 클론 뜬 폴더를 볼트로 옵시디언 실행
+
+C:\Users\SSAFY>git config --list --show-origin
+C:\Users\SSAFY>git config --global user.email "dbehdgns1215@naver.com"
+C:\Users\SSAFY>git config --global user.name "dbehdgns1215"
+C:\Users\SSAFY>git config --list --show-origin
+```

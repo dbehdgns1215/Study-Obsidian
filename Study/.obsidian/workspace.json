@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/9..md",
+                "file": "SSAFY/무제.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "9."
+              "title": "무제"
             }
           }
         ],
@@ -86,7 +86,7 @@
             }
           },
           {
-            "id": "9a0621b3eb8e2be4",
+            "id": "239b3562b3dd967b",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -116,13 +116,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSAFY/9..md",
+                "file": "SSAFY/무제.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "9. 의 개요"
+              "title": "무제 의 개요"
             }
           },
           {
@@ -225,6 +225,8 @@
   },
   "active": "75fb16a201efa397",
   "lastOpenFiles": [
+    "SSAFY/9..md",
+    "SSAFY/무제.md",
     "SSAFY/listup.md",
     "SSAFY/Enjoy_Trip 알고리즘 적용 기획서.md",
     "SSAFY/Mentoring.md",
@@ -235,7 +237,6 @@
     "Pasted image 20250924002126.png",
     "Pasted image 20250924001642.png",
     "Docker/Docker.md",
-    "SSAFY/9..md",
     "Back/Servlet, JSP.md",
     "SSAFY/사과 먹기 게임.md",
     "KakaoTalk_20250903_005703424_02.jpg",

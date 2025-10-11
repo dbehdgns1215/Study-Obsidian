@@ -110,3 +110,8 @@ webserver
 ![[Pasted image 20251012013822.png]]
 - 자동으로 mysql 이미지를 다운받아옴
 
+## 컨테이너 생성 / 실행
+- 기존의 생성과 실행을 하나로 합친 명령어
+- `docker run <IMAGE NAME?>`
+	- `docker run nginx`
+	- `docker run mysql`

@@ -129,4 +129,8 @@ webserver
 	-  단, 다른 명령어들을 추가적으로 입력할 수는 있음.
 
 
-앞선 ``
+앞선 `docker run ...` 은 명령어는 기본적으로 `Foreground` 에서 실행되기 때문에 `Background`에서 실행하려면 추가적인 옵션이 필요함.
+- `docker run -d ...`
+![[Pasted image 20251012014756.png]]
+
+

@@ -136,4 +136,6 @@ webserver
 ## 컨테이너 이름 붙여서 생성 / 실행
 - `docker run -d --name <지정할 이름> <IMAGE NAME>`
 	- `docker run -d --name my-web-server nginx`
+![[Pasted image 20251012015144.png]]
+
 

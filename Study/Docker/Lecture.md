@@ -81,4 +81,26 @@ webserver
 
 ### 이미지 삭제
 - `docker image rm <IMAGE ID>`
+- `docker image rm -f <IMAGE ID>`
+	- 특정 컨테이너 중에서도 ***중단된** 컨테이너*가 사용 중인 이미지를 강제로 지움 
+- `docker image rm $(docker images -q)`
+	- 컨테이너에서 사용하고 있지 않는 전체 이미지를 삭제
+- `docker image rm -f $(docker images -q)`
 
+
+# 컨테이너(Container) 생성 / 실행
+
+![[Pasted image 20251012013349.png]]
+
+## 컨테이너 생성
+- `docker create nginx`
+
+## 컨테이너 조회
+- `docker ps -a`
+	- 사진을 보면 알겠지만 21초 전에 생성된 컨테이너가 보임.
+
+## 컨테이너 실행
+- `docker start <CONTAINER ID>`
+
+![[Pasted image 20251012013559.png]]
+- 기존의 `d3a19...` 컨테이너가 실행되어서 `STATUS`, `PORTS` 등이 변경된 것을 알 수 있음.

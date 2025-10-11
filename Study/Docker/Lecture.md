@@ -74,3 +74,11 @@ webserver
 ![[Pasted image 20250924002126.png]]
 
 
+## 명령어
+
+### 이미지 조회
+- `docker image ls`
+
+### 이미지 삭제
+- `docker image rm <IMAGE ID>`
+

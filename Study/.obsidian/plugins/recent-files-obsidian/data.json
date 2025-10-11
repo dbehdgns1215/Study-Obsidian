@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "Lecture",
+      "path": "Docker/Lecture.md"
+    },
+    {
+      "basename": "Docker",
+      "path": "Docker/Docker.md"
+    },
+    {
+      "basename": "무제 1",
+      "path": "무제 1.base"
+    },
+    {
+      "basename": "무제",
+      "path": "무제.base"
+    },
+    {
       "basename": "10. October",
       "path": "SSAFY/10. October.md"
     },
@@ -35,14 +51,6 @@
     {
       "basename": "STUDY",
       "path": "SSAFY/STUDY.md"
-    },
-    {
-      "basename": "Lecture",
-      "path": "Docker/Lecture.md"
-    },
-    {
-      "basename": "Docker",
-      "path": "Docker/Docker.md"
     },
     {
       "basename": "사과 먹기 게임",
@@ -191,10 +199,6 @@
     {
       "basename": "Pasted image 20250202235311",
       "path": "Pasted image 20250202235311.png"
-    },
-    {
-      "basename": "Pasted image 20250117151503",
-      "path": "Pasted image 20250117151503.png"
     }
   ],
   "omittedPaths": [],

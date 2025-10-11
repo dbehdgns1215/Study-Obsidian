@@ -116,14 +116,14 @@ webserver
 	- `docker run nginx`
 	- `docker run mysql`
 
-# Foreground / Background
+## Foreground / Background
 
-## Foreground
+### Foreground
 - 내가 실행시킨 프로그램의 내용이 화면에서 실행되고 출력되고 있는 상태
 	- 실시간으로 로그같은 것들을 확인할 수 있음.
 	- 단, 다른 프로그램을 실행시키거나 다른 명령어를 추가 입력하진 못함.
 
-## Background
+### Background
 - 내가 실행시킨 프로그램이 컴퓨터 내부적으로 실행되는 상태
 	- 실시간으로 로그같은 것들을 확인할 수는 없음.
 	-  단, 다른 명령어들을 추가적으로 입력할 수는 있음.
@@ -133,4 +133,7 @@ webserver
 - `docker run -d ...`
 ![[Pasted image 20251012014756.png]]
 
+## 컨테이너 이름 붙여서 생성 / 실행
+- `docker run -d --name <지정할 이름> <IMAGE NAME>`
+	- `docker run -d --name my-web-server nginx`
 

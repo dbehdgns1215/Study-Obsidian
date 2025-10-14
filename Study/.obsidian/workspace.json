@@ -86,7 +86,7 @@
             }
           },
           {
-            "id": "d8d7f9d74f548ccb",
+            "id": "7099fc29f51aaa82",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -203,7 +203,8 @@
               "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 나가는 링크"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -223,7 +224,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a5cbb0be0c1282",
+  "active": "2a4797b1d0b64515",
   "lastOpenFiles": [
     "Pasted image 20251012015844.png",
     "Pasted image 20251012015748.png",

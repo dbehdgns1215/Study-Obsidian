@@ -189,3 +189,4 @@ webserver
 - `docker logs <CONTAINER ID>`
 	- `docker logs --tail 몇줄출력할래 <CONTAINER ID>`: 제일 마지막부터 10줄 출력
 	- `docker logs -f <CONTAINER ID>`: 기존 로그 조회 + 실시간으로 생성되는 로그도 조회
+	- `docker logs -tail 0 -f <CONTAINER ID>`: 실시간으로 생성되는 로그만 조회

@@ -190,3 +190,19 @@ webserver
 	- `docker logs --tail 몇줄출력할래 <CONTAINER ID>`: 제일 마지막부터 10줄 출력
 	- `docker logs -f <CONTAINER ID>`: 기존 로그 조회 + 실시간으로 생성되는 로그도 조회
 	- `docker logs -tail 0 -f <CONTAINER ID>`: 실시간으로 생성되는 로그만 조회
+
+
+## 실행 중인 컨테이너 내부에 접속하기
+- `docker exec -it <CONTAINER ID> <어떤 환경? -> bash 등>`
+	- `docker exec -it c5e bash`
+	- `root@c5ed2bdeea57:/#`
+		- 이렇게 그 앞 부분이 변경된 걸 알 수 있음.
+	- ![[Pasted image 20251027221233.png]]
+	- 사진을 보면 뭔가 폴더 구성이 뭔가 다르다는 걸 알 수 있음.
+	- 내부 컨테이너 환경에서의 폴더 구조이기 때문.
+- `cd /etc/nginx`
+	- 내부 컨테이너 환경에서 nginx에 접속하기 위해서 사용
+	- ![[Pasted image 20251027221426.png]]
+- `exit`
+	- 다시 호스트 컴퓨터 환경으로 돌아가고 싶을 때
+

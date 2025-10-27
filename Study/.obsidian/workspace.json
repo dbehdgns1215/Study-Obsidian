@@ -95,12 +95,12 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 293.50418853759766
+    "width": 293.50418853759766,
+    "collapsed": true
   },
   "right": {
     "id": "da47ae6dd7fa3df9",
@@ -203,12 +203,12 @@
               "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 나가는 링크"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -224,8 +224,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2a4797b1d0b64515",
+  "active": "e7a5cbb0be0c1282",
   "lastOpenFiles": [
+    "Pasted image 20251027221426.png",
+    "Pasted image 20251027221233.png",
+    "Docker/Docker.md",
+    "Docker/Lecture.md",
     "SSAFY/사프.md",
     "Pasted image 20251012015844.png",
     "Pasted image 20251012015748.png",
@@ -236,8 +240,6 @@
     "Pasted image 20251012014756.png",
     "Pasted image 20251012013822.png",
     "Pasted image 20251012013559.png",
-    "Pasted image 20251012013349.png",
-    "Docker/Docker.md",
     "무제 1.base",
     "무제.base",
     "SSAFY/10. October.md",
@@ -251,7 +253,6 @@
     "SSAFY/NOTICE.md",
     "SSAFY/SSAFY.md",
     "SSAFY/STUDY.md",
-    "Docker/Lecture.md",
     "Back/Servlet, JSP.md",
     "SSAFY/사과 먹기 게임.md",
     "😀 Dongni 😀.md",
@@ -263,7 +264,6 @@
     "SSAFY/7. July.md",
     "Spring/스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술.md",
     "Spring/스프링 핵심 원리 - 기본편.md",
-    "PS/SSAFY.md",
     "Back",
     "Docker",
     "DB",

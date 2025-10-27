@@ -225,6 +225,7 @@ webserver
 	- `cd ..` -> `ls`
 ![[Pasted image 20251028005209.png]]
 
+![[Pasted image 20251028005415.png]]
 
 
 

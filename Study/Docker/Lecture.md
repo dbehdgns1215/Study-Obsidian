@@ -212,8 +212,19 @@ webserver
 	- 이미지 내려받기
 - `docker run -d -p 6379:6379 redis`
 	- 사실 실행시키면, 이미지를 자동으로 찾음. 없으면 다운 받음.
+
+- `docker image ls`
 ![[Pasted image 20251028004903.png]]
+- `docker ps`
 ![[Pasted image 20251028004919.png]]
+
+- `docker logs <CONTAINER ID>`
+![[Pasted image 20251028005144.png]]
+
+- `docker exec -it <CONTAINER ID> bash`
+	- `cd ..` -> `ls`
+![[Pasted image 20251028005209.png]]
+
 
 
 

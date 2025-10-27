@@ -206,3 +206,14 @@ webserver
 - `exit`
 	- 다시 호스트 컴퓨터 환경으로 돌아가고 싶을 때
 
+
+# Docker로 Redis 실행시켜보기
+- `docker pull redis`
+	- 이미지 내려받기
+- `docker run -d -p 6379:6379 redis`
+	- 사실 실행시키면, 이미지를 자동으로 찾음. 없으면 다운 받음.
+![[Pasted image 20251028004903.png]]
+![[Pasted image 20251028004919.png]]
+
+
+

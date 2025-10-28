@@ -293,6 +293,7 @@ taskkill /f /pid 8872
 ![[Pasted image 20251028215036.png]]
 - 해결을 위해서 mysql 초기 루트 비밀번호를 세팅해주면 문제 해결
 	- `-e`: 환경 변수 선언 옵션
+- `docker run -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 mysql`
 
 
 환경 변수가 잘 선언됐는지 확인하는 법

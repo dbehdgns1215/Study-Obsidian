@@ -297,3 +297,6 @@ taskkill /f /pid 8872
 
 환경 변수가 잘 선언됐는지 확인하는 법
 ![[Pasted image 20251028215344.png]]
+
+
+![[Pasted image 20251028215500.png]]

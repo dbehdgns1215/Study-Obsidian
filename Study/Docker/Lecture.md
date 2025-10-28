@@ -316,4 +316,25 @@ taskkill /f /pid 8872
 - mydb라는 데이터베이스가 사라지게 됨.
 - 따라서 볼륨이 필요함.
 
+## 볼륨 실행
+`docker run -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 -v D:\Docker\Downloads\docker-mysql\mysql_data:/var/lib/mysql mysql`
+
+- 기존 `docker run`과 유사하나, 뒤에 `-v` 이하의 옵션 절이 추가됨.
+	- 데이터를 저장하고 싶은 디렉토리로 먼저 이동
+		- `cd D:\Docker\Downloads\docker-mysql`
+	- `docker run ...`
+	- `-v`: 볼륨을 사용할게
+	- `D:\Docker\Downloads\docker-mysql`: 이 디렉토리에
+	- `\mysql_data`: 이 디렉토리까지 새로 생성해서 (선택)
+		- 위 두 줄은, mysql 데이터를 저장하고 싶은 폴더를 의미
+	- `:`: 이 콜론을 기준으로 좌측은 호스트 컴퓨터에서의 위치 즉, 호스트 컴퓨터 환경 내의 주소 값이고, 우측은 mysql에서의 즉, 컨테이너 내부의 주소 값임.
+	- `/var/lib/mysql`: 방금 말한대로 컨테이너 내부에서의 주소 값
+	- `mysql`: 이미지명
+- 결국 호스트의 주소(콜론 좌측부)를 빌려서 컨테이너 내부의 주소(콜론 우측부)와 공유해서 사용하겠다는 말.
+- 이제 컨테이너를 지워도 해당 주소의 데이터는 삭제되지 않음
+
+> 참고로 `/var/lib/mysql`는 어디서 나온건가? -> 공식 문서에 기술되어 있음.
+
+
+
 

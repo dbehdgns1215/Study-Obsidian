@@ -203,12 +203,12 @@
               "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 나가는 링크"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -224,7 +224,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a5cbb0be0c1282",
+  "active": "2a4797b1d0b64515",
   "lastOpenFiles": [
     "Pasted image 20251028005415.png",
     "Pasted image 20251028005410.png",

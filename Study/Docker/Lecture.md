@@ -343,5 +343,17 @@ taskkill /f /pid 8872
 >최초로 mysql을 띄울 때, 볼륨을 이용해서 mysql을 띄웠음. 그렇다면 데이터베이스 비밀번호는 볼륨에 이미 저장이 되어있음.
 >따라서 다시 `mysql run -e MYSQL_ROOT_PASSWORD=newpassword ...` 한다고 해도 비밀번호가 바뀌지 않음.
 
+- 그럼 어떻게?
+	- 기존 비밀번호로 접속 후 비밀번호를 바꾸는 명령어를 날리는 방법
+	- 호스트 컴퓨터에 저장된 mysql_data를 지워버리고 다시 띄우는 방법
+		- rm -rf mysql_data (내가 설정한 폴더에서, `D:\Docker\Downloads\docker-mysql`)
+```
+Directory: D:\Docker\Downloads\docker-mysql
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+da----    2025-10-28 (화)  오후 11:12                mysql_data                                                      
+PS D:\Docker\Downloads\docker-mysql>
+```
 
 

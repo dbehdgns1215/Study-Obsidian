@@ -301,3 +301,19 @@ taskkill /f /pid 8872
 
 
 ![[Pasted image 20251028215500.png]]
+
+## 실행
+![[Pasted image 20251028230423.png]]
+- `docker exec -it <CONTAINER ID> bash`를 통해서 컨테이너로 접속
+- 이후 컨테이너에서 mysql 명령어를 실행
+	- `mysql -u root -p` 이후 `password 입력`
+
+![[Pasted image 20251028230539.png]]
+- 이런 명령어들도 가능.
+
+
+여기서 만약 mysql 컨테이너를 삭제하고 다시 실행한다면?
+- mydb라는 데이터베이스가 사라지게 됨.
+- 따라서 볼륨이 필요함.
+
+

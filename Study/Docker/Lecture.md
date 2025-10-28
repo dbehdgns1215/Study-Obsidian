@@ -254,4 +254,46 @@ Docker를 활용하면 특정 프로그램을 컨테이너로 띄울 수 있다.
 
 
 
+# Docker로 MySQL 실행시켜보기
+
+- Docker에 MySQL 이미지 다운받기
+	- `docker run -p 3306:3306 -d mysql`
+	- 다운은 받아지지만, 초기 아이디 비밀번호 세팅이 되어있지 않아서 실행이 안됨.
+	- 물론 그 이전에 이미 로컬에 3306 포트를 사용하는 mysql이 있기 때문에 종료시켜야됨.
+
+### 사용중인 포트 검색
+**Windows**
+```java
+netstat -ano | findstr [포트 번호]
+
+netstat -ano | findstr 8080
+```
+
+### 프로세스 종료
+**Windows**
+```java
+taskkill /f /pid [프로세스 아이디]
+
+taskkill /f /pid 8872
+```
+
+![[Pasted image 20251028214721.png]]
+
+![[Pasted image 20251028214751.png]]
+- 정상적으로 실행시키고 ps를 찍어보니 아무 것도 안뜬다 왜 그렇지?
+
+![[Pasted image 20251028214819.png]]
+- 30초 전에 `Exited`된 mysql이 존재한다. 왜 종료됐을까?
+	- log를 찍어보자.
+		- `docker logs <CONTAINER ID>`
+
+![[Pasted image 20251028214933.png]]
+- 해석해보면, 패스워드가 정의되지 않아서 생긴 문제임을 알 수 있음
+
+![[Pasted image 20251028215036.png]]
+- 해결을 위해서 mysql 초기 루트 비밀번호를 세팅해주면 문제 해결
+	- `-e`: 환경 변수 선언 옵션
+
+
+환경 변수가 잘 선언됐는지 확인하는 법
 

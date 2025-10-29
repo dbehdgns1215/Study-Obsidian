@@ -440,4 +440,4 @@ INFO: Created user preferences directory.
 |  For an introduction type: /help intro
 ```
 - 로그를 찍어봐도 별 문제 없음.
-	- 이유로는, Docekr의 컨테이너, 이미지에서 컨테이너가 실행될 때 컨테이너는 내부적으로 해야할 일을 다 실행하면 자동으로 종료가 되기 때문임.
+	- 이유로는, Docekr의 컨테이너는 내부적으로 해야할 일을 다 실행하면 자동으로 종료가 되기 때문임.

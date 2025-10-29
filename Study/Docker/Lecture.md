@@ -378,4 +378,15 @@ FROM [이미지명]:[태그명]
 ```
 - 태그명 생략시에는 최신(latest) 버전을 사용한다.
 
+**실습**
+```
+FROM openjdk:17-jdk
+```
+
+**터미널**
+```
+docker build -t my-jdk17-server .
+```
+- `my-jdk17-server`: 이미지명
+- `.`: 상대경로(현재 디렉토리)
 

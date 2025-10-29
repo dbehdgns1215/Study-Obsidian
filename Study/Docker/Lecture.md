@@ -441,3 +441,25 @@ INFO: Created user preferences directory.
 ```
 - 로그를 찍어봐도 별 문제 없음.
 	- 이유로는, Docekr의 컨테이너는 내부적으로 해야할 일을 다 실행하면 자동으로 종료가 되기 때문임.
+
+어떻게 해결할까? (꼼수)
+
+```
+FROM openjdk:17-jdk
+
+ENTRYPOINT [ "/bin/bash", "-c", "sleep 500" ]
+```
+
+```
+PS D:\Docker\docker-practice> docker build -t my-jdk17-server . 
+[+] Building 1.6s (6/6) FINISHED
+
+PS D:\Docker\docker-practice> docker run -d my-jdk17-server
+b149b8713a6c9792696e65169e6b012738ae3e4f13c9296b4d86aff319855627
+
+PS D:\Docker\docker-practice> docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                      PORTS     NAMES
+b149b8713a6c   my-jdk17-server   "/bin/bash -c 'sleep…"   3 seconds ago    Up 2 seconds                          priceless_robinson
+```
+- 실행된다!
+

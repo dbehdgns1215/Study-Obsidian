@@ -415,3 +415,29 @@ my-jdk17-server   beta      78285487a29a   3 years ago   727MB
 PS D:\Docker\docker-practice>
 ```
 - 태그 기반으로 생성하면 TAG 열에 저렇게 들어감
+
+
+```
+PS D:\Docker\docker-practice> docker run -d my-jdk17-server
+c27ab32efcb617291d23028c804c211cd09927cfca397197a75956052afa73ae
+```
+- 컨테이너 실행
+
+```
+PS D:\Docker\docker-practice> docker ps -a
+CONTAINER ID   IMAGE             COMMAND    CREATED          STATUS                      PORTS     NAMES
+c27ab32efcb6   my-jdk17-server   "jshell"   36 seconds ago   Exited (0) 34 seconds ago             peaceful_dewdney
+```
+- 실행됐다가 종료된 것을 알 수 있음. (STATUS = Exited 34 sec..)
+
+```
+CONTAINER ID   IMAGE             COMMAND    CREATED          STATUS                      PORTS     NAMES
+c27ab32efcb6   my-jdk17-server   "jshell"   36 seconds ago   Exited (0) 34 seconds ago             peaceful_dewdney
+PS D:\Docker\docker-practice> docker logs c27
+Oct 29, 2025 3:44:01 PM java.util.prefs.FileSystemPreferences$1 run
+INFO: Created user preferences directory.
+|  Welcome to JShell -- Version 17.0.2
+|  For an introduction type: /help intro
+```
+- 로그를 찍어봐도 별 문제 없음.
+	- 이유로는, Docekr의 컨테이너, 이미지에서 컨테이너가 실행될 때 컨테이너는 내부적으로 해야할 일을 다 실행하면 자동으로 종료가 되기 때문임.

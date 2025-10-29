@@ -463,3 +463,14 @@ b149b8713a6c   my-jdk17-server   "/bin/bash -c 'sleep…"   3 seconds ago    Up 
 ```
 - 실행된다!
 
+- 결국, 디버깅은 `docker exec -it <CONTAINER ID>`로 하게 되는데 이건 실행 중인 컨테이너만 되기 때문에 `sleep` 꼼수가 필요함.
+- 종료된 컨테이너를 디버깅하려면
+	- `ENTRYPOINT [ "/bin/bash", "-c", "sleep 500" ]`
+	- 코드를 추가하고 Docker 내부로 진입해서 디버깅해보면 된다.
+
+- 디버깅 방법
+	- `docker logs`로 컨테이너 로그 확인
+	- `docker exec -it ...`로 컨테이너 내부 직접 들어가서 확인
+
+
+

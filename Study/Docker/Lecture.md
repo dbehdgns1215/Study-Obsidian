@@ -390,3 +390,28 @@ docker build -t my-jdk17-server .
 - `my-jdk17-server`: 이미지명
 - `.`: 상대경로(현재 디렉토리)
 
+**결과**
+```
+PS D:\Docker\docker-practice> docker image ls
+REPOSITORY        TAG       IMAGE ID       CREATED       SIZE
+mysql             latest    569c4128dfa6   7 days ago    1.27GB
+nginx             latest    3b7732505933   3 weeks ago   236MB
+redis             latest    4521b581dbdd   3 weeks ago   200MB
+my-jdk17-server   latest    0fbdbb7ea6a8   3 years ago   727MB
+PS D:\Docker\docker-practice>
+```
+
+```
+PS D:\Docker\docker-practice> docker build -t my-jdk17-server:beta .
+```
+```
+PS D:\Docker\docker-practice> docker image ls
+REPOSITORY        TAG       IMAGE ID       CREATED       SIZE
+mysql             latest    569c4128dfa6   7 days ago    1.27GB
+nginx             latest    3b7732505933   3 weeks ago   236MB
+redis             latest    4521b581dbdd   3 weeks ago   200MB
+my-jdk17-server   latest    0fbdbb7ea6a8   3 years ago   727MB
+my-jdk17-server   beta      78285487a29a   3 years ago   727MB
+PS D:\Docker\docker-practice>
+```
+- 태그 기반으로 생성하면 TAG 열에 저렇게 들어감

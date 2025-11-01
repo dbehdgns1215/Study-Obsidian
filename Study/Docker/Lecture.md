@@ -474,3 +474,15 @@ b149b8713a6c   my-jdk17-server   "/bin/bash -c 'sleep…"   3 seconds ago    Up 
 
 
 
+## COPY: 파일 복사 (이동)
+`copy`는 **호스트** 컴퓨터에 있는 파일을 복사해서 **컨테이너**로 전달한다.
+
+```
+FROM ubuntu
+
+COPY app.txt /app.txt
+
+ENTRYPOINT [ "/bin/bash", "-c", "sleep 500" ]
+```
+- `COPY app.txt`: 호스트 컴퓨터에 있는 파일 (상대 경로)
+- `/app.txt`: 컨테이너의 app.txt라는 파일을 해당 경로로 복사하겠다는 뜻 (절대 경로)

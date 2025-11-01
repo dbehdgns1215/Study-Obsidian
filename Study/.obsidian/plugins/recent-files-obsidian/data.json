@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Lecture",
+      "path": "Docker/Lecture.md"
+    },
+    {
       "basename": "10. October",
       "path": "SSAFY/10. October.md"
     },
@@ -31,10 +35,6 @@
     {
       "basename": "무제",
       "path": "SSAFY/무제.md"
-    },
-    {
-      "basename": "Lecture",
-      "path": "Docker/Lecture.md"
     },
     {
       "basename": "Docker",

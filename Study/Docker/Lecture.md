@@ -513,3 +513,15 @@ readme.txt
 ```
 - 깃 이그노어처럼 빌드하지 않을 파일 지정 가능
 
+
+## ENTRYPOINT: 컨테이너가 최초로 실행될 때 수행되는 명령어
+`ENTRYPOINT`는 컨테이너가 생성되고 최초로 실행될 때 수행되는 명령어를 뜻함. 쉽게 말하면 미니 컴퓨터의 전원을 키고나서 실행시키고 싶은 명령어를 적으면 됨. (시작 프로그램 느낌)
+
+```
+ENTRYPOINT [명령어...]
+```
+
+```
+ENTRYPOINT ["node", "dist/main.js"]
+ENTRYPOINT ["/bin/bash", "-c", "echo hello"]
+```

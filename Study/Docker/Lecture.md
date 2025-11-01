@@ -496,3 +496,14 @@ ENTRYPOINT [ "/bin/bash", "-c", "sleep 500" ]
 ```
 - 디렉토리 복사시에는 컨테이너 경로 끝에 `/`를 꼭 포함시켜야함.
 
+**활용**
+```
+FROM ubuntu
+
+COPY *.txt /text-files/
+
+ENTRYPOINT [ "/bin/bash", "-c", "sleep 500" ]
+```
+- `*.txt`: txt 확장자 전부를
+- `/text-files/`: 해당 폴더로 모두 복사
+

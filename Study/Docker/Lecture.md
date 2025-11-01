@@ -486,3 +486,13 @@ ENTRYPOINT [ "/bin/bash", "-c", "sleep 500" ]
 ```
 - `COPY app.txt`: 호스트 컴퓨터에 있는 파일 (상대 경로)
 - `/app.txt`: 컨테이너의 app.txt라는 파일을 해당 경로로 복사하겠다는 뜻 (절대 경로)
+
+```
+FROM ubuntu
+
+COPY my-app /my-app/
+
+ENTRYPOINT [ "/bin/bash", "-c", "sleep 500" ]
+```
+- 디렉토리 복사시에는 컨테이너 경로 끝에 `/`를 꼭 포함시켜야함.
+

@@ -507,3 +507,9 @@ ENTRYPOINT [ "/bin/bash", "-c", "sleep 500" ]
 - `*.txt`: txt 확장자 전부를
 - `/text-files/`: 해당 폴더로 모두 복사
 
+**.dockerignore**
+```
+readme.txt
+```
+- 깃 이그노어처럼 빌드하지 않을 파일 지정 가능
+

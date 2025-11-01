@@ -525,3 +525,65 @@ ENTRYPOINT [명령어...]
 ENTRYPOINT ["node", "dist/main.js"]
 ENTRYPOINT ["/bin/bash", "-c", "echo hello"]
 ```
+
+
+### 스프링 부트 프로젝트를 Docker로 실행시키기
+`build` 파일을 `Dockerfile Copy`를 이용해서 컨테이너로 복사하고(`.jar`)  그 컨테이너 안에서 `.jar`파일을 실행
+
+`build` 파일 생성
+- `./gradlew clean build`
+	- `build` 파일 하위에 `/libs/xxx.jar` 파일 생성됨.
+	- 원래라면 배포할 때 `java -jar` 이런식으로 실행시켰지만
+	- 도커를 이용해 컨테이너에서 실행시키려면
+```
+FROM openjdk:17-jdk
+
+COPY build/libs/*SNAPSHOT.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "/app.jar]
+```
+- 참고로 인텔리제이나 특정 IDE를 사용해서 `Dockerfile`을 만들어주고 해당 코드를 작성해야함.
+
+**실행**
+```
+docker run -d -p 8080:8080 hello-server
+```
+- `-d`: 백그라운드에서
+- `-p 8080:8080`: 해당 포트를 매핑해서
+- `hello-server`: 라는 이미지를 실행할거야
+
+![[Pasted image 20251102020756.png]]
+
+## RUN: 이미지를 생성하는 과정에서 사용할 명령문 실행
+`RUN`은 이미지 생성 과정에서 명령어를 실행시켜야 할 때 사용한다.
+
+```
+RUN [명령문]
+
+RUN npm install
+```
+
+### `RUN` VS `ENTRYPOINT`
+`RUN`과 `ENTRYPOINT`가 헷갈릴 때가 있다. 둘 다 같이 명령어를 실행시키는 기능을 하기 때문이다. 하지만 엄연히 둘의 사용 용도는 다름.
+
+`RUN`
+- `이미지 생성 과정`에서 필요한 명령어를 실행시킬 때 사용
+
+`ENTRYPOINT`
+- `생성된 이비지를 기반`으로 컨테이너를 생성한 직후에 명령어를 실행시킬 때 사용
+
+### 시나리오
+`git`과 `ubuntu`를 컨테이너에서 사용하고 싶어. 그런데 도커 허브에는 둘이 합쳐진 이미지가 없네?
+-> 그러면 `unbuntu` 이미지를 받아와서 그 안에 `git`을 깔아야겠다!
+
+```
+FROM ubuntu
+
+RUN apt update && apt install -y git
+
+ENTRYPOINT ["/bin/bash", "-c", "sleep 500"]
+```
+- 결국 `RUN`은 환경 세팅, `ENTRYPOINT`는 내가 필요한 작업
+
+
+

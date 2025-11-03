@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSAFY/10. October.md",
+                "file": "Docker/Lecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10. October"
+              "title": "Lecture"
             }
           }
         ],
@@ -95,8 +95,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -116,13 +115,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSAFY/10. October.md",
+                "file": "Docker/Lecture.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "10. October 의 개요"
+              "title": "Lecture 의 개요"
             }
           },
           {
@@ -207,8 +206,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -226,11 +224,12 @@
   },
   "active": "e7a5cbb0be0c1282",
   "lastOpenFiles": [
+    "Docker/Docker.md",
+    "SSAFY/10. October.md",
     "DB/Modeling.md",
     "Docker/Lecture.md",
     "Pasted image 20251102020756.png",
     "Pasted image 20251102020738.png",
-    "SSAFY/10. October.md",
     "SSAFY/사과 먹기 게임.md",
     "SSAFY/Algorithm.md",
     "SSAFY/BattleSSAFY.md",
@@ -246,7 +245,6 @@
     "Pasted image 20251028215036.png",
     "Pasted image 20251028214933.png",
     "Pasted image 20251028214819.png",
-    "Docker/Docker.md",
     "SSAFY/사프.md",
     "무제 1.base",
     "무제.base",

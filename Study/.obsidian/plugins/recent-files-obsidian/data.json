@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "10. October",
-      "path": "SSAFY/10. October.md"
-    },
-    {
       "basename": "Lecture",
       "path": "Docker/Lecture.md"
+    },
+    {
+      "basename": "Docker",
+      "path": "Docker/Docker.md"
+    },
+    {
+      "basename": "10. October",
+      "path": "SSAFY/10. October.md"
     },
     {
       "basename": "사과 먹기 게임",
@@ -35,10 +39,6 @@
     {
       "basename": "무제",
       "path": "SSAFY/무제.md"
-    },
-    {
-      "basename": "Docker",
-      "path": "Docker/Docker.md"
     },
     {
       "basename": "무제 1",

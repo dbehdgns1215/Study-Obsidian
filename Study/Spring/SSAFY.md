@@ -3,3 +3,6 @@
 - 내가 직접 시키느냐 (고용의 관계)
 - 내가 모르게 작동하느냐 (AOP)
 
+# PSA (Portable Service Abstraction)
+- 서비스를 추상화해서 자유롭게 바꿔낄 수 있게함
+

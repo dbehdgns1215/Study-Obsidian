@@ -10,3 +10,10 @@
 # Slf4j (Simple Loggin Facade for Java)
 ![[Pasted image 20251104101026.png]]
 
+심각도에 따라 분류
+- trace
+- debug
+- info
+- warn
+- error
+

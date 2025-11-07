@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "정보처리기사",
+      "path": "SSAFY/정보처리기사.md"
+    },
+    {
       "basename": "Lecture",
       "path": "Docker/Lecture.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Spring",
       "path": "Spring/Spring.md"
-    },
-    {
-      "basename": "Pasted image 20250202235311",
-      "path": "Pasted image 20250202235311.png"
     }
   ],
   "omittedPaths": [],

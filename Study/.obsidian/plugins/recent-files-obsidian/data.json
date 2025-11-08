@@ -5,6 +5,10 @@
       "path": "SSAFY/BE PJ.md"
     },
     {
+      "basename": "무제",
+      "path": "무제.md"
+    },
+    {
       "basename": "정보처리기사",
       "path": "SSAFY/정보처리기사.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "C++ TIP",
       "path": "PS/C++ TIP.md"
-    },
-    {
-      "basename": "BOJ",
-      "path": "PS/BOJ.md"
     }
   ],
   "omittedPaths": [],

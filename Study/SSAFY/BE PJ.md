@@ -190,10 +190,17 @@ AWS vs GCP vs Azure
 
 
 # Spring Boot
+
 - Spring Boot WebSocker
 	- Java 17 이상
 	- Gradle 7.5, Maven 3.5 이상
-
+- ![[Pasted image 20251108191457.png]]
+- 결국 클라이언트가 메시지를 보내면 누군가가 그걸 분배해주는 역할이 필요함.
+	- 그게 바로 메시지 브로커
+		- 기본적으로는 스프링 인메모리 기반으로 구현함.
+- 근데 WAS를 2개 이상 사용할 때는, 같은 서버에 속해있는 사람들한테만 메시지가 전송됨.
+	- 따라서 외부 메시지 서버(메시지 브로커)가 필요함
+		- `Reddit MQ`, `Kafka` 등
 ## Dependency List
 - Spring-boot-starter-web
 - Spring-boot-starter-websocket

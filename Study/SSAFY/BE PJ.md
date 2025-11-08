@@ -191,7 +191,7 @@ AWS vs GCP vs Azure
 
 # Spring Boot
 
-- Spring Boot WebSocker
+- Spring Boot WebSocket
 	- Java 17 이상
 	- Gradle 7.5, Maven 3.5 이상
 - ![[Pasted image 20251108191457.png]]
@@ -201,7 +201,7 @@ AWS vs GCP vs Azure
 - 근데 WAS를 2개 이상 사용할 때는, 같은 서버에 속해있는 사람들한테만 메시지가 전송됨.
 	- 따라서 외부 메시지 서버(브로커)가 필요함
 		- 대표적으로는 `Rabbit MQ`, `Kafka`
-		- 
+		- `Rabbit MQ`가 현재 프로젝트에는 적합할 것 같은데, 분산 서버가 아니라면 굳이?
 ## Dependency List
 - Spring-boot-starter-web
 - Spring-boot-starter-websocket

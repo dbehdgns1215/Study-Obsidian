@@ -199,8 +199,7 @@ AWS vs GCP vs Azure
 	- 그게 바로 메시지 브로커
 		- 기본적으로는 스프링 인메모리 기반으로 구현함.
 - 근데 WAS를 2개 이상 사용할 때는, 같은 서버에 속해있는 사람들한테만 메시지가 전송됨.
-	- 따라서 외부 메시지 서버(메시지 브로커)가 필요함
-		- `Reddit MQ`, `Kafka` 등
+	- 따라서 외부d
 ## Dependency List
 - Spring-boot-starter-web
 - Spring-boot-starter-websocket

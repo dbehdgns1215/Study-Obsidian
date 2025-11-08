@@ -201,7 +201,7 @@ AWS vs GCP vs Azure
 - 근데 WAS를 2개 이상 사용할 때는, 같은 서버에 속해있는 사람들한테만 메시지가 전송됨.
 	- 따라서 외부 메시지 서버(브로커)가 필요함
 		- 대표적으로는 `Rabbit MQ`, `Kafka`
-		- `Rabbit MQ`가 현재 프로젝트에는 적합할 것 같은데, 분산 서버가 아니라면 굳이?
+		- `Rabbit MQ`가 현재 프로젝트에는 적합할 것 같은데, 대용량 트래픽 처리하면서 분산 서버 도입할거라면 `Rabbit MQ`
 ## Dependency List
 - Spring-boot-starter-web
 - Spring-boot-starter-websocket

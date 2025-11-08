@@ -194,3 +194,7 @@ AWS vs GCP vs Azure
 	- Java 17 이상
 	- Gradle 7.5, Maven 3.5 이상
 
+## Dependency List
+- Spring-boot-starter-web
+- Spring-boot-starter-websocket
+

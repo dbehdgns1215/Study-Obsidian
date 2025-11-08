@@ -207,6 +207,17 @@ AWS vs GCP vs Azure
 
 # Redis
 - Sorted Set: 리더보드를 구현하는 데 적합함. 공식 문서에서 주요 사용처로 명시함
+	- 실시간으로 분산 서버에서 데이터를 뭔가 처리하려면 분산 락 기능이 필요하지 않을까
+		- `mysql - named lock`, `redis redlock`
+			- 솔직히 내용 이해는 잘 안됐는데, `named lock`의 경우 `lock 정보`가 단일 서버 메모리에서만 관리돼서 일관성 보장을 받을 수 없다고 함.
+				- 더 자세한 체크가 필요하긴 함.
+- 무료
+- 보편적으로 사용되는 캐싱 및 핵심 기능은 비교적 러닝 커브가 낮다고는 함.
+- 
+
+
+
+
 ## Dependency List
 - Spring-boot-starter-web
 - Spring-boot-starter-websocket

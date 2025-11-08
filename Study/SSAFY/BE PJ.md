@@ -204,6 +204,9 @@ AWS vs GCP vs Azure
 		- `Rabbit MQ`가 현재 프로젝트에는 적합할 것 같은데, 대용량 트래픽 처리하면서 분산 서버 도입할거라면 `Rabbit MQ`
 		- 코드 실시간 변경사항 반영? -> `CRDT (Conflict-free Replicated Data Type)`
 
+
+# Redis
+- Sorted Set: 리더보드를 구현하는 데 적합함. 공식 문서에서 주요 사용처로 명시함
 ## Dependency List
 - Spring-boot-starter-web
 - Spring-boot-starter-websocket

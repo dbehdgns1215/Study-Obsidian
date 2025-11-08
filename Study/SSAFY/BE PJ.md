@@ -191,4 +191,6 @@ AWS vs GCP vs Azure
 
 # Spring Boot
 - Spring Boot WebSocker
-	- 
+	- Java 17 이상
+	- Gradle 7.5, Maven 3.5 이상
+

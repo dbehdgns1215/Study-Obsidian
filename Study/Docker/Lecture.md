@@ -627,3 +627,28 @@ EXPOSE 3000
 
 - 복잡한 명령어로 실행시키려던 걸 간소화시킬 수 있음.
 	- 복잡한 명령어 대신 `docker compose up` 명령어만 실행시키면 된다.
+
+
+## Docker Compose 흐름
+
+```yml
+services:
+	my-web-server:
+		container_name: web-server
+		image: nginx
+		ports:
+			- 80:80
+```
+- `services`: 하나의 컨테이너를 부르는 용어
+	- 여러 개의 서비스를 적기 위해서 사용.
+		- 마치 `dependencies`, `dependency`
+- `my-web-server`: 서비스 이름
+- `container_name`: 이후에 나올 이미지들로 만들 컨테이너의 이름
+- `image`: 이미지
+- `ports`: 포트 매핑
+
+이후 `compose.yml` 파일과 같은 디렉토리에서
+- `docker compose up` 실행
+	- 반대로 닫는 건 `docker compose down`
+
+

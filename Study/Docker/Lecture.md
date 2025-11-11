@@ -654,5 +654,15 @@ services:
 - `-d` 옵션을 붙여주면 됨.
 	- `docker compose up -d`
 
+## Docker Compose CLI 명령어
 
-
+- `docker compose ps`
+	- 실행 중인 컨테이너를 띄우는 데, `xx.yml` 파일에 정의된 컨테이너만 띄움.
+- `docker compose ps -a`
+	- 마찬가지로, `xx.yml` 파일에 정의된 컨테너들 중에서 실행 여부와 관계 없이 모두 조회.
+- `docker compose logs`
+	- 마찬가지로, `xx.yml` 파일에 정의된 컨테너들에 대한 로그들을 모아서 볼 수 있음.
+-  `docker compose up --build`
+	- 이미지를 다시 빌드해서 컨테이너를 실행시켜야 할 때 사용.
+-  `docker compose pull`
+	- 내 컨테이너들의 이미지 중, `docker hub`에 있는 최신 이미지를 다운받아줌.

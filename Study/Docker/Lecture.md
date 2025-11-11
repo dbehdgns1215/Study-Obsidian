@@ -650,5 +650,9 @@ services:
 이후 `compose.yml` 파일과 같은 디렉토리에서
 - `docker compose up` 실행
 	- 반대로 닫는 건 `docker compose down`
+- 이대로 실행하면 `foreground` 실행.
+- `-d` 옵션을 붙여주면 됨.
+	- `docker compose up -d`
+
 
 

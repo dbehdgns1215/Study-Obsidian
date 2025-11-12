@@ -21,7 +21,9 @@ Password reset token 테이블
 
 ### nutrition_summary
 일간, 주간, 월간 요약 리포트 테이블
-
+- granularity
+	- 일간, 주간, 월간
+- 
 ### quick_add_food_code
 자주 추가하는 음식을 빨리 추가하기 위한 테이블
 

@@ -1,5 +1,5 @@
 
-![[asdf 1.png]]
+![[asdf 2.png]]
 
 ### user
 유저 테이블
@@ -22,8 +22,13 @@ Password reset token 테이블
 ### nutrition_summary
 일간, 주간, 월간 요약 리포트 테이블
 - granularity
-	- 일간, 주간, 월간
-- 
+	- 일간, 주간, 월간 (집계 단위)
+- period_key
+	- 해당 기간의 키 문자열
+		- DAILY: `'2025-11-12'`
+		- WEEKLY: `'2025-W46'` (ISO-8601 주차 권장)
+		- MONTHLY: `'2025-11'`
+
 ### quick_add_food_code
 자주 추가하는 음식을 빨리 추가하기 위한 테이블
 
@@ -32,17 +37,10 @@ Password reset token 테이블
 
 ### diet_log_items
 각 끼니에 대한 정보 테이블
-
+- meal_type
+	- 아침, 점심, 저녁
 ### diet_logs
 하루치 식사에 대한 정보 테이블
-
-### meal_history
-diet_logs 백업 테이블
-- 미사용시 삭제 예정
-
-### meal
-diet_log_items 백업 테이블
-- 미사용시 삭제 예정
 
 ### comment
 댓글 정보 테이블

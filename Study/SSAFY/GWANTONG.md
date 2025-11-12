@@ -39,15 +39,7 @@
 
 ### comment
 ```
-|   |   |
-|---|---|
-|**id**|int AI PK|
-|**post_id**|int|
-|**user_id**|int|
-|content|text|
-|created_at|datetime|
-|is_deleted|tinyint(1)|
-|deleted_at|datetime|
+
 ```
 
 ### post

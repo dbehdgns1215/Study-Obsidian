@@ -46,6 +46,13 @@
 
 # Gant 차트
 
+![[Pasted image 20251114140359.png]]
+
+
+![[Pasted image 20251114140422.png]]
+
+![[Pasted image 20251114140446.png]]
+
 
 
 # ERD/DB

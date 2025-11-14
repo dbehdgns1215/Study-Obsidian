@@ -43,18 +43,30 @@
 | AI  | 이상 탐지         | 갑작스런 과식/영양 불균형 패턴 감지                         | 3    | GET /api/ai/anomalies?range=...                                                  |                |
 | AI  | 식단 이미지로 자동 입력 | 사용자가 이미지를 업로드 하면 AI로 해당 식단의 음식 목록 및 중량(g) 측정 | 3    | POST /api/ai/meal-images                                                         |                |
 
-
+---
 # Gant 차트
 
+## 전체 일정
 ![[Pasted image 20251114140359.png]]
 
-
+### 식단 관련
 ![[Pasted image 20251114140422.png]]
 
+### 회원 관련
 ![[Pasted image 20251114140446.png]]
 
+### 운영 관련
+![[Pasted image 20251114140601.png]]
+
+### AI 관련련
+![[Pasted image 20251114140647.png]]
+
+---
+
+# WBS
 
 
+---
 # ERD/DB
 
 ![[asdf 2.png]]

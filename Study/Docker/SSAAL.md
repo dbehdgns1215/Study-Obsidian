@@ -101,3 +101,5 @@ docker run -d -p 8080:8080 (스프링 부트)
 로컬에서 빌드 및 로그인까지는 동일함
 
 단, 도커를 빌드할 때 `docker build --platform linux/amd64 -t 서버명`
+
+

@@ -145,3 +145,8 @@ volumes:
   db-data:
 
 ```
+
+![[Pasted image 20251121221844.png]]
+야호
+
+

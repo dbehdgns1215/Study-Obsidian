@@ -30,3 +30,6 @@
 - 스토리지 구성 (Elastic Block Storage)
 	- EC2에 부착된 일종의 하드디스크
 	- 스토리지(Storage), 볼륨(Volume)라고도 불림
+	- 정책 바뀜에 따라서 `프로비저닝(provisioned)한 GB‑수 × 월(GB‑month)`에 따라 과금되기에 16GB로 설정함
+	- 기존 레거시 프리티어에서는 30GB까지는 무료였음..
+- 

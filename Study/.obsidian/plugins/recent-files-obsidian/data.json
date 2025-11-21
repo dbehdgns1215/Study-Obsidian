@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "SSAAL",
+      "path": "Docker/SSAAL.md"
+    },
+    {
       "basename": "Lecture",
       "path": "Docker/Lecture.md"
+    },
+    {
+      "basename": "Docker",
+      "path": "Docker/Docker.md"
     },
     {
       "basename": "BE PJ",
@@ -15,10 +23,6 @@
     {
       "basename": "정보처리기사",
       "path": "SSAFY/정보처리기사.md"
-    },
-    {
-      "basename": "Docker",
-      "path": "Docker/Docker.md"
     },
     {
       "basename": "10. October",
@@ -195,10 +199,6 @@
     {
       "basename": "C++",
       "path": "PS/C++.md"
-    },
-    {
-      "basename": "C++ TIP",
-      "path": "PS/C++ TIP.md"
     }
   ],
   "omittedPaths": [],

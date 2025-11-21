@@ -41,5 +41,26 @@
 
 ### EC2에 Docker, Docker Compose 설치
 ```
-sudo apt-get update && \ sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common && \ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \ sudo apt-key fingerprint 0EBFCD88 && \ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \ sudo apt-get update && \ sudo apt-get install -y docker-ce && \ sudo usermod -aG docker ubuntu && \ newgrp docker && \ sudo curl -L "https://github.com/docker/compose/releases/download/2.27.1/docker-compose-$(uname -s)-$(uname -m sudo chmod +x /usr/local/bin/docker-compose && \ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+# 1. Docker 설치
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+# 2. 현재 사용자 docker 그룹에 추가
+sudo usermod -aG docker $USER
+newgrp docker
+
+# 3. Docker Compose 설치
+DOCKER_COMPOSE_VERSION=2.27.1
+sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+# 4. 설치 확인
+docker --version
+docker-compose --version
+
 ```

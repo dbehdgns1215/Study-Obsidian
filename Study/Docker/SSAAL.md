@@ -67,3 +67,37 @@ docker-compose --version
 
 ![[Pasted image 20251121213508.png]]
 
+
+Dockerfile
+```
+FROM openjdk:17-jdk
+
+COPY build/libs/*SNAPSHOT.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+```
+
+이후 콘솔에서
+`./gralew clean build`
+
+빌드한 이미지를 AWS에 올려야 함.
+
+여기서는 ECR 사용?
+
+일단 했다고 치고
+
+EC2에서 `docker pull 주소` (만약 ECR 사용했다면, ECR 레파지토리에 있음)
+
+컨테이너 실행 방법
+```
+docker image ls
+-> 다운 받은 이미지 찾아서
+
+docker run -d -p 8080:8080 (스프링 부트)
+```
+
+
+### 맥북 오류 발생시?
+로컬에서 빌드 및 로그인까지는 동일함
+
+단, 도커를 빌드할 때 `docker build --platform linux/amd64 -t 서버명`

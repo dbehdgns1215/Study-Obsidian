@@ -64,3 +64,6 @@ docker --version
 docker-compose --version
 
 ```
+
+![[Pasted image 20251121213508.png]]
+

@@ -103,3 +103,45 @@ docker run -d -p 8080:8080 (스프링 부트)
 단, 도커를 빌드할 때 `docker build --platform linux/amd64 -t 서버명`
 
 
+## docker-compose.yml
+```
+services:
+  app:
+    image: eclipse-temurin:17-jdk
+    container_name: spring_app
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: ./mvnw spring-boot:run
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/mydb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_REDIS_HOST: redis
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:7
+    container_name: redis_cache
+    ports:
+      - "6379:6379"
+
+volumes:
+  db-data:
+
+```

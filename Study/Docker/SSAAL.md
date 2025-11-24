@@ -177,7 +177,9 @@ services:
 volumes:
   db-data:
 ```
-- `docker compose up -d --build`
+- 3개의 컨테이너(app, db, redis)가 있고
+	- 어떤 이미지 쓸건지, 컨테이너 이름(실제 내부 컨테이너가 아니고  은 뭐로 할건지, 
+- `docker compose up -d --build`로 실행
 
 ![[Pasted image 20251121221844.png]]
 
@@ -185,7 +187,8 @@ volumes:
 ## Dockerfile 정의
 - 외부에서 이미지 받아와서 컨테이너를 띄우는 건 가능함.
 - 다만 내 코드를 컨테이너 안에서 실행시킬 수 는 없음.
-- `Docker Compose`는 결국 **컨테이너를 어떻게 띄울지 관리**하기만 하기 때문.
+- `Docker Compose`는 결국 **이미지 어디서 가져오고 컨테이너를 어떻게 띄울지 관리**하기만 하기 때문.
+- 반면 `Dockerfile`은 코드를 실행할 수 있는 **이미지**를 만드는 일종의 **설계도** 역할을 함.
 
 
 

@@ -178,7 +178,13 @@ volumes:
   db-data:
 ```
 - 3개의 컨테이너(app, db, redis)가 있고
-	- 어떤 이미지 쓸건지, 컨테이너 이름(실제 내부 컨테이너가 아니고  은 뭐로 할건지, 
+	- image: 어떤 이미지 쓸건지
+	- container_name: 컨테이너 이름(실제로 컨테이너 내부에 컨테이너가 아니고 일종의 구분하기 위한 이름)은 뭐로 할건지
+	- working_dir: 
+	- command: 
+	- environment: 환경 변수 ???
+	- volumes: 마운트 된 볼륨 위치
+	- ports: 호스트와 컨테이너 포트 연결
 - `docker compose up -d --build`로 실행
 
 ![[Pasted image 20251121221844.png]]

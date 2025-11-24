@@ -180,11 +180,12 @@ volumes:
 - 3개의 컨테이너(app, db, redis)가 있고
 	- image: 어떤 이미지 쓸건지
 	- container_name: 컨테이너 이름(실제로 컨테이너 내부에 컨테이너가 아니고 일종의 구분하기 위한 이름)은 뭐로 할건지
-	- working_dir: 
-	- command: 
-	- environment: 환경 변수 ???
-	- volumes: 마운트 된 볼륨 위치
-	- ports: 호스트와 컨테이너 포트 연결
+	- working_dir: 컨테이너 안에서의 **기본 작업 디렉토리** 지정 -> `command`가 실행될 때의 위가 이 디렉토리임.
+	- command: 컨테이너가 시작될 때 실행할 명령어 
+		- 예: `./mvnw spring-boot:run` -> Spring Boot 앱 실행
+	- environment: 컨테이너 안에서 사용할 **환경 변수** 지정
+	- volumes: **호스트 디렉토리 <-> 컨테이너 디렉토리** 연결 (볼륨 마운트)
+	- ports: 호스트와 컨테이너 포트 연결 (없으면 당연히 외부 접속 불가능)
 - `docker compose up -d --build`로 실행
 
 ![[Pasted image 20251121221844.png]]
@@ -197,9 +198,8 @@ volumes:
 - 반면 `Dockerfile`은 코드를 실행할 수 있는 **이미지**를 만드는 일종의 **설계도** 역할을 함.
 
 
-
-
-
+```
+```
 
 --- 
 

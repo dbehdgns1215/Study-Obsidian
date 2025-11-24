@@ -177,6 +177,7 @@ services:
 volumes:
   db-data:
 ```
+- `docker compose up -d --build`
 
 ![[Pasted image 20251121221844.png]]
 
@@ -234,9 +235,28 @@ volumes:
 `docker compose -f docker-compose.dev.yml up --build`
 - 컨테이너 안에서 자동으로 Gradle `bootRun` 실행
 - 코드 수정 → 즉시 반영 가능
+
+	#### **개발 도중 수정 사항 발생 시**
+	
+	##### A. Git으로 compose 파일 관리
+	- `docker-compose` 파일도 프로젝트와 함께 Git에 커밋
+	- 누군가 수정 → push → 팀원 pull
+	- 최신 compose 파일 가져오기
+	
+	##### B. 기존 컨테이너 종료 및 재실행
+	- compose 파일 변경 후 기존 컨테이너 재사용하면 반영 안 됨
+	- 팀원은 **기존 컨테이너 종료 후 새로 빌드/실행**
+	`docker compose -f docker-compose.dev.yml down docker compose -f docker-compose.dev.yml up --build`
+	
+	##### C. 자동화 팁
+	- `docker compose up --build` → 자동으로 변경 사항 빌드
+	- 변경 사항 많으면 **`down` 후 `up --build`** 하는 것이 안전
+
 ### **Step 4: DB/Redis 확인**
 - DB 포트 3306 → 로컬에서 접속 가능
 - Redis 포트 6379 → 로컬에서 접속 가능
 
 ### **Step 5: 개발 완료 후 종료**
 `docker compose -f docker-compose.dev.yml down`
+
+

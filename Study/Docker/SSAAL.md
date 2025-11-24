@@ -260,3 +260,11 @@ volumes:
 `docker compose -f docker-compose.dev.yml down`
 
 
+### 요약
+- IDE는 로컬에서 켬
+- IntelliJ, Eclipse 등에서 평소처럼 코드 수정
+- 컨테이너는 docker compose가 실행
+- 내부에서 ./gradlew bootRun 명령 실행 → 앱 구동
+- 볼륨이 연결되어 있으므로 로컬 코드 변경 → 컨테이너에 바로 반영
+- 결국 IDE는 로컬에서, 서버 실행은 컨테이너에서
+

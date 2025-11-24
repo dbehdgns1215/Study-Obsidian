@@ -203,3 +203,35 @@ volumes:
     - 프로젝트 파일을 **이미지 안으로 포함**시켜 컨테이너로 배포.
     - 다른 서버에서도 동일하게 실행 가능.
 
+
+
+---
+
+# 시나리오
+
+
+
+# **팀원**
+
+### **Step 1: 프로젝트 클론**
+
+`git clone <repo_url> cd project-root`
+
+### **Step 2: 환경 변수 파일 설정**
+- `.env` 파일 복사/수정
+
+`cp .env.example .env`
+
+### **Step 3: Docker Compose로 개발 환경 실행**
+
+`docker compose -f docker-compose.dev.yml up --build`
+- 컨테이너 안에서 자동으로 Gradle `bootRun` 실행
+- 코드 수정 → 즉시 반영 가능
+### **Step 4: DB/Redis 확인**
+
+- DB 포트 3306 → 로컬에서 접속 가능
+- Redis 포트 6379 → 로컬에서 접속 가능
+
+### **Step 5: 개발 완료 후 종료**
+`docker compose -f docker-compose.dev.yml down`
+

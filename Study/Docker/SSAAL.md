@@ -42,7 +42,14 @@
 ![[Pasted image 20251121202833.png]]
 - 추가적으로 백엔드 서버를 80번 포트에 띄울 예정이기 때문에 보안 그룹 규칙에 추가해줌.
 - 참고로 소스 유형은 꼭 `위치 무관`으로 설정해야함.
-	- 
+	- Anywhere (0.0.0.0/0)
+		- 전 세계 모든 IP 접근 허용
+	- 내 IP
+		- 현재 사용 중인 컴퓨터의 공인 IP에서만 접근 허용
+	- Custom
+		- 특정 IP에서만 접근 허용
+	- Security Group
+		- 해당 보안 그룹을 적용한 서버끼리만 통신 허용용
 
 
 
@@ -52,6 +59,9 @@
 	- 스토리지(Storage), 볼륨(Volume)라고도 불림
 	- 정책 바뀜에 따라서 `프로비저닝(provisioned)한 GB‑수 × 월(GB‑month)`에 따라 과금되기에 16GB로 설정함
 	- 기존 레거시 프리티어에서는 30GB까지는 무료였음..
+
+---
+# 인스턴스 실행
 
 ![[Pasted image 20251121212422.png]]
 ![[Pasted image 20251121212620.png]]
@@ -85,6 +95,7 @@ docker-compose --version
 
 ![[Pasted image 20251121213508.png]]
 
+### 스프링 부트 프로젝트를 Docker로 배포하기 위해 JAR -> Image 빌드
 
 Dockerfile
 ```
@@ -100,28 +111,32 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 
 빌드한 이미지를 AWS에 올려야 함.
 
-여기서는 ECR 사용?
+빌드한 이미지는 ECR에 올려서 사용하면 되고 또는 Docker Hub에 올리거나 다운받아서 사용하면 됨.
+## ECR
+Dockerfile로 만든 Docker 이미지를 push/pull 할 수 있는 AWS 전용 레지스트리
 
-일단 했다고 치고
+EC2에서
+- `docker pull 주소`
+	- 만약 ECR 사용했다면, 주소는 ECR Repository에 있음
 
-EC2에서 `docker pull 주소` (만약 ECR 사용했다면, ECR 레파지토리에 있음)
 
 컨테이너 실행 방법
 ```
 docker image ls
--> 다운 받은 이미지 찾아서
+-> 다운 받은 이미지의 id 값 찾아서
 
-docker run -d -p 8080:8080 (스프링 부트)
+docker run -d -p 8080:8080 (스프링 부트 id)
 ```
 
-
+---
 ### 맥북 오류 발생시?
 로컬에서 빌드 및 로그인까지는 동일함
 
 단, 도커를 빌드할 때 `docker build --platform linux/amd64 -t 서버명`
 
-
-## docker-compose.yml
+---
+## Docker에 springboot, mysql, redis 띄우기
+### docker-compose.yml
 ```
 services:
   app:
@@ -161,10 +176,23 @@ services:
 
 volumes:
   db-data:
-
 ```
 
 ![[Pasted image 20251121221844.png]]
-야호
 
+
+> 안정성
+
+만약 개발 중이라면, 호스트의 소스를 컨테이너로 바인드하고
+
+| 빌드 도구  | 개발 실행 명령                 | JAR 빌드 명령         | JAR 실행 방식           |
+| ------ | ------------------------ | ----------------- | ------------------- |
+| Maven  | `./mvnw spring-boot:run` | `./mvnw package`  | `java -jar xxx.jar` |
+| Gradle | `./gradlew bootRun`      | `./gradlew build` | `java -jar xxx.jar` |
+
+방식으로 빠르게 변경을 반영하며 작업하는 것이 편리함.
+
+
+
+만약 그렇지 않다면, 먼저 로컬에서 `.jar`로 빌드한 뒤 해당 JAR을 Docker 이미지에 포함시키고(또는 CI에서 이미지 빌드) 그 이미지를 레지스트리(ECR 등)에 올려서 배포하는 방식이 더 안정적이고 재현 가능함.
 

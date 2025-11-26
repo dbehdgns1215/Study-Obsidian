@@ -78,6 +78,8 @@ vscode
 cmd
 - node
 
+expo
+
 
 
 Ctrl + Shift + P > Emulator 선택

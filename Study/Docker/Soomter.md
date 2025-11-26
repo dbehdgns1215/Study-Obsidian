@@ -25,3 +25,37 @@ docker pull mysql:8.1
 
 ![[Pasted image 20251126232047.png]]
 
+
+docker-compose.yml
+```
+version: '3.9'
+services:
+  mysql:
+    image: mysql:8.1
+    container_name: my-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: soomter
+      MYSQL_DATABASE: soomter
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  node:
+    image: node:24-alpine
+    container_name: my-node
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: sh -c "npm install && node index.js"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data:
+
+```

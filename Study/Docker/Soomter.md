@@ -18,3 +18,10 @@ npm 버전 확인:
 npm -v # 11.6.2가 출력되어야 합니다.
 
 ```
+
+```powershell
+docker pull mysql:8.1
+```
+
+![[Pasted image 20251126232047.png]]
+

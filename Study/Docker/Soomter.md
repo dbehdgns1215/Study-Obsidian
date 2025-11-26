@@ -38,18 +38,18 @@ services:
       MYSQL_ROOT_PASSWORD: soomter
       MYSQL_DATABASE: soomter
     ports:
-      - "3306:3306"
+      - "3306:3306"  # EC2 외부에서 직접 접근 필요 시
     volumes:
       - mysql-data:/var/lib/mysql
 
   node:
-    image: node:24-alpine
+    build: ./backend
     container_name: my-node
     restart: always
     working_dir: /app
     volumes:
-      - ./app:/app
-    command: sh -c "npm install && node index.js"
+      - ./backend:/app
+    command: sh -c "npm install && node server.js"
     ports:
       - "8080:8080"
     depends_on:
@@ -57,7 +57,6 @@ services:
 
 volumes:
   mysql-data:
-
 ```
 
 
@@ -84,6 +83,10 @@ expo
 
 Ctrl + Shift + P > Emulator 선택
 
+
+- node 서버 띄우는 것 까지 성공
+- 결국엔 자바랑 달라서 프로젝트 전체를 ec2에 올려줘야함.
+- 
 
 
 # 참고 자료

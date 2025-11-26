@@ -88,8 +88,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # 4. 설치 확인
-docker --version
-docker-compose --version
+docker -v
+docker compose version
 
 ```
 

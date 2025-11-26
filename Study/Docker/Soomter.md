@@ -77,7 +77,8 @@ vscode
 cmd
 - node
 
-expo
+expo go
+- cmd에서 package 있는 경로에서 `npx expo start`
 
 
 

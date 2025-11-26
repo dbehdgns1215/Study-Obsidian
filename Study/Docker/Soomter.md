@@ -100,3 +100,30 @@ https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api#before-you-begin
 
 
 https://velog.io/@clean01/Project-JWT%EC%99%80-oauth2%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B5%AC%ED%98%84#overview
+
+
+
+# DB
+
+```sql
+create database soomter;
+
+use soomter;
+
+CREATE TABLE users (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,    -- 내부 DB용 PK
+    kakao_id BIGINT UNSIGNED NOT NULL UNIQUE,      -- 카카오 고유 ID
+    email VARCHAR(255),                            -- 카카오에서 제공하면 저장
+    nickname VARCHAR(50),                          -- 닉네임
+    profile_image_url VARCHAR(500),               -- 프로필 이미지 URL
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO users (kakao_id, email, nickname, profile_image_url) VALUES
+(1234567890, 'alice@example.com', 'Alice', 'https://example.com/alice.png'),
+(2345678901, 'bob@example.com', 'Bob', 'https://example.com/bob.png'),
+(3456789012, 'charlie@example.com', 'Charlie', 'https://example.com/charlie.png');
+```
+

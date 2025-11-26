@@ -77,3 +77,7 @@ vscode
 
 cmd
 - node
+
+
+
+Ctrl + Shift + P > Emulator 선택

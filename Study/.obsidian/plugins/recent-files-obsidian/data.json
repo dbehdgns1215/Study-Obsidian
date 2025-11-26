@@ -5,6 +5,10 @@
       "path": "Docker/SSAAL.md"
     },
     {
+      "basename": "Soomter",
+      "path": "Docker/Soomter.md"
+    },
+    {
       "basename": "Lecture",
       "path": "Docker/Lecture.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Pasted image 20250512232456",
       "path": "Pasted image 20250512232456.png"
-    },
-    {
-      "basename": "C++",
-      "path": "PS/C++.md"
     }
   ],
   "omittedPaths": [],

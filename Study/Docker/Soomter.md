@@ -69,6 +69,8 @@ node.js 다운
 
 android studio 다운
 - 애뮬레이터 다운
+https://github.com/DiemasMichiels/emulator/blob/main/WINDOWS.md
+
 
 vscode
 - React-native 다운

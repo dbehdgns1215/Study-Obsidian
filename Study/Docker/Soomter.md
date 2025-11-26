@@ -59,3 +59,20 @@ volumes:
   mysql-data:
 
 ```
+
+
+
+
+# 로컬
+
+node.js 다운
+
+android studio 다운
+- 애뮬레이터 다운
+
+vscode
+- React-native 다운
+- Android iOS Emulator
+
+cmd
+- node

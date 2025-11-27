@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "Soomter"
             }
+          },
+          {
+            "id": "0e89aa8c7ae0b641",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.10.6"
+              },
+              "icon": "lucide-book-up",
+              "title": "릴리즈 노트 1.10.6"
+            }
           }
         ],
+        "currentTab": 1,
         "stacked": true
       }
     ],
@@ -86,7 +99,7 @@
             }
           },
           {
-            "id": "53b9287409cf23ec",
+            "id": "f1b169a2fd27d5c3",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -95,7 +108,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -115,13 +129,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docker/Lecture.md",
+                "file": "Docker/Soomter.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Lecture 의 개요"
+              "title": "Soomter 의 개요"
             }
           },
           {
@@ -202,12 +216,12 @@
               "title": "스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술 의 나가는 링크"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -223,7 +237,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a5cbb0be0c1282",
+  "active": "0e89aa8c7ae0b641",
   "lastOpenFiles": [
     "Pasted image 20251126232047.png",
     "Docker/SSAAL.md",

@@ -169,8 +169,9 @@ services:
     container_name: my-node
     restart: always
     working_dir: /app
-    volumes:
-      - ./backend/node:/app
+	volumes:
+	  - ./backend/node:/app
+	  - node_modules:/app/node_modules
     command: sh -c "npm install && node server.js"
     ports:
       - "8081:8081"

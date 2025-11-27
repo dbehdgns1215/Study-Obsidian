@@ -131,103 +131,6 @@ INSERT INTO users (kakao_id, email, nickname, profile_image_url) VALUES
 
 
 
-# 스프링부트 추가 
-```yml
-version: '3.9'
-services:
-  mysql:
-    image: mysql:8.1
-    container_name: my-mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: soomter
-      MYSQL_DATABASE: soomter
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
-
-  spring:
-    build:
-      context: ./backend/spring
-      dockerfile: Dockerfile
-    container_name: my-spring
-    restart: always
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/soomter
-      SPRING_DATASOURCE_USERNAME: soomter
-      SPRING_DATASOURCE_PASSWORD: soomter
-    depends_on:
-      - mysql
-
-  node:
-    build:
-      context: ./backend/node
-      dockerfile: Dockerfile
-    container_name: my-node
-    restart: always
-    working_dir: /app
-	volumes:
-	  - ./backend/node:/app
-	  - node_modules:/app/node_modules
-    command: sh -c "npm install && node server.js"
-    ports:
-      - "8081:8081"
-    depends_on:
-      - mysql
-      - spring
-
-volumes:
-  mysql-data:
-```
-
-## Node
-```dockerfile
-FROM node:18-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
-EXPOSE 8081
-
-CMD ["node", "server.js"]
-```
-
-
-## Spring Boot
-```dockerfile
-# 1단계: Gradle로 빌드
-FROM gradle:8.10-jdk17-alpine AS builder
-WORKDIR /app
-
-# Gradle 설정 먼저 복사 (캐시용)
-COPY build.gradle.kts settings.gradle.kts gradlew ./ 
-COPY gradle ./gradle
-
-# 의존성 캐시
-RUN ./gradlew dependencies --no-daemon || true
-
-# 실제 소스 복사 후 빌드
-COPY . .
-RUN ./gradlew clean bootJar --no-daemon
-
-# 2단계: 실행용 이미지
-FROM eclipse-temurin:17-jdk-alpine
-WORKDIR /app
-
-COPY --from=builder /app/build/libs/*.jar app.jar
-
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
-```
-
 ---
 
 # 개발용
@@ -342,5 +245,93 @@ VOLUME /app/node_modules
 
 # 개발 서버 명령
 CMD ["sh", "-c", "npm install && npm run dev"]
+
+```
+
+
+
+---
+
+# 배포용
+
+# 스프링부트 추가 
+```yml
+version: '3.9'
+services:
+  mysql:
+    image: mysql:8.1
+    container_name: prod-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: soomter
+      MYSQL_DATABASE: soomter
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  spring:
+    build:
+      context: ./backend/spring
+      dockerfile: Dockerfile
+    container_name: prod-spring
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/soomter
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: soomter
+    depends_on:
+      - mysql
+
+  node:
+    build:
+      context: ./backend/node
+      dockerfile: Dockerfile
+    container_name: prod-node
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+      - spring
+
+volumes:
+  mysql-data:\
+```
+
+## Node
+```dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8081
+
+CMD ["node", "server.js"]
+```
+
+
+## Spring Boot
+```dockerfile
+# 1단계: 빌드
+FROM gradle:8.10-jdk17-alpine AS builder
+WORKDIR /app
+COPY build.gradle.kts settings.gradle.kts gradlew ./
+COPY gradle ./gradle
+COPY . .
+RUN ./gradlew clean bootJar --no-daemon
+
+# 2단계: 실행용 이미지
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+COPY --from=builder /app/build/libs/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ```

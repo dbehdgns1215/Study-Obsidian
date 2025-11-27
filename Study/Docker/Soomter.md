@@ -1,4 +1,6 @@
 
+# EC2 
+
 Node 서버 + mysql ?
 
 ```powershell

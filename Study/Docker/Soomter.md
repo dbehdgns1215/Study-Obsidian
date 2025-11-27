@@ -147,8 +147,25 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
+  spring:
+    build:
+      context: ./backend/spring
+      dockerfile: Dockerfile
+    container_name: my-spring
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/soomter
+      SPRING_DATASOURCE_USERNAME: soomter
+      SPRING_DATASOURCE_PASSWORD: soomter
+    depends_on:
+      - mysql
+
   node:
-    build: ./backend/node
+    build:
+      context: ./backend/node
+      dockerfile: Dockerfile
     container_name: my-node
     restart: always
     working_dir: /app
@@ -160,19 +177,6 @@ services:
     depends_on:
       - mysql
       - spring
-
-  spring:
-    build: ./backend/spring
-    container_name: my-spring
-    restart: always
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/soomter
-      SPRING_DATASOURCE_USERNAME: soomter
-      SPRING_DATASOURCE_PASSWORD: soomter
-    depends_on:
-      - mysql
 
 volumes:
   mysql-data:
@@ -215,13 +219,28 @@ CMD ["node", "server.js"]
 
 ## Spring Boot
 ```dockerfile
-FROM eclipse-temurin:17-jdk-alpine
-
+# 1단계: Gradle로 빌드
+FROM gradle:8.10-jdk17-alpine AS builder
 WORKDIR /app
 
-COPY build/libs/*.jar app.jar
+# Gradle 설정 먼저 복사 (캐시용)
+COPY build.gradle.kts settings.gradle.kts gradlew ./ 
+COPY gradle ./gradle
+
+# 의존성 캐시
+RUN ./gradlew dependencies --no-daemon || true
+
+# 실제 소스 복사 후 빌드
+COPY . .
+RUN ./gradlew clean bootJar --no-daemon
+
+# 2단계: 실행용 이미지
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+
+COPY --from=builder /app/build/libs/*.jar app.jar
 
 EXPOSE 8080
-
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
 ```

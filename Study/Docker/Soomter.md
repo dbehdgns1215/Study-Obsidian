@@ -183,31 +183,6 @@ volumes:
   mysql-data:
 ```
 
-
-
-
-# 프로젝트 구조
-```css
-project-root/
-├─ docker-compose.dev.yml
-└─ backend/
-   ├─ node/
-   │   ├─ package.json
-   │   └─ server.js
-   └─ spring/
-       ├─ build.gradle.kts
-       ├─ settings.gradle.kts
-       ├─ gradlew
-       ├─ gradle/
-       └─ src/
-           ├─ main/
-           │   ├─ java/
-           │   └─ resources/
-           └─ test/
-
-```
-
-
 ## Node
 ```dockerfile
 FROM node:18-alpine
@@ -251,5 +226,121 @@ COPY --from=builder /app/build/libs/*.jar app.jar
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+---
+
+# 개발용
+
+# 프로젝트 구조
+```css
+project-root/
+├─ docker-compose.dev.yml
+└─ backend/
+   ├─ node/
+   │   ├─ package.json
+   │   ├─ server.js
+   │   └─ ... (소스 전체)
+   └─ spring/
+       ├─ build.gradle.kts
+       ├─ settings.gradle.kts
+       ├─ gradlew
+       ├─ gradle/
+       └─ src/
+           ├─ main/
+           │   ├─ java/
+           │   └─ resources/
+           └─ test/
+```
+
+
+## docker-compose.dev.yml
+```yml
+# 개발용 Dockerfile
+version: '3.9'
+services:
+  mysql:
+    image: mysql:8.1
+    container_name: dev-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: soomter
+      MYSQL_DATABASE: soomter
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  spring:
+    build:
+      context: ./backend/spring
+      dockerfile: Dockerfile.dev
+    container_name: dev-spring
+    working_dir: /app
+    volumes:
+      - ./backend/spring:/app
+      - ~/.gradle:/home/gradle/.gradle
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/soomter
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: soomter
+    depends_on:
+      - mysql
+
+  node:
+    build:
+      context: ./backend/node
+      dockerfile: Dockerfile.dev
+    container_name: dev-node
+    working_dir: /app
+    volumes:
+      - ./backend/node:/app
+      - node_modules:/app/node_modules
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+      - spring
+
+volumes:
+  mysql-data:
+  node_modules:
+```
+
+
+## Spring 개발용 Dockerfile (`backend/spring/Dockerfile.dev`)
+```dockerfile
+# 개발용 Dockerfile
+FROM gradle:8.10-jdk17-alpine
+
+WORKDIR /app
+
+# 소스 마운트로 들어온 프로젝트 그대로 실행
+# gradle 캐시를 홈 디렉토리에 저장
+VOLUME /home/gradle/.gradle
+
+# 컨테이너 시작 시 bootRun
+CMD ["./gradlew", "bootRun"]
+
+```
+
+## Node 개발용 Dockerfile (`backend/node/Dockerfile.dev`)
+```dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+# node_modules는 컨테이너 전용 볼륨
+VOLUME /app/node_modules
+
+# 개발 서버 명령
+CMD ["sh", "-c", "npm install && npm run dev"]
 
 ```

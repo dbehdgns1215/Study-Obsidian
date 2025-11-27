@@ -188,14 +188,22 @@ volumes:
 # 프로젝트 구조
 ```css
 project-root/
-├─ docker-compose.yml
+├─ docker-compose.dev.yml
 └─ backend/
    ├─ node/
-   │   ├─ Dockerfile
+   │   ├─ package.json
    │   └─ server.js
    └─ spring/
-       ├─ Dockerfile
-       └─ build/libs/your-app.jar
+       ├─ build.gradle.kts
+       ├─ settings.gradle.kts
+       ├─ gradlew
+       ├─ gradle/
+       └─ src/
+           ├─ main/
+           │   ├─ java/
+           │   └─ resources/
+           └─ test/
+
 ```
 
 

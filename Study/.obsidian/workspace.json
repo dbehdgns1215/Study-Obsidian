@@ -20,21 +20,8 @@
               "icon": "lucide-file",
               "title": "Soomter"
             }
-          },
-          {
-            "id": "0e89aa8c7ae0b641",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.10.6"
-              },
-              "icon": "lucide-book-up",
-              "title": "릴리즈 노트 1.10.6"
-            }
           }
         ],
-        "currentTab": 1,
         "stacked": true
       }
     ],
@@ -237,7 +224,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0e89aa8c7ae0b641",
+  "active": "e7a5cbb0be0c1282",
   "lastOpenFiles": [
     "Pasted image 20251126232047.png",
     "Docker/SSAAL.md",

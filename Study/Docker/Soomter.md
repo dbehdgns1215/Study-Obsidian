@@ -29,7 +29,7 @@ docker pull mysql:8.1
 
 
 docker-compose.yml
-```
+```yml
 version: '3.9'
 services:
   mysql:
@@ -129,3 +129,99 @@ INSERT INTO users (kakao_id, email, nickname, profile_image_url) VALUES
 (3456789012, 'charlie@example.com', 'Charlie', 'https://example.com/charlie.png');
 ```
 
+
+
+# 스프링부트 추가 
+```yml
+version: '3.9'
+services:
+  mysql:
+    image: mysql:8.1
+    container_name: my-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: soomter
+      MYSQL_DATABASE: soomter
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  node:
+    build: ./backend/node
+    container_name: my-node
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./backend/node:/app
+    command: sh -c "npm install && node server.js"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+      - spring
+
+  spring:
+    build: ./backend/spring
+    container_name: my-spring
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/soomter
+      SPRING_DATASOURCE_USERNAME: soomter
+      SPRING_DATASOURCE_PASSWORD: soomter
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data:
+```
+
+
+
+
+# 프로젝트 구조
+```css
+project-root/
+├─ docker-compose.yml
+└─ backend/
+   ├─ node/
+   │   ├─ Dockerfile
+   │   └─ server.js
+   └─ spring/
+       ├─ Dockerfile
+       └─ build/libs/your-app.jar
+```
+
+
+## Node
+```dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8081
+
+CMD ["node", "server.js"]
+```
+
+
+## Spring Boot
+```dockerfile
+FROM eclipse-temurin:17-jdk-alpine
+
+WORKDIR /app
+
+COPY build/libs/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```

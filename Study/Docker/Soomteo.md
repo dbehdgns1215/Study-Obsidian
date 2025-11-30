@@ -335,3 +335,34 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ```
+
+## 도커 mysql 루트 계정 접속 안될 때
+도커 말고 로컬 mysql에서 루트 계정 접속한 뒤 아래 sql 실행
+```
+use mysql;
+
+CREATE USER 'soomteo'@'localhost' IDENTIFIED BY 'your_password';
+CREATE USER 'soomteo'@'%' IDENTIFIED BY 'your_password';
+
+ALTER USER 'soomteo'@'localhost' IDENTIFIED BY 'your_password';
+ALTER USER 'soomteo'@'%' IDENTIFIED BY 'your_password';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'your_password';
+ALTER USER 'root'@'%' IDENTIFIED BY 'your_password';
+
+FLUSH PRIVILEGES;
+```
+
+## 도커 루트 계정은 접속되는데 권한이 없을 때
+```
+docker exec -it mysql mysql -u root -p
+
+# 비밀번호 입력 → mysql> 프롬프트에서 아래 SQL 실행
+
+CREATE DATABASE IF NOT EXISTS soomteo;
+CREATE USER IF NOT EXISTS 'soomteo'@'%' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON soomteo.* TO 'soomteo'@'%';
+GRANT ALL PRIVILEGES ON soomteo.* TO 'soomteo'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+

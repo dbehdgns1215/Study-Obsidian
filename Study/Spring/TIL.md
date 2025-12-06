@@ -323,3 +323,22 @@ JSON 문자열                          SigninRequest 클래스
 ### **mysql** → **코드(쿼리) 수정이 아니라면 재빌드 없음**
 
 
+### maven-cache 사용 팁 (backend)
+- Docker 빌드 중 Maven dependencies를 캐시하려면 Dockerfile에서 `MAVEN_CACHE_DIR`를 활용해 캐시 디렉터리를 만들고 `COPY`/`RUN` 단계에서 사용.
+- 로컬 개발에서는 `maven-cache` 볼륨을 마운트해두면 빌드 속도 크게 개선됨.
+### init-db 관련 실전 팁 (SQL/마이그레이션)
+- **개발**: init-db로 샘플데이터 넣기 OK. 변경 잦으면 스크립트에 버전 붙여두고 매번 볼륨 삭제로 재실행.
+- **운영**: init-db로 직접 마이그레이션하지 말고 **Flyway/Liquibase** 같은 마이그레이션 도구 사용. 안전함.
+
+| 변경한 것                             | 재빌드 필요?              | 이유                         | 실행 명령어                         |
+| --------------------------------- | -------------------- | -------------------------- | ------------------------------ |
+| **Java 코드(.java)**                | ✔ 필요                 | Spring 애플리케이션 jar 파일이 달라짐  | `docker-compose build backend` |
+| **Spring 리소스(.xml, .properties)** | ✔ 필요                 | jar 내부 내용이 바뀜              | same ↑                         |
+| **pom.xml 의존성 변경**                | ✔ 반드시 필요             | 새로운 라이브러리 포함시키려면 jar 다시 빌드 | same ↑                         |
+| **프론트엔드 JS/TS/Vue 파일**            | ✘ 불필요 (Vite 개발모드 기준) | Vite는 HMR이라 코드 수정 시 자동 반영  | 없음 → 자동 반영                     |
+| **프론트엔드 빌드결과(dist) 사용 시**         | ✔ 필요                 | npm run build 결과물이 바뀌기 때문  | 프론트 이미지 다시 build               |
+| **.env 환경변수 변경**                  | ✘ 불필요                | Dockerfile/이미지와 무관         | `docker-compose up -d` 재시작만    |
+| **docker-compose.yml 내용 변경**      | ✘ 대부분 불필요            | 환경/포트/볼륨 설정이라 이미지 불필요      | `docker-compose up -d`         |
+| **볼륨 마운트 경로 변경**                  | ✘ 불필요                | 볼륨은 런타임 적용됨                | `docker-compose up -d`         |
+| **DB 초기화 SQL(init-db.sql) 변경**    | 경우에 따라 다름            | 이미 생성된 DB면 안 들어감           | 필요 시 DB를 drop & 재생성            |
+| **정적 파일(html/css)** (Spring 내부)   | ✔ 필요                 | jar 안에 들어가니까               | 이미지 재빌드                        |

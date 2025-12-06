@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "TIL",
+      "path": "Spring/TIL.md"
+    },
+    {
       "basename": "1206Quiz",
       "path": "Docker/1206Quiz.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "알고리즘 문제해설",
       "path": "알고리즘 문제해설.pdf"
-    },
-    {
-      "basename": "Pasted image 20250512232456",
-      "path": "Pasted image 20250512232456.png"
     }
   ],
   "omittedPaths": [],

@@ -76,6 +76,16 @@ public class UserController {
 }
 ```
 
+
+## 📌 Jackson(JSON 파싱) 기준에서의 핵심
+
+### 요청(@RequestBody) 받을 때 → **setter가 있어야 함**
+- 역직렬화
+- JSON → 객체로 만들 때 값 넣어야 하니까
+### 응답(@ResponseBody) 보낼 때 → **getter만 있어도 됨**
+- 직렬화
+- 객체 → JSON 변환은 getter만 보고 함
+
 ---
 
 

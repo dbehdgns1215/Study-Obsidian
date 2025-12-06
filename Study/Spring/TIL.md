@@ -141,7 +141,6 @@ ResponseEntity는 이걸
 이때 `return dto;` 만으로는 부족하니까 쓰는 거임.
 
 ---
-
 ## 기본 예시 (가장 흔함)
 
 ```java
@@ -159,7 +158,6 @@ Body: 안녕
 ```
 
 ---
-
 ## JSON 반환도 이렇게
 
 ```java
@@ -176,7 +174,6 @@ public ResponseEntity<Map<String, Object>> getUser() {
 - 상태코드는 200
 
 ---
-
 ## 상태코드 바꾸기
 
 예: 회원가입 성공 → 201 Created
@@ -189,7 +186,6 @@ public ResponseEntity<User> createUser(@RequestBody User user) {
 ```
 
 ---
-
 ## 상태코드 + 헤더 + 바디 모두 커스텀
 
 ```java

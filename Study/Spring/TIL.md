@@ -266,3 +266,60 @@ JSON 문자열                          SigninRequest 클래스
 
 ---
 
+# 언제 재빌드 하면 되나?
+
+## 재빌드(이미지/아티팩트 새로 만드는 것) **필요한 경우**
+
+- **Java 코드 변경 (.java)**  
+    → `mvn package`(또는 Gradle 빌드)로 .jar/.class 만든 뒤 이미지를 새로 빌드해야 변경 반영.  
+    _단, 개발용으로 소스 폴더를 컨테이너에 바인드 마운트하고 `mvn spring-boot:run` 또는 devtools로 실행하면 이미지 재빌드 없이도 반영 가능._
+- **리소스 파일 변경(프로덕션에 패키징된 .xml, .properties)**  
+    → 이 파일들이 JAR 안에 패키징돼 있다면 **재빌드 + 이미지 재생성** 필요.  
+    _대신 로컬 파일을 컨테이너에 마운트하면 컨테이너 재시작만으로 반영 가능._
+- **의존성 추가/변경 (pom.xml / build.gradle)**  
+    → 빌드 결과물이 바뀌니 **무조건 재빌드 필요**(jar 재생성 + 이미지 재빌드).
+- **Dockerfile 변경 / 베이스 이미지 변경**  
+    → 이미지 구성 자체가 바뀌므로 **이미지 재빌드 필요**.
+- **프런트엔드(프로덕션) 빌드 변경 (vite 빌드 설정 등)**  
+    → `npm run build` 하여 정적파일을 만들고 그걸 이미지에 포함한다면 **재빌드 필요**.
+
+---
+
+## 재빌드 불필요한 경우 (재시작 / 재생성만으로 OK)
+
+- **환경변수 변경 (.env 파일)**  
+    → 이미지 재빌드 불필요. 컨테이너 재시작(또는 재생성)이면 반영됨.  
+    `docker-compose up -d`(변경된 env로 재생성 필요 시 `docker-compose up -d --force-recreate`) 또는 `docker-compose restart <service>`.
+- **docker-compose.yml에서 포트/볼륨 매핑 변경**  
+    → 이미지 재빌드 불필요. 단, compose 변경은 컨테이너 재생성 필요.  
+    `docker-compose up -d` 하거나 `docker-compose up -d --force-recreate` 하면 된다.
+- **컨테이너 실행 옵션(포트, 볼륨, env) 변경**  
+    → 재생성/재시작만으로 해결.
+- **단순 설정값(로그 레벨 등)을 컨테이너 시작 커맨드로 주입**  
+    → 재빌드 X, restart 또는 재생성.
+
+---
+아래는 참고사항?
+## 도커 위에서 Spring / Vite / MySQL 개발할 때 실무 팁
+
+1. **개발용은 ‘마운트 & 런’**
+    - 백엔드: 소스(`src`)와 `target/classes`를 컨테이너에 바인드해서 `mvn spring-boot:run` 실행. 코드 바꾸면 자동 재시작(또는 devtools로 빠른 재시작). → 이미지 재빌드 불필요.
+    - 프론트엔드(vite): `npm run dev`를 컨테이너나 호스트에서 실행하고 소스 마운트. Vite의 HMR(Hot Module Replacement)로 변경 즉시 반영. → 이미지 재빌드 불필요.
+2. **프로덕션 이미지는 정적파일을 포함해서 빌드**
+    - 프론트도 `npm run build` 해서 정적 자원을 이미지에 복사하면, 정적파일 변경시 이미지 재빌드 필요.
+3. **MySQL은 데이터가 볼륨에 있으니 스키마 변경은 마이그레이션 필요**
+    - DB 스키마 변경은 이미지 빌드와 별개로 마이그레이션(Run migration, Flyway 등) 필요. 재빌드는 필요없음.
+4. **빠른 개발 워크플로(예)**
+    - `docker-compose up --build` : 이미지가 바뀔 때(의존성 변경, Dockerfile 변경) 사용
+    - `docker-compose up -d` : 이미지 재빌드 없이 컨테이너(설정) 재생성 / 시작
+    - `docker-compose restart service` : 단순 재시작(설정 변경은 반영 안 될 수 있음)
+    - `docker-compose up -d --force-recreate` : 설정(compose.yml, env 마운트 등) 변경 반영 위해 컨테이너 재생성
+
+---
+### **Backend(스프링)** → **Java 코드, 의존성, Dockerfile 변경 = 재빌드 필요**
+
+### **frontend(Vue)** → **Vite dev 모드가 아니면, 코드 변경 시 매번 재빌드 필요**
+
+### **mysql** → **코드(쿼리) 수정이 아니라면 재빌드 없음**
+
+

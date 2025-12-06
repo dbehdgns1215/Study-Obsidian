@@ -220,5 +220,49 @@ return ResponseEntity.badRequest().body("입력값이 잘못됨");
 **"스프링이 응답을 만들 때 상태코드/헤더/바디를 다 네가 직접 구성하게 하는 박스"**
 
 
+```java
+@PostMapping("/signin")
+public ResponseEntity<?> signin(@RequestBody SigninRequest request) {
+    // ↑ 반환 타입              ↑ 요청 받기
+    //   (보낼 때)                 (받을 때)
+}
+```
+
+### SigninRequest는 어떻게 받는가?
+
+### Vue에서 보내는 JSON
+```javascript
+axios.post('/api/user/signin', {
+  email: 'test@test.com',
+  password: '1234'
+})
+```
+
+### 실제 HTTP 요청
+````http
+POST /api/user/signin HTTP/1.1
+Content-Type: application/json
+
+{"email":"test@test.com","password":"1234"}
+```
+
+### Spring Boot의 Jackson이 변환
+```
+JSON 문자열                          SigninRequest 클래스
+┌──────────────────────────┐        ┌───────────────────────────┐
+│ {                        │        │ public class              │
+│   "email": "test@...",   │   →    │   SigninRequest {         │
+│   "password": "1234"     │        │   private String email;   │
+│ }                        │        │   private String password;|
+└──────────────────────────┘        │ }                         │
+                                    └───────────────────────────┘
+
+                                     SigninRequest 객체
+                                     ┌─────────────────────────┐
+                                     │ email = "test@test.com" │
+                                     │ password = "1234"       │
+                                     └─────────────────────────┘
+````
+
 ---
 

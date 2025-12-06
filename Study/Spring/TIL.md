@@ -110,3 +110,119 @@ public Object printJSON() {
 > 출처
 > https://mommoo.tistory.com/83
 
+
+
+---
+
+
+# ResponseEntity
+
+➡ **HTTP 응답 전체를 네가 직접 구성해서 반환하는 객체**
+HTTP 응답은 3가지 요소로 이루어짐:
+1. **Status Code** (예: 200, 400, 404, 500)
+2. **Headers**
+3. **Body(JSON)**
+
+일반적으로는 `return UserDto` 이런 식으로 바디만 반환했는데,  
+ResponseEntity는 이걸
+-  상태코드  
+- 헤더  
+ - 바디
+
+## 왜 쓰냐?
+
+예를 들어 아래 상황들:
+- 성공이면 `201 Created` 보내고 싶음
+- 실패하면 `400 Bad Request` 보내고 싶음
+- Location 같은 헤더 추가하고 싶음
+- JSON 말고 파일 반환하고 싶음
+- 비즈니스 로직에 따라 응답 코드를 명확하게 나누고 싶음
+
+이때 `return dto;` 만으로는 부족하니까 쓰는 거임.
+
+---
+
+## 기본 예시 (가장 흔함)
+
+```java
+@GetMapping("/hello")
+public ResponseEntity<String> hello() {
+    return ResponseEntity.ok("안녕");
+}
+```
+
+응답:
+```
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Body: 안녕
+```
+
+---
+
+## JSON 반환도 이렇게
+
+```java
+@GetMapping("/user")
+public ResponseEntity<Map<String, Object>> getUser() {
+    Map<String, Object> result = new HashMap<>();
+    result.put("name", "동훈");
+    result.put("age", 26);
+    
+    return ResponseEntity.ok(result);
+}
+```
+- Map을 넣었으니 자동으로 JSON 직렬화됨  (by Jackson)
+- 상태코드는 200
+
+---
+
+## 상태코드 바꾸기
+
+예: 회원가입 성공 → 201 Created
+
+```java
+@PostMapping("/user")
+public ResponseEntity<User> createUser(@RequestBody User user) {
+    return ResponseEntity.status(201).body(user);
+}
+```
+
+---
+
+## 상태코드 + 헤더 + 바디 모두 커스텀
+
+```java
+return ResponseEntity
+        .status(HttpStatus.CREATED)
+        .header("X-User-Id", "123")
+        .body(new UserResponse("홍길동"));
+```
+
+---
+
+## 자주 쓰는 정적 메서드
+
+| 코드                    | 사용      |
+| --------------------- | ------- |
+| `ok(body)`            | 200 응답  |
+| `badRequest().body()` | 400 응답  |
+| `notFound().build()`  | 404 응답  |
+| `noContent().build()` | 204 응답  |
+| `status(code).body()` | 임의 상태코드 |
+
+예:
+
+```java
+return ResponseEntity.badRequest().body("입력값이 잘못됨");
+```
+
+---
+
+## 결국 ResponseEntity는?
+
+**"스프링이 응답을 만들 때 상태코드/헤더/바디를 다 네가 직접 구성하게 하는 박스"**
+
+
+---
+

@@ -78,3 +78,25 @@ public class UserController {
 
 ---
 
+
+# `Jackson` 은 어떻게 동작하는가?
+
+`Spring`**3.0** 이후로 **컨트롤러**의 리턴 방식이 `@RequestBody` 형식이라면,  `Spring`은 `MessageConverter` **API** 를 통해, **컨트롤러**가 리턴하는 객체를 후킹 할 수 있습니다.
+
+`Jackson`은 `JSON`데이터를 출력하기 위한  `MappingJacksonHttpMessageConverter`를 제공합니다. 만약 우리가 스프링 **MessageConverter**를 위의 `MappingJacksonHttpMessageConverter`으로 등록한다면, **컨트롤러**가 리턴하는 객체를 다시 뜯어(**_자바 리플렉션 사용_**), `Jackson`의 **ObjectMapper** **API**로 `JSON 객체`를 만들고 난 후, 출력하여 `JSON`데이터를 완성합니다.
+
+더욱 편리해진 점은, `Spring` **3.1** 이후로 만약 클래스패스에 `Jackson` 라이브러리가 존재한다면, ( 쉽게 말해**_Jackson을 설치했느냐 안했느냐_** ) 자동적으로 **MessageConverter**가 등록된다는 점입니다.
+
+덕분에 우리는 아래와 같이 매우 편리하게 사용할 수 있습니다.
+```java
+@RequestMapping("/json")  
+@ResponseBody()  
+public Object printJSON() {  
+    Person person = new Person("Mommoo", "Developer");  
+    return person;  
+}
+```
+
+> 출처
+> https://mommoo.tistory.com/83
+

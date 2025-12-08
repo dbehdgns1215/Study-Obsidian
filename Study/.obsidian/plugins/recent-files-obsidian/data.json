@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "YumCoach",
+      "path": "Docker/YumCoach.md"
+    },
+    {
+      "basename": "GWANTONG",
+      "path": "SSAFY/GWANTONG.md"
+    },
+    {
       "basename": "SSAAL",
       "path": "Docker/SSAAL.md"
     },
@@ -59,10 +67,6 @@
     {
       "basename": "listup",
       "path": "SSAFY/listup.md"
-    },
-    {
-      "basename": "GWANTONG",
-      "path": "SSAFY/GWANTONG.md"
     },
     {
       "basename": "BE PJ",
@@ -195,10 +199,6 @@
     {
       "basename": "Pasted image 20250110230849",
       "path": "Pasted image 20250110230849.png"
-    },
-    {
-      "basename": "Javascript",
-      "path": "Front/Javascript.md"
     }
   ],
   "omittedPaths": [],

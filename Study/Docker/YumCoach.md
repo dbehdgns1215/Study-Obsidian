@@ -163,9 +163,8 @@ spring.datasource.url=jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
 
 ### **2. EC2에 Docker 설치**
 ```bash
-# EC2 접속
-ssh -i "yumcoach.pem" ubuntu@13.125.146.63
-
+# EC2 접속 (폴더 안에 pem 그리고 프로젝트 폴더가 있는 상태였음)
+ssh -i "yumcoach.pem" ubuntu@EC2_IP
 # Docker 설치
 sudo apt update
 sudo apt install -y docker.io docker-compose-plugin
@@ -177,8 +176,8 @@ exit  # 재접속 필요
 
 ### **3. 프로젝트 파일 업로드**
 ```bash
-# 로컬에서 실행
-scp -i "D:/SSAFY/workspace/Gwantong/yumcoach.pem" -r YumCoach ubuntu@13.125.146.63:/home/ubuntu/
+# 로컬에서 실행 (YumCoach로 폴더명 지정했음)
+scp -i "D:/SSAFY/workspace/Gwantong/yumcoach.pem" -r YumCoach ubuntu@EC2_IP:/home/ubuntu/
 ```
 
 ### **4. EC2에서 .env 확인**

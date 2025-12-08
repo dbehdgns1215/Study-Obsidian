@@ -5,12 +5,12 @@
       "path": "Docker/YumCoach.md"
     },
     {
-      "basename": "GWANTONG",
-      "path": "SSAFY/GWANTONG.md"
-    },
-    {
       "basename": "SSAAL",
       "path": "Docker/SSAAL.md"
+    },
+    {
+      "basename": "GWANTONG",
+      "path": "SSAFY/GWANTONG.md"
     },
     {
       "basename": "Soomteo",

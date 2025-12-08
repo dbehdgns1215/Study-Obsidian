@@ -1,6 +1,78 @@
 {
   "recentFiles": [
     {
+      "basename": "SSAAL",
+      "path": "Docker/SSAAL.md"
+    },
+    {
+      "basename": "Soomteo",
+      "path": "Docker/Soomteo.md"
+    },
+    {
+      "basename": "그래프",
+      "path": "PS/그래프.md"
+    },
+    {
+      "basename": "BOJ",
+      "path": "PS/BOJ.md"
+    },
+    {
+      "basename": "C++",
+      "path": "PS/C++.md"
+    },
+    {
+      "basename": "C++ TIP",
+      "path": "PS/C++ TIP.md"
+    },
+    {
+      "basename": "PS",
+      "path": "PS/PS.md"
+    },
+    {
+      "basename": "Java",
+      "path": "PS/Java.md"
+    },
+    {
+      "basename": "SSAFY",
+      "path": "PS/SSAFY.md"
+    },
+    {
+      "basename": "SWEA",
+      "path": "PS/SWEA.md"
+    },
+    {
+      "basename": "10. October",
+      "path": "SSAFY/10. October.md"
+    },
+    {
+      "basename": "사프",
+      "path": "SSAFY/사프.md"
+    },
+    {
+      "basename": "풍선 사격 게임",
+      "path": "SSAFY/풍선 사격 게임.md"
+    },
+    {
+      "basename": "Mentoring",
+      "path": "SSAFY/Mentoring.md"
+    },
+    {
+      "basename": "listup",
+      "path": "SSAFY/listup.md"
+    },
+    {
+      "basename": "GWANTONG",
+      "path": "SSAFY/GWANTONG.md"
+    },
+    {
+      "basename": "BE PJ",
+      "path": "SSAFY/BE PJ.md"
+    },
+    {
+      "basename": "SSAFY",
+      "path": "SSAFY/SSAFY.md"
+    },
+    {
       "basename": "TIL",
       "path": "Spring/TIL.md"
     },
@@ -13,16 +85,8 @@
       "path": "Docker/Lecture.md"
     },
     {
-      "basename": "SSAAL",
-      "path": "Docker/SSAAL.md"
-    },
-    {
       "basename": "Docker",
       "path": "Docker/Docker.md"
-    },
-    {
-      "basename": "BE PJ",
-      "path": "SSAFY/BE PJ.md"
     },
     {
       "basename": "무제",
@@ -31,10 +95,6 @@
     {
       "basename": "정보처리기사",
       "path": "SSAFY/정보처리기사.md"
-    },
-    {
-      "basename": "10. October",
-      "path": "SSAFY/10. October.md"
     },
     {
       "basename": "사과 먹기 게임",
@@ -53,14 +113,6 @@
       "path": "SSAFY/STUDY.md"
     },
     {
-      "basename": "SSAFY",
-      "path": "SSAFY/SSAFY.md"
-    },
-    {
-      "basename": "Mentoring",
-      "path": "SSAFY/Mentoring.md"
-    },
-    {
       "basename": "무제",
       "path": "SSAFY/무제.md"
     },
@@ -75,10 +127,6 @@
     {
       "basename": "9. September",
       "path": "SSAFY/9. September.md"
-    },
-    {
-      "basename": "listup",
-      "path": "SSAFY/listup.md"
     },
     {
       "basename": "Enjoy_Trip 알고리즘 적용 기획서",
@@ -109,10 +157,6 @@
       "path": "SSAFY/위상정렬.md"
     },
     {
-      "basename": "풍선 사격 게임",
-      "path": "SSAFY/풍선 사격 게임.md"
-    },
-    {
       "basename": "8. August",
       "path": "SSAFY/8. August.md"
     },
@@ -127,14 +171,6 @@
     {
       "basename": "스프링 핵심 원리 - 기본편",
       "path": "Spring/스프링 핵심 원리 - 기본편.md"
-    },
-    {
-      "basename": "SSAFY",
-      "path": "PS/SSAFY.md"
-    },
-    {
-      "basename": "Java",
-      "path": "PS/Java.md"
     },
     {
       "basename": "스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술",
@@ -163,42 +199,6 @@
     {
       "basename": "Javascript",
       "path": "Front/Javascript.md"
-    },
-    {
-      "basename": "스레드(Thread)",
-      "path": "Java/스레드(Thread).md"
-    },
-    {
-      "basename": "DI와 테스트의 용이함",
-      "path": "Java/DI와 테스트의 용이함.md"
-    },
-    {
-      "basename": "자바 메모리 구조 (JVM 메모리 구조)",
-      "path": "Java/자바 메모리 구조 (JVM 메모리 구조).md"
-    },
-    {
-      "basename": "HTTP",
-      "path": "HTTP/HTTP.md"
-    },
-    {
-      "basename": "모든 개발자를 위한 HTTP 웹 기본 지식",
-      "path": "HTTP/모든 개발자를 위한 HTTP 웹 기본 지식.md"
-    },
-    {
-      "basename": "PS",
-      "path": "PS/PS.md"
-    },
-    {
-      "basename": "Java",
-      "path": "Java/Java.md"
-    },
-    {
-      "basename": "1Attack4Hit",
-      "path": "SSAFY/1Attack4Hit.md"
-    },
-    {
-      "basename": "알고리즘 문제해설",
-      "path": "알고리즘 문제해설.pdf"
     }
   ],
   "omittedPaths": [],

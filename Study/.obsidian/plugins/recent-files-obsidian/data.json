@@ -9,12 +9,24 @@
       "path": "Docker/SSAAL.md"
     },
     {
-      "basename": "GWANTONG",
-      "path": "SSAFY/GWANTONG.md"
+      "basename": "Lecture",
+      "path": "Docker/Lecture.md"
     },
     {
       "basename": "Soomteo",
       "path": "Docker/Soomteo.md"
+    },
+    {
+      "basename": "1206Quiz",
+      "path": "Docker/1206Quiz.md"
+    },
+    {
+      "basename": "Docker",
+      "path": "Docker/Docker.md"
+    },
+    {
+      "basename": "GWANTONG",
+      "path": "SSAFY/GWANTONG.md"
     },
     {
       "basename": "그래프",
@@ -79,18 +91,6 @@
     {
       "basename": "TIL",
       "path": "Spring/TIL.md"
-    },
-    {
-      "basename": "1206Quiz",
-      "path": "Docker/1206Quiz.md"
-    },
-    {
-      "basename": "Lecture",
-      "path": "Docker/Lecture.md"
-    },
-    {
-      "basename": "Docker",
-      "path": "Docker/Docker.md"
     },
     {
       "basename": "무제",

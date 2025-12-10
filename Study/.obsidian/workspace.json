@@ -86,7 +86,7 @@
             }
           },
           {
-            "id": "97bc60ad75272833",
+            "id": "9a74d1d5d2e4e533",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -95,7 +95,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -227,10 +228,13 @@
   "active": "e7a5cbb0be0c1282",
   "lastOpenFiles": [
     "Docker/SSAAL.md",
-    "SSAFY/GWANTONG.md",
-    "Docker/YumCoach.md",
-    "Docker/EC2-DEPLOYMENT-GUIDE.md",
+    "Docker/Lecture.md",
     "Docker/Soomteo.md",
+    "Docker/YumCoach.md",
+    "Docker/1206Quiz.md",
+    "Docker/Docker.md",
+    "SSAFY/GWANTONG.md",
+    "Docker/EC2-DEPLOYMENT-GUIDE.md",
     "PS/그래프.md",
     "PS/BOJ.md",
     "PS/C++.md",
@@ -247,11 +251,8 @@
     "SSAFY/BE PJ.md",
     "SSAFY/SSAFY.md",
     "Spring/TIL.md",
-    "Docker/1206Quiz.md",
-    "Docker/Lecture.md",
     "Docker/Soomter.md",
     "Pasted image 20251126232047.png",
-    "Docker/Docker.md",
     "Pasted image 20251124202229.png",
     "Pasted image 20251124202209.png",
     "Pasted image 20251121221844.png",

@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "korail",
+      "path": "SSAFY/korail.md"
+    },
+    {
+      "basename": "Java",
+      "path": "Java/Java.md"
+    },
+    {
       "basename": "YumCoach",
       "path": "Docker/YumCoach.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "Front",
       "path": "Front/Front.md"
-    },
-    {
-      "basename": "Pasted image 20250720172627",
-      "path": "Pasted image 20250720172627.png"
-    },
-    {
-      "basename": "Pasted image 20250110230849",
-      "path": "Pasted image 20250110230849.png"
     }
   ],
   "omittedPaths": [],

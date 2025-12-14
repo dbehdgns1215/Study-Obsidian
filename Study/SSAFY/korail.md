@@ -51,3 +51,9 @@
   address: string|null,    // 주소
   phone: string|null       // 전화번호
 ```
+
+
+---
+
+
+지역

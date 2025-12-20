@@ -342,3 +342,299 @@ JSON 문자열                          SigninRequest 클래스
 | **볼륨 마운트 경로 변경**                  | ✘ 불필요                | 볼륨은 런타임 적용됨                | `docker-compose up -d`                                                                |
 | **DB 초기화 SQL(init-db.sql) 변경**    | 경우에 따라 다름            | 이미 생성된 DB면 안 들어감           | 필요 시 DB를 drop & 재생성<br>`docker volume rm 프로젝트명_db-data`<br>`docker-compose up -d`<br> |
 | **정적 파일(html/css)** (Spring 내부)   | ✔ 필요                 | jar 안에 들어가니까               | 이미지 재빌드                                                                               |
+
+
+---
+
+
+# JWT
+
+목표: 이 문서를 보고 코드와 설계를 바로 이해하고, 필요한 변경/디버깅/테스트를 직접 실행할 수 있도록 한다.
+
+  
+주요 개념 요약
+- Access Token (AT)
+  - 짧은 수명(예: 1시간)
+  - 클라이언트가 `Authorization: Bearer <AT>` 형태로 요청 헤더에 붙여 전송
+  - 서버는 이 토큰을 검증하여 API 접근을 허용
+- Refresh Token (RT)
+  - 길게 유지(예: 1일 또는 7일)
+  - 보안상 HttpOnly 쿠키로 저장(클라이언트 JS에서 접근 불가)
+  - AT 만료 시 RT로 `/refresh`를 호출해 새 AT(및 RT 회전)를 얻음
+
+  
+관련 파일(레포 기준)
+- 서버: `UserController` (로그인·리프레시·/me 등)
+  - [backend/src/main/java/com/ssafy/yumcoach/user/controller/UserController.java](backend/src/main/java/com/ssafy/yumcoach/user/controller/UserController.java#L1)
+
+- 클라이언트: Pinia 기반 auth 스토어
+  - [frontend/src/stores/auth.js](frontend/src/stores/auth.js#L1)
+
+- 클라이언트: axios 인스턴스 및 인터셉터
+  - [frontend/src/lib/api.js](frontend/src/lib/api.js#L1)
+
+  
+
+전체 시퀀스(그림)
+
+```mermaid
+
+sequenceDiagram
+
+  participant BROWSER as Client (Browser)
+
+  participant FRONT as Frontend (Pinia + api)
+
+  participant SERVER as Backend (UserController)
+
+  participant DB as RefreshToken DB
+
+  
+
+  BROWSER->>FRONT: 로그인 폼 제출(email,password)
+
+  FRONT->>SERVER: POST /api/user/signin (withCredentials: true)
+
+  SERVER-->>FRONT: 200 { accessToken: AT } + Set-Cookie: refreshToken=RT (HttpOnly)
+
+  FRONT->>FRONT: `auth.setAccessToken(AT)` (sessionStorage via Pinia)
+
+  
+
+  Note over FRONT,SERVER: 정상 요청 흐름
+
+  FRONT->>SERVER: GET /api/user/me (Authorization: Bearer AT)
+
+  SERVER-->>FRONT: 200 사용자 정보 (토큰 검증 성공)
+
+  
+
+  Note over FRONT,SERVER: AT 만료(401) 처리
+
+  FRONT->>SERVER: GET /api/protected (Authorization: Bearer old-AT)
+
+  SERVER-->>FRONT: 401 (Access token expired)
+
+  FRONT->>SERVER: POST /api/user/refresh (withCredentials: true, RT cookie 자동전송)
+
+  SERVER->>DB: 검증 및 RT 존재 확인
+
+  SERVER-->>DB: 기존 RT 삭제
+
+  SERVER-->>DB: 새 RT 저장
+
+  SERVER-->>FRONT: 200 { accessToken: new-AT } + Set-Cookie: refreshToken=new-RT
+
+  FRONT->>FRONT: `auth.setAccessToken(new-AT)`
+
+  FRONT->>SERVER: 재시도 원래 요청(Authorization: Bearer new-AT)
+
+  SERVER-->>FRONT: 200 성공
+
+```
+
+  
+
+세부 단계 (코드 참조 포함) — 로그인 → AT 저장
+
+1. 클라이언트가 `auth.login(credentials)` 호출
+   - 코드: [frontend/src/stores/auth.js](frontend/src/stores/auth.js#L20-L40)
+   - `axios.post('/api/user/signin', credentials, { withCredentials: true })`로 요청
+
+1. 서버 `UserController.signin()` 처리
+   - 코드: [backend/src/main/java/com/ssafy/yumcoach/user/controller/UserController.java](backend/src/main/java/com/ssafy/yumcoach/user/controller/UserController.java#L60-L120)
+   - 서버는 RT를 HttpOnly 쿠키로 `response.addCookie(refreshTokenCookie)` 하고 AT를 응답 바디에 `accessToken` 필드로 반환
+
+1. 클라이언트는 응답 바디에서 `accessToken`을 꺼내 Pinia에 저장(`setAccessToken`) → persisted to sessionStorage
+   - 코드: [frontend/src/stores/auth.js](frontend/src/stores/auth.js#L30-L36)
+
+
+왜 RT는 쿠키로, AT는 바디로?
+- RT가 HttpOnly 쿠키이면 JS에서 접근 불가 → XSS에 의한 탈취 위험 감소
+- AT는 빠르게 만료되고, Authorization 헤더로 보내기 때문에 서버는 바로 검증 가능
+- RT는 서버가 보관(DB에 저장)하여 재발급(회전, 폐기)이 가능
+
+  
+
+AT로 요청 보내기(axios 인터셉터)
+- [frontend/src/lib/api.js]에서 요청 인터셉터가 Pinia의 `accessToken`을 읽어 `Authorization` 헤더에 `Bearer <AT>`를 붙임
+- 코드: [frontend/src/lib/api.js](frontend/src/lib/api.js#L15-L24)
+
+401 응답시 자동 refresh & retry (핵심)
+- 응답 인터셉터에서 401 감지 시 `auth.refresh()` 호출
+  - `auth.refresh()`는 `axios.post('/api/user/refresh', null, { withCredentials: true })` 로 호출하여 RT 쿠키를 서버에 자동 전송
+  - 서버은 RT를 DB에서 확인하고 새 AT (그리고 회전 정책이면 새 RT) 발급
+- 응답에서 새 AT가 나오면 `auth.refresh()`는 `setAccessToken(newAT)` 호출
+- 인터셉터는 원래 요청 헤더에 새 AT를 넣고 재시도
+- 참조: [frontend/src/lib/api.js](frontend/src/lib/api.js#L30-L52), [frontend/src/stores/auth.js refresh()](frontend/src/stores/auth.js#L74-L110)
+
+  
+서버측 리프레시(회전) 상세
+- 엔드포인트: `POST /api/user/refresh`
+  - 코드: [backend/src/main/java/com/ssafy/yumcoach/user/controller/UserController.java](backend/src/main/java/com/ssafy/yumcoach/user/controller/UserController.java#L180-L224)
+- 흐름
+  1. 브라우저가 RT 쿠키를 자동 전송(요청의 Cookie 헤더)
+  2. 서버는 `getTokenFromCookie(request, "refreshToken")`로 RT를 읽음
+  3. `jwtUtil.validateToken(refreshToken)`으로 유효성 검사
+  4. DB에서 해당 토큰이 남아 있는지 확인 (`refreshTokenService.findByToken(refreshToken)`)
+  5. (Rotation) 기존 토큰 삭제 `refreshTokenService.deleteByToken(refreshToken)` → 새 RT 생성 → DB 저장 → 쿠키로 설정
+  6. 새 Access Token 생성 후 응답 바디에 `accessToken`으로 반환
+- 로그/검증: 서버에 회전 로그가 추가되어 있음(`[auth] refresh: rotating RT ...`) → `tail` 또는 콘솔에서 확인 가능
+
+  
+서버가 Authorization 헤더도 읽도록 변경
+- 서버는 헤더 우선 방식으로 토큰을 추출하도록 `extractToken(request)` 헬퍼를 구현했고, `/me` 등 보호 엔드포인트에서 이를 사용합니다.
+  - 코드 위치: [backend/src/main/java/com/ssafy/yumcoach/user/controller/UserController.java](backend/src/main/java/com/ssafy/yumcoach/user/controller/UserController.java#L300)
+  - 내용: 먼저 `Authorization: Bearer <token>` 헤더를 확인, 없으면 `accessToken` 쿠키를 폴백
+
+  
+테스트/디버깅 가이드 (실전 명령)
+
+- Windows PowerShell (권장) 로그인
+```powershell
+
+curl -i -c cookies.txt -H "Content-Type: application/json" -d '{"email":"t2@t2","password":"t2"}' http://localhost:8282/api/user/signin
+
+```
+
+- cookies 확인
+```powershell
+
+Get-Content .\\cookies.txt
+
+```
+
+- 보호 API 호출(AT 사용)
+```powershell
+
+curl -i -H "Authorization: Bearer <AT_FROM_SIGNIN>" -b cookies.txt http://localhost:8282/api/user/me
+
+```
+
+- 강제 리프레시(rotate 확인)
+```powershell
+
+curl -i -b cookies.txt -c cookies.txt -X POST http://localhost:8282/api/user/refresh
+
+```
+
+  - 응답 JSON에 `accessToken`이 있고, `cookies.txt`의 refreshToken 값이 바뀌면 회전 성공
+
+
+디버깅 팁
+- 400 에러(로그전): Windows `cmd.exe`는 JSON에 작은따옴표(')를 허용하지 않으므로, `-d` 값은 `{"email":"...","password":"..."}` 식으로 이스케이프해야 함
+
+- 401 에러 시
+  - 서버 로그에서 `Invalid token: JWT strings must contain exactly 2 period characters.` 같은 메시지가 나오면 헤더에 실제 JWT가 아닌 문자열(예: `<ACCESS>`)을 넣은 경우
+  - `cookies.txt`에 refreshToken이 없으면 로그인에서 쿠키가 설정되지 않았다는 뜻 → signin 응답의 `Set-Cookie` 확인
+
+- DB 확인
+  - MySQL 예: `SELECT * FROM refresh_token WHERE user_id = <id> ORDER BY id DESC;` → 기존 토큰이 삭제되고 새 토큰이 INSERT 되었는지 확인
+
+  
+
+보안 권장사항(꼭 읽을 것)
+- 프로덕션에서는 `refreshTokenCookie.setSecure(true)` (HTTPS 전용)로 설정
+- 가능한 경우 `SameSite=Lax` 또는 `Strict`로 설정해 CSRF 노출 최소화
+- Refresh Token rotation을 통해 탈취된 RT의 유효 기간을 줄이고 재사용 공격 방지
+- Access Token은 가능한 한 메모리(메모리 변수/Pinia 등)에 보관하고 장기 저장은 피함(세션 스토리지 사용 시 XSS 노출 고려)
+- 서버: RT 보관 시 해시(혹은 암호화) 저장 고려(데이터베이스에 평문 토큰 저장 위험)
+
+
+코드 스니펫(핵심 발췌)
+
+- 서버: signin (요약)
+```java
+
+// UserController.signin
+String accessToken = jwtUtil.createAccessToken(user.getId());
+String refreshToken = jwtUtil.createRefreshToken(user.getId());
+
+// save refreshToken in DB
+Cookie refreshTokenCookie = new Cookie("refreshToken", refreshToken);
+refreshTokenCookie.setHttpOnly(true);
+response.addCookie(refreshTokenCookie);
+
+// return accessToken in body
+responseData.put("accessToken", accessToken);
+```
+
+- 서버: refresh (요약, rotation)
+
+```java
+String refreshToken = getTokenFromCookie(request, "refreshToken");
+
+// validate && DB lookup
+refreshTokenService.deleteByToken(refreshToken);
+String newRefreshToken = jwtUtil.createRefreshToken(userId);
+refreshTokenService.saveRefreshToken(newTokenEntity);
+response.addCookie(new Cookie("refreshToken", newRefreshToken));
+String newAccessToken = jwtUtil.createAccessToken(userId);
+
+return ResponseEntity.ok(Map.of("accessToken", newAccessToken));
+```
+
+- 클라이언트: 인터셉터(요약)
+
+```javascript
+// 요청 인터셉터: AT가 있으면 header에 추가
+if (auth?.accessToken) config.headers['Authorization'] = `Bearer ${auth.accessToken}`
+
+// 응답 인터셉터: 401이면 auth.refresh() 호출(리프레시 쿠키 전송은 withCredentials: true로 명시)
+```
+
+  
+
+운영 전 체크리스트
+
+- 서버 CORS: `Access-Control-Allow-Credentials: true` 설정 및 허용된 원본(origin) 명시
+- 쿠키 속성: `Secure=true`, 적절한 `SameSite`
+- RT 저장: DB에 토큰 회전과 삭제 로직이 올바르게 동작하는지 테스트
+- 로그: 회전/삭제 로그는 개발 중에만 상세 출력, 운영에서는 적절한 로깅 레벨로 조정
+  
+
+---
+
+
+# Interceptor, FIlter
+
+
+## ✅ 한 방에 비교 (이 표만 기억해라)
+
+|구분|Axios Interceptor|Spring Interceptor|Servlet Filter|
+|---|---|---|---|
+|위치|**브라우저(프론트)**|**서버(Spring MVC)**|**서버(서블릿 컨테이너)**|
+|실행 시점|요청 전 / 응답 후|컨트롤러 전 / 후|요청 가장 처음 / 응답 마지막|
+|관리 주체|Axios|Spring|Tomcat|
+|Spring 의존|❌|✅|❌|
+|컨트롤러 접근|❌|✅|❌|
+|보안/인증|❌|❌(보조만)|✅|
+|JWT 검증|❌|❌|✅|
+|대표 용도|AT 붙이기, 401 처리|로깅, 권한 체크 보조|인증, 인가, CORS|
+
+---
+
+## 🔥 실제 요청 흐름 (SPA + Spring)
+
+`[Vue]  → Axios Interceptor         (AT 붙임)  → HTTP  → Servlet Filter            (JWT 검증)  → DispatcherServlet  → Spring Interceptor        (로그, 체크)  → Controller  → Spring Interceptor  → Servlet Filter  → HTTP  → Axios Interceptor         (401 처리)  → [Vue]`
+
+👉 **각자 자기 영역만 건드린다**
+
+---
+
+## 🧠 각자 한 문장 요약
+
+### Axios Interceptor
+
+> “요청 보내기 전에 내가 좀 손보고,  
+> 응답 오면 에러 있나 볼게”
+
+### Spring Interceptor
+
+> “컨트롤러 들어가기 전후에  
+> 부가 작업 좀 할게”
+
+### Servlet Filter
+
+> “서버 입장권 검사부터 할게  
+> 이상하면 바로 돌려보낸다”

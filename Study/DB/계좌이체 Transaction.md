@@ -14,7 +14,7 @@
 ### 개념
 ```sql
 SELECT * FROM account WHERE id = ? FOR UPDATE;
-```
+````
 
 SELECT 시점에 row-level write lock
 

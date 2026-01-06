@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "korail",
-      "path": "SSAFY/korail.md"
+      "basename": "JDBC",
+      "path": "DB/JDBC.md"
+    },
+    {
+      "basename": "데이터베이스 입문",
+      "path": "DB/데이터베이스 입문.md"
     },
     {
       "basename": "Java",
       "path": "Java/Java.md"
+    },
+    {
+      "basename": "korail",
+      "path": "SSAFY/korail.md"
     },
     {
       "basename": "YumCoach",
@@ -191,14 +199,6 @@
     {
       "basename": "SSAFY",
       "path": "Java/SSAFY.md"
-    },
-    {
-      "basename": "HTTP, CSS, JAVASCRIPT",
-      "path": "Front/HTTP, CSS, JAVASCRIPT.md"
-    },
-    {
-      "basename": "Front",
-      "path": "Front/Front.md"
     }
   ],
   "omittedPaths": [],

@@ -35,8 +35,7 @@
   "showRibbon": true,
   "deleteFileOption": "trash",
   "expandedSpaces": [
-    "/",
-    "//Java"
+    "/"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",

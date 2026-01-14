@@ -117,5 +117,83 @@ See #111, #112
 
 
 ## Branch
+### 기본 브랜치
+
+### `main`
+- 항상 **배포 가능한 상태**를 유지
+- 반드시 PR을 통해서만 병합
+
+
+### 작업 브랜치 규칙
+
+#### 브랜치 네이밍
+
+`<타입>/<간단한-설명>`
+
+|타입|용도|
+|---|---|
+|`feat`|기능 개발|
+|`fix`|버그 수정|
+|`refactor`|구조 개선|
+|`chore`|설정, 환경 작업|
+|`docs`|문서|
+|`test`|테스트|
+
+예시
+- `feat/oauth-login`
+- `fix/token-validation`
+- `refactor/login-validation`
+- `chore/gradle-config`
+
+
+#### 브랜치 생성 기준
+
+- 하나의 브랜치는 **하나의 변경 의도**만을 가진다.
+- 서로 다른 타입의 변경(`feat` + `refactor` 등)은  **반드시 브랜치를 분리**한다.
+
+예시
+- `refactor/login-structure`
+- `feat/oauth-login`
+
+잘못된 예
+- `feat/login-and-refactor`
+
+
+### Merge Strategy
+
+본 프로젝트는 **AngularJS 커밋 컨벤션의 가독성 유지**를 위해   **Squash Merge**를 기본 머지 전략으로 사용한다.
+
+## Squash 시 커밋 메시지 규칙
+
+- **PR 제목**을 squash 커밋의 `Subject`로 사용
+- PR 설명을 squash 커밋의 `Body`로 사용
+- 필요 시 `Footer`에 이슈 키워드 포함
+    
+
+### 예시
+
+feat: OAuth 로그인 기능 추가
+
+기존 이메일 로그인 외에 OAuth 기반 인증 방식을 지원하도록 개선함
+
+- Google OAuth 인증 플로우 구현
+- 기존 로그인 방식과 병행 처리  Closes #204
+
+
+---
+
+## 머지 전 체크 기준
+
+PR은 다음 조건을 만족해야 머지할 수 있다.
+
+- 커밋 컨벤션 준수
+    
+- 하나의 PR = 하나의 변경 의도
+    
+- 서로 다른 타입의 변경이 섞이지 않았는지 확인
+    
+- 테스트 또는 빌드 실패 없음
+
+
 
 # CODE

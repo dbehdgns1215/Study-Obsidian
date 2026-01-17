@@ -638,3 +638,207 @@ if (auth?.accessToken) config.headers['Authorization'] = `Bearer ${auth.accessTo
 
 > “서버 입장권 검사부터 할게  
 > 이상하면 바로 돌려보낸다”
+
+
+
+# # ResponseEntity vs ApiResponse
+
+## ResponseEntity란?
+
+- Spring MVC에서 제공하는 **HTTP 응답 자체를 표현하는 객체**
+    
+- HTTP Status, Header, Body를 함께 제어 가능
+    
+
+```java
+return ResponseEntity.status(400).body(body);
+```
+
+## ApiResponse란?
+
+- **프로젝트에서 직접 정의한 공통 응답 포맷**
+    
+- 프론트와의 계약(Contract)
+    
+
+```json
+{
+  "status": "success",
+  "message": "OK",
+  "data": {}
+}
+```
+
+## 핵심 차이
+
+|구분|ResponseEntity|ApiResponse|
+|---|---|---|
+|책임|HTTP 레벨|비즈니스 응답 포맷|
+|제공 주체|Spring|우리 프로젝트|
+|Status 제어|가능|불가능 (필드일 뿐)|
+
+👉 **실무에서는 둘을 같이 씀**
+
+```java
+return ResponseEntity.ok(ApiResponse.success(data));
+```
+
+
+
+
+# HTTP Status vs Business Status
+
+## 규칙 1: HTTP Status = 기술적 결과
+
+|상황|HTTP Status|
+|---|---|
+|요청 정상 처리|200|
+|파라미터 오류|400|
+|인증 실패|401|
+|권한 없음|403|
+|서버 오류|500|
+
+- 서버가 요청을 **처리했는지 / 못했는지**만 표현
+    
+
+---
+
+## 규칙 2: ApiResponse.status = 비즈니스 결과
+
+|status|의미|
+|---|---|
+|success|정상 처리|
+|fail|의도된 비즈니스 실패|
+|error|시스템 오류|
+
+- 서비스 로직 기준 결과
+    
+
+---
+
+## 같이 쓰는 이유
+
+```text
+HTTP: 200 OK
+비즈니스: fail (예: 비밀번호 불일치)
+```
+
+👉 서버는 정상 작동했지만  
+👉 사용자의 행위는 실패한 상황
+
+이 둘은 **동시에 성립 가능**
+
+
+
+# ok vs success
+
+## ok란?
+
+- `ResponseEntity.ok()`
+    
+- HTTP Status 200을 의미
+    
+
+```java
+ResponseEntity.ok(body)
+```
+
+## success란?
+
+- `ApiResponse.success()`
+    
+- 비즈니스 성공 의미
+    
+
+```java
+ApiResponse.success(data)
+```
+
+## 절대적인 차이
+
+|구분|ok|success|
+|---|---|---|
+|레벨|HTTP|비즈니스|
+|제공|Spring|우리 코드|
+|존재 위치|ResponseEntity|ApiResponse|
+
+## 자주 하는 오해
+
+❌ `ResponseEntity.success()`는 **존재하지 않음**
+
+## 정석 조합
+
+```java
+return ResponseEntity.ok(ApiResponse.success(data));
+```
+
+👉 읽으면
+
+> HTTP는 OK고, 비즈니스는 성공
+
+
+
+# try-catch와 Global Exception Handler
+
+## 흔한 오해
+
+> 컨트롤러에서 try-catch로 예외를 잡는다?
+
+❌ 안 좋은 패턴
+
+---
+
+## 권장 구조
+
+- Service: 예외 던짐
+    
+- Controller: 정상 흐름만 담당
+    
+- GlobalExceptionHandler: 예외 응답 처리
+    
+
+---
+
+## try-catch는 어디에 쓰나?
+
+- **복구 가능한 경우만**
+    
+- 대체 로직이 있을 때
+    
+
+```java
+try {
+  callExternalApi();
+} catch (TimeoutException e) {
+  retry();
+}
+```
+
+---
+
+## Global Exception Handler란?
+
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+  @ExceptionHandler(PasswordMismatchException.class)
+  public ResponseEntity<?> handlePassword() {
+    return ResponseEntity.ok(ApiResponse.fail("PASSWORD_MISMATCH"));
+  }
+}
+```
+
+- Spring이 자동 탐색
+    
+- 직접 주입 ❌
+    
+- 예외 발생 시 자동 호출
+    
+
+---
+
+## 핵심 문장 (암기)
+
+> 컨트롤러는 흐름만  
+> 예외는 전역에서

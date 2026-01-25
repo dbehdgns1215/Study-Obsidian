@@ -237,3 +237,25 @@ Thread thread = new Thread(task);  // 객체 B (일꾼)
 thread.start();
 ```
 
+추가로 
+
+```java
+public class ManyThreadMainV2 {
+
+    public static void main(String[] args) {
+        log("main() start");
+
+        HelloRunnable runnable = new HelloRunnable();
+
+        for (int i = 0; i < 100; i++) {
+            Thread thread = new Thread(runnable);
+            thread.start();
+        }
+
+    }
+}
+```
+- 이러한 코드를 실행했을 때, 과연 스레드는 for 문의 순서와 맞게끔 생성될까?
+	- 아니다. for문에서 전달하는 순서적인 느낌 때문에 순서대로 실행될거라고 생각되겠지만, 각각의 스택 영역에서 독립적으로 실행된다 한들 **호출 이후부터 `run()`을 실행하는 시점**까지는 다른 스레드의 몫이기 때문이다.
+	- 호출 자체의 순서 때문에 0번 스레드가 100번 스레드보다 대부분의 경우에서 빠르다는 것은 어느정도 자명하지만, 0번부터 100번까지 줄 세우듯 순서대로 생성되지는 않을 것이다.
+

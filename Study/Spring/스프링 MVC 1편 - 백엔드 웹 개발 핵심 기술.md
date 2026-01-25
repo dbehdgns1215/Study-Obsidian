@@ -4847,3 +4847,21 @@ public String requestBodyStringV4(@RequestBody String messageBody) {
 
 
 ---
+
+
+## 요청 매핑
+
+`@XxxMapping(value = "{uri}, consumes = " ", produces = " "`
+### Consumes
+요청 헤더의 `Content-Type` 기반
+- `consumes = "text/plain"`
+- `consumes = {"text/plain", "application/*"}`
+- `consumes = MediaType.TEXT_PLAIN_VALUE`
+
+### Produces
+요청 헤더의 `Accept` 기반
+- `produces = "text/html"` 
+- `produces = "!text/html"`
+- `produces = "text/*"` 
+- `produces = "*\/*"` 
+

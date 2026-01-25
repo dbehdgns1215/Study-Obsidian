@@ -222,4 +222,18 @@ t.start();
 	- `Thread`는 이미 클래스를 상속하므로 다중 상속이 불가능
 	- `Runnable`은 인터페이스이므로 다른 클래스를 상속하면서 사용 가능
 	- 실행 로직(`run()`)과 스레드 실행을 명확히 분리할 수 있어서 재사용성과 유연성이 높음
+		- 물론 `Thread`를 상속하는 방식도 `run()`과 `start()`로 실행/생성이 분리되어 있기는 하나 하나의 `Thread` 객체에 실행 주체와 실행 로직이 모두 담기게 된다 (강한 결합을 의미)
+
+`extends Thread` - 강한 결합
+```java
+MyThread t = new MyThread();
+t.start();
+```
+
+`implements Runnable` - 느슨한 결합
+```java
+Runnable task = new MyTask();      // 객체 A (일 내용)
+Thread thread = new Thread(task);  // 객체 B (일꾼)
+thread.start();
+```
 

@@ -26,7 +26,6 @@
 #### **에러 4: Dockerfile No Such File or Directory (빌드 컨텍스트 오류)**
 - **원인:** 젠킨스 워크스페이스 구조(`back/Dockerfile`)와 도커 호스트가 인식하는 경로가 일치하지 않아 발생.
 - **해결:** `dir('back')` 블록 내부에서 작업을 수행하되, **Legacy Builder(`DOCKER_BUILDKIT=0`)** 옵션을 사용하여 빌드 파일을 도커 데몬으로 직접 전송함.
-    
 
 ---
 
@@ -63,4 +62,3 @@
     - Credentials 금고에서 `.env` 주입.
     - `docker build`로 이미지 생성.
     - `docker-compose up -d`로 무중단(재시작) 배포 실행.
-        

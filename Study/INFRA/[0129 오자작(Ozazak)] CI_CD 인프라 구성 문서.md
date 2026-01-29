@@ -386,12 +386,10 @@ pipeline {
 2. **nginx 설정 복사**: Jenkins workspace → 호스트 고정 경로 (`/home/ubuntu/nginx/`)
 3. **`--no-build` 옵션**: 이미 빌드했으므로 다시 빌드하지 않음
 
-
 ---
 
 ## 🌐 Nginx 설정
 
-  
 ### nginx-prod.conf
 ```nginx
 
@@ -414,64 +412,42 @@ http {
     # Spring Backend
     upstream spring_service {
         server ozazak-back-prod:8080;
-
-    }
+    }wlr
+    
     # 메인 서버
-
     server {
-
         listen 80;
-
         server_name ozazak.13.124.6.228.nip.io;
-
+        
         client_max_body_size 10M;
 
-  
-
         # Health Check
-
         location /health {
-
             return 200 'nginx ok';
-
             add_header Content-Type text/plain;
-
         }
-
-  
 
         # AI Health Check
-
         location = /api/ai/health {
-
             proxy_pass http://ai_service/health;
-
+            
             proxy_set_header Host $host;
-
             proxy_set_header X-Real-IP $remote_addr;
 
         }
 
   
-
         # AI 요청 라우팅 (SSE 스트리밍 지원)
-
         location /api/ai/ {
-
             proxy_pass http://ai_service/api/ai/;
-
+            
             proxy_set_header Host $host;
-
             proxy_set_header X-Real-IP $remote_addr;
-
             proxy_set_header Authorization $http_authorization;
 
             # SSE 스트리밍 설정
-
             proxy_buffering off;
-
             proxy_cache off;
-
             proxy_set_header Connection '';
 
             proxy_http_version 1.1;
@@ -479,35 +455,24 @@ http {
             chunked_transfer_encoding on;
 
             proxy_read_timeout 600s;
-
         }
 
-  
-
         # Backend API 라우팅
-
         location /api/ {
-
             proxy_pass http://spring_service/api/;
 
             proxy_set_header Host $host;
-
             proxy_set_header X-Real-IP $remote_addr;
-
             proxy_set_header Authorization $http_authorization;
-
         }
 
   
 
         # Swagger UI
-
         location /swagger-ui/ {
-
             proxy_pass http://spring_service/swagger-ui/;
 
             proxy_set_header Host $host;
-
         }
 
   
@@ -515,11 +480,9 @@ http {
         # OpenAPI docs
 
         location /v3/api-docs {
-
             proxy_pass http://spring_service/v3/api-docs;
 
             proxy_set_header Host $host;
-
         }
 
   
@@ -527,35 +490,25 @@ http {
         # Frontend (S3 프록시)
 
         location / {
-
             proxy_pass http://ozazak.s3-website.ap-northeast-2.amazonaws.com/;
 
             proxy_set_header Host ozazak.s3-website.ap-northeast-2.amazonaws.com;
-
             proxy_intercept_errors on;
 
             error_page 404 = /index.html;
-
         }
-
     }
 
   
 
     # Jenkins 서버 (동적 resolve)
-
     server {
-
         listen 80;
-
         server_name jenkins.13.124.6.228.nip.io;
 
         resolver 127.0.0.11 valid=30s;
 
-  
-
         location / {
-
             set $jenkins_upstream http://jenkins:8080;
 
             proxy_pass $jenkins_upstream;

@@ -23,98 +23,6 @@
 
 ## 🏗️ 아키텍처 개요
 
-  
-
-```
-
-┌───────────────────────────────────────────────────────────────┐
-
-│                         EC2 Server                            │
-
-│  ┌────────────────────────────────────────────────────────┐   │
-
-│  │                    Docker Network                      │   │
-
-│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐    │   │
-
-│  │  │  nginx  │  │  back   │  │   ai    │  │ jenkins │    │   │
-
-│  │  │  :80    │  │  :8080  │  │  :8000  │  │  :8081  │    │   │
-
-│  │  └────┬────┘  └────┬────┘  └────┬────┘  └────┬────┘    │   │
-
-│  │       │            │            │            │         │   │
-
-│  │  ┌────┴────────────┴────────────┴────────────┴──────┐  │   │
-
-│  │  │                 ozazak-network                   │  │   │ 
-
-│  │  └────┬─────────────────────────────────────────────┘  │   │
-
-│  │       │                                                │   │
-
-│  │  ┌────┴────┐  ┌─────────┐                              │   │
-
-│  │  │postgres │  │  redis  │                              │   │
-
-│  │  │  :5432  │  │  :6379  │                              │   │
-
-│  │  └─────────┘  └─────────┘                              │   │
-
-│  └────────────────────────────────────────────────────────┘   │
-
-└───────────────────────────────────────────────────────────────┘
-
-```
-
-  
-
-```
-
-┌───────────────────────────────────────────────────────────────────┐
-
-│                           EC2 Server                              │
-
-│  ┌─────────────────────────────────────────────────────────────┐  │
-
-│  │                      Docker Network                         │  │
-
-│  │                                                             │  │
-
-│  │    ┌─────────┐      ┌─────────┐      ┌─────────┐           │  │
-
-│  │    │  nginx  │─────▶│  back   │◀────▶│   ai    │           │  │
-
-│  │    │  :80    │      │  :8080  │      │  :8000  │           │  │
-
-│  │    └─────────┘      └────┬────┘      └─────────┘           │  │
-
-│  │         │                │                                  │  │
-
-│  │         │           ┌────┴────┐                            │  │
-
-│  │         │           │         │                            │  │
-
-│  │         │      ┌────▼───┐ ┌───▼────┐     ┌─────────┐       │  │
-
-│  │         │      │postgres│ │ redis  │     │ jenkins │       │  │
-
-│  │         │      │ :5432  │ │ :6379  │     │  :8081  │       │  │
-
-│  │         │      └────────┘ └────────┘     └─────────┘       │  │
-
-│  │         │                                      │           │  │
-
-│  │         └──────────────────────────────────────┘           │  │
-
-│  │                     ozazak-network                         │  │
-
-│  └─────────────────────────────────────────────────────────────┘  │
-
-└───────────────────────────────────────────────────────────────────┘
-
-```
-
 ```
 
 ┌────────────────────────────────────────────────────────────────────┐
@@ -167,39 +75,25 @@
 
 ### 서비스 구성
 
-  
+| **서비스**        | **설명**            | **포트** | **컨테이너명**              |
+| -------------- | ----------------- | ------ | ---------------------- |
+| **nginx**      | 리버스 프록시 / Gateway | 80     | `ozazak-nginx`         |
+| **back**       | Spring Boot 백엔드   | 8080   | `ozazak-back-prod`     |
+| **ai-service** | FastAPI AI 서비스    | 8000   | `ozazak-ai-prod`       |
+| **jenkins**    | CI/CD 자동화 서버      | 8081   | `jenkins`              |
+| **postgres**   | 관계형 데이터베이스        | 5432   | `ozazak-postgres-prod` |
+| **redis**      | 캐시 및 세션 관리        | 6379   | `ozazak-redis-prod`    |
 
-| 서비스 | 설명 | 포트 | 컨테이너명 |
 
-|--------|------|------|------------|
 
-| nginx | 리버스 프록시 | 80 | ozazak-nginx |
-
-| back | Spring Boot 백엔드 | 8080 | ozazak-back-prod |
-
-| ai-service | FastAPI AI 서비스 | 8000 | ozazak-ai-prod |
-
-| jenkins | CI/CD 서버 | 8081 | jenkins |
-
-| postgres | 데이터베이스 | 5432 | ozazak-postgres-prod |
-
-| redis | 캐시/세션 | 6379 | ozazak-redis-prod |
-
-  
 
 ### 접근 URL
 
-  
-
-| 서비스 | URL |
-
-|--------|-----|
-
-| 메인 (프론트/백엔드/AI) | http://ozazak.13.124.6.228.nip.io |
-
-| Swagger UI | http://ozazak.13.124.6.228.nip.io/swagger-ui/index.html |
-
-| Jenkins | http://jenkins.13.124.6.228.nip.io 또는 http://13.124.6.228:8081 |
+| **대상 서비스**     | **URL 주소**                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **메인 서비스**     | [http://ozazak.13.124.6.228.nip.io](http://ozazak.13.124.6.228.nip.io/)                                            |
+| **Swagger UI** | [http://ozazak.13.124.6.228.nip.io/swagger-ui/index.html](http://ozazak.13.124.6.228.nip.io/swagger-ui/index.html) |
+| **Jenkins**    | [http://jenkins.13.124.6.228.nip.io](http://jenkins.13.124.6.228.nip.io/) 또는 `:8081` 직접 접속                         |
 
   
 
@@ -216,7 +110,6 @@
   
 
 ```
-
 back/
 
 ├── docker-compose-local.yml    # 로컬 개발용
@@ -234,35 +127,21 @@ back/
     ├── nginx-local.conf        # 로컬 nginx 설정
 
     └── nginx-prod.conf         # 프로덕션 nginx 설정
-
 ```
 
   
 
 ### 환경변수 파일
-
-  
-
 #### .env.local
-
 ```env
-
 SPRING_PROFILES_ACTIVE=local
-
 DB_HOST=localhost
-
 DB_PORT=5432
-
 DB_NAME=ozazak
-
 DB_USERNAME=ozazak
-
 DB_PASSWORD=your_password
-
 REDIS_HOST=localhost
-
 REDIS_PORT=6379
-
 ```
 
   
@@ -270,403 +149,210 @@ REDIS_PORT=6379
 #### .env.prod
 
 ```env
-
 SPRING_PROFILES_ACTIVE=prod
-
 DB_HOST=ozazak-postgres-prod
-
 DB_PORT=5432
-
 DB_NAME=ozazak
-
 DB_USERNAME=ozazak
-
 DB_PASSWORD=your_password
-
 REDIS_HOST=ozazak-redis-prod
-
 REDIS_PORT=6379
-
 ```
 
   
-
 ### 환경 전환 방식
 
-  
-
-| 환경 | 실행 명령어 |
-
-|------|-------------|
-
-| 로컬 | `docker-compose -f docker-compose-local.yml up -d` |
-
-| 프로덕션 | `docker-compose -f docker-compose-prod.yml up -d` |
-
-  
+| **환경**          | **실행 명령어**                                         | **비고**       |
+| --------------- | -------------------------------------------------- | ------------ |
+| **로컬 (Local)**  | `docker-compose -f docker-compose-local.yml up -d` | 개발자 PC 환경    |
+| **프로덕션 (Prod)** | `docker-compose -f docker-compose-prod.yml up -d`  | EC2 서버 운영 환경 |
 
 ---
 
-  
-
 ## 🐳 Docker Compose 구성
 
-  
-
 ### docker-compose-prod.yml
-
-  
 
 ```yaml
 
 version: '3.8'
 
-  
-
 services:
-
   nginx:
-
     image: nginx:latest
-
     container_name: ozazak-nginx
-
     ports:
-
       - "80:80"
-
     volumes:
-
       - /home/ubuntu/nginx/nginx-prod.conf:/etc/nginx/nginx.conf:ro
-
     depends_on:
-
       - back
-
       - ai-service
-
     networks:
-
       - ozazak-network
-
     restart: always
-
-  
-
   back:
-
     image: ozazak-backend:latest
-
     build:
-
       context: .
-
       dockerfile: Dockerfile
-
     container_name: ozazak-back-prod
-
     depends_on:
-
       - postgres
-
       - redis
-
     env_file:
-
       - .env.prod
-
     environment:
-
       TZ: Asia/Seoul
-
     networks:
-
       - ozazak-network
-
     restart: always
-
-  
-
   ai-service:
-
     image: ozazak-ai-service:latest
-
     build:
-
       context: ../ai
-
       dockerfile: Dockerfile
-
     container_name: ozazak-ai-prod
-
     env_file:
-
       - ../ai/.env
-
     environment:
-
       - TZ=Asia/Seoul
-
       - BACKEND_API_BASE_URL=http://ozazak-back-prod:8080
-
       - APP_ENV=production
-
     networks:
-
       - ozazak-network
-
     restart: always
-
-  
-
   postgres:
-
     image: postgres:15
-
     container_name: ozazak-postgres-prod
-
     environment:
-
       TZ: Asia/Seoul
-
       POSTGRES_DB: ${DB_NAME}
-
       POSTGRES_USER: ${DB_USERNAME}
-
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-
     volumes:
-
       - postgres-prod-data:/var/lib/postgresql/data
-
     networks:
-
       - ozazak-network
-
     restart: always
-
-  
-
   redis:
-
     image: redis:7-alpine
-
     container_name: ozazak-redis-prod
-
     environment:
-
       TZ: Asia/Seoul
-
     volumes:
-
       - redis-prod-data:/data
-
     networks:
-
       - ozazak-network
-
     restart: always
-
-  
-
 volumes:
-
   postgres-prod-data:
-
   redis-prod-data:
-
-  
-
 networks:
-
   ozazak-network:
-
     external: true
-
 ```
 
   
 
 ### docker-compose-jenkins.yml (분리된 Jenkins)
 
-  
-
 ```yaml
-
 version: '3.8'
 
-  
-
 services:
-
   jenkins:
-
     image: jenkins/jenkins:lts-jdk17
-
     container_name: jenkins
-
     user: root
-
     ports:
-
       - "8081:8080"
-
       - "50000:50000"
-
     volumes:
-
       - /home/ubuntu/jenkins/jenkins_home:/var/jenkins_home
-
       - /var/run/docker.sock:/var/run/docker.sock
-
       - /usr/bin/docker:/usr/bin/docker
-
     environment:
-
       TZ: Asia/Seoul
-
     networks:
-
       - ozazak-network
-
     restart: always
-
-  
-
 networks:
-
   ozazak-network:
-
     external: true
-
 ```
 
   
 
 ### Jenkins 분리 이유
 
-  
-
 **문제:** Jenkins가 docker-compose-prod.yml 안에 있으면 Jenkins가 자기 자신을 재시작하는 무한루프 발생
 
-  
-
 **해결:** Jenkins를 별도 docker-compose 파일로 분리
-
 - Jenkins는 한 번만 실행하고 계속 유지
-
 - 앱 배포 시 jenkins 컨테이너는 건드리지 않음
 
-  
 
 ---
 
-  
-
 ## 🔧 Jenkins Pipeline
 
-  
-
 ### Jenkinsfile (Pipeline Script)
-
-  
 
 ```groovy
 
 pipeline {
-
     agent any
-
     stages {
-
         stage('Git Clone') {
-
             steps {
-
                 git branch: 'master',
-
                     url: 'https://lab.ssafy.com/s14-webmobile2-sub1/S14P11B205.git',
-
                     credentialsId: 'gitlab-auth'
-
             }
-
         }
-
-  
-
         stage('Prepare Environment Files') {
-
             steps {
-
                 script {
-
                     // 백엔드 .env 주입
-
                     dir('back') {
-
                         withCredentials([file(credentialsId: 'back-env-file', variable: 'BACK_ENV')]) {
-
                             sh 'cp $BACK_ENV .env'
-
                         }
-
                     }
-
                     // AI .env 주입
-
                     dir('ai') {
-
                         withCredentials([file(credentialsId: 'ai-env-file', variable: 'AI_ENV')]) {
-
                             sh 'cp $AI_ENV .env'
-
                         }
-
                     }
-
                 }
-
             }
-
         }
-
         stage('Deploy Services') {
-
             steps {
-
                 dir('back') {
-
                     echo 'Deploying Backend and AI...'
-
                     sh 'chmod +x gradlew'
-
+                    
                     // 1. 백엔드 Docker 이미지 빌드
-
                     sh 'docker build -t ozazak-backend:latest .'
 
                     // 2. AI 서비스 Docker 이미지 빌드
-
                     sh 'docker build -t ozazak-ai-service:latest ../ai'
 
                     script {
-
                         // 3. nginx 설정 파일을 호스트 고정 경로에 복사
-
                         sh '''
-
                             rm -rf /home/ubuntu/nginx/nginx-prod.conf
 
                             mkdir -p /home/ubuntu/nginx
 
                             cp nginx/nginx-prod.conf /home/ubuntu/nginx/nginx-prod.conf
-
-                        '''
+                            '''
 
                         // 4. docker-compose 다운로드 (최초 1회)
-
                         sh '''
-
                             if [ ! -f "./docker-compose" ]; then
 
                                 curl -SL https://github.com/docker/compose/releases/download/v2.24.1/docker-compose-linux-x86_64 -o ./docker-compose
@@ -674,113 +360,62 @@ pipeline {
                                 chmod +x ./docker-compose
 
                             fi
-
                         '''
 
                         // 5. 서비스 실행 (이미 빌드했으므로 --no-build)
-
                         sh './docker-compose -f docker-compose-prod.yml up -d --no-build back ai-service nginx postgres redis'
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }
 
 ```
 
-  
-
 ### Pipeline 단계 설명
 
+| **단계 (Stage)**      | **설명**                                    |
+| ------------------- | ----------------------------------------- |
+| **Git Clone**       | GitLab에서 마스터 브랜치 최신 코드 반영                 |
+| **Prepare Env**     | Credentials에 저장된 `.env` 파일을 보안 유지하며 주입    |
+| **Deploy Services** | Docker 이미지 빌드 후 `--no-build` 옵션으로 컨테이너 교체 |
   
-
-| 단계 | 설명 |
-
-|------|------|
-
-| Git Clone | GitLab에서 최신 코드 가져오기 |
-
-| Prepare Environment Files | Jenkins Credentials에서 .env 파일 주입 |
-
-| Deploy Services | Docker 이미지 빌드 및 컨테이너 실행 |
-
-  
-
 ### 핵심 포인트
-
-  
-
 1. **이미지 이름 일치**: `docker build -t ozazak-backend:latest` → docker-compose의 `image: ozazak-backend:latest`
-
 2. **nginx 설정 복사**: Jenkins workspace → 호스트 고정 경로 (`/home/ubuntu/nginx/`)
-
 3. **`--no-build` 옵션**: 이미 빌드했으므로 다시 빌드하지 않음
 
-  
 
 ---
-
-  
 
 ## 🌐 Nginx 설정
 
   
-
 ### nginx-prod.conf
-
-  
-
 ```nginx
 
 events {
-
     worker_connections 1024;
-
 }
 
-  
-
 http {
-
     log_format main '$remote_addr - $remote_user [$time_local] "$request" '
-
                     '$status $body_bytes_sent "$http_referer" '
-
                     '"$http_user_agent" "$http_x_forwarded_for"';
-
     access_log /var/log/nginx/access.log main;
-
     error_log /var/log/nginx/error.log warn;
-
-  
-
+    
     # AI Service
-
     upstream ai_service {
-
         server ozazak-ai-prod:8000;
-
     }
 
-  
-
     # Spring Backend
-
     upstream spring_service {
-
         server ozazak-back-prod:8080;
 
     }
-
-  
-
     # 메인 서버
 
     server {
@@ -945,21 +580,12 @@ http {
 
 ### 라우팅 규칙
 
-  
-
-| 경로 | 대상 |
-
-|------|------|
-
-| `/api/ai/*` | AI 서비스 (FastAPI) |
-
-| `/api/*` | 백엔드 (Spring Boot) |
-
-| `/swagger-ui/*` | Swagger UI |
-
-| `/v3/api-docs` | OpenAPI 문서 |
-
-| `/` | S3 프론트엔드 |
+| **접속 경로 (Path)** | **대상 (Target)**   | **기술 스택**             |
+| ---------------- | ----------------- | --------------------- |
+| `/api/ai/*`      | `ai-service:8000` | FastAPI (SSE 스트리밍 지원) |
+| `/api/*`         | `back:8080`       | Spring Boot API       |
+| `/swagger-ui/*`  | `back:8080`       | API 문서 도구             |
+| **`/` (전체)**     | **AWS S3 Bucket** | **React/Vue 정적 파일**   |
 
   
 
@@ -1327,18 +953,10 @@ curl -X POST "http://ozazak.13.124.6.228.nip.io/api/ai/blocks/generate" \
 
 ## 📝 변경 이력
 
-  
-
 | 날짜 | 변경 내용 |
-
 |------|----------|
-
 | 2026-01-29 | 초기 CI/CD 구성 |
-
 | 2026-01-29 | Jenkins 분리 (무한루프 해결) |
-
 | 2026-01-29 | nginx 동적 resolve 적용 |
-
 | 2026-01-29 | Docker 이미지 이름 명시 |
-
 | 2026-01-29 | AI Settings 속성 추가 |

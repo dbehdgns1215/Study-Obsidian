@@ -510,19 +510,14 @@ http {
 
         location / {
             set $jenkins_upstream http://jenkins:8080;
-
+            
             proxy_pass $jenkins_upstream;
-
+            
             proxy_set_header Host $host;
-
             proxy_http_version 1.1;
-
             proxy_set_header Upgrade $http_upgrade;
-
             proxy_set_header Connection "upgrade";
-
         }
-
     }
 
 }
@@ -530,7 +525,6 @@ http {
 ```
 
   
-
 ### 라우팅 규칙
 
 | **접속 경로 (Path)** | **대상 (Target)**   | **기술 스택**             |
@@ -541,368 +535,210 @@ http {
 | **`/` (전체)**     | **AWS S3 Bucket** | **React/Vue 정적 파일**   |
 
   
-
 ### Jenkins 동적 Resolve
 
-  
 
 ```nginx
-
 resolver 127.0.0.11 valid=30s;  # Docker 내장 DNS
-
 set $jenkins_upstream http://jenkins:8080;  # 변수로 설정
-
 proxy_pass $jenkins_upstream;  # 요청 시점에 resolve
-
 ```
-
-  
 
 **이유:** Jenkins가 없어도 nginx가 정상 시작되도록 (upstream 블록은 시작 시 resolve 필수)
 
-  
+
 
 ---
 
-  
-
 ## 🔥 트러블슈팅
 
-  
-
 ### 1. Jenkins 무한 재시작
-
-  
-
 **문제:** Jenkins가 docker-compose를 실행하면 자기 자신도 재시작됨
-
-  
-
 **해결:** Jenkins를 별도 docker-compose-jenkins.yml로 분리
 
-  
-
 ```bash
-
 # Jenkins는 별도로 한 번만 실행
-
 docker-compose -f docker-compose-jenkins.yml up -d
-
   
-
 # 앱 배포는 prod만
-
 docker-compose -f docker-compose-prod.yml up -d
-
 ```
 
   
 
 ### 2. nginx "host not found in upstream"
-
-  
-
 **문제:** nginx 시작 시 Jenkins 컨테이너를 찾지 못함
-
-  
 
 **해결:** 동적 resolve 방식 사용
 
 ```nginx
-
 resolver 127.0.0.11 valid=30s;
-
 set $jenkins_upstream http://jenkins:8080;
-
 proxy_pass $jenkins_upstream;
-
 ```
 
   
 
 ### 3. nginx 설정 파일 마운트 실패
 
-  
-
 **문제:** Jenkins workspace 경로가 Docker 호스트와 다름
 
 ```
-
 Error: mount src=/var/jenkins_home/workspace/.../nginx-prod.conf
-
        Are you trying to mount a directory onto a file?
-
 ```
-
-  
 
 **해결:** 호스트 고정 경로 사용
 
 ```yaml
-
 # docker-compose-prod.yml
-
 volumes:
-
   - /home/ubuntu/nginx/nginx-prod.conf:/etc/nginx/nginx.conf:ro
-
 ```
 
   
-
 ```groovy
-
 // Jenkinsfile
-
 sh 'cp nginx/nginx-prod.conf /home/ubuntu/nginx/nginx-prod.conf'
-
 ```
-
   
 
 ### 4. Docker 이미지 이름 불일치
 
-  
-
 **문제:** Pipeline에서 빌드한 이미지와 docker-compose가 사용하는 이미지 다름
-
   
-
 | 빌드 | 사용 |
-
 |------|------|
-
 | `ozazak-backend:latest` | `back-back` (자동 생성) |
 
-  
 
 **해결:** docker-compose에 image 명시
 
 ```yaml
-
 back:
-
   image: ozazak-backend:latest  # 추가!
-
   build:
-
     context: .
-
 ```
-
-  
 
 ### 5. Settings 속성 누락
 
-  
-
 **문제:** Python Settings 클래스에 `available_models` 속성 없음
-
 ```
-
 AttributeError: 'Settings' object has no attribute 'available_models'
-
 ```
-
-  
 
 **해결:** settings.py에 속성 추가
 
 ```python
-
 available_models: List[str] = ["gpt", "gemini", "gemini-flash", "claude"]
-
 ```
 
   
-
 ### 6. nginx 설정이 디렉토리로 생성됨
-
-  
 
 **문제:** Docker가 없는 파일을 마운트하면 디렉토리로 생성
 
-  
-
 ```bash
-
 ls -la /home/ubuntu/nginx/
-
 drwxr-xr-x nginx-prod.conf  # 파일이 아니라 디렉토리!
-
 ```
 
-  
 
 **해결:**
-
 ```bash
 
 sudo rm -rf /home/ubuntu/nginx
-
 mkdir -p /home/ubuntu/nginx
-
 cp nginx-prod.conf /home/ubuntu/nginx/nginx-prod.conf
-
 ```
 
-  
 
 ---
-
-  
-
 ## ▶️ 실행 방법
 
-  
-
 ### 최초 서버 설정
-
-  
 
 ```bash
 
 # 1. Docker 네트워크 생성
-
 docker network create ozazak-network
 
-  
-
 # 2. Jenkins 실행 (한 번만)
-
 cd ~/S14P11B205/back
-
 docker-compose -f docker-compose-jenkins.yml up -d
 
-  
-
 # 3. nginx 설정 디렉토리 생성
-
 mkdir -p /home/ubuntu/nginx
-
 ```
 
   
 
 ### 앱 배포 (Jenkins 자동)
 
-  
-
 Jenkins Webhook이 GitLab push 감지 → Pipeline 자동 실행
-
-  
-
 ### 수동 배포
 
-  
-
 ```bash
-
 cd ~/S14P11B205/back
-
 git pull
 
-  
-
 # 이미지 빌드 + 서비스 시작
-
 docker-compose -f docker-compose-prod.yml up -d --build
-
 ```
 
-  
-
 ### 서비스 확인
-
-  
 
 ```bash
 
 # 컨테이너 상태
-
 docker ps
 
-  
-
 # 로그 확인
-
 docker logs ozazak-back-prod --tail 50
-
 docker logs ozazak-ai-prod --tail 50
-
 docker logs ozazak-nginx --tail 50
-
   
-
 # 헬스체크
-
 curl http://localhost/health
-
 curl http://localhost/api/ai/health
-
 ```
-
-  
 
 ### 로컬 개발
 
-  
-
 ```bash
-
 cd back
 
 docker-compose -f docker-compose-local.yml up -d
-
 ```
 
-  
 
 ---
 
-  
-
 ## 📊 API 테스트
 
-  
 
 ### Health Check
 
 ```bash
-
 curl http://ozazak.13.124.6.228.nip.io/api/ai/health
-
 ```
 
-  
-
 ### 블록 생성
-
 ```bash
-
 curl -X POST "http://ozazak.13.124.6.228.nip.io/api/ai/blocks/generate" \
-
   -H "Content-Type: application/json" \
-
   -d '{
-
     "user_id": "1",
-
     "source_type": "project",
-
     "source_content": "프로젝트 경험 내용...",
-
     "model_type": "gpt"
-
   }'
 
 ```
 
-  
 
 ---
-
-  
 
 ## 📝 변경 이력
 

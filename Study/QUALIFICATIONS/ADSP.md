@@ -43,4 +43,27 @@
 
 
 
+# 기넙 내부 활용 데이터베이스
 
+- OL**T**P: 다량의 단기 *거래*를 실시간 처리 (Transaction)
+- OL**A**P: 다차원 데이터를 *대화식*으로 분석 (Analysis)
+- **C**RM: *고객*과 관련 자료 분석하여 마케팅에 활용 (Customer)
+- **SC**M: *공급망 연결* 최적화 (Supplies Chain)
+- **ER**P: *기업* 경영 *자원*을 효율화 (Enterprise Resource)
+- **RT**E: 최신 정보로 *신속한* 의사 결정 지원 (Real Time)
+- BI: 기업 보유 데이터 정리, 분석하는 *리포트* 중심 도구 (Business Intelligence 지능이 높으려면 리포트 써야함)
+- BA: 통계 기반 비즈니스 통찰력
+- Block Chain: 네트워크에 참여한 모든 사용자가 정보를 분산, 저장
+- KMS: 기업의 모든 지식을 포함
+
+
+# 데이터 웨어하우스 (Data Ware Houser, DW)
+- 기업 내외부 다양한 데이터를 한 곳에 저장한 중앙 저장소
+	- 구성요소
+		- ETL(Extraction, Transform, Load): 다양한 소스 데이터 추출, 정제, 적재
+		- ODS(Operational Data Store): 다양한 DBMS에서 추출한 데이터를 임시 저장
+	- 특징
+		- 주제지향성: 분석 목적 설정이 중요
+		- 데이터 통합: 일관화된 형식으로 저장
+		- 시계열성: 히스토리를 가진 데이터
+		- 비휘발성: 읽기 전용 - 수시로 변하지 않음

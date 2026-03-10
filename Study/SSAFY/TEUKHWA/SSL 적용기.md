@@ -64,8 +64,38 @@ sudo certbot certonly --standalone -d j14b206.p.ssafy.io
 
 이후에 뜨는 이메일 입력, 이용약관 동의(Y) 절차를 거쳐 최종적으로 `Congratulations!` 메시지와 함께 아래 경로에 인증서가 저장되었습니다.
 
-  
+> 만약 `Some challenges have failed.` 오류가 뜬다면?
+
+Let's Encrypt 센터에서 사용자님의 `j14b206.p.ssafy.io` (IP: 3.34.144.211) 의 **80포트(HTTP)로** 접속해서 **"너 진짜 이 도메인 주인 맞니?"** 하고 검사하려고 들어왔는데, 문이 꽉 잠겨있어서 튕겨 나간 겁니다.
+
+도커가 80포트를 쓸 때는 자기 마음대로 방화벽을 뚫고 나가서 그동안 접속이 됐던 거지만, 우분투 호스트 자체의 80포트는 현재 막혀있을 확률이 99%입니다.
+
 
 *   인증서 경로: `/etc/letsencrypt/live/j14b206.p.ssafy.io/fullchain.pem`
 
 *   비밀키 경로: `/etc/letsencrypt/live/j14b206.p.ssafy.io/privkey.pem`
+
+
+```
+ubuntu@ip-172-26-11-62:/var/jenkins_home/workspace/plys/plys-backend/infra$ sudo certbot certonly --standalone -d j14b206.p.ssafy.io
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for j14b206.p.ssafy.io
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/j14b206.p.ssafy.io/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/j14b206.p.ssafy.io/privkey.pem
+This certificate expires on 2026-06-08.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ubuntu@ip-172-26-11-62:/var/jenkins_home/workspace/plys/plys-backend/infra$ 
+```
+
+![[Pasted image 20260310124303.png]]
+
+

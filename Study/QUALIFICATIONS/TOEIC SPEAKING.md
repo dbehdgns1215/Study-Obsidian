@@ -5,7 +5,7 @@
 - 대학: from
 - 연도: in
 - 기간: from A to B
-- 기간: from A up to now
+- 기간: from A up to now (has worked)
 
 
 # Part 2

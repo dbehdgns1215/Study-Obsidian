@@ -1,4 +1,13 @@
 
+# 팁
+- 날짜: on
+- 장소: at
+- 대학: from
+- 연도: in
+- 기간: from A to B
+- 기간: from A up to now
+
+
 # Part 2
 
 ## (1) 서론
@@ -80,7 +89,7 @@
 > You will give a speech/a lecture/a presentation
 > 
 > 취소 / 연기 / 일정 변경
-> There was supposed to be 일정, but it has been canceled.
+> **There was supposed to be 일정, but it has been canceled.**
 > 
 > You will depart from San Francisco at 10 am on Amreican Air 105.
 
@@ -102,6 +111,6 @@
 > 
 > He/She is applying for ___ position.
 > 
-> 
+> **It will be held on May 5th in Conference Room 3C.**
 
 ## 유형 5 - 수업 시간표

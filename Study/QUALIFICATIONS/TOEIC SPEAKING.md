@@ -72,10 +72,16 @@
 > It (행사) will start at 시각
 > It (행사) will finish at 시각
 
-
-
-
 ## 유형 2 - 개인 일정표
+
+> S will V: 주어가 동사 할 것이다
+> You will depart from 출발지
+> You will arrive in 도착지
+> You will give a speech/a lecture/a presentation
+> 
+> 취소 / 연기 / 일정 변경
+> There was supposed to be 일정, but it has been canceled.
+
 
 ## 유형 3 - 이력서
 

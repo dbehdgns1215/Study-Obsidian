@@ -87,6 +87,17 @@
 
 ## 유형 3 - 이력서
 
+> 학력
+> got a Master/Bachelor's degree in 전공 from 대학 in 연도
+> She got a Master's degree in Design from Vancouver Art University in 2010.
+> Master: 석사, Bachelor: 학사
+> 
+> 경력
+> From 시작일 to 종료일, he worked at 회사명 as 직책
+> From 시작일 up to now, he has worked at 회사명 as 직책 // **has worked**
+> 
+> 
+
 ## 유형 4 - 면접 일정표
 
 ## 유형 5 - 수업 시간표

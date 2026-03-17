@@ -56,3 +56,5 @@
 > 다수가 공통점
 > 2. most of them are ...
 
+# Part 3
+

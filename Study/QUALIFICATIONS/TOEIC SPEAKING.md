@@ -60,6 +60,8 @@
 
 > Q. Have you ever used a photo-editing app to improve your picture images?
 
-> A. Yes, I have used a phtoo-editing app to improve my picture images. because I've been so busy preparing for job interviews lately that I haven't been looking my best.
+> A. Yes, I have used a phtoo-editing app to improve my picture images. because it's very userful and convenient, and I really liked it.
+
+
 
 

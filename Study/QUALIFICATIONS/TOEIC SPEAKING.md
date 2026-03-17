@@ -101,5 +101,7 @@
 > There is an intreview with 사람 from 회사명 (who is applying for 직책)
 > 
 > He/She is applying for ___ position.
+> 
+> 
 
 ## 유형 5 - 수업 시간표

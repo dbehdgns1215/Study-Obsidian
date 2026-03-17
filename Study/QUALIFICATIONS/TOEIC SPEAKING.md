@@ -81,6 +81,8 @@
 > 
 > 취소 / 연기 / 일정 변경
 > There was supposed to be 일정, but it has been canceled.
+> 
+> You will depart from San Francisco at 10 am on Amreican Air 105.
 
 
 ## 유형 3 - 이력서

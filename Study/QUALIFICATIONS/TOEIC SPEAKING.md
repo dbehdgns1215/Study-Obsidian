@@ -93,11 +93,13 @@
 > Master: 석사, Bachelor: 학사
 > 
 > 경력
-> From 시작일 to 종료일, he worked at 회사명 as 직책
-> From 시작일 up to now, he has worked at 회사명 as 직책 // **has worked**
-> 
-> 
+> From 시작일 to 종료일, he worked at 회사명 as 직책 in 연도
+> From 시작일 up to now, he has worked at 회사명 as 직책 in 연도 // **has worked**
 
 ## 유형 4 - 면접 일정표
+
+> There is an intreview with 사람 from 회사명 (who is applying for 직책)
+> 
+> He/She is applying for ___ position.
 
 ## 유형 5 - 수업 시간표

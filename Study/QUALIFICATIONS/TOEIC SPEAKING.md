@@ -6,6 +6,7 @@
 - 연도: in
 - 기간: from A to B
 - 기간: from A up to now (has worked)
+- 사람: with (함께하는 느낌. 주도적으로 누군가 하면 by)
 
 
 # Part 2
@@ -114,3 +115,10 @@
 > **It will be held on May 5th in Conference Room 3C.**
 
 ## 유형 5 - 수업 시간표
+
+> If you v, it's ~~ dollars
+> - If you are  a member, it's free.
+>   
+> There is a 과목명 class/course
+> 
+> 강사 will teach 과목명 class / course

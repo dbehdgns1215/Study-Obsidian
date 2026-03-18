@@ -126,17 +126,25 @@
 
 # Part 5
 
- > 서론
- > 문제에 맞게 결론부터 말함
+ >서론
+ > 제에 맞게 결론부터 말함
  
- > 연결 문장
- > Let me explain why I think this way.
+ >연결 문장
+ >Let me explain why I think this way.
 
 > 이유 1
 > Most of all, 첫 번째 이유 S + V
  
- > 예시 1
- > From my experience, S + V.
+ >예시 1
+ >From my experience, S + V.
  
 > 이유 2
-> On top of that
+> On top of that, 두 번째 이유 S + V
+
+> 예시 2
+> According to a recent news report, the majority of 사람들 in Korea said that S + V
+
+> 결론
+> Therefore, 서론 문장 반복
+
+

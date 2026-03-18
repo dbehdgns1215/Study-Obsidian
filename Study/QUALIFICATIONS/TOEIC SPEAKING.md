@@ -127,7 +127,7 @@
 # Part 5
 
  >서론
- > 제에 맞게 결론부터 말함
+ >주제에 맞게 결론부터 말함
  
  >연결 문장
  >Let me explain why I think this way.

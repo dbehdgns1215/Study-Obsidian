@@ -61,3 +61,42 @@ for (Integer value : map.values()) {
 - `values` 순회.
 	- 밸류 모아서 `Collection`으로 반환
 
+---
+# HashSet
+
+선언
+> `HashSet<Integer> set = new HashSet<>()`
+
+### 추가
+- `add(value)` - Set에 데이터 추가 값 존재하면 무시됨 (성공 `true`, 실패 `false`)
+
+### 삭제
+- `remove(value)` - Set에서 특정 데이터를 삭제 (성공 `true`, 실패 `false`)
+- `clear()` - Set 안의 모든 데이터를 날림
+
+### 검사
+- `contains(value)` - 특정 값이 Set에 존재하는지 확인 ($O(1)$)
+
+### 기타
+- `size()` - 데이터 개수
+- `isEmpty()` - 비었니?
+
+### 순회 패턴
+```java
+for (Integer num : set) {
+    // num 사용
+}
+```
+- 순서가 없기 때문에 향상된 for문으로 순회
+- 단순히 조회만 가능. 데이터 삭제 불가.
+
+```java
+Iterator<Integer> it = set.iterator();
+while (it.hasNext()) {
+    Integer num = it.next();
+    if (num == 2) {
+        it.remove(); // 안전하게 원소 삭제 가능
+    }
+}
+```
+- `Iterator`를 사용하면서 순회 도중에 원소를 삭제할 수 있음.

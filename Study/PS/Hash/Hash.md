@@ -58,6 +58,6 @@ for (Integer value : map.values()) {
 	// 순수하게 Value 리스트만 뽑을 때 사용
 }
 ```
-- `values` 순회
+- `values` 순회.
 	- 밸류 모아서 `Collection`으로 반환
 

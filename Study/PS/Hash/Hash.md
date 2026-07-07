@@ -50,3 +50,14 @@ for (String key : map.keySet()) {
 }
 ```
 - `KeySet` 순회.
+	- 키 모아서 `Set`으로 반환
+
+#### Value만 필요할 때
+```java
+for (Integer value : map.values()) {
+	// 순수하게 Value 리스트만 뽑을 때 사용
+}
+```
+- `values` 순회
+	- 밸류 모아서 `Collection`으로 반환
+

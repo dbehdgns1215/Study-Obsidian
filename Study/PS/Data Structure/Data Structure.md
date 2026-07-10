@@ -17,3 +17,10 @@ class Scoville implements Comparable<Scoville> {
 - PQ를 사용할 때는 Comparable를 구현해야 함.
 	- 안하면 최소힙이지만 구현하면 원하는대로 정렬 가능
 
+### `offer()` - 삽입
+### `poll()` - 우선순위 가장 높은 값 꺼내기
+### `peek()` - 우선순위 가장 높은 값 확인
+
+### `size()` - 큐 크기
+### `isEmpty()` - 비어 있는지 확인
+

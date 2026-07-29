@@ -1,4 +1,343 @@
 
+# 정말로 EZ 합니다.
+
+## 클러스터
+
+### 브로커
+
+Kafka 데이터를 저장하고 Producer·Consumer 요청을 처리하는 서버.
+
+### 클러스터
+
+여러 Kafka Broker를 하나로 묶은 시스템.
+
+### 부트스트랩 서버
+
+클라이언트가 Kafka Cluster에 처음 접속할 때 사용하는 Broker 주소.
+
+### 메타데이터
+
+Broker, Topic, Partition, Leader와 Replica의 위치 정보.
+
+### ZooKeeper
+
+과거 Kafka 외부에서 메타데이터와 Controller 선출을 관리하던 시스템.
+
+### KRaft
+
+ZooKeeper 없이 Kafka 내부에서 메타데이터를 관리하는 방식.
+
+### 컨트롤러
+
+Broker 상태를 관리하고 Partition Leader 선출을 조율하는 역할.
+
+### 액티브 컨트롤러
+
+현재 클러스터의 메타데이터 변경을 주도하는 Controller 한 대.
+
+### 스탠바이 컨트롤러
+
+메타데이터를 복제하며 Active Controller 장애에 대비하는 Controller.
+
+### 컨트롤러 쿼럼
+
+Active Controller를 선출하고 메타데이터에 합의하는 Controller 집합.
+
+### Raft
+
+과반수 합의로 Leader를 선출하고 로그를 복제하는 알고리즘.
+
+### Combined Mode
+
+Kafka Node 하나가 Broker와 Controller 역할을 함께 맡는 구성.
+
+### Dedicated Controller
+
+Broker 역할 없이 Controller 역할만 담당하는 Node.
+
+---
+
+## 데이터 저장
+
+### 레코드
+
+Kafka가 저장하고 전달하는 메시지 한 건.
+
+### 토픽
+
+같은 종류의 Record를 모아 놓는 논리적인 공간.
+
+### 파티션
+
+Topic의 Record를 나누어 저장하는 순서 보장 및 병렬 처리 단위.
+
+### 세그먼트
+
+Partition의 로그를 일정 크기나 시간으로 나눈 실제 파일 단위.
+
+### 오프셋
+
+Partition 안에서 Record의 위치를 나타내는 번호.
+
+### 리텐션
+
+Record를 Kafka에 얼마나 오래 보관할지 정하는 정책.
+
+### 리더 파티션
+
+해당 Partition의 읽기와 쓰기를 담당하는 복제본.
+
+### 팔로워 파티션
+
+Leader의 데이터를 복제하며 장애에 대비하는 복제본.
+
+### 리플리케이션 팩터
+
+Leader를 포함해 Partition을 총 몇 개의 복제본으로 보관할지 나타내는 값.
+
+### ISR
+
+Leader를 허용 범위 안에서 정상적으로 따라가고 있는 Replica 목록.
+
+### `min.insync.replicas`
+
+쓰기를 허용하기 위해 필요한 최소 ISR 수.
+
+---
+
+## Producer
+
+### 프로듀서
+
+Kafka Topic에 Record를 발행하는 클라이언트.
+
+### 메시지 키
+
+Record의 Partition을 결정하고 같은 Key의 순서를 유지하는 데 사용하는 값.
+
+### 직렬화
+
+Java 객체를 네트워크로 전송할 Byte Array로 변환하는 과정.
+
+### 파티셔너
+
+Record를 어느 Partition으로 보낼지 결정하는 구성 요소.
+
+### 레코드 어큐뮬레이터
+
+전송할 Record를 Partition별로 잠시 모아 두는 Producer 버퍼.
+
+### 배치
+
+같은 Partition으로 보낼 여러 Record를 묶은 전송 단위.
+
+### `batch.size`
+
+Producer Batch의 목표 최대 크기.
+
+### `linger.ms`
+
+Batch에 Record를 더 모으기 위해 기다리는 최대 시간.
+
+### Sender Thread
+
+Accumulator의 Batch를 Broker로 전송하는 백그라운드 Thread.
+
+### `acks`
+
+Producer가 어느 수준의 저장 확인을 받아야 성공으로 판단할지 정하는 값.
+
+### 콜백
+
+Kafka 전송 성공 또는 실패 이후 자동으로 실행되는 코드.
+
+### Producer 멱등성
+
+Producer 재시도로 동일 Record가 중복 저장되는 것을 줄이는 기능.
+
+---
+
+## Consumer
+
+### 컨슈머
+
+Kafka Topic의 Record를 가져와 처리하는 클라이언트.
+
+### 컨슈머 그룹
+
+하나의 목적을 위해 Partition을 나누어 처리하는 Consumer 집합.
+
+### 파티션 독점
+
+같은 Consumer Group에서는 Partition 하나를 Consumer 한 명만 담당하는 규칙.
+
+### 리밸런싱
+
+Consumer 변화에 따라 Partition 담당자를 다시 배정하는 과정.
+
+### 커밋 오프셋
+
+Consumer Group이 처리를 완료했다고 Kafka에 기록한 다음 위치.
+
+### Consumer Lag
+
+최신 Offset과 Committed Offset 사이의 처리되지 않은 Record 수.
+
+### 자동 커밋
+
+Kafka Client가 Offset을 주기적으로 자동 저장하는 방식.
+
+### Manual ACK
+
+업무 처리가 끝난 뒤 애플리케이션이 직접 Offset Commit을 요청하는 방식.
+
+### `__consumer_offsets`
+
+Consumer Group의 Committed Offset을 저장하는 Kafka 내부 Topic.
+
+---
+
+## 처리 보장
+
+### At-Most-Once
+
+중복은 줄이지만 실패한 메시지가 유실될 수 있는 처리 방식.
+
+### At-Least-Once
+
+유실은 줄이지만 같은 메시지가 중복 처리될 수 있는 방식.
+
+### Exactly-Once
+
+재시도가 발생해도 결과가 논리적으로 한 번만 반영되는 처리 방식.
+
+### 멱등성
+
+같은 작업을 여러 번 수행해도 최종 결과가 달라지지 않는 성질.
+
+### Kafka Transaction
+
+여러 Kafka 발행과 Offset Commit을 하나의 작업으로 묶는 기능.
+
+### DB Transaction
+
+여러 DB 작업을 모두 Commit하거나 모두 Rollback하도록 묶는 기능.
+
+### 원자성
+
+여러 작업이 전부 성공하거나 전부 실패해야 하는 성질.
+
+### DLT
+
+계속 실패하는 메시지를 따로 격리하는 Dead Letter Topic.
+
+### 재시도
+
+일시적인 실패가 발생한 작업을 다시 수행하는 처리.
+
+---
+
+## 시스템 연동
+
+### Dual Write
+
+하나의 요청에서 DB 저장과 Kafka 전송을 각각 수행하는 구조.
+
+### Outbox Pattern
+
+업무 데이터와 발행할 이벤트를 같은 DB Transaction으로 저장하는 패턴.
+
+### Inbox Pattern
+
+처리한 Event ID를 DB에 기록해 Consumer 중복 처리를 막는 패턴.
+
+### Event ID
+
+메시지 한 건을 고유하게 식별하는 값.
+
+### CDC
+
+DB 변경 로그를 읽어 변경 내용을 이벤트로 전달하는 기술.
+
+### Binlog
+
+MySQL의 데이터·스키마 변경 이력을 기록하는 Binary Log.
+
+### Kafka Connect
+
+Kafka와 DB 등 외부 시스템 사이의 데이터 이동을 관리하는 플랫폼.
+
+### Debezium
+
+DB의 Binlog를 읽어 변경 이벤트를 Kafka로 보내는 CDC Connector.
+
+---
+
+## Plys 연관 개념
+
+### `@Transactional`
+
+Spring에서 DB Transaction의 범위를 지정하는 Annotation.
+
+### Master DB
+
+쓰기와 최신 데이터 조회를 담당하는 원본 DB.
+
+### Slave DB
+
+Master 데이터를 복제해 주로 조회를 처리하는 DB.
+
+### Read/Write Splitting
+
+쓰기는 Master, 읽기는 Slave로 보내는 구조.
+
+### Replication Lag
+
+Master의 변경이 Slave에 반영되기까지 발생하는 시간 차.
+
+### Read-After-Write
+
+데이터를 쓴 직후 조회했을 때 최신 데이터가 보여야 하는 정합성.
+
+### ThreadLocal
+
+현재 Thread 안에서만 공유되는 값을 저장하는 Java 기능.
+
+### RoutingDataSource
+
+트랜잭션 상태에 따라 Master와 Slave를 선택하는 DataSource.
+
+---
+
+## Elasticsearch 비교
+
+### Elasticsearch Index
+
+비슷한 JSON Document를 모아 놓는 논리적인 공간.
+
+### Shard
+
+Elasticsearch Index의 Document를 나누어 저장하는 단위.
+
+### Sharding
+
+여러 Document를 여러 Primary Shard로 분배하는 것.
+
+### Replica Shard
+
+Elasticsearch Primary Shard의 복사본.
+
+### Lucene Index
+
+Elasticsearch Shard 내부에서 실제 검색과 역인덱싱을 수행하는 저장소.
+
+
+
+
+
+
+# 아래는 조금 심화 버전
+
 ## 1. 시스템 인프라 아키텍처
 
 ### Kafka Cluster

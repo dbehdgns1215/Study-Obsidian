@@ -101,11 +101,35 @@ Elasticsearch 노드들은 클라이언트와 통신하기 위한 http 포트 (`
 
 
 
+## REST API - CRUD
 
+기본 구조
+```bash
+Index: my_index
 
+Document
+_id = 1
+{
+  "name": "Jongmin Kim",
+  "message": "안녕하세요 Elasticsearch"
+}
+```
+- 해당 문서에 접근하는 주소는
+	- `my_index/_doc/1`
 
+```text
+my_index  → Index 이름
+_doc      → 문서 API 경로에 들어가는 고정 문자열
+1         → Document의 _id
+```
 
+중요한게, 예전에는 Mapping Type 이라고 해서 인덱스와 \_id 사이에 식별자 같은 느낌으로 리소스가 하나 더 있었음.
 
+하지만 8.0 버전부터 사라졌으며 지금은 관례상 \_doc 라는 내용으로 유지 중.
+
+> 있는게 가독성이 더 좋아보이는데 왜 사라졌을까?
+> 
+> 기본적으로 Elasticsearch는 
 
 
 

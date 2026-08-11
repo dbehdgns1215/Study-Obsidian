@@ -43,6 +43,8 @@ Elasticsearch 노드들은 클라이언트와 통신하기 위한 http 포트 (`
 - 인덱스는 기본적으로 샤드(**shard**)라는 단위로 분리되고 각 노드에 분산되어 저장됨.
 	- 샤드는 루씬의 단일 검색 인스턴스
 
+![[Pasted image 20260811235019.png]]
+
 > 도큐먼트 < 인덱스 & 인디시즈 < 샤드 < 노드 < 클러스터
 
 인덱스를 생성할 때 별도의 설정을 하지 않으면 7.0 버전부터는 기본 1개의 샤드로 인덱스가 생성됨.
@@ -50,6 +52,13 @@ Elasticsearch 노드들은 클라이언트와 통신하기 위한 http 포트 (`
 
 처음 생성된 샤드를 **프라이머리 샤드**, 복제본은 **레플리카 샤드**라 부름
 
+![[Pasted image 20260811235029.png]]
+- 그림을 보면, 각 Node마다 Shard들이 저장되어 있는데 하늘색이 Primary Shard, 회색이 Replica Shard.
+- 1번 Shard의 경우 Node-2에 Primary Shard가 있고, Node-4에 Replica Shard가 존재함.
+- 즉, `number_of_replicas: 1`로 설정되어 각 Primary Shard마다 Replica가 1개씩 존재하며, 하나의 Shard는 총 2개의 Shard Copy를 가지는 구조.
+
+> 노드가 1개만 있는 경우, 프라이머리 샤드만 존재하고 복제본은 생성되지 않음.
+> 또 Elasticsearch는 아무리 작은 클러스터라도 데이터 가용성과 무결성을 위해 최소 3개의 노드로 구성할 것을 권장하고 있음.
 
 
 

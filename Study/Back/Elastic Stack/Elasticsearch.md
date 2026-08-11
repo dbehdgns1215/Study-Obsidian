@@ -96,6 +96,9 @@ Elasticsearch 노드들은 클라이언트와 통신하기 위한 http 포트 (`
 - 만약 그렇지 않을 때, 마스터 후보 노드가 짝수 개이면 데이터 정합성에 Split Brain 이라는 문제가 생길 가능성이 커짐.
 
 
+# Elasticsearch 데이터 처리
+모든 정보는 `json`으로 통한다.
+
 
 
 

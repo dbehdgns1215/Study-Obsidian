@@ -212,8 +212,19 @@ GET my_index/_doc/1
 
 ### Update
 
+### 입력
+```
+POST my_index/_doc
+{
+  "name":"유동훈",
+  "message":"엘라스틱썻치 완전 정복 레레츠고고"
+}
+```
 
+### 출력
+```
 
+```
 ### Delete
 
 ### 입력

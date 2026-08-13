@@ -183,20 +183,61 @@ PUT my_index/_doc/1
 }
 ```
 - `result`가 `created`로 표시가 되고 있는데 동일한 URL에 다른 내용의 도큐먼트를 삽입하면 기존 도큐먼트가 **삭제**되고 새로운 도큐먼트로 **덮어씌워지게** 됨. 그리고 `created`가 아닌 `updated`가 표시됨.
-
-
+- 또한 `_doc` 대신 `_create`를 사용하면 새로운 도큐먼트의 입력만 허용하는 것이 가능해짐.
+	- 즉, 이미 존재하는 도큐먼트 id일 경우에는 오류가 나고 그렇지 않으면 `created` 되는 것.
 
 ### Read
 
+### 입력
+```
+GET my_index/_doc/1
+```
 
-
+### 출력
+```
+{
+  "_index" : "my_index",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 2,
+  "_seq_no" : 1,
+  "_primary_term" : 1,
+  "found" : true,
+  "_source" : {
+    "name" : "유동훈",
+    "message" : "엘라스틱서치 완전정복 렛츠고"
+  }
+}
+```
 
 ### Update
 
 
 
-
 ### Delete
+
+### 입력
+```
+DELETE my_index/_doc/1
+```
+
+### 출력
+```
+{
+  "_index" : "my_index",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 3,
+  "result" : "deleted",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "failed" : 0
+  },
+  "_seq_no" : 2,
+  "_primary_term" : 1
+}
+```
 
 
 

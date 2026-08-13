@@ -156,6 +156,7 @@ _doc      → 문서 API 경로에 들어가는 고정 문자열
 
 데이터를 입력할 때는 PUT 메서드를 이용함.
 
+### 입력
 ```
 PUT my_index/_doc/1
 {
@@ -163,6 +164,25 @@ PUT my_index/_doc/1
   "message":"엘라스틱서치 완전정복 렛츠고"
 }
 ```
+
+### 출력
+```
+{
+  "_index" : "my_index",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 0,
+  "_primary_term" : 1
+}
+```
+- `result`가 `created`로 표시가 되고 있는데 동일한 URL에 다른 내용의 도큐먼트를 삽입하면 기존 도큐먼트가 **삭제**되고 새로운 도큐먼트로 **덮어씌워지게** 됨. 그리고 `created`가 아닌 `updated`가 표시됨.
 
 
 

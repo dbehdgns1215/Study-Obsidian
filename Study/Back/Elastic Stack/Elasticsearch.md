@@ -214,7 +214,7 @@ GET my_index/_doc/1
 
 ### 입력
 ```
-POST my_index/_doc
+POST my_index/_update/1
 {
   "name":"유동훈",
   "message":"엘라스틱썻치 완전 정복 레레츠고고"
@@ -223,8 +223,54 @@ POST my_index/_doc
 
 ### 출력
 ```
-
+{
+  "_index" : "my_index",
+  "_type" : "_doc",
+  "_id" : "ZuFv12wBspWtEG13dOut",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 0,
+  "_primary_term" : 1
+}
 ```
+
+그러나 여기서 일부 필드를 바꾸고자 전체 도큐먼트 내용을 매번 다시 입력하는 것은 번거롭기에 이때 사용하는 것이 바로 `_update`
+
+### 입력
+```
+POST my_index/_update/1
+{
+  "doc": {
+    "message":"안녕하세요 Kibana"
+  }
+}
+```
+
+### 출력
+```
+{
+  "_index" : "my_index",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 2,
+  "result" : "updated",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "failed" : 0
+  },
+  "_seq_no" : 1,
+  "_primary_term" : 1
+}
+```
+
+참고로 수정하면 `_version` 값도 증가하게 됨.
+
 ### Delete
 
 ### 입력

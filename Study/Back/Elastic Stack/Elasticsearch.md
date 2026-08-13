@@ -45,7 +45,19 @@ Elasticsearch 노드들은 클라이언트와 통신하기 위한 http 포트 (`
 
 ![[Pasted image 20260811235019.png]]
 
-> 도큐먼트 < 인덱스 & 인디시즈 < 샤드 < 노드 < 클러스터
+> 데이터의 논리 구조
+> Cluster
+> 	└─ Index
+> 	    └─ Shard
+> 		    └─ Document
+
+> 데이터의 실제 실행/배치 구조
+> Cluster 
+> 	└─ Node
+> 		└─ Shard Copy
+> 			└─ Lucene Index
+> 				└─ Segment
+> 					└─ Document
 
 인덱스를 생성할 때 별도의 설정을 하지 않으면 7.0 버전부터는 기본 1개의 샤드로 인덱스가 생성됨.
 또 클러스터에 노드를 추가하게 되면 샤드들이 각 노드들로 분산되고 기본으로 1개의 복제본을 생성하게 됨.

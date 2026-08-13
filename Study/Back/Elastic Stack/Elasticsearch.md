@@ -154,10 +154,10 @@ _doc      → 문서 API 경로에 들어가는 고정 문자열
 
 ### Create
 
-데이터를 입력할 때는 PUT 메서드를 이용함.
+도큐먼트 id를 직접 지정해서 데이터를 입력할 때는 PUT 메서드를 이용함.
 
 ### 입력
-```
+```javascript
 PUT my_index/_doc/1
 {
   "name":"유동훈",
@@ -166,41 +166,42 @@ PUT my_index/_doc/1
 ```
 
 ### 출력
-```
+```javascript
 {
   "_index" : "my_index",
-  "_type" : "_doc",
   "_id" : "1",
   "_version" : 1,
   "result" : "created",
   "_shards" : {
     "total" : 2,
-    "successful" : 1,
+    "successful" : 2,
     "failed" : 0
   },
   "_seq_no" : 0,
   "_primary_term" : 1
 }
 ```
-- `result`가 `created`로 표시가 되고 있는데 동일한 URL에 다른 내용의 도큐먼트를 삽입하면 기존 도큐먼트가 **삭제**되고 새로운 도큐먼트로 **덮어씌워지게** 됨. 그리고 `created`가 아닌 `updated`가 표시됨.
+
+- `result`가 `created`로 표시가 되고 있는데 동일한 URL에 다른 내용의 도큐먼트를 다시 입력하면 기존 도큐먼트의 전체 내용이 새로운 내용으로 덮어씌워지게 됨. 그리고 `created`가 아닌 `updated`가 표시됨.
+    - 내부적으로는 기존 도큐먼트를 삭제된 상태로 표시하고 새로운 도큐먼트를 다시 색인하는 방식으로 처리됨.
 - 또한 `_doc` 대신 `_create`를 사용하면 새로운 도큐먼트의 입력만 허용하는 것이 가능해짐.
-	- 즉, 이미 존재하는 도큐먼트 id일 경우에는 오류가 나고 그렇지 않으면 `created` 되는 것.
+    - 즉, 이미 존재하는 도큐먼트 id일 경우에는 오류가 나고 그렇지 않으면 `created` 되는 것.
+- 도큐먼트 id를 직접 지정하지 않고 Elasticsearch가 자동으로 생성하게 하고 싶다면 `POST my_index/_doc` 형태로 입력할 수도 있음.
 
 ### Read
 
 ### 입력
-```
+```javascript
 GET my_index/_doc/1
 ```
 
 ### 출력
-```
+```javascript
 {
   "_index" : "my_index",
-  "_type" : "_doc",
   "_id" : "1",
-  "_version" : 2,
-  "_seq_no" : 1,
+  "_version" : 1,
+  "_seq_no" : 0,
   "_primary_term" : 1,
   "found" : true,
   "_source" : {
@@ -209,53 +210,29 @@ GET my_index/_doc/1
   }
 }
 ```
+- `found`는 해당 id의 도큐먼트가 존재하는지를 나타냄.
+- `_source`에는 실제로 입력했던 도큐먼트의 내용이 들어있음.
 
 ### Update
 
-### 입력
-```
-POST my_index/_update/1
-{
-  "name":"유동훈",
-  "message":"엘라스틱썻치 완전 정복 레레츠고고"
-}
-```
+일부 필드를 바꾸고자 전체 도큐먼트 내용을 매번 다시 입력하는 것은 번거롭기에 이때 사용하는 것이 바로 `_update`.
 
-### 출력
-```
-{
-  "_index" : "my_index",
-  "_type" : "_doc",
-  "_id" : "ZuFv12wBspWtEG13dOut",
-  "_version" : 1,
-  "result" : "created",
-  "_shards" : {
-    "total" : 2,
-    "successful" : 1,
-    "failed" : 0
-  },
-  "_seq_no" : 0,
-  "_primary_term" : 1
-}
-```
-
-그러나 여기서 일부 필드를 바꾸고자 전체 도큐먼트 내용을 매번 다시 입력하는 것은 번거롭기에 이때 사용하는 것이 바로 `_update`
+`_update`에서는 수정할 내용을 `doc` 안에 넣어주면 됨.
 
 ### 입력
-```
+```javascript
 POST my_index/_update/1
 {
   "doc": {
-    "message":"안녕하세요 Kibana"
+    "message":"엘라스틱썻치 완전 정복 레레츠고고"
   }
 }
 ```
 
 ### 출력
-```
+```javascript
 {
   "_index" : "my_index",
-  "_type" : "_doc",
   "_id" : "1",
   "_version" : 2,
   "result" : "updated",
@@ -269,20 +246,43 @@ POST my_index/_update/1
 }
 ```
 
-참고로 수정하면 `_version` 값도 증가하게 됨.
+기존 도큐먼트가
+
+```javascript
+{
+  "name":"유동훈",
+  "message":"엘라스틱서치 완전정복 렛츠고"
+}
+```
+
+였다면 `message` 필드만 변경했기 때문에 결과적으로
+
+```javascript
+{
+  "name":"유동훈",
+  "message":"엘라스틱썻치 완전 정복 레레츠고고"
+}
+```
+
+가 됨.
+
+즉 `_update`를 사용하면 사용자는 수정하려는 필드만 전달할 수 있음.
+
+다만 내부적으로 해당 필드만 직접 수정하는 것은 아니고, 기존 도큐먼트를 가져와 변경 내용을 적용한 뒤 변경된 도큐먼트를 다시 색인하는 방식으로 동작함.
+
+참고로 실제로 도큐먼트가 수정되면 `_version` 값도 증가하게 됨.
 
 ### Delete
 
 ### 입력
-```
+```javascript
 DELETE my_index/_doc/1
 ```
 
 ### 출력
-```
+```javascript
 {
   "_index" : "my_index",
-  "_type" : "_doc",
   "_id" : "1",
   "_version" : 3,
   "result" : "deleted",
@@ -295,8 +295,8 @@ DELETE my_index/_doc/1
   "_primary_term" : 1
 }
 ```
-
-
+- `result`가 `deleted`로 표시되며 해당 id의 도큐먼트가 삭제됨.
+- 도큐먼트를 삭제하는 것 역시 하나의 쓰기 작업이기 때문에 `_version` 값이 증가함.
 
 
 

@@ -320,7 +320,59 @@ DELETE my_index/_doc/1
 
 
 
+# \_bulk API
 
+### Elasticsearch Bulk API 핵심
+
+- 일반 방식  
+    `PUT`, `POST`, `DELETE` 같은 REST API 요청을 문서마다 따로 보냄.
+
+```text
+PUT /test/_doc/1
+PUT /test/_doc/2
+DELETE /test/_doc/3
+POST /test/_update/4
+```
+→ HTTP 요청 4번
+
+- Bulk 방식  
+    `POST /_bulk` 요청 **한 번**에 여러 작업을 같이 넣음.
+
+```text
+POST /_bulk
+
+index  → 문서 저장
+create → 새 문서 생성
+update → 문서 수정
+delete → 문서 삭제
+```
+→ HTTP 요청 1번  
+→ 실제 문서 작업은 여전히 4개
+
+### 왜 쓰냐
+
+**작업 개수를 줄이는 게 아니라, 네트워크 요청 횟수와 HTTP 처리 오버헤드를 줄이려고 사용함.**
+
+```text
+일반 API
+작업 1000개 → HTTP 요청 1000번
+
+Bulk
+작업 1000개 → 예: 한 번에 100개씩 → HTTP 요청 10번
+```
+
+### 가장 중요한 구분
+
+```text
+PUT / POST / GET / DELETE
+= HTTP 메서드
+
+index / create / update / delete
+= Bulk 요청 안에서 각 문서에 어떤 작업을 할지 나타내는 Bulk Action
+```
+
+
+**Bulk API = 여러 Elasticsearch 문서 작업을 큰 HTTP 요청 하나에 묶어서 전송하는 대량 처리용 API.**
 
 
 

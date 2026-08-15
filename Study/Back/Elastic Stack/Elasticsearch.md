@@ -379,6 +379,100 @@ index / create / update / delete
 
 검색은 인덱스 단위로 이루어진다. `GET <인덱스명>/_search` 형식으로 사용하며 쿼리를 입력하지 않으면 전체 도큐먼트를 찾는 **match_all** 검색을 수행함.
 
+특정 인덱스에서 **"name"** 이라는 값을 검색하기 위해서는 다음과 같이 입력한다.
+
+### 입력
+
+```
+GET <인덱스명>/_search?q=name
+```
+
+### 출력
+
+```json
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 2,
+      "relation" : "eq"
+    },
+    "max_score" : 0.105360515,
+    "hits" : [
+      {
+        "_index" : "test",
+        "_type" : "_doc",
+        "_id" : "3",
+        "_score" : 0.105360515,
+        "_source" : {
+          "field" : "value three"
+        }
+      },
+      {
+        "_index" : "인덱스명",
+        "_type" : "_doc",
+        "_id" : "1",
+        "_score" : 0.105360515,
+        "_source" : {
+          "field" : "value two"
+        }
+      }
+    ]
+  }
+}
+```
+- `hits.total.value` 부분에 검색 결과의 문서 전체 개수가 표시되고 더 나아가 "hits" 라는 배열 안에 정확도가 높은 문서가 표시됨. 이때 정확도를 **relevancy**라고 함.
+
+만약, 검색어가 2개라면 **AND** 조건을 사용해서 검색하면 됨. 그렇게 하면 두 값이 모두 들어간 문서만 검색되게 됨. (`AND`, `OR`, `NOT` 모두 사용 가능)
+
+```
+GET <인덱스명>/_search?q=name AND phoneNum
+```
+
+또 다른 검색 방식으로는 데이터 본문 검색이 있음.
+
+검색 쿼리를 데이터 본문, Data Body로 입력하는 방식으로 Elasticsearch의 QueryDSL을 사용하며 쿼리 또한 json 형식으로 되어있음.
+
+주로 사용되는 `match` 쿼리의 경우 다음과 같음
+
+```
+GET test/_search
+{
+  "query": {
+    "match": {
+      "field": "name"
+    }
+  }
+}
+```
+- field 값이 name인 도큐먼트를 검색하는 쿼리.
+- 데이터 본문 방식으로 쿼리를 입력할 때는 무조건 `query` 지정자로 시작해야 함.
+
+
+## 멀티테넌시
+
+Elasticsearch는 여러 개의 인덱스를 한꺼번에 묶어서 검색할 수 있는 멀티테넌시를 지원함.
+즉, `logs-2026-08-01`과 `logs-2026-08-02`와 같이 날짜별로 있는 인덱스들을 `logs-*/_search` 명령으로 한꺼번에 검색이 가능하다는 뜻.
+
+시계열 로그 데이터를 다룰 때는 인덱스를 일단위로 구분하는 것이 좋음.
+
+
+
+
+
+
+
+
+
+
+
 
 
 

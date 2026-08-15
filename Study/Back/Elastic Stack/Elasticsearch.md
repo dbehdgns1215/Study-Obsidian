@@ -320,7 +320,7 @@ DELETE my_index/_doc/1
 
 
 
-# \_bulk API
+## \_bulk API
 
 ### Elasticsearch Bulk API 핵심
 
@@ -375,7 +375,9 @@ index / create / update / delete
 **Bulk API = 여러 Elasticsearch 문서 작업을 큰 HTTP 요청 하나에 묶어서 전송하는 대량 처리용 API.**
 
 
+## \_search API
 
+검색은 인덱스 단위로 이루어진다. `GET <인덱스명>/_search` 형식으로 사용하며 쿼리를 입력하지 않으면 전체 도큐먼트를 찾는 **match_all** 검색을 수행함.
 
 
 

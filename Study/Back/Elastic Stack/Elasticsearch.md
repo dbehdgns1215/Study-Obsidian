@@ -520,6 +520,50 @@ GET my_index/_search
 }
 ```
 - `operator` 추가
+	- 만약, "quick dog" 이 구문과 정확히 일치하는 문서가 필요하다면?
+```json
+GET my_index/_search
+{
+  "query": {
+    "match_phrase": {
+      "message": "quick dog"
+    }
+  }
+}
+```
+- `match_phrase`를 사용해주면 됨.
+	- 근데 "quick"와 "dog" 사이에 무언가가 들어간 값을 검색하고 싶다면?
+```json
+GET my_index/_search
+{
+  "query": {
+    "match_phrase": {
+      "message": {
+        "query": "quick dog",
+        "slop": 1
+      }
+    }
+  }
+}
+```
+- `slop` 옵션의 값을 1로 주고 검색하면 됨. -> 즉 "quick jumping dog" 같은 도큐먼트가 검색됨.
+
+### query_string
+
+결국 URL의 q 파라미터를 사용하게 된다면 루씬의 검색 문법을 본문 검색에도 사용할 수 있음. 
+
+```json
+GET my_index/_search
+{
+  "query": {
+    "query_string": {
+      "default_field": "message",
+      "query": "(jumping AND lazy) OR \"quick dog\""
+    }
+  }
+}
+```
+ - `match_phrase` 처럼 구문 검색을 할 때는 `\"` 안에 넣어주면 됨.
 
 
 

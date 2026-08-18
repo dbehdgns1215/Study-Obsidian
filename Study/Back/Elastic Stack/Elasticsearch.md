@@ -488,14 +488,38 @@ GET logs-2026-*/_search
 
 ### match
 
-match 쿼리는 풀 텍스트 검색에 사용되는 가장 일반적인 쿼리로, 특정 인덱스의 message 필드에 특정 단어가 포함되어 있는 모든 문서를 검색함.
+`match` 쿼리는 풀 텍스트 검색에 사용되는 가장 일반적인 쿼리로, 특정 인덱스의 `message` 필드에 특정 단어가 포함되어 있는 모든 문서를 검색함.
 
-단, 여러 개의 검색어를 집어넣으면 OR 조건으로 검색됨.
+단, 여러 개의 검색어를 집어넣으면 `OR` 조건으로 검색됨.
 
+만약,
 
-
-
-
+```json
+GET my_index/_search
+{
+  "query": {
+    "match": {
+      "message": "quick dog"
+    }
+  }
+}
+```
+- 이런 쿼리가 있었다면, quick이 들어간 도큐먼트와 dog가 들어간 도큐먼트 모두가 검색되는 것.
+	- 이게 만약 싫고 `AND`로 검색하고 싶다면?
+```json
+GET my_index/_search
+{
+  "query": {
+    "match": {
+      "message": {
+        "query": "quick dog",
+        "operator": "and"
+      }
+    }
+  }
+}
+```
+- `operator` 추가
 
 
 

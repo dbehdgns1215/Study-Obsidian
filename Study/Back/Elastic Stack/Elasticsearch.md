@@ -599,6 +599,8 @@ GET <인덱스명>/_search
 ```
 
 
+## 정확도 - Relevancy
+
 
 
 

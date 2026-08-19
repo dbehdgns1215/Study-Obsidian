@@ -781,6 +781,21 @@ GET my_index/_search
 - 먼저 `match` 쿼리로 `커피`와 `주전자`을 모두 검색한 뒤, `should`를 통해 `match_phrase``커피 주전자`로 검색하게 된다면, 커피와 관련된 용품, 주전자와 관련된 용품들이 검색되고 최상단에는 `커피 주전자` 가 올라가게 되는 것.
 	- 또한 여기서 `slop`을 주게 되면 `커피 온도조절 주전자` 와 같이 특정 단어가 중간에 낀 결과에도 가중치를 부여해서 상단에 띄우는 응용도 가능.
 
+```json
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "message": { "query": "커피 주전자", "operator": "and" } } }
+      ],
+      "should": [
+        { "match_phrase": { "message": { "query": "커피 주전자", "boost": 3 } } },
+        { "match_phrase": { "message": { "query": "커피 주전자", "slop": 2, "boost": 1.5 } } }
+      ]
+    }
+  }
+}
+```
 
 
 

@@ -176,7 +176,7 @@ _doc      → 문서 API 경로에 들어가는 고정 문자열
 
 도큐먼트 id를 직접 지정해서 데이터를 입력할 때는 PUT 메서드를 이용함.
 
-### 입력
+#### 입력
 ```javascript
 PUT my_index/_doc/1
 {
@@ -185,7 +185,7 @@ PUT my_index/_doc/1
 }
 ```
 
-### 출력
+#### 출력
 ```javascript
 {
   "_index" : "my_index",
@@ -208,14 +208,14 @@ PUT my_index/_doc/1
     - 즉, 이미 존재하는 도큐먼트 id일 경우에는 오류가 나고 그렇지 않으면 `created` 되는 것.
 - 도큐먼트 id를 직접 지정하지 않고 Elasticsearch가 자동으로 생성하게 하고 싶다면 `POST my_index/_doc` 형태로 입력할 수도 있음.
 
-### Read
+#### Read
 
-### 입력
+#### 입력
 ```javascript
 GET my_index/_doc/1
 ```
 
-### 출력
+#### 출력
 ```javascript
 {
   "_index" : "my_index",
@@ -233,13 +233,13 @@ GET my_index/_doc/1
 - `found`는 해당 id의 도큐먼트가 존재하는지를 나타냄.
 - `_source`에는 실제로 입력했던 도큐먼트의 내용이 들어있음.
 
-### Update
+#### Update
 
 일부 필드를 바꾸고자 전체 도큐먼트 내용을 매번 다시 입력하는 것은 번거롭기에 이때 사용하는 것이 바로 `_update`.
 
 `_update`에서는 수정할 내용을 `doc` 안에 넣어주면 됨.
 
-### 입력
+#### 입력
 ```javascript
 POST my_index/_update/1
 {
@@ -294,12 +294,12 @@ POST my_index/_update/1
 
 ### Delete
 
-### 입력
+#### 입력
 ```javascript
 DELETE my_index/_doc/1
 ```
 
-### 출력
+#### 출력
 ```javascript
 {
   "_index" : "my_index",
@@ -381,13 +381,13 @@ index / create / update / delete
 
 특정 인덱스에서 **"name"** 이라는 값을 검색하기 위해서는 다음과 같이 입력한다.
 
-### 입력
+#### 입력
 
 ```
 GET <인덱스명>/_search?q=name
 ```
 
-### 출력
+#### 출력
 
 ```json
 {
@@ -612,6 +612,168 @@ RDBMS 같은 시스템에서는 쿼리 조건에 부합하는지만 판단하여
 
 ### should
 
+특정 도큐먼트의 가중치를 줘서 정확도를 올리고 싶을 때 사용하면 됨.
+
+예를 들어서
+
+match 쿼리로 fox를 퐇마하는 도큐먼트를 검색했을 때,
+
+#### 입력
+```json
+GET my_index/_search
+{
+  "query": {
+    "match": {
+      "message": "fox"
+    }
+  }
+}
+```
+
+#### 출력
+```json
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 4,
+      "relation" : "eq"
+    },
+    "max_score" : 0.32951736,
+    "hits" : [
+      {
+        "_index" : "my_index",
+        "_type" : "_doc",
+        "_id" : "1",
+        "_score" : 0.32951736,
+        "_source" : {
+          "message" : "The quick brown fox"
+        }
+      },
+      {
+        "_index" : "my_index",
+        "_type" : "_doc",
+        "_id" : "4",
+        "_score" : 0.32951736,
+        "_source" : {
+          "message" : "Brown fox brown dog"
+        }
+      },
+      {
+        "_index" : "my_index",
+        "_type" : "_doc",
+        "_id" : "2",
+        "_score" : 0.23470737,
+        "_source" : {
+          "message" : "The quick brown fox jumps over the lazy dog"
+        }
+      },
+      {
+        "_index" : "my_index",
+        "_type" : "_doc",
+        "_id" : "3",
+        "_score" : 0.23470737,
+        "_source" : {
+          "message" : "The quick brown fox jumps over the quick dog"
+        }
+      }
+    ]
+  }
+}
+```
+- `lazy`가 포함된 결과에 가중치를 줘서 상위로 올리고 싶으면
+
+#### 입력
+```json
+GET my_index/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "message": "fox"
+          }
+        }
+      ],
+      "should": [
+        {
+          "match": {
+            "message": "lazy"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+#### 출력
+```json
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 4,
+      "relation" : "eq"
+    },
+    "max_score" : 0.9489644,
+    "hits" : [
+      {
+        "_index" : "my_index",
+        "_type" : "_doc",
+        "_id" : "2",
+        "_score" : 0.9489644,
+        "_source" : {
+          "message" : "The quick brown fox jumps over the lazy dog"
+        }
+      },
+      {
+        "_index" : "my_index",
+        "_type" : "_doc",
+        "_id" : "1",
+        "_score" : 0.32951736,
+        "_source" : {
+          "message" : "The quick brown fox"
+        }
+      },
+      {
+        "_index" : "my_index",
+        "_type" : "_doc",
+        "_id" : "4",
+        "_score" : 0.32951736,
+        "_source" : {
+          "message" : "Brown fox brown dog"
+        }
+      },
+      {
+        "_index" : "my_index",
+        "_type" : "_doc",
+        "_id" : "3",
+        "_score" : 0.23470737,
+        "_source" : {
+          "message" : "The quick brown fox jumps over the quick dog"
+        }
+      }
+    ]
+  }
+}
+```
+- 이전과 비교했을 때, 바뀐 순서를 보면 `lazy`가 들어간 `fox` 가 정확도 1등
 
 
 

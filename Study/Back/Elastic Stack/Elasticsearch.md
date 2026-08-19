@@ -567,7 +567,9 @@ GET my_index/_search
  - `match_phrase` 처럼 구문 검색을 할 때는 `\"` 안에 넣어주면 됨.
 
 
-## 
+## Bool 복합 쿼리 - Bool Query
+
+
 
 
 

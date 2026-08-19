@@ -785,13 +785,35 @@ GET my_index/_search
 {
   "query": {
     "bool": {
-      "must": [
-        { "match": { "message": { "query": "커피 주전자", "operator": "and" } } }
-      ],
       "should": [
-        { "match_phrase": { "message": { "query": "커피 주전자", "boost": 3 } } },
-        { "match_phrase": { "message": { "query": "커피 주전자", "slop": 2, "boost": 1.5 } } }
-      ]
+        { 
+          "match": { 
+            "message": { 
+              "query": "커피 주전자", 
+              "operator": "or", 
+              "boost": 1 
+            } 
+          } 
+        },
+        { 
+          "match_phrase": { 
+            "message": { 
+              "query": "커피 주전자", 
+              "boost": 5 
+            } 
+          } 
+        },
+        { 
+          "match_phrase": { 
+            "message": { 
+              "query": "커피 주전자", 
+              "slop": 2, 
+              "boost": 3 
+            } 
+          } 
+        }
+      ],
+      "minimum_should_match": 1 
     }
   }
 }

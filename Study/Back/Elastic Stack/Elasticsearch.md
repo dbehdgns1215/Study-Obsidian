@@ -825,6 +825,119 @@ GET my_index/_search
 
 이를 `정확값(Exact Value)`라고 하는데 말 그대로 일치 여부를 따지는 검색.
 
+다음 3개의 쿼리를 보자.
+
+```json
+GET my_index/_search
+{
+  "query": {
+    "match": {
+      "message": "fox"
+    }
+  }
+}
+```
+
+```json
+GET my_index/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "message": "fox"
+          }
+        },
+        {
+          "match": {
+            "message": "quick"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+```json
+GET my_index/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "message": "fox"
+          }
+        }
+      ],
+      "filter": [
+        {
+          "match": {
+            "message": "quick"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+차이가 무엇일까?
+- 첫 번째 쿼리는 `match` 단독으로 fox를 검색하고 그 안에서 `fox`라는 검색어의 스코어를 BM25 알고리즘으로 계산할 것.
+- 두 번쨰 쿼리는 `fox`도 들어가고 `quick`도 들어가는 문서를 추려내는 것. 그리고 `fox`, `quick` 두 단어 모두의 빈도수(TF)와 희귀도(IDF)를 끌어모아 합산한 점수
+- 세 번째 쿼리는 결과만 놓고 보면 `fox`, `quick`가 모두 들어가는 문서가 맞지만 두 번째 쿼리와의 차이점은 `quick`가 `filter` 안에 있기 때문에 `Yes/No` 판정에만 사용하고 점수를 매기지는 않는다는 것.
+
+따라서 `match`를 써야할 때는 사용자가 검색창에 친 키워드들을 더 정확히 정교하게 줄세워야 할 때 즉, 스코어링해서 결과를 보여줘야 할 때이고
+
+`filter`를 써야할 때는 `가격 1만원 이하`, `"brand: 스타벅스"`, `재고 있음` 등과 같은 `조건`이 필요할 때 사용하는 것. 이러한 조건은 결국 검색 관련성 점수를 높여주지 않기 때문에 특정 조건으로 결과를 **거르는 것**이 목적인 것.
+```json
+{
+  "query": {
+    "bool": {
+      "filter": [
+        { "term": { "status": "PUBLISHED" } },
+        { "range": { "created_at": { "gte": "2026-01-01" } } },
+        { "terms": { "category_id": [101, 102] } }
+      ]
+    }
+  }
+}
+```
+- 이런 느낌으로 `bool` 안에 `filter`를 넣어서 여러 `조건`들로 필터링하는 것임.
+
+
+참고로 `filter` 내부에 `must_not`과 같은 다른 `bool 쿼리`를 넣으려면 `filter` 내부에 `bool` 쿼리를 먼저 넣고 그 안에 다시 `must_not`을 넣어야 함.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

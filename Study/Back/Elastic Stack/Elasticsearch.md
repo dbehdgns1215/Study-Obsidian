@@ -910,14 +910,49 @@ GET my_index/_search
 
 참고로 `filter` 내부에 `must_not`과 같은 다른 `bool 쿼리`를 넣으려면 `filter` 내부에 `bool` 쿼리를 먼저 넣고 그 안에 다시 `must_not`을 넣어야 함.
 
+```json
+GET my_index/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "message": "fox"
+          }
+        }
+      ],
+      "filter": [
+        {
+          "bool": {
+            "must_not": [
+              {
+                "match": {
+                  "message": "dog"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+- 위 커리를 보면 `bool` -> `must` -> `match` 이렇게 있고 또 `bool` -> `filter` -> `bool` -> `must_not` -> `match` 이렇게 존재하는 것을 볼 수 있다.
+
+> **`bool`** (최상위 통과 게이트 오픈)
+> 
+> **`filter`** (여기는 점수 계산 안 하고 비트맵 캐시만 태우는 구역이야!)
+> 
+> **`bool`** (그 필터 구역 안에서 다시 복합 논리를 짜기 위해 껍데기로 여는 2차 게이트)
+> 
+> **`must_not`** (그 안에서 "이 조건은 무조건 제외해라"라는 부정 연산자 선언)
+> 
+> **`match`** ("제외할 대상의 검색어가 바로 'dog'야"라고 지정하는 실제 검색 쿼리 부품)
 
 
-
-
-
-
-
-
+- 사실상 최상단에 `must`
 
 
 

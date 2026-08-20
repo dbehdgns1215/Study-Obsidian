@@ -952,8 +952,46 @@ GET my_index/_search
 > **`match`** ("제외할 대상의 검색어가 바로 'dog'야"라고 지정하는 실제 검색 쿼리 부품)
 
 
-- 사실상 최상단에 `must`
+```json
+{
+  "query": {
+    "bool": {
+      "must": [ { "match": { "message": "fox" } } ],
+      "must_not": [ { "match": { "message": "dog" } } ]
+    }
+  }
+}
+```
+- 사실상 이게 직관적인데 왜 그렇게 하지 않을까?
+- 사실상 같은 결과가 나옴, "`fox` 찾을건데 `dog` 안들어갔으면 좋겠다"
+	- 성능상의 차이가 발생함.
+		- `must_not`은 이름만 `not`일 뿐, Elastcsearch 내부 엔진에서는 스코어링 컨텍스트의 테두리 안에서 처리됨. 즉, 엔진은 이 `must_not` 조건을 점수를 내진 않지만 쿼리 전체의 최적화 흐름과 가중치 계산 파이프라인에 편입시켜야하는 조건으로 인식하는 것.
+		- 이로 인해 JVVM 힙 메모리의 영구 Roaring Bitmap 캐시 영역에 안착하지 못하고 쿼리가 들어올 때마다 CPU 연산 파이프라인을 매번타게 돼서 성능상의 손해를 보게되는 샘.
 
+
+
+### keyword
+
+문자열 데이터는 `keyword` 형식으로 저장하여 정확값 검색이 가능함.
+
+```json
+GET my_index/_search
+{
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "match": {
+            "message.keyword": "Brown fox brown dog"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+- `"message.keyword"`를 통해서 `Brownm fox brown dog` 문지열과 공백, 대소문자까지 정확히 일치하는 데이터만을 결과로 리턴하게 됨.
+	- `keyword` 타입으로 저장된 필드는 스코어를 계산하지 않고 정확값의 일치 여부만을 따지기에 스코어는 항상 `0.0`으로 나오게 됨. 따라서 스코어를 계산하지 않는 `keyword` 값을 검색할 때는 `filter` 구문 안에 넣도록 하자.
 
 
 

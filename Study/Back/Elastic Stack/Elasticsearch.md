@@ -995,9 +995,31 @@ GET my_index/_search
 
 
 
+## 범위 쿼리 - Range Query
+
+문자열 필드 외에도 숫자나 날짜 형식으로 저장하는 것도 가능.
+
+`range` 쿼리의 형태는 `range : { <필드명>: { <파라미터>:<값> } }`으로 입력됨.
+- `gte`: 이상
+- `gt`: 초과
+- `lte`: 이하
+- `lt`: 미만
 
 
-
+```json
+GET phones/_search
+{
+  "query": {
+    "range": {
+      "price": {
+        "gte": 700,
+        "lt": 900
+      }
+    }
+  }
+}
+```
+- price 필드의 값이 700 이상, 900 미만인 도큐먼트를 찾는 쿼리
 
 
 

@@ -1079,6 +1079,15 @@ GET phones/_search
 
 
 
+# 데이터 색인과 텍스트 분석
+
+
+## 역 인덱스 - Inverted Index
+
+
+
+
+
 
 
 

@@ -1084,6 +1084,21 @@ GET phones/_search
 
 ## 역 인덱스 - Inverted Index
 
+다음과 같은 문서들을 저장한다고 가정해보자.
+
+
+| ID   | Text                                         |
+| ---- | -------------------------------------------- |
+| doc1 | The quick brwon fox                          |
+| doc2 | The quick brwon fox jumps over the lazy dog  |
+| doc3 | The quick brwon fox jumps over the quick dog |
+| doc4 | Brown fox brown dog                          |
+| doc5 | Lazy jumping dog                             |
+- 일반적인 RDBMS에서는 이렇게 테이블 형태로 데이터를 저장하지만 Elasticsearch에서는 다름.
+- 또한 여기서 만약 Text의 내용 중 **'fox**'를 찾으려고 한다면 Text 열을 한 줄씩 검사하면서 탐색하게 됨 -> 비효율적
+	- 왜냐하면 `like` 검색을 사용하기에 데이터가 늘어날 수록 검색해야 할 대상도 늘어나 시간도 오래 걸리고 row 안의 내용을 모두 읽어야 하기 때문에 기본적으로 속도가 느려짐.
+- Elasticsearch의 경우에는 **역 인덱스(Inverted index)** 라는 구조를 만들어서 저장함.
+
 
 
 

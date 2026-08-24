@@ -208,7 +208,7 @@ PUT my_index/_doc/1
     - 즉, 이미 존재하는 도큐먼트 id일 경우에는 오류가 나고 그렇지 않으면 `created` 되는 것.
 - 도큐먼트 id를 직접 지정하지 않고 Elasticsearch가 자동으로 생성하게 하고 싶다면 `POST my_index/_doc` 형태로 입력할 수도 있음.
 
-#### Read
+### Read
 
 #### 입력
 ```javascript
@@ -233,7 +233,7 @@ GET my_index/_doc/1
 - `found`는 해당 id의 도큐먼트가 존재하는지를 나타냄.
 - `_source`에는 실제로 입력했던 도큐먼트의 내용이 들어있음.
 
-#### Update
+### Update
 
 일부 필드를 바꾸고자 전체 도큐먼트 내용을 매번 다시 입력하는 것은 번거롭기에 이때 사용하는 것이 바로 `_update`.
 

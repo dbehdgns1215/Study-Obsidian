@@ -1099,6 +1099,24 @@ GET phones/_search
 	- 왜냐하면 `like` 검색을 사용하기에 데이터가 늘어날 수록 검색해야 할 대상도 늘어나 시간도 오래 걸리고 row 안의 내용을 모두 읽어야 하기 때문에 기본적으로 속도가 느려짐.
 - Elasticsearch의 경우에는 **역 인덱스(Inverted index)** 라는 구조를 만들어서 저장함.
 
+따라서 위 테이블의 내용을 ES에 저장하면 다음과 같이 색인된 상태로 저장됨.
+
+| Term  | ID                     | Term    | ID                     |
+| ----- | ---------------------- | ------- | ---------------------- |
+| The   | doc1, doc2, doc3       | quick   | doc1, doc2, doc3       |
+| brown | doc1, doc2, doc3, doc4 | fox     | doc1, doc2, doc3, doc4 |
+| jumps | doc2, doc3             | over    | doc2, doc3             |
+| the   | doc2, doc3             | lazy    | doc2                   |
+| dog   | doc2, doc3, doc4, doc5 | Brown   | doc4                   |
+| Lazy  | doc5                   | jumping | doc5                   |
+- 추출된 키워드는 `Term`이라고 부르며, 이렇게 역인덱스화 되어있으면 **fox**를 포함하고 있는 도큐먼트들의 ID를 바로 얻어올 수 있음.
+
+| Term | ID                     |
+| ---- | ---------------------- |
+| fox  | doc1, doc2, doc3, doc4 |
+- 결국 ES는 데이터가 늘어나도 RDB처럼 살펴봐야 하는 행이 늘어나는 게 아니고 역인덱스가 가리키는 ID의 배열 값이 추가되는 것이라서 큰 속도 저하 없이 사용 가능하다는 강력한 장점이 있음.
+
+>이런 역인덱스는 데이터가 저장되는 과정에서 만들어지기 때문에 Elasticsearch는 데이터를 입력할 때 '저장한다'가 아닌 '색인한다'라고 표현함.
 
 
 

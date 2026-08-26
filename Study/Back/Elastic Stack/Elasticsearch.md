@@ -1119,7 +1119,51 @@ GET phones/_search
 >이런 역인덱스는 데이터가 저장되는 과정에서 만들어지기 때문에 Elasticsearch는 데이터를 입력할 때 '저장한다'가 아닌 '색인한다'라고 표현함.
 
 
+## 텍스트 분석 - Text Analysis
 
+Elasticsearch에 저장되는 도큐먼트는 모든 문자열 필드 별로 역 인덱스를 생성함. 문자열 필드가 저장될 때 데이터에서 검색어 토큰을 저장하기 위해 여러 단계의 처리 과정을 거치는데, 이 전체 과정을 텍스트 분석(Text Analysis) 라고 하고, 이 과정을 처리하는 기능을 애널라이저(Analyzer) 라고 함.
+
+Elasticsearch의 애널라이저는 0~3개의 캐릭터 필터(Character Filter)와 1개의 토크나이저(Tokenizer), 그리고 0~n개의 토큰 필터(Token Filter)로 이루어짐
+
+![[Pasted image 20260827014548.png]]
+
+텍스트 데이터가 입력되면 가장 먼저 필요에 따라 전체 문장에서 특정 문자를 대치하거나 제거하는데 이 과정을 담당하는 기능이 **캐릭터 필터**.
+
+다음으로는 문장에 속한 단어들을 Term 단위로 하나씩 분리해내는 처리 과정을 거치는데, 이 과정을 담당하는 기능이 바로 **토크나이저**이다.
+
+토크나이저는 반드시 1개만 적용이 가능하며, 다음은 `whitespace` 토크나이저를 이용해 공백을 기준으로 텀들을 분리한 결과이다.
+
+| Term  | ID                     | Term    | ID                     |
+| ----- | ---------------------- | ------- | ---------------------- |
+| The   | doc1, doc2, doc3       | quick   | doc1, doc2, doc3       |
+| brown | doc1, doc2, doc3, doc4 | fox     | doc1, doc2, doc3, doc4 |
+| jumps | doc2, doc3             | over    | doc2, doc3             |
+| the   | doc2, doc3             | lazy    | doc2                   |
+| dog   | doc2, doc3, doc4, doc5 | Brown   | doc4                   |
+| Lazy  | doc5                   | jumping | doc5                   |
+
+다음으로는 분리된 텀들을 하나씩 가공하는 과정을 거치는데, 이 과정을 담당하는 게 **토큰 필터**이다.
+
+여기서는 먼저 `lowercase` 토큰 필터를 이용해 대문자를 모두 소문자로 변경한다. 이렇게 하면 대소문자 구별없이 검색이 가능해진다. 또한 대문자를 소문자로 바꾸면서 같은 텀이 된 토큰들은 모두 하나로 병합이 된다.
+
+| Term  | ID                     | Term    | ID                     |
+| ----- | ---------------------- | ------- | ---------------------- |
+| the   | doc1, doc2, doc3       | quick   | doc1, doc2, doc3       |
+| brown | doc1, doc2, doc3, doc4 | fox     | doc1, doc2, doc3, doc4 |
+| jumps | doc2, doc3             | over    | doc2, doc3             |
+| the   | doc2, doc3             | lazy    | doc2                   |
+| dog   | doc2, doc3, doc4, doc5 | brown   | doc4                   |
+| lazy  | doc5                   | jumping | doc5                   |
+
+| Term    | ID                     | Term  | ID                     |
+| ------- | ---------------------- | ----- | ---------------------- |
+| the     | doc1, doc2, doc3       | quick | doc1, doc2, doc3       |
+| brown   | doc1, doc2, doc3, doc4 | fox   | doc1, doc2, doc3, doc4 |
+| jumps   | doc2, doc3             | over  | doc2, doc3             |
+| dog     | doc2, doc3, doc4, doc5 | lazy  | doc2, doc5             |
+| jumping | doc5                   |       |                        |
+|         |                        |       |                        |
+텀 중에는 
 
 
 

@@ -1169,7 +1169,41 @@ Elasticsearch의 애널라이저는 0~3개의 캐릭터 필터(Character Filter)
 
 (한국어의 경우, 추가적인 플러그인 설치가 필요함. `nori 한글 형태소 분석기`)
 
+불용어가 제거된 텀 테이블은 다음과 같다.
 
+| Term  | ID                     | Term    | ID                     |
+| ----- | ---------------------- | ------- | ---------------------- |
+| quick | doc1, doc2, doc3       | brown   | doc1, doc2, doc3, doc4 |
+| fox   | doc1, doc2, doc3, doc4 | jumps   | doc2, doc3             |
+| over  | doc2, doc3             | lazy    | doc2, doc5             |
+| dog   | doc2, doc3, doc4, doc5 | jumping | doc5                   |
+|       |                        |         |                        |
+|       |                        |         |                        |
+
+이제 형태소 분석 과정을 거쳐서 문법상 변형된 단어를 일반적으로 검색에 쓰이는 기본 형태로 변환하여 검색이 가능하게 만들어야 한다. 영어에서는 형태소 분석을 위해 `snowball` 토큰 필터를 주로 사용하는데, 이 필터는 **~s, ~ing** 등을 제거한다. 또한 happy, lazy와 같은 단어들은 happiness, laziness와 같은 형태로도 사용되기 때문에 **~y**를 **~i**로 변경도 해준다.
+
+`snowball` 토큰 필터를 적용하고 나면 **jumps**와 **jumping**은 모두 **jump**로 변경되고 하나의 텀으로 병합된다.
+
+| Term  | ID                     | Term  | ID                     |
+| ----- | ---------------------- | ----- | ---------------------- |
+| quick | doc1, doc2, doc3       | brown | doc1, doc2, doc3, doc4 |
+| fox   | doc1, doc2, doc3, doc4 | jump  | doc2, doc3, doc5       |
+| over  | doc2, doc3             | lazi  | doc2, doc5             |
+| dog   | doc2, doc3, doc4, doc5 |       |                        |
+|       |                        |       |                        |
+|       |                        |       |                        |
+- `laziness` == `lazi`, `lazy` == `lazi` -> `laziness` == `lazy`
+
+필요에 따라서는 동의어를 추가하기도 한다. `synonym` 토큰 필터를 사용하여 **quick** 텀에 동의어로 **fast**를 지정하면 **fast**로 검색했을 때도 같은 의미인 **quick**을 포함하는 도큐먼트가 검색되도록 할 수 있다. AWS와 Amazon을 동의어로 놓아 amazon을 검색해도 AWS를 찾을 수 있게 하는 등의 방식으로 사용됨.
+
+| Term  | ID                     | Term  | ID                     |
+| ----- | ---------------------- | ----- | ---------------------- |
+| quick | doc1, doc2, doc3       | brown | doc1, doc2, doc3, doc4 |
+| fox   | doc1, doc2, doc3, doc4 | jump  | doc2, doc3, doc5       |
+| over  | doc2, doc3             | lazi  | doc2, doc5             |
+| dog   | doc2, doc3, doc4, doc5 | fast  | doc1, doc2, doc3       |
+|       |                        |       |                        |
+|       |                        |       |                        |
 
 
 

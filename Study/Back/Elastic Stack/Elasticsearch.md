@@ -1163,7 +1163,11 @@ Elasticsearch의 애널라이저는 0~3개의 캐릭터 필터(Character Filter)
 | dog     | doc2, doc3, doc4, doc5 | lazy  | doc2, doc5             |
 | jumping | doc5                   |       |                        |
 |         |                        |       |                        |
-텀 중에는 
+텀 중에는 검색어로서의 가치가 없는 단어들이 있는데, 이런 단어들을 **불용어(stopword)** 라고 함.
+
+영어로는 보통 **a, an, are, at, be, but, by, do, for, i, no, the, to ...** 등의 단어들은 불용어로 간주되면 검색어 토큰에서 제외되고, `stop` 토큰 필터를 적용하면 역 인덱스 테이블에서 불용어들이 제거됨.
+
+(한국어의 경우, 추가적인 플러그인 설치가 필요함. `nori 한글 형태소 분석기`)
 
 
 

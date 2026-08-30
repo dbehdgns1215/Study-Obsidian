@@ -124,10 +124,10 @@ FSx는 고성능(높은 처리량, 낮은 지연 시간) 파일 스토리지 서
 	- 다양한 운영체제(윈도우, 맥, 리눅스)에 호환
 	- NFS, SMB 프로토콜 둘 다 지원.
 		- NFS: 리눅스/유닉스 시스템에서 사용하는 파일 공유 프로토콜
+		- SMB: Windows에서 사용하는 파일 공유 프로토콜
 
 - FSx for Windows File Server
-	- SMB 프로토 콜이 따롱칬었네 
+	- SMB 프로토콜만 지원
 
-## FSx for OpenZFS
+- FSx for OpenZFS
 	- NFS 프로토콜만 지원
-	

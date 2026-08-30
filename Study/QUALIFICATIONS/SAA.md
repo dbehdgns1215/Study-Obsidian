@@ -85,3 +85,49 @@ SSE는 서버 자체적으로 암호화하는 방식을 의미함.
 S3에 저장된 수백만 ~ 수십억 개의 파일에 대해 **동일한 작업(복사, 삭제, 설정 적용 등)을** 한 번에 실행할 수 있게 해주는 서비스.
 
 
+# EBS, EFS, FSx, 인스턴스 스토어
+
+## EBS (Elastic Block Store)
+
+EBS는 외장 SSD/HDD처럼 EC2에 연결해서 사용하는 블록 스토리지 서비스
+- EBS는 EC2, RDS를 제외한 다른 AWS 서비스에는 연결해서 사용할 수 없음
+- EBS는 **단일 AZ**에서만 작동함.
+- 고성능 스토리지로 사용할 수 있는 유형이 존재함()
+
+## EFS (Elastic File System)
+
+EFS는 여러 대의 컴퓨터가 동시에 같은 파일 시스템을 공유해서 쓸 수 있는 NFS(Network File System) 스토리지
+- 일종의 구글 클라우드나 iCloud 같은 것.
+- 동시에 여러 사용자가 같은 파일 시스템을 공유해서 쓰는 방식
+
+- EFS는 **다중 AZ**에서 작동할 수 있음
+- 고성능 스토리지는 아님
+- NFS 프로토콜만 지원함
+- S3의 Intelligent-Tiering 기능처럼 자주 접근하지 않는 파일을 EFS IA(Infrequent Access) 스토리지 클래스로 이동시켜주는 EFS Intelligent-Tiering 기능도 존재함.
+	- EFS IA 스토리지 클래스로 이동한 파일이라도 즉시 접근이 가능함
+
+# 인스턴스 스토어 (Instance Stroe)
+
+인스턴스 스토어는 EC2 컴퓨터에 내장되어 있는 임시용 디스크.
+- EC2 컴퓨터에 내장된 디스크이다보니, EC2 인스턴스를 중지하거나 종료하면 데이터가 전부 사라짐.
+
+## FSx (File Sytstem for Extended use)
+
+FSx는 고성능(높은 처리량, 낮은 지연 시간) 파일 스토리지 서비스
+
+- FSx for Lustre
+	- 머신러닝, 빅데이터 분석 시 자주 활용
+	- S3와 연동해서 사용 가능
+	- Lustre 자체 프로토콜만 지원
+
+- FSx for NetApp ONTAP
+	- 다양한 운영체제(윈도우, 맥, 리눅스)에 호환
+	- NFS, SMB 프로토콜 둘 다 지원.
+		- NFS: 리눅스/유닉스 시스템에서 사용하는 파일 공유 프로토콜
+
+- FSx for Windows File Server
+	- SMB 프로토 콜이 따롱칬었네 
+
+## FSx for OpenZFS
+	- NFS 프로토콜만 지원
+	

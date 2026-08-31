@@ -1208,6 +1208,75 @@ Elasticsearch의 애널라이저는 0~3개의 캐릭터 필터(Character Filter)
 
 
 
+## 애널라이저 - Analyzer
+
+Elasticsearch에서는 애널라이저를 조합하고 동작을 확인할 수 있는 API들이 있음.
+
+### __analyze API
+
+분석된 문장을 `_analyze` API를 활용해서 확인할 수 있음. 토크나이저는 `tokenizer`, 토큰 필터는 `filter` 항목의 값으로 입력하면 됨.
+
+단, 토크나이저는 하나만 적용되기 때문에 바로 입력하면 되고 토큰 필터는 여러 개를 적용할 수 있기 때문에 \[ ] 안에 배열 형식으로 입력하면 됨.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 참고 자료
 https://esbook.kimjmin.net/03-cluster/3.1-cluster-settings

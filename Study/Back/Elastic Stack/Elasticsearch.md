@@ -1218,6 +1218,78 @@ Elasticsearch에서는 애널라이저를 조합하고 동작을 확인할 수 �
 
 단, 토크나이저는 하나만 적용되기 때문에 바로 입력하면 되고 토큰 필터는 여러 개를 적용할 수 있기 때문에 \[ ] 안에 배열 형식으로 입력하면 됨.
 
+```json
+GET _analyze
+{
+  "text": "The quick brown fox jumps over the lazy dog",
+  "tokenizer": "whitespace",
+  "filter": [
+    "lowercase",
+    "stop",
+    "snowball"
+  ]
+}
+```
+- `text`: 원문 텍스트
+- `tokenizer`: `"whitespace"` 공백을 기준으로 토크나이징
+- `filter`: `"lowercase"` 소문자로 치환, `"stop"` 불용어 제거, `"snowball"`  어간 추출(접미사 제거)
+
+```json
+{
+  "tokens" : [
+    {
+      "token" : "quick",
+      "start_offset" : 4,
+      "end_offset" : 9,
+      "type" : "word",
+      "position" : 1
+    },
+    {
+      "token" : "brown",
+      "start_offset" : 10,
+      "end_offset" : 15,
+      "type" : "word",
+      "position" : 2
+    },
+    {
+      "token" : "fox",
+      "start_offset" : 16,
+      "end_offset" : 19,
+      "type" : "word",
+      "position" : 3
+    },
+    {
+      "token" : "jump",
+      "start_offset" : 20,
+      "end_offset" : 25,
+      "type" : "word",
+      "position" : 4
+    },
+    {
+      "token" : "over",
+      "start_offset" : 26,
+      "end_offset" : 30,
+      "type" : "word",
+      "position" : 5
+    },
+    {
+      "token" : "lazi",
+      "start_offset" : 35,
+      "end_offset" : 39,
+      "type" : "word",
+      "position" : 7
+    },
+    {
+      "token" : "dog",
+      "start_offset" : 40,
+      "end_offset" : 43,
+      "type" : "word",
+      "position" : 8
+    }
+  ]
+}
+```
+- API 호출을 통해서 원문이 어떻게 분리됐는지 알 수 있는 API
 
 
 

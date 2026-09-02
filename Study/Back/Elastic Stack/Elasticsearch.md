@@ -1627,11 +1627,112 @@ _reindex
 
 ### 텀 벡터 - \_termvectors API
 
+색인된 도큐먼트의 역 인덱스의 내용을 확인할 때는 도큐먼트 별로 \_termvectors API를 이용해서 확인이 가능함.
+
+`GET <인덱스>/_termvectors/<도큐먼트 id>?fields=<필드명>` 형식으로 사용하며 6.x 이전 버전에서는 `GET <인덱스>/<도큐먼트_타입>/<도큐먼트 id>/_termvectors?fields=<필드명>` 형식으로 사용함.
 
 
+```HTTP
+GET my_index3/_termvectors/1?fields=message
+```
 
+```json
+{
+  "_index" : "my_index3",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 1,
+  "found" : true,
+  "took" : 1,
+  "term_vectors" : {
+    "message" : {
+      "field_statistics" : {
+        "sum_doc_freq" : 7,
+        "doc_count" : 1,
+        "sum_ttf" : 8
+      },
+      "terms" : {
+        "dog" : {
+          "term_freq" : 1,
+          "tokens" : [
+            {
+              "position" : 8,
+              "start_offset" : 40,
+              "end_offset" : 43
+            }
+          ]
+        },
+        "fox" : {
+          "term_freq" : 1,
+          "tokens" : [
+            {
+              "position" : 3,
+              "start_offset" : 16,
+              "end_offset" : 19
+            }
+          ]
+        },
+        "jump" : {
+          "term_freq" : 1,
+          "tokens" : [
+            {
+              "position" : 4,
+              "start_offset" : 20,
+              "end_offset" : 25
+            }
+          ]
+        },
+        "lazi" : {
+          "term_freq" : 1,
+          "tokens" : [
+            {
+              "position" : 7,
+              "start_offset" : 35,
+              "end_offset" : 39
+            }
+          ]
+        },
+        "over" : {
+          "term_freq" : 1,
+          "tokens" : [
+            {
+              "position" : 5,
+              "start_offset" : 26,
+              "end_offset" : 30
+            }
+          ]
+        },
+        "quick" : {
+          "term_freq" : 1,
+          "tokens" : [
+            {
+              "position" : 1,
+              "start_offset" : 4,
+              "end_offset" : 9
+            }
+          ]
+        },
+        "the" : {
+          "term_freq" : 2,
+          "tokens" : [
+            {
+              "position" : 0,
+              "start_offset" : 0,
+              "end_offset" : 3
+            },
+            {
+              "position" : 6,
+              "start_offset" : 31,
+              "end_offset" : 34
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 
-
+```
 
 
 

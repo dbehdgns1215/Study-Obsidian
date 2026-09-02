@@ -303,3 +303,391 @@
 
 ## Transform Node
 - 기존 데이터를 집계하거나 형태를 변경해 새로운 형태의 Index를 만드는 작업을 수행하는 Node.
+
+---
+
+# 2차 정리
+
+### Index
+
+여러 도큐먼트를 묶어 관리하는 Elasticsearch의 논리적 단위.
+
+```
+products
+├─ Document 1
+├─ Document 2
+└─ Document 3
+```
+
+RDBMS의 테이블과 어느 정도 비슷한 위치라고 보면 됨.
+
+---
+
+### Mapping
+
+인덱스의 **필드 구조와 타입을 정의하는 설정**.
+
+```
+message → text
+price   → integer
+date    → date
+```
+
+`text` 필드라면 사용할 Analyzer도 여기서 지정함.
+
+```
+"message": {
+  "type": "text",
+  "analyzer": "my_analyzer"
+}
+```
+
+---
+
+### Document
+
+Elasticsearch에 저장하는 **JSON 한 건**.
+
+```
+{
+  "message": "The quick fox",
+  "price": 800
+}
+```
+
+이 전체가 도큐먼트 하나.
+
+---
+
+### `_id`
+
+도큐먼트를 식별하는 ID.
+
+```
+Document _id = 1
+```
+
+```
+GET /my_index/_doc/1
+```
+
+---
+
+### Field
+
+도큐먼트 안의 각 항목.
+
+```
+{
+  "message": "hello",
+  "price": 800
+}
+```
+
+여기서:
+
+```
+message → Field
+price   → Field
+```
+
+---
+
+### `_source`
+
+사용자가 넣은 **원본 JSON**을 보관하는 메타 필드.
+
+```
+"_source": {
+  "message": "The quick fox"
+}
+```
+
+검색용 Term과는 별개임.
+
+---
+
+### Shard
+
+하나의 Elasticsearch Index를 실제로 나눠 저장하는 단위.
+
+```
+my_index
+├─ Shard 0
+├─ Shard 1
+└─ Shard 2
+```
+
+도큐먼트 하나는 특정 Primary Shard 하나에 배치됨.
+
+---
+
+### Lucene Index
+
+**Shard 하나의 실체.**
+
+```
+Elasticsearch Shard
+=
+Lucene Index
+```
+
+Elasticsearch는 Lucene이라는 검색 엔진을 내부적으로 사용함.
+
+---
+
+### Analyzer
+
+`text` 필드의 문자열을 검색 가능한 Term들로 만드는 분석 과정.
+
+```
+"The Quick Foxes"
+
+↓ Analyzer
+
+the
+quick
+fox
+```
+
+구조:
+
+```
+Char Filter
+→ Tokenizer
+→ Token Filter
+```
+
+---
+
+### Token
+
+Analyzer가 텍스트를 처리하는 과정에서 만들어지는 단위.
+
+예:
+
+```
+"The Quick Fox"
+
+↓ Tokenizer
+
+The
+Quick
+Fox
+```
+
+이것들이 Token.
+
+---
+
+### Term
+
+최종적으로 **색인에 사용되는 값**.
+
+```
+The
+↓ lowercase
+the
+```
+
+최종 `the`가 색인되는 Term.
+
+공부 단계에서는:
+
+```
+Analyzer
+→ Token 생성/가공
+→ 최종 Term
+```
+
+으로 이해하면 됨.
+
+---
+
+### Inverted Index — 역색인
+
+Term을 기준으로 **어떤 도큐먼트에 존재하는지** 저장한 검색 구조.
+
+도큐먼트:
+
+```
+Doc 1 → quick, fox
+Doc 2 → dog
+Doc 3 → quick, dog
+```
+
+역색인:
+
+```
+quick → Doc 1, Doc 3
+fox   → Doc 1
+dog   → Doc 2, Doc 3
+```
+
+공부할 때 **“역색인 테이블”**이라고 머릿속에 그려도 됨.
+
+---
+
+### Term Dictionary
+
+해당 색인에 **어떤 Term들이 존재하는지** 관리하는 구조.
+
+```
+dog
+fox
+quick
+the
+```
+
+---
+
+### Posting List
+
+각 Term이 **어느 도큐먼트에 존재하는지** 기록한 목록.
+
+```
+quick
+→ Doc 1
+→ Doc 3
+→ Doc 10
+```
+
+따라서 개념적으로:
+
+```
+역색인
+=
+Term Dictionary
++
+Posting List
+```
+
+---
+
+### Segment
+
+Lucene Index 내부에서 실제 색인 데이터를 저장하는 단위.
+
+```
+Shard
+└─ Lucene Index
+   ├─ Segment A
+   ├─ Segment B
+   └─ Segment C
+```
+
+각 Segment 안에 Term Dictionary, Posting 등의 검색 데이터가 들어감.
+
+---
+
+### Indexing — 색인
+
+도큐먼트를 Elasticsearch에 넣어서 **검색 가능한 구조를 만드는 전체 과정**.
+
+```
+Document 인입
+↓
+Shard 결정
+↓
+Mapping 확인
+↓
+text 필드 Analyzer 실행
+↓
+Term 생성
+↓
+Lucene 역색인 구성
+↓
+검색 가능
+```
+
+---
+
+### `_analyze API`
+
+**문자열을 Analyzer에 넣어보는 테스트 API.**
+
+```
+POST /my_index/_analyze
+```
+
+> "이 문장을 분석하면 어떤 Token/Term이 나오냐?"
+
+를 확인.
+
+실제 도큐먼트 저장은 안 함.
+
+---
+
+### `_termvectors API`
+
+**특정 도큐먼트의 특정 필드에 어떤 Term 정보가 있는지 확인하는 API.**
+
+```
+GET /my_index/_termvectors/1?fields=message
+```
+
+뜻:
+
+```
+my_index
+→ Document 1
+→ message 필드
+
+여기에 어떤 Term이 있고,
+각 Term이 몇 번 나왔고,
+어느 위치에 있었는지 보여줘.
+```
+
+---
+
+## 전체 구조 한 번에
+
+이것만 머리에 박으면 돼.
+
+```
+Elasticsearch Index
+│
+├─ Mapping
+│   └─ message : text
+│      └─ analyzer : my_analyzer
+│
+└─ Shards
+    │
+    ├─ Shard 0 = Lucene Index
+    │   ├─ Documents
+    │   └─ Segments
+    │       └─ 역색인
+    │           ├─ Term Dictionary
+    │           └─ Posting Lists
+    │
+    ├─ Shard 1 = Lucene Index
+    └─ Shard 2 = Lucene Index
+```
+
+문서 하나가 들어오면:
+
+```
+JSON Document
+{
+  "message": "The quick brown fox"
+}
+
+↓ 특정 Shard로 이동
+
+Mapping 확인
+message = text
+analyzer = my_analyzer
+
+↓ Analyzer
+
+the / quick / brown / fox
+
+↓ Term으로 색인
+
+역색인
+
+the   → Doc 1
+quick → Doc 1
+brown → Doc 1
+fox   → Doc 1
+```

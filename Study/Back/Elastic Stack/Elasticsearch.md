@@ -1735,6 +1735,8 @@ GET my_index3/_termvectors/1?fields=message
 ```
 
 
+![[ChatGPT Image 2026년 9월 3일 오전 01_26_32.png]]
+
 
 
 

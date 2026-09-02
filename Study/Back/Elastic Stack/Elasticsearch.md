@@ -1375,7 +1375,42 @@ PUT my_index_production
 이처럼 자연어 텍스트를 텀 단위로 분석하여 색인하고 검색하는 방식을 **전문 검색(Full-text search)** 이라고 함.
 
 
+### 사용자 정의 애널라이저 - Custom Analyzer
 
+`_analyze API`로 애널라이저, 토크나이저, 토큰필터의 테스트가 가능하지만 실제 인덱스에 저장되는 데이터의 처리에 대한 설정은 애널라이저만 적용할 수 있음.
+
+인덱스 매핑에 애널라이저를 적용할 때 보통은 이미 정의되어 제공되는 애널라이저 보다는 토크나이저, 토큰필터 등을 조합하여 만든 사용자 정의 애널라이저를 주로 사용함.
+
+이미 정의된 애널라이저들은 매핑에 정의한 text 필드의 analyzer 항목에 이름을 명시하기만 하면 쉽게 적용이 가능함.
+
+사용자 정의 애널라이저는 인덱스 settings 의 `"index" : { "analysis" : ` 부분에 정의하면 됨.
+
+생성한 다음에는 해당 인덱스에서 `GET` 또는 `POST <인덱스명>/_analyze` 명령으로 사용이 가능함.
+
+다음은 **my_index3** 안에 `whitespace` 토크나이저 그리고 `lowercase`, `stop`, `snowball` 토큰 필터를 사용하는 `my_custom_analyzer` 라는 이름의 애널라이저를 추가하는 예제임
+
+```json
+PUT my_index3
+{
+  "settings": {
+    "index": {
+      "analysis": {
+        "analyzer": {
+          "my_custom_analyzer": {
+            "type": "custom",
+            "tokenizer": "whitespace",
+            "filter": [
+              "lowercase",
+              "stop",
+              "snowball"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 
 

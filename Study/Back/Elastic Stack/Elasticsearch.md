@@ -1625,8 +1625,7 @@ _reindex
 
 
 
-
-
+### 텀 벡터 - \_termvectors API
 
 
 

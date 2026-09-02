@@ -1296,6 +1296,9 @@ GET _analyze
 
 애널라이저는 `_analyze` API에서 `analyzer` 항목으로 적용해서 사용이 가능함. 애널라이저는 **캐릭터 필터**, **토크나이저** 그리고 **토큰 필터**들을 조합해서 사용자 정의 애널라이저를 만들 수도 있고, Elasticsearch에 사전에 정의되어 있어 바로 사용 가능한 애널라이저들도 있음.
 - 앞서 실행한 `whitespace` 토크나이저 그리고 `lowercase`, `stop`, `snowball` 토큰 필터들을 조합한 것이 `snowball` 애널라이저임.
+	- 이건 빌트인 애널라이저라고 하며 `whitespace`, `snowball`, `standard`, `english`, `korean` 등이 있음
+
+
 
 
 

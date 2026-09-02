@@ -1333,6 +1333,28 @@ PUT my_index2
 ```
 - 참고로 6.x 이전 버전에서의 논란의 인덱스 타입은 삭제되고 각 필드의 데이터 타입은 남아있는 상태로 존재하는 것을 알 수 있음.
 
+>참고로 인덱스를 만들 때 별도의 애널라이저를 명시하지 않으면 `standard` 애널라이저가 적용됨.
+
+```json
+PUT my_index_production
+{
+  "mappings": {
+    "properties": {
+      "message": {
+        "type": "text",
+        "analyzer": "standard",         // 1. 디스크에 저장할 때 태울 파이프라인
+        "search_analyzer": "snowball"   // 2. 검색어가 인입될 때 태울 파이프라인
+      }
+    }
+  }
+}
+```
+- 따라서 이렇게 애널라이저를 명시해주면 좋음.
+
+추가로 조회 쿼리에 `analyzer`를 넣는 방식은?
+- 디버깅 및 A/B 테스트용
+- 이 검색어에는 `snowball`을 태우는 게 결과가 더 좋을까 아니면 `nori`를 태우는 게 좋을까? 같은 테스트.
+
 
 
 

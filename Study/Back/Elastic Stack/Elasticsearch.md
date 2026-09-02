@@ -1298,8 +1298,22 @@ GET _analyze
 - 앞서 실행한 `whitespace` 토크나이저 그리고 `lowercase`, `stop`, `snowball` 토큰 필터들을 조합한 것이 `snowball` 애널라이저임.
 	- 이건 빌트인 애널라이저라고 하며 `whitespace`, `snowball`, `standard`, `english`, `korean` 등이 있음
 
+인덱스에 애널라이저는 다음과 같이 지정할 수 있음
 
-
+```json
+PUT my_index2
+{
+  "mappings": {
+    "properties": {
+      "message": {
+        "type": "text",
+        "analyzer": "snowball"
+      }
+    }
+  }
+}
+```
+- `PUT ...`: 
 
 
 

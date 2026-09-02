@@ -1415,51 +1415,121 @@ PUT my_index3
 
 >일단 다음 구조를 머리에 박자
 
+인덱스를 직접 생성할 때 크게 다음과 같은 구조를 사용할 수 있음.
+
 ```json
 {
-  "settings": { ... }, // 1. 인프라 설정 (샤드 개수, 애널라이저 파이프라인 조립)
-  "mappings": { ... }, // 2. 스키마 설정 (필드 이름, 데이터 타입, 매핑)
-  "aliases":  { ... }  // 3. 라우팅 설정 (인덱스의 별명, 무중단 배포용)
+  "settings": { ... },
+  "mappings": { ... },
+  "aliases":  { ... }
 }
 ```
-- **`settings` (하드웨어 & 파이프라인):** "디스크(샤드)를 몇 개로 쪼갤지", "메모리에 어떤 분석기(Analyzer)를 올려둘지" 등 **물리적인 인프라 환경**을 세팅하는 곳
-- **`mappings` (데이터 스키마):** RDBMS의 DDL(`CREATE TABLE`)과 같다. "이름은 문자고, 나이는 숫자다"를 정의하며, **여기서 `settings`에 만들어둔 분석기를 가져다 필드에 꽂아 넣음**
 
-- **인덱스 생성 API:** `PUT /<인덱스명>`
-- **인덱스 설정 수정 API:** `PUT /<인덱스명>/_settings`
-- **인덱스 매핑 추가 API:** `PUT /<인덱스명>/_mapping`
+- **`settings` - 인덱스 설정**
+    - 샤드 개수, 복제본 개수, Refresh 설정, `analysis` 설정 등 **인덱스의 동작 방식**을 설정
+    - 사용자 정의 Analyzer도 `settings.analysis`에 정의
+- **`mappings` - 데이터 구조**
+    - 필드 이름과 데이터 타입을 정의
+    - RDBMS의 테이블 스키마와 비슷한 역할
+    - `text` 필드가 어떤 Analyzer를 사용할지도 여기서 지정
+- **`aliases` - 인덱스 별칭**
+    - 실제 인덱스 이름 대신 사용할 별칭을 정의
+    - 인덱스 교체, Reindex 후 전환 등에 활용 가능
 
-\[**🚨 아키텍처 절대 원칙: 런타임 분석기 수정 불가**]
+예:
+```text
+my_products_v1      ← 실제 인덱스
+      ↑
+   products         ← Alias
+```
 
-엘라스틱서치 엔진은 인덱스가 살아서 트래픽을 받고 있는(Open) 상태에서는 **`settings`의 분석기(Analyzer)를 수정하거나 추가하는 것을 OS 레벨에서 원천 차단**한다. 이미 디스크에 기존 분석기로 쪼개진 역색인 파일이 쓰여 있는데, 중간에 규칙을 바꾸면 데이터가 심각하게 오염되기 때문이다.
+---
 
-만약 부득이하게 운영 중에 분석기를 수정/추가하려면 다음 절차를 거쳐야 한다.
-1. `POST /my_index3/_close` (인덱스를 오프라인 상태로 만들어 트래픽 차단)
-2. `PUT /my_index3/_settings` (새로운 분석기 JSON 덮어쓰기)
-3. `POST /my_index3/_open` (다시 온라인으로 기동)
+### 관련 API
 
+**인덱스 생성**
+```http
+PUT /<인덱스명>
+```
 
+**인덱스 설정 조회**
+```http
+GET /<인덱스명>/_settings
+```
+
+**인덱스 설정 변경**
+```http
+PUT /<인덱스명>/_settings
+```
+
+**매핑 조회**
+```http
+GET /<인덱스명>/_mapping
+```
+
+**매핑 추가**
+```http
+PUT /<인덱스명>/_mapping
+```
+
+**Analyzer 테스트**
+```http
+GET /<인덱스명>/_analyze
+```
+
+또는
+```http
+POST /<인덱스명>/_analyze
+```
+
+예:
+```json
+POST /my_index3/_analyze
+{
+  "analyzer": "my_custom_analyzer",
+  "text": "The Quick Brown Foxes"
+}
+```
+
+`_analyze`는 분석 결과를 확인하는 테스트 API이며, **실제 도큐먼트를 인덱스에 저장하지 않음.**
+
+---
+
+### 사용자 정의 Token Filter
+
+Elasticsearch가 기본 제공하는 필터는 바로 Analyzer에서 사용할 수 있음.
+```json
+"filter": [
+  "lowercase",
+  "stop",
+  "snowball"
+]
+```
+
+반면 기본 필터의 설정을 변경해서 사용하고 싶다면 별도의 이름으로 먼저 정의함.
+
+예를 들어 `"brown"`을 제거하는 Stop Token Filter를 직접 만들면:
 ```json
 {
   "settings": {
     "analysis": {
-      
-      // 1. 커스텀 필터 제작소 (부품 만들기)
+
       "filter": {
         "my_stop_filter": {
           "type": "stop",
-          "stopwords": ["brown"]
+          "stopwords": [
+            "brown"
+          ]
         }
       },
 
-      // 2. 커스텀 분석기 조립소 (완성품 만들기)
       "analyzer": {
         "my_custom_analyzer": {
           "type": "custom",
           "tokenizer": "whitespace",
           "filter": [
             "lowercase",
-            "my_stop_filter",   // <--- 1번에서 만든 커스텀 부품을 여기에 꽂음!
+            "my_stop_filter",
             "snowball"
           ]
         }
@@ -1470,9 +1540,88 @@ PUT my_index3
 }
 ```
 
+구조는:
 
+```text
+filter.my_stop_filter
+→ 사용자 정의 Token Filter 생성
 
+analyzer.my_custom_analyzer
+→ 생성한 Filter를 Analyzer에 조립
+```
 
+즉 **부품을 먼저 정의한 뒤 Analyzer에서 그 이름으로 가져다 사용하는 구조**임.
+
+---
+
+### 기존 인덱스의 Analyzer 변경
+
+여기서 중요한 제한이 있음.
+
+**Open 상태의 기존 인덱스에는 새로운 Analyzer를 바로 정의할 수 없음.**
+
+새 Analyzer를 추가하려면 인덱스를 닫은 후 설정하고 다시 열어야 함.
+
+```http
+POST /my_index3/_close
+```
+
+```json
+PUT /my_index3/_settings
+{
+  "analysis": {
+    "analyzer": {
+      "new_analyzer": {
+        "type": "custom",
+        "tokenizer": "whitespace",
+        "filter": [
+          "lowercase"
+        ]
+      }
+    }
+  }
+}
+```
+
+```http
+POST /my_index3/_open
+```
+
+즉:
+
+```text
+Close
+→ Analyzer 설정 추가
+→ Open
+```
+
+다만 여기서 더 중요한 것은 **이미 기존 Analyzer로 색인된 데이터가 자동으로 다시 분석되지는 않는다는 것**임.
+
+예를 들어 기존 문서가:
+
+```text
+old_analyzer
+→ 기존 Term 생성
+→ 이미 역색인에 저장됨
+```
+
+상태라면 새로운 Analyzer를 추가해도 기존 역색인 내용은 그대로임.
+
+또한 기존 `text` 필드에 지정된 `analyzer` 자체는 일반적인 `_mapping` 수정으로 다른 Analyzer로 변경할 수 없음.
+
+따라서 **기존 데이터까지 새로운 Analyzer 기준으로 다시 만들고 싶다면 새 인덱스를 만들고 Reindex하는 방식**을 사용함.
+
+```text
+기존 인덱스
+my_index_v1
+     ↓
+새 Analyzer + 새 Mapping으로
+my_index_v2 생성
+     ↓
+_reindex
+     ↓
+기존 데이터를 새로운 Analyzer로 다시 색인
+```
 
 
 

@@ -1357,7 +1357,12 @@ PUT my_index_production
 
 
 
+### Term 쿼리
 
+`term` 쿼리는 `match` 쿼리와 문법은 유사하지만 입력한 검색어에 대해 애널라이저를 적용하지 않고 검색어 그대로 일치하는 텀을 찾는 쿼리임.
+
+즉, **jumps, jumping** 으로 검색했을 때 결과가 나타나지 않고 **jump**로 검색해야만 결과가 나오는 쿼리.
+- `match`의 경우 애널라이저가 적용되어서 jumps, jumping, jump 모두 같은 취급을 하지만 `term`의 경우 그렇지 않음.
 
 
 

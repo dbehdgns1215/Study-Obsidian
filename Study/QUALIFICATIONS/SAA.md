@@ -130,3 +130,18 @@ FSx는 고성능(높은 처리량, 낮은 지연 시간) 파일 스토리지 서
 
 - FSx for OpenZFS
 	- NFS 프로토콜만 지원
+
+
+# DataSync, Snowball Edge, Transfer Family, Storage Gateway
+
+## DataSync
+대용량 데이터를 전송할 때 사용하는 서비스
+- 온프레미스의 스토리지와 AWS 시스템 간에 데이터를 전송하는 용도
+- AWS 스토리지 서비스들 간에 데이터를 전송하는 용도
+- AWS 스토리지 서비스와 다른 클라우드 스토리지 시스템 간에 데이터를 전송하는 용도
+
+## Snowball Edge
+물리적 장비 배송으로 대용량 데이터를 전송할 때 사용하는 서비스
+- 실제 택배로 장비를 받아서 물리적으로 직접 연결 후 옮기기에 속도가 굉장히 빠름. 반납도 해야함.
+
+## Transfer Family

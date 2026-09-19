@@ -1746,9 +1746,165 @@ GET my_index3/_termvectors/1?fields=message
 - `char_filter` 항목에 배열로 입력하여 하나만 또는 차례대로 3개 모두 적용 가능.
 
 >이쯤에서 리마인드 하는 데이터 인입 순서
-```text
 
+```mermaid
+graph TD
+    Client(["🌐 1. Network: HTTP POST 인입"]) -->|JSON 파싱| M1
+
+    subgraph JVM ["2. JVM Heap Memory (Data Node)"]
+        M1["(1) Mapping Lookup (분석기 룩업)"] -->|원본 텍스트| M2
+        M2["(2) Character Filter (예: html_strip)"] -->|태그 제거| M3
+        M3["(3) Tokenizer (예: standard)"] -->|단어 배열 절단| M4
+        M4["(4) Token Filter 1 (예: lowercase)"] -->|소문자화| M5
+        M5["(5) Token Filter 2 (예: snowball)"] -->|어간 추출| M6
+        M6["(6) Inverted Index Mapping (Doc ID 바인딩)"]
+    end
+
+    subgraph OS ["3. OS Kernel (Page Cache)"]
+        O1["(7) Memory Buffer & Translog (SPOF 방어)"]
+        O2["(8) Refresh (검색 가능 상태 전환)"]
+        
+        M6 -->|메모리 버퍼 적재| O1
+        O1 -->|세그먼트 이관| O2
+    end
+
+    subgraph HW ["4. Hardware (SSD / HDD)"]
+        H1[/"(9) Flush (디스크 영구 기록)"/]
+        
+        O2 -->|디스크 I/O| H1
+    end
 ```
+
+### HTML Strip
+
+입력된 텍스트가 HTML 인 경우, HTML 태그들을 제거하여 일반 텍스트로 만듦
+- `<>`, `&nbsp` 등등 모든 태그
+
+```HTTP
+POST _analyze
+{
+  "tokenizer": "keyword",
+  "char_filter": [
+    "html_strip"
+  ],
+  "text": "<p>I&apos;m so <b>happy</b>!</p>"
+}
+```
+
+```json
+{
+  "tokens" : [
+    {
+      "token" : """
+
+I'm so happy!
+
+""",
+      "start_offset" : 0,
+      "end_offset" : 32,
+      "type" : "word",
+      "position" : 0
+    }
+  ]
+}
+```
+
+### Mapping
+
+Mapping 캐릭터 필터를 이용하면 지정한 단어를 다른 단어로 치환할 수 있음
+
+우선, 다음과 같은 `languag` 필드에 값이 **Java, C, C++** 인 도큐먼트들이 있는 **coding** 인덱스가 있다고 가정해보자.
+
+```HTTP
+POST coding/_bulk
+{"index":{"_id":"1"}}
+{"language":"Java"}
+{"index":{"_id":"2"}}
+{"language":"C"}
+{"index":{"_id":"3"}}
+{"language":"C++"}
+```
+
+#### 입력
+```HTTP
+GET coding/_search
+{
+  "query": {
+    "match": {
+      "language": "C++"
+    }
+  }
+}
+```
+
+#### 출력
+```json
+{
+  "took" : 255,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 2,
+      "relation" : "eq"
+    },
+    "max_score" : 0.47000363,
+    "hits" : [
+      {
+        "_index" : "coding",
+        "_type" : "_doc",
+        "_id" : "2",
+        "_score" : 0.47000363,
+        "_source" : {
+          "language" : "C"
+        }
+      },
+      {
+        "_index" : "coding",
+        "_type" : "_doc",
+        "_id" : "3",
+        "_score" : 0.47000363,
+        "_source" : {
+          "language" : "C++"
+        }
+      }
+    ]
+  }
+}
+```
+- **C++**을 검색했는데, 값이 **C, C++**인 두개의 도큐먼트가 검색 결과로 나타났음.
+	- C 또는 c로 검색해봐도 동일한 결과가 나타남.
+- 도큐먼트가 색인될 때, **standard** 애널라이저가 적용되면서 C++에서 특수문자 +는 제거되고 C는 소문자로 처리되면서 실제로 역 인덱스는 **c**가 저장되는 것.
+
+![[Pasted image 20260920004728.png]]
+
+- 대다수의 애널라이저들은 특수문자에 대해서는 불용어로 간주하고 제거 해 버리기 때문에 특수 문자가 포함된 검색어를 검색하려면 먼저 특수문자를 다른 문자로 치환해서 저장해야 함.
+	- 쉽게 말하면 **C++** 텀을, **cpp**로 치환하는 방법.
+	- 단, 검색될 수 있는 모든 특수문자를 포함하여 모든 Term을 치환해줘야 하기에 다소 번거로움이 있음.
+	- 또한 특수문자 `+`를 `_plus_` 라는 단어로 치환해서 색인을 해보도록 하자.
+		- coding 인덱스를 삭제하고 `mapping` 캐릭터 필터를 이용해서 인덱스의 매핑을 새로 지정한 뒤 앞의 \_bulk 명령으로 입력했던 도큐먼트들을 다시 색인해보자.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

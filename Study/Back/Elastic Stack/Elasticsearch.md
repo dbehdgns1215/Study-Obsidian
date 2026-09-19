@@ -1963,9 +1963,63 @@ PUT camel
 }
 ```
 
+만약, **FooBazBar** 라는 단어가 인입되면, **foo, baz, bar** 3개의 단어로 분리되게 됨.
 
+#### 입력
 
+```HTTP
+GET camel/_analyze
+{
+  "analyzer": "camel_analyzer",
+  "text": [
+    "public void FooBazBar()"
+  ]
+}
+```
 
+#### 출력
+
+```json
+{
+  "tokens" : [
+    {
+      "token" : "public",
+      "start_offset" : 0,
+      "end_offset" : 6,
+      "type" : "<ALPHANUM>",
+      "position" : 0
+    },
+    {
+      "token" : "void",
+      "start_offset" : 7,
+      "end_offset" : 11,
+      "type" : "<ALPHANUM>",
+      "position" : 1
+    },
+    {
+      "token" : "foo",
+      "start_offset" : 12,
+      "end_offset" : 14,
+      "type" : "<ALPHANUM>",
+      "position" : 2
+    },
+    {
+      "token" : "baz",
+      "start_offset" : 15,
+      "end_offset" : 17,
+      "type" : "<ALPHANUM>",
+      "position" : 3
+    },
+    {
+      "token" : "bar",
+      "start_offset" : 18,
+      "end_offset" : 21,
+      "type" : "<ALPHANUM>",
+      "position" : 4
+    }
+  ]
+}
+```
 
 
 

@@ -1883,16 +1883,49 @@ GET coding/_search
 
 ![[Pasted image 20260920004728.png]]
 
-- 대다수의 애널라이저들은 특수문자에 대해서는 불용어로 간주하고 제거 해 버리기 때문에 특수 문자가 포함된 검색어를 검색하려면 먼저 특수문자를 다른 문자로 치환해서 저장해야 함.
+- 대다수의 애널라이저들은 특수문자에 대해서는 불용어로 간주하고 제거해버리기 때문에 특수 문자가 포함된 검색어를 검색하려면 먼저 특수문자를 다른 문자로 치환해서 저장해야 함.
 	- 쉽게 말하면 **C++** 텀을, **cpp**로 치환하는 방법.
-	- 단, 검색될 수 있는 모든 특수문자를 포함하여 모든 Term을 치환해줘야 하기에 다소 번거로움이 있음.
-	- 또한 특수문자 `+`를 `_plus_` 라는 단어로 치환해서 색인을 해보도록 하자.
-		- coding 인덱스를 삭제하고 `mapping` 캐릭터 필터를 이용해서 인덱스의 매핑을 새로 지정한 뒤 앞의 \_bulk 명령으로 입력했던 도큐먼트들을 다시 색인해보자.
+		- 단, 검색될 수 있는 모든 특수문자를 포함하여 모든 Term을 치환해줘야 하기에 다소 번거로움이 있음.
+- 그렇다면 어떻게 하면 될까?
+	- 특수문자 `+`를 `_plus_` 라는 단어로 치환해서 색인을 하면 됨.
 
 
+```HTTP
+PUT coding
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "coding_analyzer": {
+          "char_filter": [
+            "cpp_char_filter"
+          ],
+          "tokenizer": "whitespace",
+          "filter": [ "lowercase", "stop", "snowball" ]
+        }
+      },
+      "char_filter": {
+        "cpp_char_filter": {
+          "type": "mapping",
+          "mappings": [ "+ => _plus_", "- => _minus_" ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "language": {
+        "type": "text",
+        "analyzer": "coding_analyzer"
+      }
+    }
+  }
+}
+```
+- 이렇게 되면 원래 원했던 것처럼 `C++`을 검색했을 때, `C`가 나오지 않고 `C++`만 나올 수 있게 됨.
+- 더 나아가서 역 인덱스도 `c_plus__plus_` 로 생성됨.
 
-
-
+![[Pasted image 20260920020207.png]]
 
 
 

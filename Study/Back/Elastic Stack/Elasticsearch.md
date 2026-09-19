@@ -1928,8 +1928,40 @@ PUT coding
 ![[Pasted image 20260920020207.png]]
 
 
+### Pattern Replace
+
+정규식을 이용해서 복잡한 패턴들을 치환할 수 있게 만들어주는 캐릭터 필터.
+
+카멜 표기법으로 된 단어를 대문자가 시작하는 단위마다 공백을 삽입하여 세부단어별로 토크나이징 될 수 있도록 camel 인덱스에 camel_analyzer 라는 애널라이저를 설정해보자.
 
 
+```HTTP
+PUT camel
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "camel_analyzer": {
+          "char_filter": [
+            "camel_filter"
+          ],
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      },
+      "char_filter": {
+        "camel_filter": {
+          "type": "pattern_replace",
+          "pattern": "(?<=\\p{Lower})(?=\\p{Upper})",
+          "replacement": " "
+        }
+      }
+    }
+  }
+}
+```
 
 
 

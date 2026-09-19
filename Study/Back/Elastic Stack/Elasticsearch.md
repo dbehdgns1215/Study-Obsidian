@@ -1745,8 +1745,10 @@ GET my_index3/_termvectors/1?fields=message
 - **HTML Strip**, **Mapping**, **Pattern Replace** 총 3개가 존재
 - `char_filter` 항목에 배열로 입력하여 하나만 또는 차례대로 3개 모두 적용 가능.
 
+>이쯤에서 리마인드 하는 데이터 인입 순서
+```text
 
-
+```
 
 
 

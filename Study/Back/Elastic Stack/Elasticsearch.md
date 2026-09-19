@@ -1739,6 +1739,14 @@ GET my_index3/_termvectors/1?fields=message
 
 
 
+## 캐릭터 필터 - Character Filter
+
+텍스트 분석 중 가장 먼저 처리되는 과정으로 색인된 텍스트가 토크나이저에 의해 Term으로 분리되기 전, 전체 문장에 대해 적용되는 일종의 전처리 도구.
+- **HTML Strip**, **Mapping**, **Pattern Replace** 총 3개가 존재
+- `char_filter` 항목에 배열로 입력하여 하나만 또는 차례대로 3개 모두 적용 가능.
+
+
+
 
 
 
